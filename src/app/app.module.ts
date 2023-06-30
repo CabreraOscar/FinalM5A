@@ -9,22 +9,21 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
-import { OrdenComponent } from './orden/orden.component';
-import { VentaComponent } from './venta/venta.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterclientComponent } from './registerclient/registerclient.component';
+import { OrdenesComponent } from './orden/ordenes.component';
+import { VentasComponent } from './venta/ventas.component';
 import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component';
-import { RegisterclientComponent } from './registerclient/registerclient.component'
 
-const routes:Routes = [
-  {path:'',component:HomeComponent },
-  {path:'register',component:RegisterComponent},
-  {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'registrar-pedido', component: RegistrarPedidoComponent },
-  {path:'orden',component:OrdenComponent},
-  {path:'venta',component:VentaComponent}
-]
-
+  { path: 'ordenes', component: OrdenesComponent },
+  { path: 'ventas', component: VentasComponent }
+];
 
 @NgModule({
   declarations: [
@@ -35,10 +34,9 @@ const routes:Routes = [
     LoginComponent,
     DashboardComponent,
     RegistrarPedidoComponent,
-    OrdenComponent,
-    VentaComponent,
     RegisterclientComponent,
-    
+    OrdenesComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
