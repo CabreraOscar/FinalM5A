@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { OrdenComponent } from './orden/orden.component';
+import { VentaComponent } from './venta/venta.component';
 import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component'
 
 const routes:Routes = [
@@ -17,7 +19,10 @@ const routes:Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
-  { path: 'registrar-pedido', component: RegistrarPedidoComponent }
+  { path: 'registrar-pedido', component: RegistrarPedidoComponent },
+  {path:'orden',component:OrdenComponent},
+  {path:'venta',component:VentaComponent}
+]
 ]
 
 @NgModule({
@@ -28,7 +33,10 @@ const routes:Routes = [
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    RegistrarPedidoComponent
+    RegistrarPedidoComponent,
+    OrdenComponent,
+    VentaComponent,
+    
   ],
   imports: [
     BrowserModule,
