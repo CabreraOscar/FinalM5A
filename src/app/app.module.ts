@@ -10,8 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { OrdenComponent } from './orden/orden.component';
-import { VentaComponent } from './venta/venta.component';
+import { OrdenesComponent } from './orden/ordenes.component';
+import { VentasComponent } from './venta/ventas.component';
 import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component'
 
 const routes:Routes = [
@@ -20,8 +20,8 @@ const routes:Routes = [
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
   { path: 'registrar-pedido', component: RegistrarPedidoComponent },
-  {path:'orden',component:OrdenComponent},
-  {path:'venta',component:VentaComponent}
+  {path:'orden',component:OrdenesComponent},
+  {path:'venta',component:VentasComponent}
 ]
 
 
@@ -34,8 +34,8 @@ const routes:Routes = [
     LoginComponent,
     DashboardComponent,
     RegistrarPedidoComponent,
-    OrdenComponent,
-    VentaComponent,
+    OrdenesComponent,
+    VentasComponent,
     
   ],
   imports: [

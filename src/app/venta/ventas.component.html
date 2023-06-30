@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('/assets/imagenes/ventas.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #358aa1;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #2fd2bf;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-detail {
+            padding: 5px 10px;
+            background-color: #358aa1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-detail:hover {
+            background-color: #2fd2bf;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista Ventas</h1>
+  
+    <table>
+        <thead>
+        <tr>
+            <th>ID Factura</th>
+            <th>Fecha</th>
+            <th>Tipo de Pago</th>
+            <th>Subtotal</th>
+            <th>Descuento</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Detalle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let venta of ventas">
+        <td>{{venta.id_factura}}</td>
+        <td>{{venta.fecha}}</td>
+        <td>{{venta.tipo_pago}}</td>
+        <td>{{venta.subtotal}}</td>
+        <td>{{venta.descuento}}</td>
+        <td>{{venta.iva}}</td>
+        <td>{{venta.total}}</td>
+        <td>{{venta.id_persona}}</td>
+        <td>{{venta.id_config}}</td>
+        
+    
+        <td>
+            <button type="button" name="button" [routerLink]="['/venta/form', venta.id_factura]" class="btn btn-primary">Detalle</button>
+          </td>
+        <td>
+            <button type= "button" name ="button "class="btn btn-danger btn-sm"(click)="eliminarC(venta.id_factura)">Eliminar</button>
+          </td>  
+      
+    </tr>
+    </tbody>
+        <!-- Filas de ejemplo -->
+        <tr>
+            <td>123456</td>
+            <td>2023-06-29</td>
+            <td>Efectivo</td>
+            <td>$100.00</td>
+            <td>$10.00</td>
+            <td>$10.50</td>
+            <td>$120.50</td>
+            <td><button class="btn-detail">Detalle</button></td>
+        </tr>
+        <tr>
+            <td>987654</td>
+            <td>2023-06-30</td>
+            <td>Tarjeta de Crédito</td>
+            <td>$75.50</td>
+            <td>$5.00</td>
+            <td>$7.55</td>
+            <td>$78.05</td>
+            <td><button class="btn-detail">Detalle</button></td>
+        </tr>
+    </table>
+</body>
+</html>
