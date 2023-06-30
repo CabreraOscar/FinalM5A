@@ -23,7 +23,7 @@ const routes:Routes = [
   {path:'orden',component:OrdenComponent},
   {path:'venta',component:VentaComponent}
 ]
-]
+
 
 @NgModule({
   declarations: [

@@ -1,81 +1,98 @@
-<app-navbar></app-navbar>
-<section class="venta-block">
-  <div class="container">
-      <div class="row ">
-          <div class="col venta-sec">
-              <h2 class="text-center">Ventas</h2>
-              <form class="venta-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()" >
-              <div class="form-group">
-                  <label for="exampleInputId1" class="text">Id Factura</label>
-                  <input type="idf"  class="form-control" name="idf"  id="idf" placeholder="idf" [(ngModel)]="formdata.idf" #idf="ngModel" required>
-                  <span class="text-danger" *ngIf="this.submit&&idf.errors?.['required']" >
-                      Se requiere el Id.
-                  </span>
-              </div>
-              <div class="form-group">
-                <label for="fechaVenta" class="text">Fecha de Venta</label>
-                <input class="form-control" type="date" name="fechaVenta" id="fechaVenta" [(ngModel)]="formdata.fechaVenta" required>
-                <span class="text-danger" *ngIf="submit && fechaVenta.errors?.['required']">
-                    Se requiere la fecha de venta.
-                </span>
-            </div>
-              <div class="form-group">
-                  <label for="exampleInputpago1" class="text">Tipo de pago</label>
-                  <input  class="form-control" type="pago"  name="pago" placeholder="pago" id="" [(ngModel)]="formdata.pago" #pago="ngModel" required >
-                  <span class="text-danger" *ngIf="this.submit&&pago.errors?.['required']">
-                      se requiere la estado.
-                  </span>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputSubtotal1" class="text">Sub total</label>
-                <input  class="form-control" type="Sub"  name="Sub" placeholder="Sub" id="" [(ngModel)]="formdata.Sub" #Sub="ngModel" required >
-                <span class="text-danger" *ngIf="this.submit&&Sub.errors?.['required']">
-                    se requiere la Subtotal.
-                </span>
-            </div>
-                <div class="form-group">
-                    <label for="exampleInputDescuento1" class="text">Descuento</label>
-                    <input  class="form-control" type="Descuento"  name="Descuento" placeholder="Descuento" id="" [(ngModel)]="formdata.Descuento" #Descuento="ngModel" required >
-                    <span class="text-danger" *ngIf="this.submit&&Descuento.errors?.['required']">
-                        se requiere la Descuento.
-                    </span>
-                </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('/assets/imagenes/ventas.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-                <div class="form-group">
-                    <label for="exampleInputiva1" class="text">Iva</label>
-                    <input  class="form-control" type="iva"  name="iva" placeholder="iva" id="" [(ngModel)]="formdata.iva" #iva="ngModel" required >
-                    <span class="text-danger" *ngIf="this.submit&&iva.errors?.['required']">
-                        se requiere la iva.
-                    </span>
-                    
-                </div>
+        h1 {
+            text-align: center;
+            color: #fff;
+            padding: 20px 0;
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-              <div class="form-group">
-                <label for="exampleInputtotal1" class="text">Total de venta</label>
-                <input  class="form-control" type="totalv"  name="totalv" placeholder="totalv" id="" [(ngModel)]="formdata.totalv" #totalv="ngModel" required >
-                <span class="text-danger" *ngIf="this.submit&&totalv.errors?.['required']">
-                    se requiere la total.
-                </span>
-                
-            </div>
-            <div class="form-group">
-                <div  class="text-center" *ngIf="this.loading">
-                    <div class="spinner-border text-primary " role="status">
-                    <span class="sr-only">Cargando...</span>
-                    </div>
-                </div>
-                <span class="text-danger" *ngIf="this.errorMessage" >
-                <p [innerText]="this.errorMessage"></p>
-                </span>
-                <input  type="submit" class="btn btn-venta float-right" [disabled]="this.loading"  value="Ingresar" (click)="submit=true">
-            </div>
-            <div class="clearfix"></div>
-            <div class="form-group">
-          
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-</section>
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #358aa1;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #2fd2bf;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .btn-detail {
+            padding: 5px 10px;
+            background-color: #358aa1;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-detail:hover {
+            background-color: #2fd2bf;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista Ventas</h1>
+  
+    <table>
+        <tr>
+            <th>ID Factura</th>
+            <th>Fecha</th>
+            <th>Tipo de Pago</th>
+            <th>Subtotal</th>
+            <th>Descuento</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Detalle</th>
+        </tr>
+       
+        <!-- Filas de ejemplo -->
+        <tr>
+            <td>123456</td>
+            <td>2023-06-29</td>
+            <td>Efectivo</td>
+            <td>$100.00</td>
+            <td>$10.00</td>
+            <td>$10.50</td>
+            <td>$120.50</td>
+            <td><button class="btn-detail">Detalle</button></td>
+        </tr>
+        <tr>
+            <td>987654</td>
+            <td>2023-06-30</td>
+            <td>Tarjeta de Crédito</td>
+            <td>$75.50</td>
+            <td>$5.00</td>
+            <td>$7.55</td>
+            <td>$78.05</td>
+            <td><button class="btn-detail">Detalle</button></td>
+        </tr>
+    </table>
+</body>
+</html>
