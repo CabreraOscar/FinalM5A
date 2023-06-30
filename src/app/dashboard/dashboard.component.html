@@ -1,9 +1,19 @@
-<app-navbar></app-navbar>
+
+<body>
+  <app-navbar></app-navbar>
 <main role="main" class="container mt-5">
   <div class="container">
     <div class="text-center mt-5">
-      <h3>Pagina</h3>
-      <p class="text-bold " [innerText]="'Hi '+this.user.displayName+', your Firebase ID is '+this.user.localId" ></p>
+      <h3>Pagina Principal</h3>
+      <p class="text-bold " [innerText]="'Hola '+this.user.displayName+', '+this.user.localId" ></p>
+      
+    </div>
+    <div class="button-container">
+      <button class="button" (click)="redireccionarHacerPedidos()">Clientes</button>
+      <button class="button">Reportes</button>
+      <button class="button">Productos</button>
+      <button class="button">Maquinas</button>
     </div>
   </div>
 </main>
+</body>

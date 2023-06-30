@@ -1,69 +1,73 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
+
+interface LoginResponse {
+  success: boolean;
+  token: string;
+  message: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private router:Router,private http:HttpClient) { }
+  public apiUrl = 'http://localhost:8080/usuario/login'; 
 
-  isAuthenticated():boolean{
-    if (sessionStorage.getItem('token')!==null) {
-        return true;
+  constructor(private router: Router, private http: HttpClient) { }
+ 
+
+  logout() {
+    this.router.navigate(['/']);
+  }
+  
+  isAuthenticated(): boolean {
+    if (sessionStorage.getItem('token') !== null) {
+      return true;
     }
     return false;
   }
 
-  canAccess(){
+  canAccess() {
     if (!this.isAuthenticated()) {
-        //redirect to login
-        this.router.navigate(['/login']);
+
+      this.router.navigate(['/login']);
     }
   }
-  canAuthenticate(){
+
+  canAuthenticate() {
     if (this.isAuthenticated()) {
-      //redirect to dashboard
+    
       this.router.navigate(['/dashboard']);
     }
   }
+  login(username: string, clave: string): Observable<any> {
+    const data = {
+      username: username,
+      clave: clave
+    };
 
-  register(name:string,email:string,password:string){
-      //send data to register api (firebase)
-     return this.http
-      .post<{idToken:string}>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]',
-          {displayName:name,email,password}
-      );
+    return this.http.post<any>(this.apiUrl, data);
   }
-
-  storeToken(token:string){
-      sessionStorage.setItem('token',token);
+  
+  register(name: string, username: string, clave: string) {
+    return this.http.post(`${this.apiUrl}/register`, { name, username, clave});
   }
-
-  login(email:string,password:string){
-    //send data to login api (firebase)
-      return this.http
-      .post<{idToken:string}>(
-          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]',
-            {email,password}
-      );
+  storeToken(token: string) {
+    sessionStorage.setItem('token', token);
   }
-
-  detail(){
-    let token = sessionStorage.getItem('token');
-
-    return this.http.post<{users:Array<{localId:string,displayName:string}>}>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=[API_KEY]',
-        {idToken:token}
-    );
-  }
-
-  removeToken(){
+  removeToken() {
     sessionStorage.removeItem('token');
   }
-
-
-
+  
+  detail() {
+    const token = sessionStorage.getItem('token');
+    return this.http.get<{ users: { localId: string, displayName: string }[] }>(`${this.apiUrl}/user-details`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  }
 }

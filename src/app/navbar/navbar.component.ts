@@ -14,10 +14,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(){
-      this.auth.removeToken();
-      this.auth.canAccess();
-      this.auth.logout();
+  logout() {
+    this.auth.removeToken();
+    this.auth.canAccess();
+    this.auth.logout();
   }
+  
  
 }

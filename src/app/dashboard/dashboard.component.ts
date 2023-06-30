@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,8 +8,8 @@ import { AuthService } from '../_services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
-  user = {localId:"someid",displayName:"somename"};
+  constructor(private auth:AuthService, private router: Router) { }
+  user = {localId:"Bienvenido",displayName:""};
   ngOnInit(): void {
     this.auth.canAccess();
     if (this.auth.isAuthenticated()) {
@@ -23,4 +23,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+
+  redireccionarHacerPedidos(): void {
+    this.router.navigate(['/registrar-pedido']); 
+    
+  }
 }

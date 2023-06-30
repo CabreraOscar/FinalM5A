@@ -8,39 +8,41 @@ import { AuthService } from '../_services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  formdata = {email:"",password:""};
-  submit=false;
-  loading=false;
-  errorMessage="";
-  constructor(private auth:AuthService) { }
+  formdata = { username: "",clave: "" };
+  submit = false;
+  loading = false;
+  errorMessage = "";
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
     this.auth.canAuthenticate();
   }
 
-  onSubmit(){
-    this.loading=true;
-    //call login service
-    this.auth.login(this.formdata.email,this.formdata.password)
-    .subscribe({
-        next:data=>{
-            //store token
-            this.auth.storeToken(data.idToken);
-            console.log('logear '+data.idToken);
-            this.auth.canAuthenticate();
+  onSubmit(): void {
+    this.loading = true;
+
+    this.auth.login(this.formdata.username, this.formdata.clave)
+      .subscribe({
+        next: data => {
+          // Store token from response data
+          this.auth.storeToken(data.token);
+          console.log('Logged in ' + data.token);
+          this.auth.canAuthenticate();
         },
-        error:data=>{
-            if (data.error.error.message=="INVALID_PASSWORD" || data.error.error.message=="INVALID_EMAIL") {
-                this.errorMessage = "Credenciales Invalidas!";
-            } else{
-                this.errorMessage = "Error desconocido al iniciar sesión!";
-            }
+        error: data => {
+          if (data.error.error.message == "INVALID_EMAIL") {
+            this.errorMessage = "Email inválido!";
+          } else if (data.error.error.message == "EMAIL_EXISTS") {
+            this.errorMessage = "Este email ya existe!";
+          } else {
+            this.errorMessage = "Error al iniciar sesión!";
+          }
+        },
+        complete: () => {
+          this.loading = false;
+          console.log('Proceso de inicio de sesión completado!');
         }
-    }).add(()=>{
-        this.loading =false;
-        console.log('Se completo el inicio de Sessión!');
-
-    })
+      });
   }
-
 }

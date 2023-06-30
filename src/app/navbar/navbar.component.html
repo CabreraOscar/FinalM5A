@@ -1,28 +1,21 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-  <ul class="navbar-nav mr-auto"  >
-
-    <ng-container *ngIf="this.auth.isAuthenticated();then authenticated;else notAuthenticated">
-
-    </ng-container>
-
-      <ng-template #notAuthenticated>
-        <li class="nav-item"><a href="javascript:void(0);" routerLink="/register"  class="nav-link" >Registar</a></li>
-        <li><a class="nav-link" href="javascript:void(0);" routerLink="/login" >Acceder</a></li>
+    <ul class="navbar-nav mr-auto">
+      <ng-container *ngIf="this.auth.isAuthenticated(); then authenticated; else notAuthenticated"></ng-container>
       
+      <ng-template #notAuthenticated>
+        <li class="nav-item"><a href="javascript:void(0);" routerLink="/login" class="nav-link">Acceder</a></li>
+        <li class="nav-item"><a href="javascript:void(0);" routerLink="/register" class="nav-link">Registrar</a></li>
       </ng-template>
-
+      
       <ng-template #authenticated>
-        <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link" >Panel</a></li>
-        <li><a class="nav-link" href="javascript:void(0);"  (click)="logout()" >Cerrar Sesión</a></li>
+        <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">Panel</a></li>
+        <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">Cerrar Sesión</a></li>
       </ng-template>
-
-
-  </ul>
-
+    </ul>
   </div>
 </nav>
