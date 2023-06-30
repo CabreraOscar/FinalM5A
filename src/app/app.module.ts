@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { OrdenComponent } from './orden/orden.component';
 import { VentaComponent } from './venta/venta.component';
-import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component'
+import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component';
+import { RegisterclientComponent } from './registerclient/registerclient.component'
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -23,7 +24,7 @@ const routes:Routes = [
   {path:'orden',component:OrdenComponent},
   {path:'venta',component:VentaComponent}
 ]
-]
+
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ const routes:Routes = [
     RegistrarPedidoComponent,
     OrdenComponent,
     VentaComponent,
+    RegisterclientComponent,
     
   ],
   imports: [

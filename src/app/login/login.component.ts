@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.formdata.username, this.formdata.clave)
       .subscribe({
         next: data => {
-          // Store token from response data
           this.auth.storeToken(data.token);
           console.log('Logged in ' + data.token);
           this.auth.canAuthenticate();
