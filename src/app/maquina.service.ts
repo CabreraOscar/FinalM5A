@@ -12,6 +12,8 @@ export class MaquinaService {
   private baseURLC="http://localhost:8080/maquina/crear";
   private baseURLA="http://localhost:8080/maquina/actualizar";
   private baseURLE="http://localhost:8080/maquina/eliminar";
+  private baseURLP="http://localhost:8080/maquina/porid";
+
   constructor(private httpClient : HttpClient) { }
 
 
@@ -31,6 +33,10 @@ eliminarMaquina(id:number): Observable<object>{
 
 registrarMaquina(maquina:Maquina): Observable<Object>{
 return this.httpClient.post(`${this.baseURLC}`,maquina)
+}
+
+obtenerMaquinaPorId(id:number): Observable<Maquina>{
+  return this.httpClient.get<Maquina>(`${this.baseURLP}/${id}`);
 }
  
 }

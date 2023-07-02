@@ -1,1 +1,47 @@
-<p>actualizar-maquina works!</p>
+<app-navbar></app-navbar>
+<h2>ADMINISTRACION DE MAQUINAS</h2>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Edición de Maquinaria</h3>
+    <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
+
+        <div class="form-group">
+            <label>TAMAÑO: </label>
+            <input type = "text"
+            class="form-control"
+            id = "nombre"
+            [(ngModel)] = "maquina.tamano"
+            name = "tamaño"
+            placeholder="Digite el nuevo tamaño "
+            #nombre = "ngModel"
+            >
+            
+          </div>
+      
+          
+          <div class="form-group">
+            <label>PRECIO : </label>
+            <input type = "number"
+            class="form-control"
+            id = "precio"
+            [(ngModel)] = "maquina.precio"
+            name = "precio"
+            
+            placeholder="Digite el nuevo precio "
+            #apellido = "ngModel"
+            >
+            
+          </div>
+
+
+         
+      
+          <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
+          <button class="btn btn-danger" routerLink="/maquina-admin" style="margin-left : 10px">CANCELAR</button>
+
+
+    </form>
+
+
+
+
+</div>

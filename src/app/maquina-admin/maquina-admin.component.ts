@@ -19,7 +19,7 @@ export class MaquinaAdminComponent implements OnInit {
   }
 
   actualizarMaquina(id:number){
-    //aqui falta el metodo de actualizar
+    //aqui solo dirige ala pagina de actualizar maquina
     this.router.navigate(['actualizar-maquina',id]);
   }
 
