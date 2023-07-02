@@ -1,14 +1,13 @@
 <app-navbar></app-navbar>
-
 <section class="register-block">
   <div class="container">
-    <h2 class="text-center">Registrar Empleado</h2>
+    <h2 class="text-center">Registrar Empleados</h2>
     <div class="row">
       <div class="col-md-6">
         <form class="register-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
           <div class="form-group">
-            <label for="exampleInputEmail1" class="text">Nombre de usuario</label>
-            <input type="text" class="form-control" name="username" id="" [(ngModel)]="formdata.username" #username="ngModel" required>
+            <label for="exampleInputEmail1" class="text">Username</label>
+            <input type="text" class="form-control" name="username" id="" [(ngModel)]="usuario.username" #username="ngModel" required>
             <span class="text-danger" *ngIf="submit && username.errors?.['required']">
               Se requiere el nombre de usuario.
             </span>
@@ -18,12 +17,22 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleInputEmail1" class="text">Clave</label>
-          <input type="password" class="form-control" name="clave" id="" [(ngModel)]="formdata.clave" #clave="ngModel" required>
+          <input type="password" class="form-control" name="clave" id="" [(ngModel)]="usuario.clave" #clave="ngModel" required>
           <span class="text-danger" *ngIf="submit && clave.errors?.['required']">
             Se requiere la clave.
           </span>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="text">Rol</label>
+          <br>
+         <span class="letra-pequenita"> En mantenimiento</span>
+
+        </div>
+      </div>
+    
+
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -36,12 +45,12 @@
               <span class="sr-only">Cargando...</span>
             </div>
           </div>
-          <input type="submit" class="btn btn-login float-right" value="Register" (click)="submit=true">
+          <input type="submit" class="btn btn-login float-right" value="Register" (click)="validardatos()">
 
         </div>
         <div class="clearfix"></div>
         <div class="form-group">
-          Si ya tienes una cuenta, <a href="javascript:void(0);" routerLink="/login">accede aquí</a>.
+          Si ya tienes una cuenta, <a href="javascript:void(0);" routerLink="/login">Accede aquí</a>.
         </div>
       </div>
     </div>

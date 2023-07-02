@@ -1,7 +1,7 @@
 .register-block{
   float:left;
   width:100%;
-  padding : 50px 0;
+  padding : 150px 0;
 }
 .register-block {
   background-image: url('/assets/imagenes/fondoregistro.gif');
@@ -10,7 +10,9 @@
   background-position: center;
 }
 
-
+.letra-pequenita {
+  font-size: 0.8em;
+}
 
 .container{background:#D3D3D3; border-radius: 10px; width: 40%; height: 40%;}
 .register-sec{padding: 50px 30px; position:relative;}

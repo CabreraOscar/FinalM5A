@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../modelo/Usuario';
+import { Rol } from '../modelo/Rol';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,25 +13,33 @@ export class RegisterComponent implements OnInit {
   formdata: any = {};
   loading: boolean = false;
   errorMessage: string = '';
-  submit: boolean = false; // Agrega esta línea
+  submit: boolean = false; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private servi:AuthService) { }
+  
+  usuario:Usuario =new Usuario();
+  rol:Rol= new Rol();
 
   onSubmit(): void {
-    // Realizar la solicitud HTTP al backend
-    this.http.post<any>('/usuarios', this.formdata).subscribe(
-      response => {
-        // La respuesta del backend fue exitosa
-        console.log('Usuario creado:', response);
-        // Realizar las acciones necesarias en el frontend (mostrar mensaje, redireccionar, etc.)
-      },
-      error => {
-        // Se produjo un error al realizar la solicitud al backend
-        console.error('Error al crear el usuario:', error);
-        // Realizar las acciones necesarias en el frontend (mostrar mensaje de error, etc.)
-      }
-    );
+    
+
+
   }
+  validardatos(){
+    this.rol.id_rol=1;
+    this.usuario.roles=this.rol;
+
+    this.servi.register(this.usuario).subscribe(data=>{
+      alert("Se  a creado el usuario")
+    
+      
+    },error=>{
+      alert("Se a duplicado el Usuario")
+    });
+  
+  }
+
+
 
   ngOnInit(): void {
   }
