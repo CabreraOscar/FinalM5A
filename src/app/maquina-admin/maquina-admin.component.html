@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<h2>ADMINISTRACION DE MAQUINAS</h2>
+<div class="container">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID MAQUINA</th>
+                <th>TAMAÑO</th>
+                <th>PRECIO</th>
+                <th> </th>
+                
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr *ngFor= "let maquina of maquinas">
+                <td>{{maquina.idMaq}}</td>
+                <td>{{maquina.tamano}}</td>
+                <td>{{maquina.precio}}</td>
+                <td>
+                    <button (click)= "actualizarMaquina(maquina.idMaq)" class="btn btn-info">EDITAR</button>
+                    <button (click)= "eliminarMaquina(maquina.idMaq)" class="btn btn-danger" style="margin-left : 10px">ELIMINAR</button>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <button class="btn btn-info" routerLink="/registrar-maquina" style="margin-left : 10px">CREAR NUEVA</button>
+</div>

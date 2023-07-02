@@ -10,14 +10,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component'
+import { RegistrarPedidoComponent } from './registrar-pedido/registrar-pedido.component';
+import { MaquinaAdminComponent } from './maquina-admin/maquina-admin.component';
+import { RegistrarMaquinaComponent } from './registrar-maquina/registrar-maquina.component';
+import { ActualizarMaquinaComponent } from './actualizar-maquina/actualizar-maquina.component'
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
-  { path: 'registrar-pedido', component: RegistrarPedidoComponent }
+  { path: 'registrar-pedido', component: RegistrarPedidoComponent },
+  { path:'maquina-admin',component:MaquinaAdminComponent},
+  {path:'registrar-maquina',component:RegistrarMaquinaComponent},
+  {path:'actualizar-maquina/:id' ,component:ActualizarMaquinaComponent}
 ]
 
 @NgModule({
@@ -28,7 +34,10 @@ const routes:Routes = [
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    RegistrarPedidoComponent
+    RegistrarPedidoComponent,
+    MaquinaAdminComponent,
+    RegistrarMaquinaComponent,
+    ActualizarMaquinaComponent
   ],
   imports: [
     BrowserModule,
