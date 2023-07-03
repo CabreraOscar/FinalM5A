@@ -18,6 +18,7 @@ import { OrdenesComponent } from './orden/ordenes.component';
 import { VentasComponent } from './venta/ventas.component';
 import { ConfigEmpresaComponent } from './config-empresa/config-empresa.component';
 import { ActualizarEmpresaComponent } from './actualizar-empresa/actualizar-empresa.component';
+import { DetalleordenComponent } from './detalleorden/detalleorden.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -31,7 +32,9 @@ const routes:Routes = [
   { path: 'ordenes', component: OrdenesComponent },
   { path: 'ventas', component: VentasComponent },
   { path: 'config-empresa', component: ConfigEmpresaComponent},
-  { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent}
+  { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent},
+  { path: 'detalleorden', component: DetalleordenComponent }
+
   
 ]
 
@@ -53,7 +56,8 @@ const routes:Routes = [
     OrdenesComponent,
     VentasComponent,
     ConfigEmpresaComponent,
-    ActualizarEmpresaComponent
+    ActualizarEmpresaComponent,
+    DetalleordenComponent
   ],
   imports: [
     BrowserModule,

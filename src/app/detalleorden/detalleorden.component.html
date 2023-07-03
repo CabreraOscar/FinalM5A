@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalles de la Orden</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-image: url('/assets/imagenes/orden.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+      
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #order-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #order-table th,
+    #order-table td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #order-table th {
+      background-color: #f2f2f2;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Empleado</h2>
+    <p>Nombre del empleado: <span id="employee-name"></span></p>
+
+    <form id="search-form">
+      <label for="search-client">Buscar Cliente:</label>
+      <input type="text" id="search-client" name="search-client">
+
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+
+  <div class="main-content">
+    <h1>Detalles de la Orden</h1>
+
+    <form id="order-form">
+        <label for="order-id">Cedula:</label>
+        <input type="text" id="order-id" name="order-id" required>
+    
+        <label for="customer-name">Cliente:</label>
+        <input type="text" id="customer-name" name="customer-name" required>
+    
+        <label for="product">Maquina:</label>
+        <input type="text" id="product" name="product" required>
+    
+        <label for="order-date">Fecha :</label>
+        <input type="date" id="order-date" name="order-date" required>
+        
+        <label for="quantity">Peso:</label>
+        <input type="number" id="quantity" name="quantity" required>
+    
+        <label for="total">Total:</label>
+        <input type="text" id="total" name="total" required>
+        
+      <button type="submit">Agregar Orden</button>
+    </form>
+
+    <table id="order-table">
+      <thead>
+        <tr>
+            <th>Cedula</th>
+            <th>Cliente</th>
+            <th>Maquina</th>
+            <th>Fecha</th>
+            <th>Peso</th>
+            <th>Total</th>
+          </tr>
+      </thead>
+      <tbody id="order-table-body"></tbody>
+    </table>
+  </div>
+
+  <script>
+    var employeeName = "Nombre del Empleado"; // Reemplaza esto con el nombre real del empleado
+    document.getElementById('employee-name').textContent = employeeName;
+
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var searchClient = document.getElementById('search-client').value;
+
+      // Realiza la lógica de búsqueda del cliente aquí
+
+      document.getElementById('search-client').value = '';
+    });
+
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var orderId = document.getElementById('order-id').value;
+      var customerName = document.getElementById('customer-name').value;
+      var product = document.getElementById('product').value;
+      var quantity = document.getElementById('quantity').value;
+      var orderDate = document.getElementById('order-date').value;
+      var total = document.getElementById('total').value;
+
+      var orderRow = '<tr>' +
+                        '<td>' + orderId + '</td>' +
+                        '<td>' + customerName + '</td>' +
+                        '<td>' + product + '</td>' +
+                        '<td>' + quantity + '</td>' +
+                        '<td>' + orderDate + '</td>' +
+                        '<td>' + total + '</td>' +
+                      '</tr>';
+
+      document.getElementById('order-table-body').innerHTML += orderRow;
+
+      document.getElementById('order-id').value = '';
+      document.getElementById('customer-name').value = '';
+      document.getElementById('product').value = '';
+      document.getElementById('quantity').value = '';
+      document.getElementById('order-date').value = '';
+      document.getElementById('total').value = '';
+    });
+  </script>
+</body>
+</html>
