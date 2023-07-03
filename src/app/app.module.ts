@@ -20,6 +20,10 @@ import { ConfigEmpresaComponent } from './config-empresa/config-empresa.componen
 import { ActualizarEmpresaComponent } from './actualizar-empresa/actualizar-empresa.component';
 import { DetalleordenComponent } from './detalleorden/detalleorden.component';
 
+import { PersonaComponent } from './persona/persona.component';
+import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
+
+
 const routes:Routes = [
   {path:'',component:HomeComponent },
   {path:'register',component:RegisterComponent},
@@ -33,7 +37,9 @@ const routes:Routes = [
   { path: 'ventas', component: VentasComponent },
   { path: 'config-empresa', component: ConfigEmpresaComponent},
   { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent},
-  { path: 'detalleorden', component: DetalleordenComponent }
+  { path: 'detalleorden', component: DetalleordenComponent },
+  { path: 'persona', component: PersonaComponent },
+  { path: 'lista-persona', component: ListaPersonaComponent }
 
   
 ]
@@ -57,7 +63,9 @@ const routes:Routes = [
     VentasComponent,
     ConfigEmpresaComponent,
     ActualizarEmpresaComponent,
-    DetalleordenComponent
+    DetalleordenComponent,
+    PersonaComponent,
+    ListaPersonaComponent
   ],
   imports: [
     BrowserModule,

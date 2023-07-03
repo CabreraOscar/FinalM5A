@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<h2>Administración de Clientes</h2>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>
+                    
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of persona">
+                <td>{{ persona.nombrePer }}</td>
+                <td>{{ persona.direccion }}</td>
+                <td>{{ persona.telefono }}</td>
+                <td>{{ persona.correo }}</td>
+                
+                <td>
+                    <button (click)="actualizarPersona(persona.idPersona)" class="btn btn-info">Editar</button>
+                    <button (click)="eliminarPersona(persona.idPersona)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-info" routerLink="/registrar-maquina" style="margin-left: 10px">Crear Nuevo</button>
+</div>

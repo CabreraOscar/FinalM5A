@@ -24,8 +24,28 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  redireccionarHacerPedidos(): void {
-    this.router.navigate(['/registrar-pedido']); 
+  RegistraCliente(): void {
+    this.router.navigate(['/persona']); 
+    
+  }
+  RegistraMaquina(): void {
+    this.router.navigate(['/maquina-admin']); 
+    
+  }
+  Venta(): void {
+    this.router.navigate(['/ventas']); 
+    
+  }
+  Orden(): void {
+    this.router.navigate(['/detalleorden']); 
+    
+  }
+  Config(): void {
+    this.router.navigate(['/config-empresa']); 
+    
+  }
+  CrearEmple(): void {
+    this.router.navigate(['/register']); 
     
   }
 }

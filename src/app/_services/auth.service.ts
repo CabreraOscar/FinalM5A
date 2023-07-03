@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from '../modelo/Usuario';
 
-
 interface LoginResponse {
   success: boolean;
   token: string;
@@ -15,11 +14,10 @@ interface LoginResponse {
 })
 export class AuthService {
 
-  public apiUrl = 'http://localhost:8080/usuario'; 
-
+  public apiUrl = 'http://localhost:8080/usuario';  
   constructor(private router: Router, private http: HttpClient) { }
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
-
+ 
   logout() {
     this.router.navigate(['/']);
   }
@@ -73,3 +71,7 @@ export class AuthService {
     });
   }
 }
+
+  
+
+  
