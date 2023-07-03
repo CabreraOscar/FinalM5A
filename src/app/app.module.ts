@@ -16,6 +16,8 @@ import { ActualizarMaquinaComponent } from './actualizar-maquina/actualizar-maqu
 import { RegisterclientComponent } from './registerclient/registerclient.component';
 import { OrdenesComponent } from './orden/ordenes.component';
 import { VentasComponent } from './venta/ventas.component';
+import { ConfigEmpresaComponent } from './config-empresa/config-empresa.component';
+import { ActualizarEmpresaComponent } from './actualizar-empresa/actualizar-empresa.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -27,7 +29,9 @@ const routes:Routes = [
   {path:'registrar-maquina',component:RegistrarMaquinaComponent},
   {path:'actualizar-maquina/:id' ,component:ActualizarMaquinaComponent},
   { path: 'ordenes', component: OrdenesComponent },
-  { path: 'ventas', component: VentasComponent }
+  { path: 'ventas', component: VentasComponent },
+  { path: 'config-empresa', component: ConfigEmpresaComponent},
+  { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent}
   
 ]
 
@@ -47,7 +51,9 @@ const routes:Routes = [
     ActualizarMaquinaComponent,
     RegisterclientComponent,
     OrdenesComponent,
-    VentasComponent
+    VentasComponent,
+    ConfigEmpresaComponent,
+    ActualizarEmpresaComponent
   ],
   imports: [
     BrowserModule,

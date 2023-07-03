@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<section class="pedido-block">
+    <h1>Configuracion de la Empresa</h1>
+    <div class="container">
+        <div class="form-group">
+            <label >Nombre de la empresa:</label>
+            <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)] ="empresai.nombreEmpresa" name="nombreEmpresa" >
+        </div>
+
+        <div class="form-group">
+            <label >Ruc:</label>
+            <input type="text" class="form-control" id="ruc" [(ngModel)] ="empresai.ruc" name="ruc">
+        </div>
+
+        <div class="form-group">
+            <label >Direccion:</label>
+            <input type="text" class="form-control" id="ubicacion" [(ngModel)] ="empresai.ubicacion" name="ubicacion">
+        </div>
+
+        <div class="form-group">
+            <label >Telefono:</label>
+            <input type="text" class="form-control" id="telefono" [(ngModel)] ="empresai.telefono" name="telefono">
+        </div>
+
+        <button class="btn btn-success" (click)="guardarEmpresa()">Guardar Empresa</button>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre de la Empresa</th>
+            <th scope="col">Ruc</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor= "let empresa of empresas" >
+            <td>{{empresa.idConfig}}</td>
+            <td>{{empresa.nombreEmpresa}}</td>
+            <td>{{empresa.ruc}}</td>
+            <td>{{empresa.ubicacion}}</td>
+            <td>{{empresa.telefono}}</td>
+            <td><button class="btnActualizar" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
+            <td><button class="btnEliminar" (click)="eliminarEmpresa(empresa.idConfig)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</section>
+
