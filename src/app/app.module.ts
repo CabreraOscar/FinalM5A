@@ -16,6 +16,7 @@ import { ActualizarMaquinaComponent } from './actualizar-maquina/actualizar-maqu
 import { RegisterclientComponent } from './registerclient/registerclient.component';
 import { OrdenesComponent } from './orden/ordenes.component';
 import { VentasComponent } from './venta/ventas.component';
+import { DetalleordenComponent } from './detalleorden/detalleorden.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -27,7 +28,9 @@ const routes:Routes = [
   {path:'registrar-maquina',component:RegistrarMaquinaComponent},
   {path:'actualizar-maquina/:id' ,component:ActualizarMaquinaComponent},
   { path: 'ordenes', component: OrdenesComponent },
-  { path: 'ventas', component: VentasComponent }
+  { path: 'ventas', component: VentasComponent },
+  { path: 'detalleorden', component: DetalleordenComponent }
+
   
 ]
 
@@ -47,7 +50,8 @@ const routes:Routes = [
     ActualizarMaquinaComponent,
     RegisterclientComponent,
     OrdenesComponent,
-    VentasComponent
+    VentasComponent,
+    DetalleordenComponent
   ],
   imports: [
     BrowserModule,
