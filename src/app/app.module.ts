@@ -22,6 +22,7 @@ import { DetalleordenComponent } from './detalleorden/detalleorden.component';
 
 import { PersonaComponent } from './persona/persona.component';
 import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
+import { RolComponent } from './rol/rol.component';
 
 
 const routes:Routes = [
@@ -65,7 +66,8 @@ const routes:Routes = [
     ActualizarEmpresaComponent,
     DetalleordenComponent,
     PersonaComponent,
-    ListaPersonaComponent
+    ListaPersonaComponent,
+    RolComponent
   ],
   imports: [
     BrowserModule,
