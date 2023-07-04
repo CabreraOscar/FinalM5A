@@ -107,6 +107,9 @@
     
         <label for="nombre">Cliente:</label>
         <input type="text" id="nombre" name="nombre" required>
+
+        <label for="servicio">Servicio:</label>
+        <input type="text" id="servicio" name="servicio" required>
     
         <label for="maquina">Maquina:</label>
         <input type="text" id="maquina" name="maquina" required>
@@ -128,6 +131,7 @@
         <tr>
             <th>Cedula</th>
             <th>Cliente</th>
+            <th>Servicio</th>
             <th>Maquina</th>
             <th>Fecha</th>
             <th>Peso</th>
@@ -157,14 +161,16 @@
 
       var cedula = document.getElementById('cedula').value;
       var nombre = document.getElementById('nombre').value;
+      var servicio = document.getElementById('servicio').value;
       var maquina = document.getElementById('maquina').value;
       var fecha = document.getElementById('fecha').value;
       var peso = document.getElementById('peso').value;
       var total = document.getElementById('total').value;
      
-      var orderDetailsRow = '<tr>' +
+     var orderDetailsRow = '<tr>' +
                         '<td>' + orderDetails.cedula + '</td>' +
                         '<td>' + orderDetails.nombre + '</td>' +
+                        '<td>' + orderDetails.servicio + '</td>' +
                         '<td>' + orderDetails.maquina + '</td>' +
                         '<td>' + orderDetails.fecha + '</td>' +
                         '<td>' + orderDetails.peso + '</td>' +
@@ -177,6 +183,7 @@ document.getElementById('order-details-body').innerHTML = orderDetailsRow;
 document.getElementById('search-client').value = '';
       document.getElementById('cedula').value = '';
       document.getElementById('nombre').value = '';
+      document.getElementById('servicio').value = '';
       document.getElementById('maquina').value = '';
       document.getElementById('fecha').value = '';
       document.getElementById('peso').value = '';
