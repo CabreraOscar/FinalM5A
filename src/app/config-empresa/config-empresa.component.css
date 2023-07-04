@@ -1,9 +1,13 @@
+*h1{
+    color: #fff;
+}
+
+
 .pedido-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
     background: linear-gradient(to bottom right, blue, pink);
     width: 100%;
     padding: 100px 0;

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="form-group">
             <label >Nombre de la empresa:</label>
-            <input type="text" class="form-control" id="nombreEmpresa" 
+            <input type="text"  class="form-control" id="nombreEmpresa" 
             [(ngModel)] ="empresas.nombreEmpresa" name="nombreEmpresa" 
             placeholder="Dijite un nuevo nombre" #nombreEmpresa = "ngModel">
         </div>
@@ -20,14 +20,14 @@
             <label >Dirección:</label>
             <input type="text" class="form-control" id="ubicacion" 
             [(ngModel)] ="empresas.ubicacion" name="ubicacion"
-            placeholder="Dijite una nueva Direccion" #ubicacion = "ngModel">
+            placeholder="Dijite una nueva Dirección" #ubicacion = "ngModel">
         </div>
 
         <div class="form-group">
-            <label >Telefono:</label>
+            <label >Teléfono:</label>
             <input type="text" class="form-control" id="telefono" 
             [(ngModel)] ="empresas.telefono" name="telefono"
-            placeholder="Dijite un nuevo telefono" #telefono = "ngModel">
+            placeholder="Dijite un nuevo teléfono" #telefono = "ngModel">
         </div>
 
         <button class="btn btn-success" (click)="onSubmit()">Guardar Empresa</button>
