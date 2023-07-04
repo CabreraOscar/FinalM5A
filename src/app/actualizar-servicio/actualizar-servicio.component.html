@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<h2>ADMINISTRACION DE SERVICIOS</h2>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Edición de Servicio</h3>
+    <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
+
+        <div class="form-group">
+            <label>NOMBRE: </label>
+            <input type = "text"
+            class="form-control"
+            id = "nombre"
+            [(ngModel)] = "servicio.nombre"
+            name = "nombre"
+            placeholder="Digite el nuevo nombre"
+            #nombre = "ngModel"
+            >
+            
+          </div>
+      
+          
+          <div class="form-group">
+            <label>DESCRIPCION : </label>
+            <input type = "text"
+            class="form-control"
+            id = "descripcion"
+            [(ngModel)] = "servicio.descripcion"
+            name = "descripcion"
+            
+            placeholder="Digite la nueva descripcion "
+            #apellido = "ngModel"
+            >
+            
+          </div>
+
+
+          <div class="form-group">
+            <label>PRECIO: : </label>
+            <input type = "number"
+            class="form-control"
+            id = "precio"
+            [(ngModel)] = "servicio.precio"
+            name = "precio"
+            
+            placeholder="Digite el nuevo precio "
+            #apellido = "ngModel"
+            >
+            
+          </div>
+
+
+         
+      
+          <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
+          <button class="btn btn-danger" routerLink="/servicio-admin" style="margin-left : 10px">CANCELAR</button>
+
+
+    </form>
+
+
+
+
+</div>

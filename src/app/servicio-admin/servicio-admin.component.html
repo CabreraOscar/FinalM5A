@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<h2>ADMINISTRACION DE SERVICIOS</h2>
+<div class="container">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID SERVICIO</th>
+                <th>NOMBRE</th>
+                <th>DESCRIPCION</th>
+                <th>PRECIO</th>
+                <th> </th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr *ngFor= "let servicio of servicios">
+                <td>{{servicio.idService}}</td>
+                <td>{{servicio.nombre}}</td>
+                <td>{{servicio.descripcion}}</td>
+                <td>{{servicio.precio}}</td>
+                <td>
+                    <button (click)= "actualizarServicio(servicio.idService)" class="btn btn-info">EDITAR</button>
+                    <button (click)= "eliminarServicio(servicio.idService)" class="btn btn-danger" style="margin-left : 10px">ELIMINAR</button>
+
+                </td>
+                
+            </tr>
+
+        </tbody>
+
+    </table>
+    <button class="btn btn-info" routerLink="/registrar-servicio" style="margin-left : 10px">CREAR NUEVO SERVICIO</button>
+    <button class="btn btn-danger" routerLink="/login" style="margin-left : 10px">ATRAS</button>
+</div>
