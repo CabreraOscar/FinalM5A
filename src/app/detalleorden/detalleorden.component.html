@@ -102,20 +102,23 @@
     <h1>Detalles de la Orden</h1>
 
     <form id="order-form">
-        <label for="order-id">Cedula:</label>
-        <input type="text" id="order-id" name="order-id" required>
+        <label for="cedula">Cedula:</label>
+        <input type="text" id="cedula" name="cedula" required>
     
-        <label for="customer-name">Cliente:</label>
-        <input type="text" id="customer-name" name="customer-name" required>
+        <label for="nombre">Cliente:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="servicio">Servicio:</label>
+        <input type="text" id="servicio" name="servicio" required>
     
-        <label for="product">Maquina:</label>
-        <input type="text" id="product" name="product" required>
+        <label for="maquina">Maquina:</label>
+        <input type="text" id="maquina" name="maquina" required>
     
-        <label for="order-date">Fecha :</label>
-        <input type="date" id="order-date" name="order-date" required>
+        <label for="fecha">Fecha :</label>
+        <input type="date" id="fecha" name="fecha" required>
         
-        <label for="quantity">Peso:</label>
-        <input type="number" id="quantity" name="quantity" required>
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" name="peso" required>
     
         <label for="total">Total:</label>
         <input type="text" id="total" name="total" required>
@@ -128,6 +131,7 @@
         <tr>
             <th>Cedula</th>
             <th>Cliente</th>
+            <th>Servicio</th>
             <th>Maquina</th>
             <th>Fecha</th>
             <th>Peso</th>
@@ -155,29 +159,34 @@
     document.getElementById('order-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var orderId = document.getElementById('order-id').value;
-      var customerName = document.getElementById('customer-name').value;
-      var product = document.getElementById('product').value;
-      var quantity = document.getElementById('quantity').value;
-      var orderDate = document.getElementById('order-date').value;
+      var cedula = document.getElementById('cedula').value;
+      var nombre = document.getElementById('nombre').value;
+      var servicio = document.getElementById('servicio').value;
+      var maquina = document.getElementById('maquina').value;
+      var fecha = document.getElementById('fecha').value;
+      var peso = document.getElementById('peso').value;
       var total = document.getElementById('total').value;
-
-      var orderRow = '<tr>' +
-                        '<td>' + orderId + '</td>' +
-                        '<td>' + customerName + '</td>' +
-                        '<td>' + product + '</td>' +
-                        '<td>' + quantity + '</td>' +
-                        '<td>' + orderDate + '</td>' +
-                        '<td>' + total + '</td>' +
+     
+     var orderDetailsRow = '<tr>' +
+                        '<td>' + orderDetails.cedula + '</td>' +
+                        '<td>' + orderDetails.nombre + '</td>' +
+                        '<td>' + orderDetails.servicio + '</td>' +
+                        '<td>' + orderDetails.maquina + '</td>' +
+                        '<td>' + orderDetails.fecha + '</td>' +
+                        '<td>' + orderDetails.peso + '</td>' +
+                        '<td>' + orderDetails.total + '</td>' +
                       '</tr>';
 
-      document.getElementById('order-table-body').innerHTML += orderRow;
+// Actualiza la tabla de detalles con la nueva fila
+document.getElementById('order-details-body').innerHTML = orderDetailsRow;
 
-      document.getElementById('order-id').value = '';
-      document.getElementById('customer-name').value = '';
-      document.getElementById('product').value = '';
-      document.getElementById('quantity').value = '';
-      document.getElementById('order-date').value = '';
+document.getElementById('search-client').value = '';
+      document.getElementById('cedula').value = '';
+      document.getElementById('nombre').value = '';
+      document.getElementById('servicio').value = '';
+      document.getElementById('maquina').value = '';
+      document.getElementById('fecha').value = '';
+      document.getElementById('peso').value = '';
       document.getElementById('total').value = '';
     });
   </script>

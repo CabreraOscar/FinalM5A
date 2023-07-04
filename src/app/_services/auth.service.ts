@@ -18,6 +18,8 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) { }
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
  
+  
+
   logout() {
     this.router.navigate(['/']);
   }
@@ -52,9 +54,11 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/login`, data);
   }
   
-  register(username: Usuario) {
-    return this.http.post(`${this.apiUrl}/crear`,username, {headers:this.httpHeaders});
+  
+  register(usuario: Usuario) {
+    return this.http.post(`${this.apiUrl}/crear`, usuario, { headers: this.httpHeaders });
   }
+  
   storeToken(token: string) {
     sessionStorage.setItem('token', token);
   }

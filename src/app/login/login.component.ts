@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   formdata = { username: "",clave: "" };
   submit = false;
   loading = false;
+  
   errorMessage = "";
 
   constructor(private auth: AuthService) { }
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.loading = true;
+    this.loading = true
 
     this.auth.login(this.formdata.username, this.formdata.clave)
       .subscribe({

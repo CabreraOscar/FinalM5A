@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListaPersonaComponent implements OnInit {
 
   persona:Persona[];
-
+  
   constructor(private personaServicio:personaService,private router:Router) { }
 
   ngOnInit(): void {

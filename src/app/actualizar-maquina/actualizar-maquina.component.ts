@@ -28,7 +28,7 @@ id:number;
   }
 
   irAlaListaDeMaquinaria(){
-    this.router.navigate(['/maquina-admin']);
+    this.router.navigate(['/lista-persona']);
   }
 
 

@@ -24,6 +24,11 @@ import { PersonaComponent } from './persona/persona.component';
 import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
 import { RolComponent } from './rol/rol.component';
 
+import { ServicioAdminComponent } from './servicio-admin/servicio-admin.component';
+import { RegistrarServicioComponent } from './registrar-servicio/registrar-servicio.component';
+import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-servicio.component';
+
+
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -40,9 +45,10 @@ const routes:Routes = [
   { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent},
   { path: 'detalleorden', component: DetalleordenComponent },
   { path: 'persona', component: PersonaComponent },
-  { path: 'lista-persona', component: ListaPersonaComponent }
-
-  
+  { path: 'lista-persona', component: ListaPersonaComponent },
+  { path: 'servicio-admin', component:ServicioAdminComponent},
+  { path: 'registrar-servicio', component:RegistrarServicioComponent},
+  { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent}
 ]
 
 
@@ -67,7 +73,11 @@ const routes:Routes = [
     DetalleordenComponent,
     PersonaComponent,
     ListaPersonaComponent,
-    RolComponent
+    RolComponent,
+    ServicioAdminComponent,
+    RegistrarServicioComponent,
+    ActualizarServicioComponent
+
   ],
   imports: [
     BrowserModule,

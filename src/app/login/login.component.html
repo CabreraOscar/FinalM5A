@@ -14,7 +14,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1" class="text">Clave</label>
-            <input class="form-control" type="clave" name="password" placeholder="clave" id="" [(ngModel)]="formdata.clave" #clave="ngModel" required>
+            <input class="form-control" type="password" name="password" placeholder="clave" id="" [(ngModel)]="formdata.clave" #clave="ngModel" required>
             <span class="text-danger" *ngIf="f.submitted && clave.errors?.['required']">
               Se requiere la contraseña.
             </span>
@@ -29,6 +29,7 @@
               <p>{{ errorMessage }}</p>
             </span>
             <input type="submit" class="btn btn-login float-right" [disabled]="loading" value="Login">
+             
           </div>
           <div class="clearfix"></div>
           <div class="form-group">

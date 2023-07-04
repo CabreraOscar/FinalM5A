@@ -25,13 +25,20 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="exampleInputEmail1" class="text">Rol</label>
+          <label for="rolList" class="text">Roles</label>
           <br>
-         <span class="letra-pequenita"> En mantenimiento</span>
-
+          <ul id="rolList">
+            <li *ngFor="let rol of roles" (click)="seleccionarRol(rol)" [ngStyle]="{'background-color': rol === rolSeleccionado ? 'lightblue' : 'transparent', 'font-weight': rol === rolSeleccionado ? 'bold' : 'normal'}">{{ rol.nombre }}</li>
+          </ul>
         </div>
       </div>
-    
+      
+      
+      
+      
+      
+      
+      
 
     </div>
     <div class="row">
@@ -46,6 +53,7 @@
             </div>
           </div>
           <input type="submit" class="btn btn-login float-right" value="Register" (click)="validardatos()">
+
 
         </div>
         <div class="clearfix"></div>
