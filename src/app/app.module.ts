@@ -19,11 +19,9 @@ import { VentasComponent } from './venta/ventas.component';
 import { ConfigEmpresaComponent } from './config-empresa/config-empresa.component';
 import { ActualizarEmpresaComponent } from './actualizar-empresa/actualizar-empresa.component';
 import { DetalleordenComponent } from './detalleorden/detalleorden.component';
-
 import { PersonaComponent } from './persona/persona.component';
 import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
 import { RolComponent } from './rol/rol.component';
-
 import { ServicioAdminComponent } from './servicio-admin/servicio-admin.component';
 import { RegistrarServicioComponent } from './registrar-servicio/registrar-servicio.component';
 import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-servicio.component';

@@ -48,4 +48,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/register']); 
     
   }
+  AdminServicio(): void {
+    this.router.navigate(['/servicio-admin'])
+  }
 }
