@@ -12,7 +12,7 @@ export class personaService {
   private baseURL = "http://localhost:8080/persona/listar";
   private baseURLC="http://localhost:8080/persona/crear";
   private baseURLA="http://localhost:8080/persona/actualizar";
-  private baseURLE="http://localhost:8080/persona/eliminar";
+  private baseURLE="http://localhost:8080/persona/delete";
   private baseURLP="http://localhost:8080/persona/porid";
 
   constructor(private httpClient : HttpClient) { }

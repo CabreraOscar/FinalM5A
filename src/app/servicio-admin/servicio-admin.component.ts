@@ -28,7 +28,6 @@ export class ServicioAdminComponent implements OnInit {
 
     eliminarServicio(id:number){
       this.servicioServicio.eliminarMaquina(id).subscribe(dato => {
-        
         this.obtenerServicios();   //pa que se actualize
       })
     }
