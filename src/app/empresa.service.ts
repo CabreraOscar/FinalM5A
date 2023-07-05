@@ -13,7 +13,7 @@ export class EmpresaService {
   private baseUrli = "http://localhost:8080/configEmpresa/crear";
   private baseUrle = "http://localhost:8080/configEmpresa/delete";
   private baseUrla = "http://localhost:8080/configEmpresa/actualizar";
-  private baseUrlp = "http://localhost:8080/maquina/porid";
+  private baseUrlp = "http://localhost:8080/configEmpresa/porid";
 
 
 
