@@ -7,7 +7,7 @@ import { venta } from './venta';
   providedIn: 'root'
 })
 export class VentasService {
-    private urlEndPoint:string='http://localhost:8080/api/Venta';
+    private urlEndPoint:string='http://localhost:8080/api/venta';
     private httpHeaders= new HttpHeaders({ 'Content-Type': 'application/json' })
       constructor(private http:HttpClient) { }
     

@@ -189,6 +189,47 @@ document.getElementById('search-client').value = '';
       document.getElementById('peso').value = '';
       document.getElementById('total').value = '';
     });
+    
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evita que el formulario se envíe
+
+  // Obtén los valores ingresados en los campos de búsqueda
+  var cedula = document.getElementById("cedula").value;
+  
+
+  // Realiza la búsqueda con los datos proporcionados
+
+  // Ejemplo de búsqueda simulada
+  var resultado = {
+    cedula: cedula,
+    nombre: nombre,
+    servicio: servicio,
+    maquina: 0,
+    fecha: new Date(),
+    peso: 0,
+    total: 0
+  };
+
+  // Muestra el resultado en el formulario
+  mostrarResultado(resultado);
+});
+    function mostrarResultado(resultado) {
+  var resultadoDiv = document.getElementById("resultado");
+
+  // Crea el contenido HTML con los datos del resultado
+  var contenido = "<h2>Resultado de búsqueda</h2>";
+  contenido += "<p>cedula: " + resultado.cedula + "</p>";
+  contenido += "<p>Nombre: " + resultado.nombre + "</p>";
+  contenido += "<p>Servicio: " + resultado.servicio + "</p>";
+  contenido += "<p>Maquina: " + resultado.maquina + "</p>";
+  contenido += "<p>Fecha: " + resultado.fecha + "</p>";
+  contenido += "<p>Peso: " + resultado.peso + "</p>";
+  contenido += "<p>Total: " + resultado.total + "</p>";
+
+  // Inserta el contenido en el elemento "resultadoDiv"
+  resultadoDiv.innerHTML = contenido;
+}
+
   </script>
 </body>
 </html>

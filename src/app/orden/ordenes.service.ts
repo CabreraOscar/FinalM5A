@@ -7,7 +7,7 @@ import { orden } from './orden';
   providedIn: 'root'
 })
 export class OrdenesService {
-    private urlEndPoint:string='http://localhost:8080/api/Orden';
+    private urlEndPoint:string='http://localhost:8080/api/orden';
     private httpHeaders= new HttpHeaders({ 'Content-Type': 'application/json' })
       constructor(private http:HttpClient) { }
     
