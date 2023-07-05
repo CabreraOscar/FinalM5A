@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
-    <h1>Configuracion de la Empresa</h1>
+    <h1>Configuración de la Empresa</h1>
     <div class="container">
         <div class="form-group">
             <label >Nombre de la empresa:</label>
@@ -13,16 +13,16 @@
         </div>
 
         <div class="form-group">
-            <label >Direccion:</label>
+            <label >Dirección:</label>
             <input type="text" class="form-control" id="ubicacion" [(ngModel)] ="empresai.ubicacion" name="ubicacion">
         </div>
 
         <div class="form-group">
-            <label >Telefono:</label>
+            <label >Teléfono:</label>
             <input type="text" class="form-control" id="telefono" [(ngModel)] ="empresai.telefono" name="telefono">
         </div>
 
-        <button class="btn btn-success" (click)="guardarEmpresa()">Guardar Empresa</button>
+        <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color: pink;">Guardar Empresa</button>
     </div>
 
     <table class="table">
@@ -31,8 +31,8 @@
             <th scope="col">id</th>
             <th scope="col">Nombre de la Empresa</th>
             <th scope="col">Ruc</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Telefono</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
           </tr>
         </thead>
         <tbody>
@@ -42,8 +42,8 @@
             <td>{{empresa.ruc}}</td>
             <td>{{empresa.ubicacion}}</td>
             <td>{{empresa.telefono}}</td>
-            <td><button class="btnActualizar" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
-            <td><button class="btnEliminar" (click)="eliminarEmpresa(empresa.idConfig)">Eliminar</button></td>
+            <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)" style="background-color: red;">Eliminar</button></td>
           </tr>
         </tbody>
       </table>

@@ -20,7 +20,7 @@ export class ActualizarEmpresaComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.empresasServicio.obtenerEmpresaPorId(this.id).subscribe(dato =>{
       this.empresas = dato;
-    })
+    },error => console.log(error));
   }
 
   onSubmit(){

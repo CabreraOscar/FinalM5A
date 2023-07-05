@@ -9,9 +9,8 @@
                 <th>Dirección</th>
                 <th>Teléfono</th>
                 <th>Correo</th>
-                <th>
-
-                </th>
+                <th>Identificación</th>
+                <th></th>
                 
             </tr>
         </thead>
@@ -21,10 +20,11 @@
                 <td>{{ persona.direccion }}</td>
                 <td>{{ persona.telefono }}</td>
                 <td>{{ persona.correo }}</td>
+                <td>{{persona.identificacion}}</td>
                 
                 <td>
-                    <button (click)="actualizarPersona(persona.idPersona)" class="btn btn-info">Editar</button>
-                    <button (click)="eliminarPersona(persona.idPersona)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+                    <button (click)= "actualizarPersona(persona.idPersona)" class="btn btn-info">Editar</button>
+                    <button (click)= "eliminarPersona(persona.idPersona)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
                 </td>
             </tr>
         </tbody>
