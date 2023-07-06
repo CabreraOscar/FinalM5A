@@ -7,20 +7,23 @@ import { venta } from './venta';
   providedIn: 'root'
 })
 export class VentasService {
+  constructor(private httpClient:HttpClient) { }
+  
   private baseURL = "http://localhost:8080/venta/listar";
   private baseURLC="http://localhost:8080/venta/crear";
   private baseURLA="http://localhost:8080/venta/actualizar";
   private baseURLE="http://localhost:8080/venta/eliminar";
+  
  
   
-      constructor(private httpClient:HttpClient) { }
+     
     
  actualizarventa(id:number,venta:venta):Observable<object>{
         return this.httpClient.put(`${this.baseURLA}/${id}`,venta);
         }
         
   //este metodo trae las maquinas
-  getVentas(): Observable<venta[]>{
+  mostrarDetalle(): Observable<venta[]>{
     return this.httpClient.get<venta[]>(`${this.baseURL}`);
   }  
   
@@ -32,5 +35,5 @@ export class VentasService {
   return this.httpClient.post(`${this.baseURLC}`,venta)
   }
   
-
+  
 }

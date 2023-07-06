@@ -8,26 +8,31 @@ import Swal from 'sweetalert2';
   styleUrls: ['./ventas.component.css']
 })
 export class VentasComponent implements OnInit {
-  ventas: venta[]=[];
-  constructor(private ventasService: VentasService){}
-  ngOnInit(): void {
+  mostrarDatos: boolean;
 
-   this.ventasService.getVentas().subscribe(
-    ventas=> this.ventas=ventas
-   );
+  idVenta: number ;
+  fecha: Date ;
+  tipoPago: string = '';
+  subtotal:  number ;
+  descuento:  number ;
+  iva:  number ;
+  total:  number ;
+  personaf:  number ;
+  configEmpresa:  number ;
+
+  ventas: venta[] = [];
+
+  constructor(private ventasService: VentasService) {}
+
+  ngOnInit(): void {
+    this.ventasService.mostrarDetalle().subscribe(
+      ventas => this.ventas = ventas
+    );
   }
-  eliminarC(id:number){ 
-    Swal.fire({
-      title: '¿Deseas eliminar?',
-      icon: 'error',
-      showCancelButton: true,
-      confirmButtonColor: '#FFC0CB',
-      cancelButtonColor: '#FF0000',
-      confirmButtonText: 'SI',
-      cancelButtonText: 'NO',
-      buttonsStyling: true
-    }).then((result) => {
-      if (result.value) {this.ventasService.eliminarC(id).subscribe(ordenes => { this.ventasService.getVentas().subscribe(response => this.ventas = response )
-   Swal.fire(
-           'venta a sido eliminada'
-        )}) } })}}
+
+  mmostrarDatos(): void {
+    this.mostrarDatos = !this.mostrarDatos;
+  }
+    
+  }
+  

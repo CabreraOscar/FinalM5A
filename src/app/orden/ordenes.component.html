@@ -73,19 +73,17 @@
 </thead>
 <tbody>
     <tr *ngFor="let orden of ordenes">
-    <td>{{orden.id_orden}}</td>
+    <td>{{orden.idOrden}}</td>
     <td>{{orden.estado}}</td>
-    <td>{{orden.total_orden}}</td>
-    <td>{{orden.id_factura}}</td>
-    <td>{{orden.id_persona}}</td>
+    <td>{{orden.totalOrden}}</td>
+    <td>{{orden.venta}}</td>
+    <td>{{orden.personaO}}</td>
     
 
     <td>
-        <button type="button" name="button" [routerLink]="['/orden/form', orden.id_orden]" class="btn btn-primary">Detalle</button>
+        <button type="button" name="button" [routerLink]="['/orden/form', orden.idOrden]" class="btn btn-primary">Detalle</button>
       </td>
-    <td>
-        <button type= "button" name ="button "class="btn btn-danger btn-sm"(click)="eliminarC(orden.id_orden)">Eliminar</button>
-      </td>  
+     
   
 </tr>
 </tbody>
