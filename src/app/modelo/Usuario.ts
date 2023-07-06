@@ -1,4 +1,5 @@
 import { roles } from "../rol";
+import { Persona } from "./persona";
 
 
 export class Usuario {
@@ -6,15 +7,15 @@ export class Usuario {
     username:string;
     clave:string;
     roles:roles;
+    persona: Persona;
     
 
-    //los simbolos ? || sirve para crear objatos tipo usuario con 0 o varios atributos
-    //para que no salga
-    constructor(id_usuario?: number, username?: string,clave?: string, rol?: roles) {
+    constructor(id_usuario?: number, username?: string,clave?: string, rol?: roles,personac?:Persona) {
         this.id_usuario =  id_usuario;
         this. username =  username ||'';
         this.clave = clave ||'';
         this.roles= rol || new roles;
+        this.persona= personac || new Persona;
     }
 
 }

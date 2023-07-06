@@ -26,7 +26,6 @@ return this.httpClient.put(`${this.baseURLA}/${id}`,rol);
 }
 
 
-  //este metodo trae las maquinas
 obtenerListaRol(): Observable<roles[]>{
   return this.httpClient.get<roles[]>(`${this.baseURL}`);
 }  

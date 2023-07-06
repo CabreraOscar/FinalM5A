@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+
 <section class="register-block">
   <div class="container">
     <h2 class="text-center">Registrar Empleados</h2>
@@ -23,6 +24,9 @@
           </span>
         </div>
       </div>
+
+
+      
       <div class="col-md-6">
         <div class="form-group">
           <label for="rolList" class="text">Roles</label>
@@ -32,14 +36,16 @@
           </ul>
         </div>
       </div>
-      
-      
-      
-      
-      
-      
-      
 
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="personaList" class="text">Personas</label>
+          <br>
+          <ul id="personaList">
+            <li *ngFor="let persona of personal" (click)="seleccionarPersona(persona)" [ngStyle]="{'background-color': persona === personaSeleccionado ? 'lightblue' : 'transparent', 'font-weight': persona === personaSeleccionado ? 'bold' : 'normal'}">{{ persona.nombrePer }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -53,8 +59,6 @@
             </div>
           </div>
           <input type="submit" class="btn btn-login float-right" value="Register" (click)="validardatos()">
-
-
         </div>
         <div class="clearfix"></div>
         <div class="form-group">
