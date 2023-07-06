@@ -8,8 +8,8 @@ import { detalleorden } from './detalleorden';
 })
 export class DetalleordenService {
   private baseURL = "http://localhost:8080/persona/listar";
-  private baseURLS = "http://localhost:8080/servicio/listar";
-  private baseURLM = "http://localhost:8080/maquina/listar";
+  private baseURLC="http://localhost:8080/servicio/crear";
+  
   
   constructor(private httpClient : HttpClient) { }
 
@@ -17,11 +17,9 @@ export class DetalleordenService {
     return this.httpClient.get<detalleorden[]>(`${this.baseURL}`);
   }  
 
-  obtenerListadetalleorden1(): Observable<detalleorden[]>{
-    return this.httpClient.get<detalleorden[]>(`${this.baseURLS}`);
-  }  
+  registrarorden(detalleorden:detalleorden): Observable<Object>{
+    return this.httpClient.post(`${this.baseURLC}`,detalleorden)
+    }
 
-  obtenerListadetalleorden2(): Observable<detalleorden[]>{
-    return this.httpClient.get<detalleorden[]>(`${this.baseURLM}`);
-  }  
+  
 }

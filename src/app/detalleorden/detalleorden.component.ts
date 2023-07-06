@@ -9,15 +9,14 @@ import { DetalleordenService } from './detalleorden.service';
 })
 //obtenerListadetalleorden
 export class DetalleordenComponent implements OnInit {
-  detalles:detalleorden
-  detalleso:detalleorden = new detalleorden();
   detalleorden: detalleorden[];
+  detalleso:detalleorden = new detalleorden();
+ 
   constructor(private detalleordenService:DetalleordenService) { }
 
   ngOnInit(): void {
     this.obtenerdetalleorden();
-    this.obtenerdetalleorden1();
-    this.obtenerdetalleorden2();
+   
     
     
 
@@ -28,16 +27,13 @@ export class DetalleordenComponent implements OnInit {
     });
   }
 
-  private obtenerdetalleorden1(){
-    this.detalleordenService.obtenerListadetalleorden1().subscribe(dato => {
-      this.detalleorden = dato;
-    });
-  }
+  
+  guardardetalle(){
+    this.detalleordenService.registrarorden(this.detalleso).subscribe(dato =>{
+      console.log(dato);
+      this.obtenerdetalleorden();
 
-  private obtenerdetalleorden2(){
-    this.detalleordenService.obtenerListadetalleorden2().subscribe(dato => {
-      this.detalleorden = dato;
-    });
+    },error => console.log(error));
   }
 
 
