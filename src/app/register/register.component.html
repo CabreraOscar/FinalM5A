@@ -42,7 +42,7 @@
           <label for="personaList" class="text">Personas</label>
           <br>
           <ul id="personaList">
-            <li *ngFor="let persona of personal" (click)="seleccionarPersona(persona)" [ngStyle]="{'background-color': persona === personaSeleccionado ? 'lightblue' : 'transparent', 'font-weight': persona === personaSeleccionado ? 'bold' : 'normal'}">{{ persona.nombrePer }}</li>
+            <li *ngFor="let persona of persona" (click)="seleccionarPersona(persona)" [ngStyle]="{'background-color': persona === personaSeleccionado ? 'lightblue' : 'transparent', 'font-weight': persona === personaSeleccionado ? 'bold' : 'normal'}">{{ persona.nombrePer }}</li>
           </ul>
         </div>
       </div>

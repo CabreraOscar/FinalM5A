@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   rol:roles= new roles();
   roles: roles[] = [];
   per:Persona =new Persona();
-  personal: Persona[]=[];
+  persona: Persona[]=[];
   selectedRol: roles;
   selectedPersona:Persona;
   rolSeleccionado: roles | null = null;
@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
   
   seleccionarPersona(per:Persona) {
     this.selectedPersona= per; this.personaSeleccionado = per;
+    
   }
   
   validardatos(): void {
@@ -85,7 +86,7 @@ export class RegisterComponent implements OnInit {
   obtenerPersonas(): void {
     this.perserv.obtenerListaPersona().subscribe(
       personas => {
-        this.personal = personas;
+        this.persona = personas;
       },
       error => {
         console.error('Error al obtener los personas:', error);
@@ -113,5 +114,3 @@ export class RegisterComponent implements OnInit {
 
   
 }
-
-

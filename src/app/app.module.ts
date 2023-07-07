@@ -26,6 +26,7 @@ import { ServicioAdminComponent } from './servicio-admin/servicio-admin.componen
 import { RegistrarServicioComponent } from './registrar-servicio/registrar-servicio.component';
 import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-servicio.component';
 import { ActualizarPersonaComponent } from './actualizar-persona/actualizar-persona.component';
+import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 
 
 
@@ -48,7 +49,8 @@ const routes:Routes = [
   { path: 'servicio-admin', component:ServicioAdminComponent},
   { path: 'actualizar-persona/:id', component:ActualizarPersonaComponent},
   { path: 'registrar-servicio', component:RegistrarServicioComponent},
-  { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent}
+  { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent},
+  
 ]
 
 
@@ -77,7 +79,8 @@ const routes:Routes = [
     ServicioAdminComponent,
     RegistrarServicioComponent,
     ActualizarServicioComponent,
-    ActualizarPersonaComponent
+    ActualizarPersonaComponent,
+    LeftSidebarComponent
 
   ],
   imports: [

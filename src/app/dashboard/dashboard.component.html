@@ -1,21 +1,26 @@
-
-<body>
-  <app-navbar></app-navbar>
+ <app-navbar></app-navbar>
+ <body>
 <main role="main" class="container mt-5">
   <div class="container">
-    <div class="text-center mt-5">
-      <h3>Pagina Principal</h3>
-      
+    <div class="text-center mt-5">  
     </div>
-    <div class="button-container">
-      <button class="button" (click)="RegistraCliente()">Registrar Cliente</button>
-      <button class="button"(click)="RegistraMaquina()">Administracion Maquinas </button>
-      <button class="button"(click)="Venta()">Reporte Ventas</button>
-      <button class="button"(click)="Orden()">Revisar Ordenes</button>
-      <button class="button"(click)="Config()">Configuracion Empresa</button>
-      <button class="button"(click)="CrearEmple()">Crear Empleado</button>
-      <button class="button"(click)="AdminServicio()">Administrar Servicios</button>
+    <div class="container">
+      <div class="sidebar">
+        <div class="button-container">
+          <button class="button" (click)="RegistraCliente()">Registrar Cliente</button>
+          <button class="button" (click)="RegistraMaquina()">Administración Máquinas</button>
+          <button class="button" (click)="Venta()">Reporte Ventas</button>
+          <button class="button" (click)="Orden()">Revisar Órdenes</button>
+          <button class="button" (click)="Config()">Configuración Empresa</button>
+          <button class="button" (click)="CrearEmple()">Crear Empleado</button>
+          <button class="button" (click)="AdminServicio()">Administrar Servicios</button>
+        </div>
+      </div>
+      <div class="content">
+        <h3>Pagina Principal</h3>
+      </div>
     </div>
+    
   </div>
 </main>
 </body>

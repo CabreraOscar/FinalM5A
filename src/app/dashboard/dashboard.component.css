@@ -10,6 +10,7 @@ body {
     position: relative;
     overflow: hidden;
   }
+  /*
   .button-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -18,7 +19,7 @@ body {
     align-items: center;
     width: 300px; 
     height: 300px;
-    margin: 0 auto; /* Centra horizontalmente */
+    margin: 0 auto; 
   }
   
   .button {
@@ -58,5 +59,37 @@ body {
     }
     100% {
       transform: translate(-50%, 0);
-    }
+    } 
+  }*/ 
+  .container {
+    display: flex;
   }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #0675a8fd;
+    margin-left: -132px; 
+    margin-top: -48px;
+  }
+  
+  .button {
+    display: block;
+    width: 90%;
+    padding: 25px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    
+  }
+  
+  .button:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    flex-grow: 1;
+    
+   
+  }
+  
