@@ -26,7 +26,11 @@ import { ServicioAdminComponent } from './servicio-admin/servicio-admin.componen
 import { RegistrarServicioComponent } from './registrar-servicio/registrar-servicio.component';
 import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-servicio.component';
 import { ActualizarPersonaComponent } from './actualizar-persona/actualizar-persona.component';
+<<<<<<< HEAD
 import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
+=======
+import { PantallaEmpleadoComponent } from './pantalla-empleado/pantalla-empleado.component';
+>>>>>>> 684038dae5079e9348efdc918cfd583ff9f9c6b3
 
 
 
@@ -50,7 +54,11 @@ const routes:Routes = [
   { path: 'actualizar-persona/:id', component:ActualizarPersonaComponent},
   { path: 'registrar-servicio', component:RegistrarServicioComponent},
   { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent},
+<<<<<<< HEAD
   
+=======
+  { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent}
+>>>>>>> 684038dae5079e9348efdc918cfd583ff9f9c6b3
 ]
 
 
@@ -80,7 +88,11 @@ const routes:Routes = [
     RegistrarServicioComponent,
     ActualizarServicioComponent,
     ActualizarPersonaComponent,
+<<<<<<< HEAD
     LeftSidebarComponent
+=======
+    PantallaEmpleadoComponent
+>>>>>>> 684038dae5079e9348efdc918cfd583ff9f9c6b3
 
   ],
   imports: [
