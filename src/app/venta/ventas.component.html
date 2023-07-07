@@ -70,52 +70,48 @@
             <th>Descuento</th>
             <th>IVA</th>
             <th>Total</th>
-            <th>Detalle</th>
+            <th>Persona</th>
+            <th>Configuracion</th>
+            <th>Boton Detalle</th>
+            <th>Lista Detalle</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let venta of ventas">
-        <td>{{venta.id_factura}}</td>
+        <td>{{venta.idVenta}}</td>
         <td>{{venta.fecha}}</td>
-        <td>{{venta.tipo_pago}}</td>
+        <td>{{venta.tipoPago}}</td>
         <td>{{venta.subtotal}}</td>
         <td>{{venta.descuento}}</td>
         <td>{{venta.iva}}</td>
         <td>{{venta.total}}</td>
-        <td>{{venta.id_persona}}</td>
-        <td>{{venta.id_config}}</td>
+        <td>{{venta.personaf}}</td>
+        <td>{{venta.configEmpresa}}</td>
+  
+        <td>
+            <button type="button" class="btn-detail" (click)="mmostrarDatos()">Detalle</button>
+        </td>
         
-    
-        <td>
-            <button type="button" name="button" [routerLink]="['/venta/form', venta.id_factura]" class="btn btn-primary">Detalle</button>
-          </td>
-        <td>
-            <button type= "button" name ="button "class="btn btn-danger btn-sm"(click)="eliminarC(venta.id_factura)">Eliminar</button>
-          </td>  
-      
+        <tbody>
+            <tr *ngFor="let venta of ventas" [hidden]="!mostrarDatos">
+                <td colspan="9" class="detalle-venta">
+                    <strong>ID Factura:</strong> {{venta.idVenta}}<br>
+                    <strong>Fecha:</strong> {{venta.fecha}}<br>
+                    <strong>Tipo de Pago:</strong> {{venta.tipoPago}}<br>
+                    <strong>Subtotal:</strong> {{venta.subtotal}}<br>
+                    <strong>Descuento:</strong> {{venta.descuento}}<br>
+                    <strong>IVA:</strong> {{venta.iva}}<br>
+                    <strong>Total:</strong> {{venta.total}}<br>
+                    <strong>Persona:</strong> {{venta.personaf}}<br>
+                    <strong>Configuración:</strong> {{venta.configEmpresa}}
+                </td>
+            </tr>
+        </tbody>
+        
     </tr>
     </tbody>
-        <!-- Filas de ejemplo -->
-        <tr>
-            <td>123456</td>
-            <td>2023-06-29</td>
-            <td>Efectivo</td>
-            <td>$100.00</td>
-            <td>$10.00</td>
-            <td>$10.50</td>
-            <td>$120.50</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
-        <tr>
-            <td>987654</td>
-            <td>2023-06-30</td>
-            <td>Tarjeta de Crédito</td>
-            <td>$75.50</td>
-            <td>$5.00</td>
-            <td>$7.55</td>
-            <td>$78.05</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
+       
+       
     </table>
 </body>
 </html>
