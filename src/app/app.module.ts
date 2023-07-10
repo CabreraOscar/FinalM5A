@@ -43,7 +43,7 @@ const routes:Routes = [
   { path: 'ventas', component: VentasComponent },
   { path: 'config-empresa', component: ConfigEmpresaComponent},
   { path: 'actualizar-empresa/:id', component:ActualizarEmpresaComponent},
-  { path: 'detalleorden', component: DetalleordenComponent },
+  { path: 'detalleorden/:id', component: DetalleordenComponent },
   { path: 'persona', component: PersonaComponent },
   { path: 'lista-persona', component: ListaPersonaComponent },
   { path: 'servicio-admin', component:ServicioAdminComponent},

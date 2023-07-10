@@ -5,7 +5,7 @@ import { OrdenesService } from './ordenes.service';
 
 @Component({
   selector: 'app-ordenes',
-  templateUrl: './ordenes.component.html',
+  templateUrl:'./ordenes.component.html',
   styleUrls: ['./ordenes.component.css']
 })
 export class OrdenesComponent {

@@ -9,8 +9,15 @@
       </div>
       <div class="button-container">
         <button class="button" >ORDENES</button>
-        <button class="button">CREAR NUEVA ORDEN</button>
-        <button class="button">VENTA</button>
+        <button (click)= "CrearOrden()"class="button">CREAR NUEVA ORDEN</button>
+        <label for="cedula">Cedula:</label>
+        
+        <input type="text" id="cedula" name="cedula" [value]= "idordenultimo" 
+         [(ngModel)]= "idordenultimo"
+         disabled>
+        
+        
+         <button class="button">VENTA</button>
         <button class="button">Revisar Ordenes</button>
         <button class="button">INFOXXX</button>
         <button class="button">INFOXXX</button>
