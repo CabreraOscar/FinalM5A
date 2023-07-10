@@ -2,60 +2,14 @@
     <h1>Lista de Ordenes</h1>
     <table class="table">
         <thead>
-<<<<<<< HEAD
-        <tr>
-            <th>ID Orden</th>
-            <th>Estado</th>
-            <th>Total Orden</th>
-            <th>ID Factura</th>
-            <th>ID Persona</th>
-            <th>Detalle</th>
-      
-       
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let orden of ordenes">
-    <td>{{orden.idOrden}}</td>
-    <td>{{orden.estado}}</td>
-    <td>{{orden.totalOrden}}</td>
-    <td>{{orden.venta}}</td>
-    <td>{{orden.personaO}}</td>
-    
-
-    <td>
-        <button type="button" name="button" [routerLink]="['/orden/form', orden.idOrden]" class="btn btn-primary">Detalle</button>
-      </td>
-     
-  
-</tr>
-</tbody>
-        <!-- Filas de ejemplo -->
-        <tr>
-            <td>1</td>
-            <td>En Proceso</td>
-            <td>$100.00</td>
-            <td>123456</td>
-            <td>789</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Completada</td>
-            <td>$75.50</td>
-            <td>987654</td>
-            <td>456</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
-=======
             <tr>
-                <th scope="col">Numero de Orden</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Total Orden</th>
-                <th scope="col">Identificacion</th>
-                <th scope="col">Numero de Venta</th>
+                <th>ID Orden</th>
+                <th>Estado</th>
+                <th>Total Orden</th>
+                <th>ID Factura</th>
+                <th>ID Persona</th>
+                <th>Detalle</th>
             </tr>
-        </thead>
         <tbody>
             <tr>
                 <ng-container *ngFor="let orden of ordenes; let persona ">
@@ -68,6 +22,5 @@
                 </ng-container>
             </tr>
         </tbody>
->>>>>>> 9c03431d673c0813bcb66f62a88fd37b8e18f8cb
     </table>
 </section>
