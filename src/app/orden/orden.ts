@@ -1,8 +1,11 @@
-export class orden {
-    idOrden:number=0;
-    estado:number=0;
-    totalOrden:number=0;
-    idVenta:number=0;
-    idPersona:number=0;
+import { Persona } from "../modelo/persona";
+import { venta } from "../venta/venta";
 
+export class orden {
+    idOrden: number;
+   estado: number;
+   totalOrden: number;
+   venta: venta;
+   personaO: Persona;
 }
+

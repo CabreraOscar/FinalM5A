@@ -1,16 +1,61 @@
-.orden-block{
-  float:left;
-  width:100%;
-  padding : 50px 0;
+.pedido-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, blue, pink);
+  width: 100%;
+  padding: 100px 0;
 }
-.orden-block {
-  background-image: url('/assets/imagenes/orden.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+
+
+
+/*.pedido-block .container {
+  background: #D3D3D3;
+  border-radius: 10px;
+  width: 30%;
+  padding: 20px;
+}*/
+
+.pedido-block .container {
+  background: #D3D3D3;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+  margin: 10px;
 }
-.container{background:#D3D3D3; border-radius: 10px; width: 40%; height: 40%;}
-.orden-sec{padding: 50px 30px; position:relative;}
-.orden-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;}
-.orden-sec h2:after{content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
-.btn-orden{background: #0069c0; color:#fff; font-weight:600;}
+
+
+
+.pedido-block label {
+  font-weight: bold;
+}
+
+.pedido-block input[type="text"],
+.pedido-block input[type="date"] {
+  width: auto;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.pedido-block button {
+  background: #0069c0;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.table{
+  background: #D3D3D3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 90%;
+}
+
+.btnActualizar{
+  background: green;
+}

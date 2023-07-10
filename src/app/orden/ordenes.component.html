@@ -1,109 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            background-image: url('/assets/imagenes/orden.gif');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-            padding: 20px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #358aa1;
-            color: #fff;
-        }
-
-        tr:hover {
-            background-color: #2fd2bf;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .btn-detail {
-            padding: 5px 10px;
-            background-color: #358aa1;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-detail:hover {
-            background-color: #2fd2bf;
-        }
-    </style>
-</head>
-<body>
+<section class="pedido-block">
     <h1>Lista de Ordenes</h1>
-    <!--<button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/orden/form']">Crear Alquiler</button>-->
-    <table>
+    <table class="table">
         <thead>
-        <tr>
-            <th>ID Orden</th>
-            <th>Estado</th>
-            <th>Total Orden</th>
-            <th>ID Factura</th>
-            <th>ID Persona</th>
-            <th>Detalle</th>
-      
-       
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let orden of ordenes">
-    <td>{{orden.idOrden}}</td>
-    <td>{{orden.estado}}</td>
-    <td>{{orden.totalOrden}}</td>
-    <td>{{orden.idVenta}}</td>
-    <td>{{orden.idPersona}}</td>
-    
-
-    <td>
-        <button type="button" name="button" [routerLink]="['/orden/form', orden.idOrden]" class="btn btn-primary">Detalle</button>
-      </td>
-     
-  
-</tr>
-</tbody>
-        <!-- Filas de ejemplo -->
-        <tr>
-            <td>1</td>
-            <td>En Proceso</td>
-            <td>$100.00</td>
-            <td>123456</td>
-            <td>789</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Completada</td>
-            <td>$75.50</td>
-            <td>987654</td>
-            <td>456</td>
-            <td><button class="btn-detail">Detalle</button></td>
-        </tr>
+            <tr>
+                <th scope="col">Numero de Orden</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Total Orden</th>
+                <th scope="col">Identificacion</th>
+                <th scope="col">Numero de Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <ng-container *ngFor="let orden of ordenes; let persona ">
+                    <td>{{orden.idOrden}}</td>
+                    <td>{{orden.estado}}</td>
+                    <td>{{orden.totalOrden}}</td>
+                    <td>{{orden.personaO.identificacion}}</td>
+                    <td>{{orden.venta.idVenta}}</td>
+                    <td><button class="btn btn-info" (click)="irOrden()">Ver Detalles</button></td>
+                </ng-container>
+            </tr>
+        </tbody>
     </table>
-</body>
-</html>
+</section>
