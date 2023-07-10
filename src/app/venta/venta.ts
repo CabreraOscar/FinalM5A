@@ -1,3 +1,6 @@
+import { Empresa } from "../empresa";
+import { Persona } from "../modelo/persona";
+
 export class venta {
    
   idVenta: number;
@@ -7,6 +10,8 @@ export class venta {
   descuento: number;
   iva: number;
   total: number;
-  personaf:number=0;
-  configEmpresa:number=0;
+  personaf: Persona;
+  configEmpresa: Empresa;
+  
+  
 }

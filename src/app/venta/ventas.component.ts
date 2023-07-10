@@ -10,15 +10,6 @@ import Swal from 'sweetalert2';
 export class VentasComponent implements OnInit {
   mostrarDatos: boolean;
 
-  idVenta: number ;
-  fecha: Date ;
-  tipoPago: string = '';
-  subtotal:  number ;
-  descuento:  number ;
-  iva:  number ;
-  total:  number ;
-  personaf:  number ;
-  configEmpresa:  number ;
 
   ventas: venta[] = [];
 

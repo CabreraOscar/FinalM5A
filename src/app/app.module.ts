@@ -27,8 +27,7 @@ import { RegistrarServicioComponent } from './registrar-servicio/registrar-servi
 import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-servicio.component';
 import { ActualizarPersonaComponent } from './actualizar-persona/actualizar-persona.component';
 import { PantallaEmpleadoComponent } from './pantalla-empleado/pantalla-empleado.component';
-
-
+import { DetalleOrdenComponent } from './detalle-orden/detalle-orden.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -50,10 +49,10 @@ const routes:Routes = [
   { path: 'actualizar-persona/:id', component:ActualizarPersonaComponent},
   { path: 'registrar-servicio', component:RegistrarServicioComponent},
   { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent},
-  { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent}
+  { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent},
+  { path: 'detalles-ordenes' ,component:DetalleOrdenComponent},
+
 ]
-
-
 
 @NgModule({
   declarations: [
@@ -80,7 +79,8 @@ const routes:Routes = [
     RegistrarServicioComponent,
     ActualizarServicioComponent,
     ActualizarPersonaComponent,
-    PantallaEmpleadoComponent
+   PantallaEmpleadoComponent,
+   DetalleOrdenComponent,
 
   ],
   imports: [

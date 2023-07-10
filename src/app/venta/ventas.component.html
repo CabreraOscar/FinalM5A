@@ -1,69 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            background-image: url('/assets/imagenes/ventas.gif');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        h1 {
-            text-align: center;
-            color: #fff;
-            padding: 20px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #358aa1;
-            color: #fff;
-        }
-
-        tr:hover {
-            background-color: #2fd2bf;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .btn-detail {
-            padding: 5px 10px;
-            background-color: #358aa1;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-detail:hover {
-            background-color: #2fd2bf;
-        }
-    </style>
 </head>
 <body>
     <h1>Lista Venta</h1>
   
-    <table>
+    <table class="custom-table">
         <thead>
-        <tr>
-            <th>ID Factura</th>
+          <tr>
+            <th>Numero de Factura</th>
             <th>Fecha</th>
             <th>Tipo de Pago</th>
             <th>Subtotal</th>
@@ -71,11 +17,11 @@
             <th>IVA</th>
             <th>Total</th>
             <th>Persona</th>
-            <th>Configuracion</th>
-            <th>Boton Detalle</th>
+            <th>Configuración</th>
+            <th>Botón Detalle</th>
             <th>Lista Detalle</th>
-        </tr>
-    </thead>
+          </tr>
+        </thead>
     <tbody>
         <tr *ngFor="let venta of ventas">
         <td>{{venta.idVenta}}</td>
@@ -85,12 +31,12 @@
         <td>{{venta.descuento}}</td>
         <td>{{venta.iva}}</td>
         <td>{{venta.total}}</td>
-        <td>{{venta.personaf}}</td>
-        <td>{{venta.configEmpresa}}</td>
+        <td>{{venta.personaf.idPersona}}</td>
+        <td>{{venta.configEmpresa.idConfig}}</td>
   
         <td>
-            <button type="button" class="btn-detail" (click)="mmostrarDatos()">Detalle</button>
-        </td>
+            <button type="button" class="btn-custom" (click)="mmostrarDatos()">Detalle</button>
+          </td>
         
         <tbody>
             <tr *ngFor="let venta of ventas" [hidden]="!mostrarDatos">
@@ -102,8 +48,8 @@
                     <strong>Descuento:</strong> {{venta.descuento}}<br>
                     <strong>IVA:</strong> {{venta.iva}}<br>
                     <strong>Total:</strong> {{venta.total}}<br>
-                    <strong>Persona:</strong> {{venta.personaf}}<br>
-                    <strong>Configuración:</strong> {{venta.configEmpresa}}
+                    <strong>Persona:</strong> {{venta.personaf.idPersona}}<br>
+                    <strong>Configuración:</strong> {{venta.configEmpresa.idConfig}}
                 </td>
             </tr>
         </tbody>
