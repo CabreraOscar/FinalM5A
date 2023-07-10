@@ -2,7 +2,121 @@ table tr:not(:first-child) {
   display: none;
 }
 .detalle-venta {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   padding: 10px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e99494;
+}
+.btn-custom {
+  background-color: #000000; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 8px 16px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin decoración de texto */
+  display: inline-block; /* Mostrar como bloque */
+  font-size: 14px; /* Tamaño de fuente */
+  border-radius: 4px; /* Borde redondeado */
+  transition: background-color 0.3s; /* Transición al pasar el cursor */
+  position: relative; /* Posición relativa para animación */
+  overflow: hidden; /* Ocultar el contenido que se desborda */
+}
+
+.btn-custom::before {
+  content: ''; /* Contenido pseudo-elemento */
+  position: absolute; /* Posición absoluta */
+  top: 0; /* Colocar en la parte superior */
+  left: -100%; /* Inicialmente fuera de la pantalla */
+  width: 100%; /* Ancho del pseudo-elemento */
+  height: 100%; /* Altura del pseudo-elemento */
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo transparente */
+  transition: left 0.3s; /* Transición de la posición izquierda */
+}
+
+.btn-custom:hover::before {
+  left: 0; /* Mover el pseudo-elemento a la posición 0 */
+}
+.btn-custom {
+  /* Estilos del botón */
+
+  transition: transform 0.3s; /* Transición de escala */
+}
+
+.btn-custom:hover {
+  transform: scale(1.2); /* Escala al pasar el cursor */
+}
+
+.custom-table {
+  border-collapse: collapse; /* Colapso de bordes */
+  width: 100%; /* Ancho de la tabla */
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid #000000; /* Borde de celda */
+  padding: 8px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
+}
+
+.custom-table th {
+  background-color: #282c2c; /* Color de fondo de encabezado */
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color de fondo de filas pares */
+}
+
+.custom-table tr:hover {
+  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
+}
+body {
+  background-image: url('/assets/imagenes/ventas.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #358aa1;
+  color: #fff;
+}
+
+tr:hover {
+  background-color: #2fd2bf;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn-detail {
+  padding: 5px 10px;
+  background-color: #358aa1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-detail:hover {
+  background-color: #2fd2bf;
 }
