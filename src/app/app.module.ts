@@ -51,6 +51,7 @@ const routes:Routes = [
   { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent},
   { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent},
   { path: 'detalles-ordenes' ,component:DetalleOrdenComponent},
+  { path: 'detalles-ordenes/:id', component:DetalleOrdenComponent}
 
 ]
 

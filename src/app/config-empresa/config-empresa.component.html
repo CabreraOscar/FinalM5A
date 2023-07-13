@@ -1,51 +1,79 @@
-<app-navbar></app-navbar>
+<style>
+  /* Estilos para la ventana flotante */
+  .ventana-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    /* La ventana estará oculta inicialmente */
+  }
+ 
+
+</style>
+
 <section class="pedido-block">
-    <h1>Configuración de la Empresa</h1>
+  <h1>Configuración de la Empresa</h1>
+  <button onclick="mostrarVentana()">Ingrear Empresa</button>
+  <div id="ventana" class="ventana-flotante">
+    <h1>Ingresar Empresa</h1>
     <div class="container">
-        <div class="form-group">
-            <label >Nombre de la empresa:</label>
-            <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)] ="empresai.nombreEmpresa" name="nombreEmpresa" >
-        </div>
+      <div class="form-group">
+        <label>Nombre de la empresa:</label>
+        <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
+          name="nombreEmpresa">
+      </div>
 
-        <div class="form-group">
-            <label >Ruc:</label>
-            <input type="text" class="form-control" id="ruc" [(ngModel)] ="empresai.ruc" name="ruc">
-        </div>
+      <div class="form-group">
+        <label>Ruc:</label>
+        <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc">
+      </div>
 
-        <div class="form-group">
-            <label >Dirección:</label>
-            <input type="text" class="form-control" id="ubicacion" [(ngModel)] ="empresai.ubicacion" name="ubicacion">
-        </div>
+      <div class="form-group">
+        <label>Dirección:</label>
+        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion">
+      </div>
 
-        <div class="form-group">
-            <label >Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" [(ngModel)] ="empresai.telefono" name="telefono">
-        </div>
+      <div class="form-group">
+        <label>Teléfono:</label>
+        <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono">
+      </div>
 
-        <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color: pink;">Guardar Empresa</button>
+      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color: pink;">Guardar
+        Empresa</button>
+      <button class="btn btn-danger" onclick="cerrarVentana()">Cerrar</button>
     </div>
+  </div>
 
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">Nombre de la Empresa</th>
-            <th scope="col">Ruc</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Teléfono</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr  *ngFor= "let empresa of empresas" >
-            <td>{{empresa.idConfig}}</td>
-            <td>{{empresa.nombreEmpresa}}</td>
-            <td>{{empresa.ruc}}</td>
-            <td>{{empresa.ubicacion}}</td>
-            <td>{{empresa.telefono}}</td>
-            <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
-            <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)" style="background-color: red;">Eliminar</button></td>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre de la Empresa</th>
+        <th scope="col">Ruc</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{empresa.idConfig}}</td>
+        <td>{{empresa.nombreEmpresa}}</td>
+        <td>{{empresa.ruc}}</td>
+        <td>{{empresa.ubicacion}}</td>
+        <td>{{empresa.telefono}}</td>
+        <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
+            style="background-color: red;">Eliminar</button></td>
+
+      </tr>
+    </tbody>
+  </table>
 </section>
-

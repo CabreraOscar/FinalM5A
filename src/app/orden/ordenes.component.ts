@@ -4,19 +4,24 @@ import Swal from 'sweetalert2';
 import { OrdenesService } from './ordenes.service';
 import { Persona } from '../modelo/persona';
 import { venta } from '../venta/venta';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AllScriptServiceService } from '../all-script-service.service';
 
 @Component({
   selector: 'app-ordenes',
   templateUrl:'./ordenes.component.html',
   styleUrls: ['./ordenes.component.css']
 })
-export class OrdenesComponent {
+export class OrdenesComponent implements OnInit{
 
+  id: number;
   ordenes: orden[];
   personas: Persona[];
   ventas: venta[];
-  constructor(private ordenesService: OrdenesService, private router:Router) { }
+  ordenesO: orden = new orden;
+  constructor(private ordenesService: OrdenesService, private router:Router,private route:ActivatedRoute, private AllScripts: AllScriptServiceService) { 
+    AllScripts.Cargar(["default/ventanas"]);
+  }
   ngOnInit(): void {
     this.obtenerOrdenes();
 
@@ -28,8 +33,10 @@ export class OrdenesComponent {
     });
   }
 
-  irOrden(){
-    this.router.navigate(['detalles-ordenes']);
+
+  verOrden(id:number){
+    this.router.navigate(['detalles-ordenes',id]);
   }
+
 
 }
