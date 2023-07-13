@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Detalles de la Orden</title>
-  <style>
-    
-  </style>
-</head>
-<body>
+<section class="pedido-block">
+  <h1>Detalles de la Orden</h1>
   <div class="sidebar">
     <h2>Empleado</h2>
     <p>Nombre del empleado: <span id="employee-name"></span></p>
@@ -15,78 +8,143 @@
       <label for="search-client">Buscar Cliente:</label>
       <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
 
-      <button (click)= "buscarporcedula()"type="submit">Buscar</button>
-      <button (click)= "obtenerPersona()" class="btn btn-danger"  style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;" >CANCELAR</button>
+      <button (click)="buscarporcedula()" type="submit">Buscar</button>
+      <button (click)="obtenerPersona()" class="btn btn-danger"
+        style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
     </form>
   </div>
+</section>
 
 
-
-
-  <div class="table-container" id="div1">
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Cedula</th>
-          <th>Telefono</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let persona of persona">
-          <td>{{persona.nombrePer }}</td>
-          <td>{{persona.identificacion }}</td>
-          <td>{{persona.telefono }}</td>
-          <button (click)= "seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-        </tr>
-       
-      </tbody>
-    </table>
-  </div>
-
-  
-
-
-  <div class="main-content">
-    <h1>Detalles de la Orden</h1>
-    <div class="formulario-contenedor">
-    <form id="order-form">
-        <label for="cedula">Cedula:</label>
-        <input type="text" id="cedula" name="cedula"  [(ngModel)]="cedula" disabled>
-    
-        <label for="nombre">Cliente:</label>
-        <input type="text" id="nombre" name="nombre"  [(ngModel)]="cliente" disabled>
-
-        <label for="servicio">Servicio:</label>
-        <input type="text" id="servicio" name="servicio" [value]="suan" disabled>
-    
-        <label for="maquina">Maquina:</label>
-        <input type="text" id="maquina" name="maquina" [value]="suan" disabled>
-    
-        <label for="fecha">Fecha :</label>
-        <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
-    
-        <label for="total">Total:</label>
-        <input type="text" id="total" name="total" [value]="suan" disabled>
-        
-      <button type="submit">Agregar Orden</button>
-    </form>
-    </div>
-    <table id="order-table">
-      <thead>
-        <tr>
+<div class="containeunion">
+  <div class="contenedor1">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
             <th>Cedula</th>
-            <th>Cliente</th>
-            <th>Servicio</th>
-            <th>Maquina</th>
-            <th>Fecha</th>
-            <th>Peso</th>
-            <th>Total</th>
+            <th>Telefono</th>
+            <th></th>
           </tr>
-      </thead>
-      <tbody id="order-table-body"></tbody>
-    </table>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of persona">
+            <td>{{persona.nombrePer }}</td>
+            <td>{{persona.identificacion }}</td>
+            <td>{{persona.telefono }}</td>
+            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  
+  <div class="contenedor1">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of persona">
+            <td>{{persona.nombrePer }}</td>
+            <td>{{persona.identificacion }}</td>
+            <td>{{persona.telefono }}</td>
+            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+  <div class="contenedor">
+    <h1>Detalles de la Orden</h1>
+    <div class="form-group">
+      <label for="cedula">Cedula:</label>
+      <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Cliente:</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
+    </div>
+    <div class="form-group">
+      <label for="servicio">Servicio:</label>
+      <input type="text" id="servicio" name="servicio" [value]="suan" disabled>
+    </div>
+    <div class="form-group">
+      <label for="maquina">Maquina:</label>
+      <input type="text" id="maquina" name="maquina" [value]="suan" disabled>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha :</label>
+      <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
+    </div>
+    <div class="form-group">
+      <label for="total">Total:</label>
+      <input type="text" id="total" name="total" [value]="suan" disabled>
+    </div>
+    <button type="submit">Agregar Orden</button>
+  </div>
+</div>
+
+<div class="contenunion">
+  <div class="contenedor1">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of persona">
+            <td>{{persona.nombrePer }}</td>
+            <td>{{persona.identificacion }}</td>
+            <td>{{persona.telefono }}</td>
+            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="contenedor1">
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of persona">
+            <td>{{persona.nombrePer }}</td>
+            <td>{{persona.identificacion }}</td>
+            <td>{{persona.telefono }}</td>
+            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
