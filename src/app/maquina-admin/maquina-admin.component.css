@@ -1,0 +1,9 @@
+.container {
+  margin-left: 165px; /* Ajusta este valor según el espacio que deseas dejar en el lado izquierdo */
+  padding: 154px;
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+}
+
+@media (max-width: 768px) {
+  /* Ajusta los estilos para pantallas más pequeñas si es necesario */
+}

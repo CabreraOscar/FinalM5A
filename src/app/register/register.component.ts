@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
   selectedPersona:Persona;
   rolSeleccionado: roles | null = null;
   personaSeleccionado: Persona | null = null; 
+  
   onSubmit(): void {
   }
   seleccionarRol(rol: roles) {

@@ -1,3 +1,4 @@
+<body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,4 +20,21 @@
       </ng-template>
     </ul>
   </div>
+
+
+<div class="sidebar">
+  <div class="button-container">
+    <button class="button" (click)="RegistraCliente()">Registrar Cliente</button>
+    <button class="button" (click)="RegistraMaquina()">Administración Máquinas</button>
+    <button class="button" (click)="Venta()">Reporte Ventas</button>
+    <button class="button" (click)="Orden()">Revisar Órdenes</button>
+    <button class="button" (click)="Config()">Configuración Empresa</button>
+    <button class="button" (click)="CrearEmple()">Crear Empleado</button>
+    <button class="button" (click)="AdminServicio()">Administrar Servicios</button>
+  </div>
+
+
+</div>
+
 </nav>
+</body>

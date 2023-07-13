@@ -8,11 +8,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  padding: 122px;
+  
 }
 
-.letra-pequenita {
-  font-size: 0.8em;
+
+
+@media (max-width: 768px) {
+  
 }
+
 .selected {
   background-color: rgb(94, 168, 230);
   font-weight: bold;

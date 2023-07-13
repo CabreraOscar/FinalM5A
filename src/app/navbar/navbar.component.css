@@ -1,0 +1,57 @@
+
+  .sidebar {
+    display: flex;
+    position: absolute;
+    top: 7px;
+    left: 100px;
+    width: 0px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 200px;
+    background-color: #0675a8fd;
+    margin-left: -115px; 
+    margin-top: 49px;
+    
+  
+  }
+  .button-container {
+    padding: 5px;
+    border-bottom: 1px solid #ccc; /* Agregar una línea divisoria inferior */
+  }
+  
+  .button-container:last-child {
+    border-bottom: none; /* Quitar la línea divisoria inferior del último contenedor */
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    border: #b8babbfd;
+  }
+  
+  .button {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  .button {
+    display: block;
+    width: 90%;
+    padding: 25px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    height: 77px;
+  }
+  
+  .button:hover {
+    background-color: #ccc;
+  }
+  
+  .content {
+    flex-grow: 1;
+    
+   
+  }
+ 
