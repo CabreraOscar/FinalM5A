@@ -12,6 +12,7 @@ export class OrdenesService {
   private baseURLA = "http://localhost:8080/orden/actualizar";
   private baseURLE = "http://localhost:8080/orden/eliminar";
   private baseURLO = "http://localhost:8080/orden/porid";
+  private baseURLB = "http://localhost:8080/orden/buscar"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -35,6 +36,10 @@ export class OrdenesService {
 
   obtenerOrdenPorId(id: number): Observable<orden> {
     return this.httpClient.get<orden>(`${this.baseURLO}/${id}`)
+  }
+
+  obtenerPersonaPoridentificacion(identificacion:string): Observable<orden[]>{
+    return this.httpClient.get<orden[]>(`${this.baseURLB}/${identificacion}`);
   }
 
 }

@@ -21,7 +21,7 @@
 
 <section class="pedido-block">
   <h1>Configuración de la Empresa</h1>
-  <button onclick="mostrarVentana()">Ingrear Empresa</button>
+  <button onclick="mostrarVentana()">Ingresar Empresa</button>
   <div id="ventana" class="ventana-flotante">
     <h1>Ingresar Empresa</h1>
     <div class="container">
@@ -46,9 +46,9 @@
         <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono">
       </div>
 
-      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color: pink;">Guardar
+      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color:green;">Guardar
         Empresa</button>
-      <button class="btn btn-danger" onclick="cerrarVentana()">Cerrar</button>
+      <button class="btn btn-danger" onclick="cerrarVentana()" style="background-color:red;">Cerrar</button>
     </div>
   </div>
 

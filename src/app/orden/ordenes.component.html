@@ -1,6 +1,15 @@
 
 <section class="pedido-block">
     <h1>Lista de Ordenes</h1>
+    <div class="buscar">
+    <form id="search-form" #miFormulario="ngForm">
+        <label for="search-client">Buscar Cliente:</label>
+        <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula"  (blur)="verificarInput()">
+  
+        <button class="btn btn-info" (click)= "buscarporcedula()"type="submit" style="margin-left : 10px;">Buscar</button>
+        <button class="btn btn-danger"  (click)= "obtenerOrdenes()" style="margin-left : 10px;background-color: brown;" >CANCELAR</button>
+      </form>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -24,3 +33,7 @@
         </tbody>
     </table>
 </section>
+
+<script>
+ 
+</script>
