@@ -14,6 +14,7 @@ export class personaService {
   private baseURLA="http://localhost:8080/persona/actualizar";
   private baseURLE="http://localhost:8080/persona/delete";
   private baseURLP="http://localhost:8080/persona/porid";
+  private baseURLI="http://localhost:8080/persona/personas";
 
   constructor(private httpClient : HttpClient) { }
 
@@ -38,6 +39,11 @@ return this.httpClient.post(`${this.baseURLC}`,persona)
 
 obtenerPersonaPorId(id:number): Observable<Persona>{
   return this.httpClient.get<Persona>(`${this.baseURLP}/${id}`);
+}
+
+
+obtenerPersonaPoridentificacion(identificacion:string): Observable<Persona>{
+  return this.httpClient.get<Persona>(`${this.baseURLI}/${identificacion}`);
 }
  
 }

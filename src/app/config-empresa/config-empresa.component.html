@@ -1,10 +1,30 @@
 <app-navbar></app-navbar>
 
-<body>
-  <section class="pedido-block">
-    
+<style>
+  /* Estilos para la ventana flotante */
+  .ventana-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    /* La ventana estará oculta inicialmente */
+  }
+</style>
+
+<section class="pedido-block">
+
+  <button onclick="mostrarVentana()">Ingresar Empresa</button>
+  <div id="ventana" class="ventana-flotante">
+    <h1>Ingresar Empresa</h1>
     <div class="container">
-      <h3>Configuración de la Empresa</h3>
       <div class="form-group">
         <label>Nombre de la empresa:</label>
         <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
@@ -26,32 +46,36 @@
         <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono">
       </div>
 
-      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color: pink;">Guardar
-        Empresa</button>
-    </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">Nombre de la Empresa</th>
-          <th scope="col">Ruc</th>
-          <th scope="col">Dirección</th>
-          <th scope="col">Teléfono</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let empresa of empresas">
-          <td>{{empresa.idConfig}}</td>
-          <td>{{empresa.nombreEmpresa}}</td>
-          <td>{{empresa.ruc}}</td>
-          <td>{{empresa.ubicacion}}</td>
-          <td>{{empresa.telefono}}</td>
-          <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
-          <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
-              style="background-color: red;">Eliminar</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-</body>
+      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color:green;">Guardar
+        Empresa</button>
+      <button class="btn btn-danger" onclick="cerrarVentana()" style="background-color:red;">Cerrar</button>
+
+    </div>
+  </div>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre de la Empresa</th>
+        <th scope="col">Ruc</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{empresa.idConfig}}</td>
+        <td>{{empresa.nombreEmpresa}}</td>
+        <td>{{empresa.ruc}}</td>
+        <td>{{empresa.ubicacion}}</td>
+        <td>{{empresa.telefono}}</td>
+        <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
+            style="background-color: red;">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

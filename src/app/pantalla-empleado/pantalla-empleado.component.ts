@@ -23,16 +23,16 @@ integrador:number;
 
   ngOnInit(): void {
     
-    this.obtenerOrdeneslista();
-    this.orden.estado=1;
-    this.orden.totalOrden=1;
-    this.persona.idPersona=1;
-    this.orden.personaO=this.persona;
+   // this.obtenerOrdeneslista();
+    //this.orden.estado=1;
+    //this.orden.totalOrden=1;
+   // this.persona.idPersona=1;
+    //this.orden.personaO=this.persona;
     
   }
 
  
-
+/*
   CrearOrden(){
     this.obtenerOrdeneslista();
     this.ordenesService.registrarorden(this.orden).subscribe(dato =>{
@@ -48,9 +48,10 @@ integrador:number;
       this.irAlapaginaempleados();
     },error => console.log(error)); 
   }
+  */
 
   irAlapaginaempleados(){
-    this.router.navigate(['/detalleorden',this.idordenultimo])
+    this.router.navigate(['/detalleorden'])
   }
 
 
