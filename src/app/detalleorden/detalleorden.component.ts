@@ -16,10 +16,12 @@ export class DetalleordenComponent implements OnInit {
  
   //VARIABLES Y ARRAYS
   inputValue: string = '';
+  cedula: string = '';
+  cliente:string = '';
   persona:Persona[];
   personax:Persona=new Persona();
   currentDate: string;
- suan:number=16;
+ suan:string="SIN SELECCIONAR";
  idorden:number;
 
  //FIN DE VARIABLES Y ARRAYS
@@ -50,5 +52,13 @@ export class DetalleordenComponent implements OnInit {
     }
   
 
+
+    seleccionarPersona(personaselect:Persona){
+      this.personax=personaselect;
+      this.cedula=this.personax.identificacion;
+      this.cliente=this.personax.nombrePer;
+      console.log(this.personax.nombrePer);
+      
+    }
 
 }

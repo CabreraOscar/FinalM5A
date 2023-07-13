@@ -16,7 +16,7 @@
       <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
 
       <button (click)= "buscarporcedula()"type="submit">Buscar</button>
-      <button class="btn btn-danger"  style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;" >CANCELAR</button>
+      <button (click)= "obtenerPersona()" class="btn btn-danger"  style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;" >CANCELAR</button>
     </form>
   </div>
 
@@ -38,7 +38,7 @@
           <td>{{persona.nombrePer }}</td>
           <td>{{persona.identificacion }}</td>
           <td>{{persona.telefono }}</td>
-          <button class="btn btn-info">SELECCIONAR</button>
+          <button (click)= "seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
         </tr>
        
       </tbody>
@@ -53,10 +53,10 @@
     <div class="formulario-contenedor">
     <form id="order-form">
         <label for="cedula">Cedula:</label>
-        <input type="text" id="cedula" name="cedula" [value]="suan" disabled>
+        <input type="text" id="cedula" name="cedula"  [(ngModel)]="cedula" disabled>
     
         <label for="nombre">Cliente:</label>
-        <input type="text" id="nombre" name="nombre" [value]="suan" disabled>
+        <input type="text" id="nombre" name="nombre"  [(ngModel)]="cliente" disabled>
 
         <label for="servicio">Servicio:</label>
         <input type="text" id="servicio" name="servicio" [value]="suan" disabled>
@@ -89,94 +89,4 @@
     </table>
   </div>
 
-  <script>
-    var employeeName = "Nombre del Empleado"; 
-    document.getElementById('employee-name').textContent = employeeName;
-
-    document.getElementById('search-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var searchClient = document.getElementById('search-client').value;
-
-      // Realiza la lógica de búsqueda del cliente aquí
-
-      document.getElementById('search-client').value = '';
-    });
-
-    document.getElementById('order-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var cedula = document.getElementById('cedula').value;
-      var nombre = document.getElementById('nombre').value;
-      var servicio = document.getElementById('servicio').value;
-      var maquina = document.getElementById('maquina').value;
-      var fecha = document.getElementById('fecha').value;
-      var peso = document.getElementById('peso').value;
-      var total = document.getElementById('total').value;
-     
-     var orderDetailsRow = '<tr>' +
-                        '<td>' + orderDetails.cedula + '</td>' +
-                        '<td>' + orderDetails.nombre + '</td>' +
-                        '<td>' + orderDetails.servicio + '</td>' +
-                        '<td>' + orderDetails.maquina + '</td>' +
-                        '<td>' + orderDetails.fecha + '</td>' +
-                        '<td>' + orderDetails.peso + '</td>' +
-                        '<td>' + orderDetails.total + '</td>' +
-                      '</tr>';
-
-// Actualiza la tabla de detalles con la nueva fila
-document.getElementById('order-details-body').innerHTML = orderDetailsRow;
-
-document.getElementById('search-client').value = '';
-      document.getElementById('cedula').value = '';
-      document.getElementById('nombre').value = '';
-      document.getElementById('servicio').value = '';
-      document.getElementById('maquina').value = '';
-      document.getElementById('fecha').value = '';
-      document.getElementById('peso').value = '';
-      document.getElementById('total').value = '';
-    });
-    
-    document.getElementById("formulario").addEventListener("submit", function(event) {
-  event.preventDefault(); // Evita que el formulario se envíe
-
-  // Obtén los valores ingresados en los campos de búsqueda
-  var cedula = document.getElementById("cedula").value;
   
-
-  // Realiza la búsqueda con los datos proporcionados
-
-  // Ejemplo de búsqueda simulada
-  var resultado = {
-    cedula: cedula,
-    nombre: nombre,
-    servicio: servicio,
-    maquina: 0,
-    fecha: new Date(),
-    peso: 0,
-    total: 0
-  };
-
-  // Muestra el resultado en el formulario
-  mostrarResultado(resultado);
-});
-    function mostrarResultado(resultado) {
-  var resultadoDiv = document.getElementById("resultado");
-
-  // Crea el contenido HTML con los datos del resultado
-  var contenido = "<h2>Resultado de búsqueda</h2>";
-  contenido += "<p>cedula: " + resultado.cedula + "</p>";
-  contenido += "<p>Nombre: " + resultado.nombre + "</p>";
-  contenido += "<p>Servicio: " + resultado.servicio + "</p>";
-  contenido += "<p>Maquina: " + resultado.maquina + "</p>";
-  contenido += "<p>Fecha: " + resultado.fecha + "</p>";
-  contenido += "<p>Peso: " + resultado.peso + "</p>";
-  contenido += "<p>Total: " + resultado.total + "</p>";
-
-  // Inserta el contenido en el elemento "resultadoDiv"
-  resultadoDiv.innerHTML = contenido;
-}
-
-  </script>
-</body>
-</html>
