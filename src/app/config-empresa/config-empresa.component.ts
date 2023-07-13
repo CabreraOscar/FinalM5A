@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../empresa';
 import { EmpresaService } from '../empresa.service';
 import { Router } from '@angular/router';
+import { AllScriptServiceService } from '../all-script-service.service';
 
 @Component({
   selector: 'app-config-empresa',
@@ -13,7 +14,9 @@ export class ConfigEmpresaComponent implements OnInit {
   empresas: Empresa[];
   empresai:Empresa = new Empresa();
 
-  constructor(private empresaServicio:EmpresaService,private router:Router) { }
+  constructor(private empresaServicio:EmpresaService,private router:Router,private AllScripts: AllScriptServiceService) { 
+    AllScripts.Cargar(["default/ventanas"]);
+  }
 
   ngOnInit(): void {
     this.obtenerEmpresa();
@@ -30,7 +33,6 @@ export class ConfigEmpresaComponent implements OnInit {
     this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato =>{
       console.log(dato);
       this.obtenerEmpresa();
-
     },error => console.log(error));
   }
 
@@ -46,4 +48,5 @@ export class ConfigEmpresaComponent implements OnInit {
   actualizarEmpresa(id:number){
     this.router.navigate(['actualizar-empresa',id]);
   }
+
 }

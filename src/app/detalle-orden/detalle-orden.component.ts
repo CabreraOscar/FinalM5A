@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { orden } from '../orden/orden';
-import { Persona } from '../modelo/persona';
-import { venta } from '../venta/venta';
 import { OrdenesService } from '../orden/ordenes.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-orden',
@@ -12,23 +10,28 @@ import { Router } from '@angular/router';
 })
 export class DetalleOrdenComponent implements OnInit {
 
+  id:number;
   ordenes: orden[];
-  personas: Persona[];
-  ventas: venta[];
+  ordenesO:orden = new orden();
 
-  constructor(private detalleService:OrdenesService, private router: Router) { }
+  constructor(private detalleService:OrdenesService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.obtenerOrdenes();
+    this.id = this.route.snapshot.params['id'];
+    this.detalleService.obtenerOrdenPorId(this.id).subscribe(dato =>{
+      this.ordenesO = dato;
+    },error => console.log(error));
   }
 
-  private obtenerOrdenes(){
+  /*private obtenerOrdenes(){
     this.detalleService.getOrdenes().subscribe(dato => {
       this.ordenes = dato;
     });
-  }
+  }*/
 
   irOrdenes(){
     this.router.navigate(['ordenes']);
   }
+
+
 }

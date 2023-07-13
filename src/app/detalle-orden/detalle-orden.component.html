@@ -11,11 +11,9 @@
         </thead>
         <tbody>
             <tr>
-                <ng-container *ngFor="let orden of ordenes; let persona ">
-                    <td>{{orden.idOrden}}</td>
-                    <td>{{orden.estado}}</td>
-                    <td>{{orden.totalOrden}}</td>
-                </ng-container>
+                <td>{{ordenesO.idOrden}}</td>
+                <td>{{ordenesO.estado}}</td>
+                <td>{{ordenesO.totalOrden}}</td>
             </tr>
         </tbody>
     </table>
@@ -27,23 +25,21 @@
                 <th scope="col">Numero de Venta</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Tipo de Pago</th>
-                <th scope="col">subtotal</th>
-                <th scope="col">descuennto</th>
-                <th scope="col">iva</th>
-                <th scope="col">total</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Descuento</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Total</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <ng-container *ngFor="let orden of ordenes; let persona ">
-                    <td>{{orden.venta.idVenta}}</td>
-                    <td>{{orden.venta.fecha}}</td>
-                    <td>{{orden.venta.tipoPago}}</td>
-                    <td>{{orden.venta.subtotal}}</td>
-                    <td>{{orden.venta.descuento}}</td>
-                    <td>{{orden.venta.iva}}</td>
-                    <td>{{orden.venta.total}}</td>
-                </ng-container>
+                    <td>{{ordenesO.venta.idVenta}}</td>
+                    <td>{{ordenesO.venta.fecha}}</td>
+                    <td>{{ordenesO.venta.tipoPago}}</td>
+                    <td>{{ordenesO.venta.subtotal}}</td>
+                    <td>{{ordenesO.venta.descuento}}</td>
+                    <td>{{ordenesO.venta.iva}}</td>
+                    <td>{{ordenesO.venta.total}}</td>
             </tr>
         </tbody>
     </table>
@@ -54,20 +50,18 @@
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Correo Electronico</th>
-                <th scope="col">Cedula de Identificacion</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Telefono</th>
+                <th scope="col">Cedula de Identificación</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Teléfono</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <ng-container *ngFor="let orden of ordenes; let persona ">
-                    <td>{{orden.personaO.nombrePer}}</td>
-                    <td>{{orden.personaO.correo}}</td>
-                    <td>{{orden.personaO.identificacion}}</td>
-                    <td>{{orden.personaO.direccion}}</td>
-                    <td>{{orden.personaO.telefono}}</td>
-                </ng-container>
+                    <td>{{ordenesO.personaO.nombrePer}}</td>
+                    <td>{{ordenesO.personaO.correo}}</td>
+                    <td>{{ordenesO.personaO.identificacion}}</td>
+                    <td>{{ordenesO.personaO.direccion}}</td>
+                    <td>{{ordenesO.personaO.telefono}}</td>
             </tr>
         </tbody>
     </table>
