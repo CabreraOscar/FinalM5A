@@ -20,40 +20,42 @@
 </style>
 
 <section class="pedido-block">
-  <div class="encabezado" style=" width: auto; flex-direction: column; 
-  align-items: center; justify-content: center; display: absolute; padding-left: 200px;">
-    <h1 style="align-items: center;">Configuracion de la empresa</h1>
+  <div class="encabezado" style="width: auto; flex-direction: column; align-items: center; justify-content: center; display: flex; padding-left: 200px;">
+    <h1 style="text-align: center;">Configuración de la empresa</h1>
     <button onclick="mostrarVentana()">Ingresar Empresa</button>
   </div>
   <div id="ventana" class="ventana-flotante">
     <h1>Ingresar Empresa</h1>
     <div class="container">
-      <div class="form-group">
-        <label>Nombre de la empresa:</label>
-        <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
-          name="nombreEmpresa">
-      </div>
+      <form #empresaForm="ngForm" (ngSubmit)="guardarEmpresa()">
+        <div class="form-group">
+          <label for="nombreEmpresa">Nombre de la empresa:</label>
+<input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa" name="nombreEmpresa" required>
+<div *ngIf="empresaForm.controls['nombreEmpresa'].invalid && empresaForm.controls['nombreEmpresa'].touched" class="error-message">Nombre de la empresa es requerido.</div>
+</div>
 
-      <div class="form-group">
-        <label>Ruc:</label>
-        <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc">
-      </div>
+<div class="form-group">
+  <label for="ruc">RUC:</label>
+  <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" pattern="[0-9]{11}">
+  <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched" class="error-message">RUC inválido. Debe tener 11 dígitos.</div>
+</div>
 
-      <div class="form-group">
-        <label>Dirección:</label>
-        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion">
-      </div>
+<div class="form-group">
+  <label for="ubicacion">Dirección:</label>
+  <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion" required>
+  <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched" class="error-message">La direccion es requerida.</div>
 
-      <div class="form-group">
-        <label>Teléfono:</label>
-        <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono">
-      </div>
+</div>
 
+<div class="form-group">
+  <label for="telefono">Teléfono:</label>
+  <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" pattern="[0-9]{7,10}">
+  <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched" class="error-message">Teléfono inválido. Debe tener entre 7 y 10 dígitos.</div>
+</div>
 
-      <button class="btn btn-success" (click)="guardarEmpresa()" style="background-color:green;">Guardar
-        Empresa</button>
-      <button class="btn btn-danger" onclick="cerrarVentana()" style="background-color:red;">Cerrar</button>
-
+        <button type="submit" class="btn btn-success" [disabled]="empresaForm.invalid" style="background-color: green;">Guardar Empresa</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cerrar</button>
+      </form>
     </div>
   </div>
 

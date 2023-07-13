@@ -28,6 +28,8 @@ import { ActualizarServicioComponent } from './actualizar-servicio/actualizar-se
 import { ActualizarPersonaComponent } from './actualizar-persona/actualizar-persona.component';
 import { PantallaEmpleadoComponent } from './pantalla-empleado/pantalla-empleado.component';
 import { DetalleOrdenComponent } from './detalle-orden/detalle-orden.component';
+import { DetalleVentaComponent } from './detalle-venta/detalle-venta.component';
+import { DatePipe } from '@angular/common';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -51,6 +53,7 @@ const routes:Routes = [
   { path: 'actualizar-servicio/:id' ,component:ActualizarServicioComponent},
   { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent},
   { path: 'detalles-ordenes' ,component:DetalleOrdenComponent},
+  { path: 'detalles-venta' ,component:DetalleVentaComponent},
   { path: 'detalles-ordenes/:id', component:DetalleOrdenComponent}
 
 ]
@@ -82,6 +85,8 @@ const routes:Routes = [
     ActualizarPersonaComponent,
    PantallaEmpleadoComponent,
    DetalleOrdenComponent,
+   DetalleVentaComponent,
+   
 
   ],
   imports: [
@@ -90,7 +95,7 @@ const routes:Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

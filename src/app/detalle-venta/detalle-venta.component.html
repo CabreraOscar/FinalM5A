@@ -1,0 +1,83 @@
+<section class="pedido-block">
+    <h1>Lista de Ventas</h1>
+    <h4>Detalle de la venta</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Numero de Factura</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Tipo de Pago</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Descuento</th>
+          <th scope="col">IVA</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let venta of ventas">
+          <tr>
+            <td>{{venta.idVenta}}</td>
+            <td>{{venta.fecha}}</td>
+            <td>{{venta.tipoPago}}</td>
+            <td>{{venta.subtotal}}</td>
+            <td>{{venta.descuento}}</td>
+            <td>{{venta.iva}}</td>
+            <td>{{venta.total}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <br>
+    <h4>Detalle configuracion empresa</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Numero Empresa</th>
+          <th scope="col">Nombre de la Empresa</th>
+          <th scope="col">Ruc</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let venta of ventas">
+          <tr>
+            <td>{{venta.configEmpresa.idConfig}}</td>
+            <td>{{venta.configEmpresa.nombreEmpresa}}</td>
+            <td>{{venta.configEmpresa.ruc}}</td>
+            <td>{{venta.configEmpresa.ubicacion}}</td>
+            <td>{{venta.configEmpresa.telefono}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <br>
+    <h4>Detalle Persona</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Numero persona</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo Electronico</th>
+          <th scope="col">Cedula de Identificacion</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let venta of ventas">
+          <tr>
+            <td>{{venta.personaf.idPersona}}</td>
+            <td>{{venta.personaf.nombrePer}}</td>
+            <td>{{venta.personaf.correo}}</td>
+            <td>{{venta.personaf.identificacion}}</td>
+            <td>{{venta.personaf.direccion}}</td>
+            <td>{{venta.personaf.telefono}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  
+    <button class="btn btn-success" (click)="irventas()" style="background-color: pink;">Regresar</button>
+  </section>
+  

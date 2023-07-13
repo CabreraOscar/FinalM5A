@@ -7,15 +7,21 @@ import { venta } from './venta';
   providedIn: 'root'
 })
 export class VentasService {
+  obtenerVentas(): any[] {
+    throw new Error('Method not implemented.');
+  }
   constructor(private httpClient:HttpClient) { }
   
   private baseURL = "http://localhost:8080/venta/listar";
   private baseURLC="http://localhost:8080/venta/crear";
   private baseURLA="http://localhost:8080/venta/actualizar";
   private baseURLE="http://localhost:8080/venta/eliminar";
+  private baseURLB="http://localhost:8080/venta/buscar";
   
  
-  
+  buscarPorFecha( fecha: Date): Observable<venta>{
+    return this.httpClient.get<venta>(`${this.baseURLB}/${fecha}`)
+  }  
      
     
  actualizarventa(id:number,venta:venta):Observable<object>{

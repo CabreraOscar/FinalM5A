@@ -10,7 +10,7 @@ import { AllScriptServiceService } from '../all-script-service.service';
   styleUrls: ['./config-empresa.component.css']
 })
 export class ConfigEmpresaComponent implements OnInit {
-
+  nombreEmpresa: String;
   empresas: Empresa[];
   empresai:Empresa = new Empresa();
 

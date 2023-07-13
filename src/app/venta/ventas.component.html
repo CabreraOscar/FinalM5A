@@ -1,25 +1,27 @@
-<app-navbar></app-navbar>
-<section class="venta-block">
-<body>
+<section class="pedido-block">
+  <h1>Lista Venta</h1>
+  <input type="date" [(ngModel)]="fechaBusqueda" (change)="buscarPorFecha()">
+  <button type="button" (click)="buscarPorFecha()">Buscar</button>
+  <p>Fecha seleccionada: {{ fechaBusqueda | date:'yyyy-MM-dd' }}</p>
   
-    <table class="custom-table">
-        <thead>
-          <tr>
-            <th>Numero de Factura</th>
-            <th>Fecha</th>
-            <th>Tipo de Pago</th>
-            <th>Subtotal</th>
-            <th>Descuento</th>
-            <th>IVA</th>
-            <th>Total</th>
-            <th>Persona</th>
-            <th>Configuración</th>
-            <th>Botón Detalle</th>
-            <th>Lista Detalle</th>
-          </tr>
-        </thead>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Numero de Factura</th>
+        <th>Fecha</th>
+        <th>Tipo de Pago</th>
+        <th>Subtotal</th>
+        <th>Descuento</th>
+        <th>IVA</th>
+        <th>Total</th>
+        <th>Persona</th>
+        <th>Configuración</th>
+        <th>Botón Detalle</th>
+      </tr>
+    </thead>
+  
     <tbody>
-        <tr *ngFor="let venta of ventas">
+      <tr *ngFor="let venta of ventas">
         <td>{{venta.idVenta}}</td>
         <td>{{venta.fecha}}</td>
         <td>{{venta.tipoPago}}</td>
@@ -29,31 +31,7 @@
         <td>{{venta.total}}</td>
         <td>{{venta.personaf.idPersona}}</td>
         <td>{{venta.configEmpresa.idConfig}}</td>
-  
-        <td>
-            <button type="button" class="btn-custom" (click)="mmostrarDatos()">Detalle</button>
-          </td>
-        
-        <tbody>
-            <tr *ngFor="let venta of ventas" [hidden]="!mostrarDatos">
-                <td colspan="9" class="detalle-venta">
-                    <strong>ID Factura:</strong> {{venta.idVenta}}<br>
-                    <strong>Fecha:</strong> {{venta.fecha}}<br>
-                    <strong>Tipo de Pago:</strong> {{venta.tipoPago}}<br>
-                    <strong>Subtotal:</strong> {{venta.subtotal}}<br>
-                    <strong>Descuento:</strong> {{venta.descuento}}<br>
-                    <strong>IVA:</strong> {{venta.iva}}<br>
-                    <strong>Total:</strong> {{venta.total}}<br>
-                    <strong>Persona:</strong> {{venta.personaf.idPersona}}<br>
-                    <strong>Configuración:</strong> {{venta.configEmpresa.idConfig}}
-                </td>
-            </tr>
-        </tbody>
-        
-    </tr>
+        <td><button class="btn btn-info" (click)="irventas()">Ver Detalles</button></td>
+      </tr>
     </tbody>
-       
-       
-    </table>
-</body>
-</section>
+  </table>

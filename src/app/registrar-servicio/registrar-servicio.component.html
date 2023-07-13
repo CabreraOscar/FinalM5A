@@ -3,38 +3,34 @@
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">REGISTRO DE NUEVO SERVICIO</h3>
 
-    <form (ngSubmit)= "onSubmit()">
-
+    <form (ngSubmit)="onSubmit()" #servicioForm="ngForm">
         <div class="form-group">
-            <label>NOMBRE: </label>
-            <input type="text"
-            class="form-control"
-            id="nombre"
-            [(ngModel)]= "servicio.nombre"
-            name="nombre">
+          <label for="nombre">NOMBRE:</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="servicio.nombre" name="nombre" required>
+          <div *ngIf="servicioForm.controls['nombre'].invalid && servicioForm.controls['nombre'].touched" class="error-message">
+            <div *ngIf="servicioForm.controls['nombre'].hasError('required')">Nombre es requerido.</div>
+          </div>
         </div>
-
+      
         <div class="form-group">
-            <label>DESCRIPCION : </label>
-            <input type="text"
-            class="form-control"
-            id="descripcion"
-            [(ngModel)]= "servicio.descripcion"
-            name="descripcion">
+          <label for="descripcion">DESCRIPCION:</label>
+          <input type="text" class="form-control" id="descripcion" [(ngModel)]="servicio.descripcion" name="descripcion" required>
+          <div *ngIf="servicioForm.controls['descripcion'].invalid && servicioForm.controls['descripcion'].touched" class="error-message">
+            <div *ngIf="servicioForm.controls['descripcion'].hasError('required')">Descripción es requerida.</div>
+          </div>
         </div>
-
+      
         <div class="form-group">
-            <label>PRECIO: </label>
-            <input type="number"
-            class="form-control"
-            id="precio"
-            [(ngModel)]= "servicio.precio"
-            name="precio">
-        </div>
-
-        <button class="btn btn-success">Guardar</button>
-        <button class="btn btn-danger" routerLink="/servicio-admin" style="margin-left : 10px">CANCELAR</button>
-    </form>
-
-
+            <label for="precio">PRECIO:</label>
+            <input type="number" class="form-control" id="precio" [(ngModel)]="servicio.precio" name="precio" required>
+            <div *ngIf="servicioForm.controls['precio'].invalid && servicioForm.controls['precio'].touched" class="error-message">
+              <div *ngIf="servicioForm.controls['precio'].hasError('required')">Precio es requerido.</div>
+            </div>
+          </div>
+          
+      
+        <button type="submit" class="btn btn-success" [disabled]="servicioForm.invalid">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/servicio-admin" style="margin-left: 10px">CANCELAR</button>
+      </form>
+      
     </div>

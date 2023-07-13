@@ -4,34 +4,56 @@
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registrar Nuevo Cliente</h3>
 
-    <form (ngSubmit)="onSubmit()">
+    <form #personaForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label>Nombre </label>
-            <input type="text" class="form-control" id="nombrePer" [(ngModel)]="persona.nombrePer" name="nombrePer">
+          <label for="nombrePer">Nombre:</label>
+          <input type="text" class="form-control" id="nombrePer" [(ngModel)]="persona.nombrePer" name="nombrePer" required minlength="2" maxlength="50">
+          <div *ngIf="personaForm.controls['nombrePer'].invalid && personaForm.controls['nombrePer'].touched" class="error-message">
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('required')">Nombre es requerido.</div>
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('minlength')">Nombre debe tener al menos 2 caracteres.</div>
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('maxlength')">Nombre debe tener como máximo 50 caracteres.</div>
+          </div>
         </div>
+      
         <div class="form-group">
-            <label>Dirección </label>
-            <input type="text" class="form-control" id="direccion" [(ngModel)]="persona.direccion" name="direccion">
+          <label for="direccion">Dirección:</label>
+          <input type="text" class="form-control" id="direccion" [(ngModel)]="persona.direccion" name="direccion" required maxlength="100">
+          <div *ngIf="personaForm.controls['direccion'].invalid && personaForm.controls['direccion'].touched" class="error-message">
+            <div *ngIf="personaForm.controls['direccion'].hasError('required')">Dirección es requerida.</div>
+            <div *ngIf="personaForm.controls['direccion'].hasError('maxlength')">Dirección debe tener como máximo 100 caracteres.</div>
+          </div>
         </div>
-        <div class="form-group">
-            <label>Teléfono </label>
-            <input type="number" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono">
-        </div>
-        <div class="form-group">
-            <label>Correo </label>
-            <input type="text" class="form-control" id="correo" [(ngModel)]="persona.correo" name="correo">
-        </div>
-        <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label>Identificación: </label>
-                <input type="number" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion"
-                    name="identificacion">
-            </div>
 
-            <button class="btn btn-success">Guardar</button>
-            <button class="btn btn-danger" routerLink="/dashboard" style="margin-left : 10px">CANCELAR</button>
-        </form>
-    </form>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="number" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono" required pattern="[0-9]{7,10}">
+            <div *ngIf="personaForm.controls['telefono'].invalid && personaForm.controls['telefono'].touched" class="error-message">
+              <div *ngIf="personaForm.controls['telefono'].hasError('required')">Teléfono es requerido.</div>
+              <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">Teléfono debe tener entre 7 y 10 dígitos.</div>
+            </div>
+          </div>
+        
+      <div class="form-group">
+          <label for="correo">Correo:</label>
+          <input type="email" class="form-control" id="correo" [(ngModel)]="persona.correo" name="correo" required email>
+          <div *ngIf="personaForm.controls['correo'].invalid && personaForm.controls['correo'].touched" class="error-message">
+            <div *ngIf="personaForm.controls['correo'].hasError('required')">Correo es requerido.</div>
+            <div *ngIf="personaForm.controls['correo'].hasError('email')">Correo inválido.</div>
+          </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="identificacion">Identificación:</label>
+            <input type="number" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" name="identificacion" required pattern="[0-9]{11}">
+            <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched" class="error-message">
+              <div *ngIf="personaForm.controls['identificacion'].hasError('required')">Identificación es requerida.</div>
+              <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">Identificación debe tener 11 dígitos.</div>
+            </div>
+          </div>
+      
+        <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/dashboard" style="margin-left: 10px">CANCELAR</button>
+      </form>
 
 </div>
 </section>
