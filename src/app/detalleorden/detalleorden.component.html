@@ -11,13 +11,42 @@
     <h2>Empleado</h2>
     <p>Nombre del empleado: <span id="employee-name"></span></p>
 
-    <form id="search-form">
+    <form id="search-form" #miFormulario="ngForm">
       <label for="search-client">Buscar Cliente:</label>
-      <input type="text" id="search-client" name="search-client">
+      <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
 
-      <button type="submit">Buscar</button>
+      <button (click)= "buscarporcedula()"type="submit">Buscar</button>
+      <button class="btn btn-danger"  style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;" >CANCELAR</button>
     </form>
   </div>
+
+
+
+
+  <div class="table-container" id="div1">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cedula</th>
+          <th>Telefono</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of persona">
+          <td>{{persona.nombrePer }}</td>
+          <td>{{persona.identificacion }}</td>
+          <td>{{persona.telefono }}</td>
+          <button class="btn btn-info">SELECCIONAR</button>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+
+  
+
 
   <div class="main-content">
     <h1>Detalles de la Orden</h1>
