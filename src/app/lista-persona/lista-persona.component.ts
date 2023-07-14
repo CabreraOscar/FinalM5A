@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../modelo/persona';
 import { personaService } from '../_services/persona.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-persona',
@@ -25,13 +26,25 @@ export class ListaPersonaComponent implements OnInit {
   }
 
   eliminarPersona(id:number){
-    this.personaServicio.eliminarPersona(id).subscribe(dato => {
+  Swal.fire({
+    title: '¿Estás seguro de que deseas eliminar?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Eliminar',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.personaServicio.eliminarPersona(id).subscribe(dato => {
       
-      this.obtenerPersona();   //pa que se actualize
-    })
+        this.obtenerPersona();   //pa que se actualize
+      })
+      Swal.fire('Eliminado!', 'El elemento ha sido eliminado.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      // Acción cuando se hace clic en "Cancelar" o se cierra el SweetAlert
+      Swal.fire('Cancelado', 'La eliminación ha sido cancelada.', 'info');
+    }
+  });
   }
-
-
  obtenerPersona(){
   this.personaServicio.obtenerListaPersona().subscribe(dato => {
 this.persona=dato;

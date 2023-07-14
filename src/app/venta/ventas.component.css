@@ -1,4 +1,9 @@
 
+
+@media (max-width: 768px) {
+
+}
+
 .pedido-block {
   display: flex;
   flex-direction: column;
@@ -6,7 +11,8 @@
   justify-content: center;
   background: linear-gradient(to bottom right, blue, pink);
   width: 100%;
-  padding: 100px 0;
+  margin-left: 165px;
+padding: 137px;
 }
 .pedido-block .container {
   background: #D3D3D3;

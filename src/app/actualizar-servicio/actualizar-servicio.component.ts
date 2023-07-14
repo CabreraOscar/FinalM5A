@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Servicio } from '../modelo/servicio';
 import { ServicioService } from '../_services/servicio.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-servicio',
@@ -26,7 +27,7 @@ export class ActualizarServicioComponent implements OnInit {
       this.irAlaListaDeServicios();
     },error => console.log(error));
   }
-
+ 
 
   irAlaListaDeServicios(){
     this.router.navigate(['/servicio-admin']);
