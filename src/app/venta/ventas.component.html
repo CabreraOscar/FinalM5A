@@ -3,11 +3,13 @@
   <h1>Lista Venta</h1>
  <form id="search-form" #miFormulario="ngForm">
   <label for="search-fecha">Buscar fecha:</label>
-  <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="fecha" (blur)="verificarInput()">
+      <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="fecha" (blur)="verificarInput()" (ngModelChange)="buscarPorFechas()">
   
-        <button class="btn btn-info" (click)= "buscarPorFechas()"type="submit" style="margin-left : 10px;">Buscar</button>
-      </form>
-    
+      <button class="btn btn-info" (click)= "buscarPorFechas()"type="submit" style="margin-left : 10px;">Buscar</button>
+  <!-- <label for="search-fecha">Buscar fecha:</label>
+  <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="fecha" (blur)="verificarInput()">-->
+ </form> 
+      
   <table class="custom-table">
     <thead>
       <tr>
