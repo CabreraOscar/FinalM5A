@@ -18,7 +18,7 @@
 
 <div class="containeunion">
   <div class="contenedor1">
-    <div class="table">
+    <div class="table" style="height: 200px; overflow-y: scroll;">
       <table>
         <thead>
           <tr>
@@ -42,26 +42,31 @@
   </div>
 
   <div class="contenedor1">
-    <div class="table">
+    <div class="table" style="height: 200px; overflow-y: scroll;">
       <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-          </tr>
-
-        </tbody>
-      </table>
+    <thead>
+      <tr>
+        <th>Tamaño</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Grande</td>
+        <td>8.99</td>
+        <td>
+          <div class="spinner">
+            <input type="number" min="0" max="10" value="0">
+          </div>
+        </td>
+        <td>
+          <button>Seleccionar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
     </div>
   </div>
 
