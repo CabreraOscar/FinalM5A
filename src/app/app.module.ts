@@ -54,7 +54,8 @@ const routes:Routes = [
   { path: 'pantalla-empleado' ,component:PantallaEmpleadoComponent},
   { path: 'detalles-ordenes' ,component:DetalleOrdenComponent},
   { path: 'detalles-venta' ,component:DetalleVentaComponent},
-  { path: 'detalles-ordenes/:id', component:DetalleOrdenComponent}
+  { path: 'detalles-ordenes/:id', component:DetalleOrdenComponent},
+  { path: 'detalles-venta/:id', component:DetalleVentaComponent}
 
 ]
 

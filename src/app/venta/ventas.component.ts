@@ -4,8 +4,9 @@ import { VentasService } from '../_services/ventas.service';
 import Swal from 'sweetalert2';
 import { Persona } from '../modelo/persona';
 import { Empresa } from '../modelo/empresa';
-import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AllScriptServiceService } from '../all-script-service.service';
 @Component({
   selector: 'app-ventas',
   templateUrl: './ventas.component.html',
@@ -13,24 +14,19 @@ import { DatePipe } from '@angular/common';
 
 })
 export class VentasComponent implements OnInit {
+  inputValue: string = '';
+  id: number;
+
  
-  anio: number;
-  mes: number;
-  dia: number;
- 
-  fechaBusqueda: string;
   personas: Persona[];
   empresas: Empresa[];
 
   
- ventas: any[];
-
-  http: any;
-;
- 
-
-  constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe) {   
-   }
+ ventas: venta[];
+ ventasL: venta = new venta;
+  constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
+    AllScripts.Cargar(["default/ventanas"]);
+  }
 
   
    ngOnInit(): void {
@@ -42,39 +38,23 @@ export class VentasComponent implements OnInit {
       this.ventas = dato;
     });
   }
+
   
-  irventas(){
-    this.router.navigate(['detalles-venta']);
+  verVenta(id: number){
+    this.router.navigate(['detalles-venta', id]);
   }
-  
-  buscarPorFecha() {
-   const fecha = new Date(this.fechaBusqueda);
-    if (!this.fechaBusqueda) {
-      console.error('Fecha inválida');
-      return;
+  buscarPorFechas() {
+    this.ventas.splice(0, this.ventas.length);
+    const valor: string = this.inputValue;
+    this.ventasService.buscarPorFecha(valor).subscribe(dato => {
+      this.ventas = dato;
+    });
+
+  }
+  verificarInput(): void {
+    if (this.inputValue === '') {
+      this.obtenerventa();
     }
-
-    this.ventas = this.ventas.filter(venta => venta.fecha === this.fechaBusqueda);
-
-
-    const fechaSinHora = new Date(this.fechaBusqueda).toISOString().slice(0, 10);
-    this.ventas= this.ventas.filter(venta => venta.fecha.slice(0, 10) === fechaSinHora);
-    const fechaFormateada = this.datePipe.transform(fecha, 'yyyy-MM-dd');
-    const endpoint = `/buscar?fecha=${fechaFormateada}`;
-    this.http.get(endpoint).subscribe(
-      (respuesta: any[]) => {
-        console.log(respuesta);
-        if (Array.isArray(respuesta)) {
-          this.ventas = [...respuesta]; // Almacenar las ventas filtradas en "ventasFiltradas"
-        } else {
-          console.error('Formato de respuesta inválido');
-        }
-      },
-      (error: any) => {
-        console.error(error);
-        alert('No se pudo realizar la búsqueda');
-      }
-    );
   }
 
  
