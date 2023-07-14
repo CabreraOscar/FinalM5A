@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { orden } from './orden';
+import { orden } from '../modelo/orden';
 import Swal from 'sweetalert2';
-import { OrdenesService } from './ordenes.service';
+import { OrdenesService } from '../_services/ordenes.service';
 import { Persona } from '../modelo/persona';
 import { venta } from '../venta/venta';
 import { ActivatedRoute, Route, Router } from '@angular/router';

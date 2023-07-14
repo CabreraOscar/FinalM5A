@@ -1,4 +1,4 @@
-import { roles } from "../rol";
+import { roles } from "./rol";
 import { Persona } from "./persona";
 
 

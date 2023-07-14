@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { venta } from './venta';
-import { VentasService } from './ventas.service';
+import { VentasService } from '../_services/ventas.service';
 import Swal from 'sweetalert2';
 import { Persona } from '../modelo/persona';
-import { Empresa } from '../empresa';
+import { Empresa } from '../modelo/empresa';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 @Component({

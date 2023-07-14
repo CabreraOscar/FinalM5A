@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../modelo/persona';
 import { ActivatedRoute, Router } from '@angular/router';
-import { personaService } from '../persona.service';
+import { personaService } from '../_services/persona.service';
 
 @Component({
   selector: 'app-actualizar-persona',

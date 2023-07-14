@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Empresa } from '../empresa';
-import { EmpresaService } from '../empresa.service';
+import { Empresa } from '../modelo/empresa';
+import { EmpresaService } from '../_services/empresa.service';
 import { Router } from '@angular/router';
 import { AllScriptServiceService } from '../all-script-service.service';
 

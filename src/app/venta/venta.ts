@@ -1,4 +1,4 @@
-import { Empresa } from "../empresa";
+import { Empresa } from "../modelo/empresa";
 import { Persona } from "../modelo/persona";
 
 export class venta {

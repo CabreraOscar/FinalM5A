@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Maquina } from '../maquina';
-import { MaquinaService } from '../maquina.service';
+import { Maquina } from '../modelo/maquina';
+import { MaquinaService } from '../_services/maquina.service';
 import { Router } from '@angular/router';
 
 @Component({

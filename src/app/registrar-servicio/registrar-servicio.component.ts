@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Servicio } from '../servicio';
-import { ServicioService } from '../servicio.service';
+import { Servicio } from '../modelo/servicio';
+import { ServicioService } from '../_services/servicio.service';
 import { Router } from '@angular/router';
 
 @Component({

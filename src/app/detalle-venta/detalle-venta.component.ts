@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { venta } from '../venta/venta';
 import { Persona } from '../modelo/persona';
-import { Empresa } from '../empresa';
-import { VentasService } from '../venta/ventas.service';
+import { Empresa } from '../modelo/empresa';
+import { VentasService } from '../_services/ventas.service';
 import { Router } from '@angular/router';
 
 

@@ -1,9 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { detalleorden } from './detalleorden';
-import { DetalleordenService } from './detalleorden.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OrdenesService } from '../orden/ordenes.service';
-import { personaService } from '../persona.service';
+import { OrdenesService } from '../_services/ordenes.service';
+import { personaService } from '../_services/persona.service';
 import { Persona } from '../modelo/persona';
 @Component({
   selector: 'app-detalleorden',

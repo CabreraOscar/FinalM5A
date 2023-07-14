@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Maquina } from '../maquina';
+import { Maquina } from '../modelo/maquina';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MaquinaService } from '../maquina.service';
+import { MaquinaService } from '../_services/maquina.service';
 
 @Component({
   selector: 'app-actualizar-maquina',

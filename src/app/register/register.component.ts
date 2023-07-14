@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../modelo/Usuario';
 import { AuthService } from '../_services/auth.service';
-import { rolService } from '../rol.service';
-import { roles } from '../rol';
+import { rolService } from '../_services/rol.service';
+import { roles } from '../modelo/rol';
 import { Persona } from '../modelo/persona';
-import { personaService } from '../persona.service';
+import { personaService } from '../_services/persona.service';
 
 
 @Component({
