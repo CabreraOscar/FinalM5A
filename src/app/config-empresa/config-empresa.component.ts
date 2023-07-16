@@ -30,13 +30,6 @@ export class ConfigEmpresaComponent implements OnInit {
     });
   }
 
-  // guardarEmpresa(){
-  //   this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato =>{
-  //     console.log(dato);
-  //     this.obtenerEmpresa();
-  //   },error => console.log(error));
-  // }
-
 
   guardarEmpresa() {
     var nombreEmpresa = this.empresai.nombreEmpresa;
@@ -53,12 +46,22 @@ export class ConfigEmpresaComponent implements OnInit {
       return;
     }
   
+    // Lógica para registrar la empresa
+  
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro exitoso',
+      text: 'Los datos se han registrado correctamente'
+    });
+  
+  
+  
     this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato => {
       console.log(dato);
       this.obtenerEmpresa();
     }, error => console.log(error));
-   
   }
+  
   
 
 
@@ -84,6 +87,7 @@ export class ConfigEmpresaComponent implements OnInit {
     }
   actualizarEmpresa(id:number){
     this.router.navigate(['actualizar-empresa',id]);
+    
   }
 
 }

@@ -84,11 +84,12 @@
         <td>{{empresa.ruc}}</td>
         <td>{{empresa.ubicacion}}</td>
         <td>{{empresa.telefono}}</td>
-        <td><button class="btn btn-info" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button></td>
+        <td><button type="submit" class="btn btn-success" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button>
+        </td>
+        
         <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
             style="background-color: red;">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
 </section>
-<!-- <button type="submit" class="btn btn-success" [disabled]="empresaForm.invalid" style="background-color: green;">Guardar Empresa</button> -->

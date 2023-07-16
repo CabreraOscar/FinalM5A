@@ -18,7 +18,7 @@ servicio:Servicio= new Servicio();
   }
 
 
-  guardarServicio(){
+  guardarServicio() {
     var nombre = this.servicio.nombre;
     var descripcion = this.servicio.descripcion;
     var precio = this.servicio.precio;
@@ -31,12 +31,20 @@ servicio:Servicio= new Servicio();
       });
       return;
     }
-    this.servicioServicio.registrarMaquina(this.servicio).subscribe(dato =>{
+  
+    this.servicioServicio.registrarMaquina(this.servicio).subscribe(dato => {
       console.log(dato);
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'Los datos se han registrado correctamente'
+      });
       this.irAlalistaDeServicios();
-    },error => console.log(error)); 
+    }, error => {
+      console.log(error);
+    });
   }
-
+  
   irAlalistaDeServicios(){
     this.router.navigate(['/servicio-admin'])
   }

@@ -27,7 +27,7 @@ export class PersonaComponent implements OnInit {
     var telefono = this.persona.telefono;
     var correo = this.persona.correo;
     var identificacion = this.persona.identificacion;
-    
+  
     if (!nombrePer || !direccion || !telefono || !correo || !identificacion) {
       Swal.fire({
         icon: 'error',
@@ -36,15 +36,19 @@ export class PersonaComponent implements OnInit {
       });
       return;
     }
-    
+  
     this.personaServicio.registrarPersona(this.persona).subscribe(dato => {
       console.log(dato);
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'Los datos se han registrado correctamente'
+      });
       this.irAlalistaDePersona();
     }, error => {
       console.log(error);
     });
   }
-
 irAlalistaDePersona(){
   this.router.navigate(['/lista-persona'])
 }
