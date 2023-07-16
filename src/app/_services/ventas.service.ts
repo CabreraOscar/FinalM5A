@@ -17,10 +17,11 @@ export class VentasService {
   private baseURLA="http://localhost:8080/venta/actualizar";
   private baseURLE="http://localhost:8080/venta/eliminar";
   private baseURLB="http://localhost:8080/venta/buscar";
+  private baseURLO="http://localhost:8080/venta/porid";
   
  
-  buscarPorFecha( fecha: Date): Observable<venta>{
-    return this.httpClient.get<venta>(`${this.baseURLB}/${fecha}`)
+  buscarPorFecha( fecha: String): Observable<venta[]>{
+    return this.httpClient.get<venta[]>(`${this.baseURLB}/${fecha}`)
   }  
      
     
@@ -37,6 +38,10 @@ export class VentasService {
     return this.httpClient.delete(`${this.baseURLE}/${id}`);
   }
   
+  obtenerventaPorId(id: number): Observable<venta> {
+    return this.httpClient.get<venta>(`${this.baseURLO}/${id}`)
+  }
+
   registrarventa(venta:venta): Observable<Object>{
   return this.httpClient.post(`${this.baseURLC}`,venta)
   }

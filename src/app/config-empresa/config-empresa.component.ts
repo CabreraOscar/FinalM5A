@@ -30,15 +30,39 @@ export class ConfigEmpresaComponent implements OnInit {
     });
   }
 
-  guardarEmpresa(){
-    this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato =>{
+
+  guardarEmpresa() {
+    var nombreEmpresa = this.empresai.nombreEmpresa;
+    var ruc = this.empresai.ruc;
+    var ubicacion = this.empresai.ubicacion;
+    var telefono = this.empresai.telefono;
+    
+    if (!nombreEmpresa || !ruc || !ubicacion || !telefono) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar un campo obligatorio',
+      });
+      return;
+    }
+  
+    // Lógica para registrar la empresa
+  
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro exitoso',
+      text: 'Los datos se han registrado correctamente'
+    });
+  
+  
+  
+    this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato => {
       console.log(dato);
       this.obtenerEmpresa();
-    },error => console.log(error));
+    }, error => console.log(error));
   }
-
-
-
+  
+  
 
 
   eliminarEmpresa(idConfig:number){
@@ -63,6 +87,7 @@ export class ConfigEmpresaComponent implements OnInit {
     }
   actualizarEmpresa(id:number){
     this.router.navigate(['actualizar-empresa',id]);
+    
   }
 
 }
