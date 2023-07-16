@@ -21,7 +21,7 @@
 .background-container {
   content: "";
   position: absolute;
-  bottom: -192px;
+  bottom: -194px;
   left: 50%;
   transform: translateX(-50%);
   width: 980%;
