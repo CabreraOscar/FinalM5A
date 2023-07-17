@@ -51,8 +51,9 @@
             </div>
           </div>
       
-        <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/dashboard" style="margin-left: 10px">CANCELAR</button>
+        <!-- <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button> -->
+        <button type="submit" class="btn btn-success" onclick="guardarPersona()" style="background-color: green;">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/dashboard" style="margin-left: 10px">Cancelar</button>
       </form>
 
 </div>

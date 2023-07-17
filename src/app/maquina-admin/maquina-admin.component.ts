@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Maquina } from '../modelo/maquina';
 import { MaquinaService } from '../_services/maquina.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-maquina-admin',
@@ -23,13 +24,27 @@ export class MaquinaAdminComponent implements OnInit {
     this.router.navigate(['actualizar-maquina',id]);
   }
 
+  
   eliminarMaquina(id:number){
-    this.maquinaServicio.eliminarMaquina(id).subscribe(dato => {
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.maquinaServicio.eliminarMaquina(id).subscribe(dato => {
       
-      this.obtenerEmpleados();   //pa que se actualize
-    })
-  }
-
+          this.obtenerEmpleados();   //pa que se actualize
+        })
+        Swal.fire('Eliminado!', 'El elemento ha sido eliminado.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Acción cuando se hace clic en "Cancelar" o se cierra el SweetAlert
+        Swal.fire('Cancelado', 'La eliminación ha sido cancelada.', 'info');
+      }
+    });
+    }
 
  obtenerEmpleados(){
   this.maquinaServicio.obtenerListaMaquinas().subscribe(dato => {

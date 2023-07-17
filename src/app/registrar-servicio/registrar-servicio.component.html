@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<section class= "registr-servicio-block" >
 <h2>ADMINISTRACION DE SERVICIO</h2>
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">REGISTRO DE NUEVO SERVICIO</h3>
@@ -29,8 +30,9 @@
           </div>
           
       
-        <button type="submit" class="btn btn-success" [disabled]="servicioForm.invalid">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/servicio-admin" style="margin-left: 10px">CANCELAR</button>
+          <button type="submit" class="btn btn-success" onclick="guardarServicio()" style="background-color: green;">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/servicio-admin" style="margin-left: 10px">Cancelar</button>
       </form>
       
     </div>
+  </section>
