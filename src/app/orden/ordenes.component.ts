@@ -17,7 +17,6 @@ export class OrdenesComponent implements OnInit {
   inputValue: string = '';
   id: number;
   ordenes: orden[];
-  //ordenesb: orden[];
   personas: Persona[];
   ventas: venta[];
   ordenesO: orden = new orden;

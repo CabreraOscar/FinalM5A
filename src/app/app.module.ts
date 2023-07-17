@@ -30,6 +30,7 @@ import { PantallaEmpleadoComponent } from './pantalla-empleado/pantalla-empleado
 import { DetalleOrdenComponent } from './detalle-orden/detalle-orden.component';
 import { DetalleVentaComponent } from './detalle-venta/detalle-venta.component';
 import { DatePipe } from '@angular/common';
+import { GenerarVentasComponent } from './generar-ventas/generar-ventas.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -75,8 +76,8 @@ const routes:Routes = [
   { path: 'detalles-ordenes' ,component:DetalleOrdenComponent},
   { path: 'detalles-venta' ,component:DetalleVentaComponent},
   { path: 'detalles-ordenes/:id', component:DetalleOrdenComponent},
+  { path: 'generar-ventas',component:GenerarVentasComponent},
   { path: 'detalles-venta/:id', component:DetalleVentaComponent}
-
 
 ]
 
@@ -108,6 +109,8 @@ const routes:Routes = [
    PantallaEmpleadoComponent,
    DetalleOrdenComponent,
    DetalleVentaComponent,
+   GenerarVentasComponent,
+   
 
 
   ],

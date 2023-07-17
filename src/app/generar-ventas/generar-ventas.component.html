@@ -1,0 +1,126 @@
+<div class="containeunion">
+    <div class="container">
+        <h1>Generar Ventas</h1>
+        <div class="sidebar">
+            <h2>Ordenes</h2>
+            <form id="search-form" #miFormulario="ngForm">
+                <label for="search-client" style="margin-right: 10px;">Buscar Ordenes:</label>
+                <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cedula"
+                    (blur)="verificarInput()" style="height: 37px;">
+
+                <button class="btn btn-info" (click)="buscarVentaPorCedula()" type="submit"
+                    style="margin-left: 10px;">Buscar</button>
+                <button class="btn btn-danger" (click)="obtenerOrden()"
+                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
+            </form>
+        </div>
+        <div class="table" style="height: 200px; overflow-y: scroll;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número de Orden</th>
+                        <th>Estado</th>
+                        <th>Total Orden</th>
+                        <th>Cedula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let orden of ordenesV">
+                        <td>{{orden.idOrden}}</td>
+                        <td>{{orden.estado}}</td>
+                        <td>{{orden.totalOrden}}</td>
+                        <td>{{orden.personaO.identificacion}}</td>
+                        <td><button class="btn btn-info" (click)="seleccionarOrden(orden)">Seleccionar Orden</button>
+                        <td><button class="btn btn-danger" (click)="seleccionarOrden(orden)" style="background-color: brown;">Quitar Orden</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table" style="height: 200px; overflow-y: scroll;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre de la Persona</th>
+                    <th>Correo Electronico</th>
+                    <th>Cedula de Identidad</th>
+                    <th>Direccion</th>
+                    <th>Numero Telefonico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of listaPersona">
+                    <td>{{persona.nombrePer}}</td>
+                    <td>{{persona.correo}}</td>
+                    <td>{{persona.identificacion}}</td>
+                    <td>{{persona.direccion}}</td>
+                    <td>{{persona.telefono}}</td>
+                    <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    </div>
+
+    <div class="container1">
+        <div class="form-group">
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaV" disabled>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Cliente:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="clienteV" disabled>
+        </div>
+
+        <!--<div class="form-group">
+            <div *ngIf="ordenesSeleccionadas.length > 0">
+            <label for="Orden">Orden:</label>
+            <div *ngFor="let orden of ordenesSeleccionadas">
+                <input type="text" [value]="orden.idOrden" readonly>
+            </div>
+        </div>
+        </div>-->
+
+        <ng-container *ngIf="ordenesSeleccionadas.length > 0">
+            <label>Órdenes seleccionadas:
+                <span *ngFor="let orden of ordenesSeleccionadas; let last = last">
+                    {{ orden.idOrden }}{{ last ? '' : ',' }}
+                </span>
+            </label>
+        </ng-container>
+
+        <div class="form-group">
+            <label for="telefono">Fecha:</label>
+            <input type="date" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Tipo de pago</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Subtotal:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="totalOrdenV" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Descuento</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Iva</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Total</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+        </div>
+        <button type="submit" class="btn btn-success" style="background-color: green;">Guardar Venta</button>
+    </div>
+
+</div>

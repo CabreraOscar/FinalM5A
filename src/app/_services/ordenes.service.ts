@@ -12,7 +12,9 @@ export class OrdenesService {
   private baseURLA = "http://localhost:8080/orden/actualizar";
   private baseURLE = "http://localhost:8080/orden/eliminar";
   private baseURLO = "http://localhost:8080/orden/porid";
-  private baseURLB = "http://localhost:8080/orden/buscar"
+  private baseURLB = "http://localhost:8080/orden/buscar";
+  private baseURLMNN = "http://localhost:8080/orden/listarnonull";
+  private baseURLMN = "http://localhost:8080/orden/listarnull";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +25,11 @@ export class OrdenesService {
 
   //este metodo trae las maquinas
   getOrdenes(): Observable<orden[]> {
-    return this.httpClient.get<orden[]>(`${this.baseURL}`);
+    return this.httpClient.get<orden[]>(`${this.baseURLMNN}`);
+  }
+
+  getOrdenesNull(): Observable<orden[]> {
+    return this.httpClient.get<orden[]>(`${this.baseURLMN}`);
   }
 
   eliminarC(id: number): Observable<object> {

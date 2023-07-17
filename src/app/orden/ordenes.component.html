@@ -2,13 +2,15 @@
 <section class="pedido-block">
     <h1>Lista de Ordenes</h1>
     <div class="buscar">
-    <form id="search-form" #miFormulario="ngForm">
-        <label for="search-client">Buscar Cliente:</label>
-        <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula"  (blur)="verificarInput()">
-  
-        <button class="btn btn-info" (click)= "buscarporcedula()"type="submit" style="margin-left : 10px;">Buscar</button>
-        <button class="btn btn-danger"  (click)= "obtenerOrdenes()" style="margin-left : 10px;background-color: brown;" >CANCELAR</button>
-      </form>
+        <form id="search-form" #miFormulario="ngForm">
+            <label for="search-client">Buscar Cliente:</label>
+            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula" (blur)="verificarInput()">
+
+            <button class="btn btn-info" (click)="buscarporcedula()" type="submit"
+                style="margin-left : 10px;">Buscar</button>
+            <button class="btn btn-danger" (click)="obtenerOrdenes()"
+                style="margin-left : 10px;background-color: brown;">CANCELAR</button>
+        </form>
     </div>
     <table class="table">
         <thead>
@@ -22,18 +24,18 @@
         </thead>
         <tbody>
             <tr *ngFor="let orden of ordenes">
-                    <td>{{orden.idOrden}}</td>
-                    <td>{{orden.estado}}</td>
-                    <td>{{orden.totalOrden}}</td>
-                    <td>{{orden.personaO.identificacion}}</td>
-                    <td>{{orden.venta.idVenta}}</td>
-                    <td><button class="btn btn-info" (click)="verOrden(orden.idOrden)">Ver Detalles</button></td>
+                <td>{{orden.idOrden}}</td>
+                <td>{{orden.estado}}</td>
+                <td>{{orden.totalOrden}}</td>
+                <td>{{orden.personaO.identificacion}}</td>
+                <td>{{orden.venta.idVenta}}</td>
+                <td><button class="btn btn-info" (click)="verOrden(orden.idOrden)">Ver Detalles</button></td>
             </tr>
-        
+
         </tbody>
     </table>
 </section>
 
 <script>
- 
+
 </script>
