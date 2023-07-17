@@ -1,0 +1,96 @@
+.containeunion {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pedido-block {
+    display: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, blue, pink);
+    width: auto;
+    padding: 20px;
+
+
+}
+
+.container1 {
+    background: #D3D3D3;
+    border-radius: 10px;
+    width: 345px;
+    height: 45%;
+    padding: 20px;
+    margin: 10px;
+    margin-right: 100px;
+}
+
+
+.container {
+    border-radius: 10px;
+    width: 1000px;
+    padding: 20px;
+    height: 30%;
+
+}
+
+
+
+.pedido-block label {
+    font-weight: bold;
+}
+
+.pedido-block input[type="text"],
+.pedido-block input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.pedido-block button {
+    background: #0069c0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    flex: 1;
+}
+
+/*.table {
+    background: #D3D3D3;
+    border-radius: 10px;
+    margin: 5px;
+    width: 700px;
+}*/
+
+.table {
+    background: #D3D3D3;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: auto;
+    flex: 0 0 50%;
+
+}
+
+
+.btnActualizar {
+    background: rgb(95, 146, 95);
+}
+
+
+.form-control {
+    width: 300px;
+    /* Cambiar el ancho del campo de entrada */
+    height: 30px;
+    /* Cambiar la altura del campo de entrada */
+}
+
+.form-group {
+    height: 45px;
+}
+
+.input {
+    margin-left: 20px;
+}
