@@ -54,4 +54,20 @@ export class OrdenesComponent implements OnInit {
     }
   }
 
+  obtenerTextoEstado(estado: number): string {
+    switch (estado) {
+      case 0:
+        return 'Pendiente';
+      case 1:
+        return 'En proceso';
+      case 2:
+        return 'Listo';
+      case 3:
+        return 'Entregado';
+      default:
+        return 'Desconocido';
+    }
+  }
+  
+
 }

@@ -25,7 +25,7 @@
         <tbody>
             <tr *ngFor="let orden of ordenes">
                 <td>{{orden.idOrden}}</td>
-                <td>{{orden.estado}}</td>
+                <td>{{ obtenerTextoEstado(orden.estado) }}</td>
                 <td>{{orden.totalOrden}}</td>
                 <td>{{orden.personaO.identificacion}}</td>
                 <td>{{orden.venta.idVenta}}</td>

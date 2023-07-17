@@ -12,14 +12,16 @@ import { Persona } from '../modelo/persona';
 export class GenerarVentasComponent implements OnInit {
 
   inputValue: string = '';
+  inputValueP: string = '';
   ordenesV: orden[];
   listaPersona: Persona[];
   personaOrden: Persona = new Persona();
+  personax: Persona = new Persona();
   ordenSelect: orden = new orden();
   cedulaV: string = '';
   clienteV: string = '';
   totalOrdenV: number;
-  
+
 
   constructor(private ordenService: OrdenesService, private personaService: personaService) { }
 
@@ -31,11 +33,12 @@ export class GenerarVentasComponent implements OnInit {
   obtenerOrden() {
     this.ordenService.getOrdenesNull().subscribe(dato => {
       this.ordenesV = dato;
+
       console.log(dato);
     });
   }
 
-  obtenerPersona(){
+  obtenerPersona() {
     this.personaService.obtenerListaPersona().subscribe(dato => {
       this.listaPersona = dato;
       console.log(dato);
@@ -48,6 +51,16 @@ export class GenerarVentasComponent implements OnInit {
     const valor: string = this.inputValue;
     this.ordenService.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
       this.ordenesV = dato;
+    });
+
+  }
+
+  buscarPersonaPorcedula() {
+    const valor: string = this.inputValueP;
+    this.personaService.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
+      this.personax = dato;
+      this.listaPersona.splice(0, this.listaPersona.length);
+      this.listaPersona.push(this.personax);
     });
 
   }
@@ -76,6 +89,23 @@ export class GenerarVentasComponent implements OnInit {
       this.ordenesSeleccionadas = this.ordenesSeleccionadas.filter(item => item !== ordenes);
     } else {
       this.ordenesSeleccionadas.push(ordenes);
+    }
+  }
+
+
+  // Cambiar de numero a el nombre del estado
+  obtenerTextoEstado(estado: number): string {
+    switch (estado) {
+      case 0:
+        return 'Pendiente';
+      case 1:
+        return 'En proceso';
+      case 2:
+        return 'Listo';
+      case 3:
+        return 'Entregado';
+      default:
+        return 'Desconocido';
     }
   }
 

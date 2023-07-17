@@ -18,11 +18,12 @@
 .container1 {
     background: #D3D3D3;
     border-radius: 10px;
-    width: 345px;
+    width: 455px;
     height: 45%;
     padding: 20px;
     margin: 10px;
     margin-right: 100px;
+    margin-top: 68px;
 }
 
 
@@ -88,9 +89,12 @@
 }
 
 .form-group {
-    height: 45px;
+    height: 55px;
+    display: flex;
+    align-items: center;
 }
 
 .input {
     margin-left: 20px;
 }
+
