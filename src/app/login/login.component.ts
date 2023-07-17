@@ -23,13 +23,13 @@ export class LoginComponent implements OnInit {
 
 onSubmit(): void {
   this.loading = true;
-
   this.auth.login(this.formdata.username, this.formdata.clave)
     .subscribe({
       next: data => {
         this.auth.storeToken(data.token);
         console.log('Logged in ' + data.token);
-        this.auth.canAuthenticate(); 
+        localStorage.setItem("idRol",data.roles.idRol);
+        this.auth.confirmaRol(data.roles.idRol);
       },
       error: data => {
         if (data.error.error.message == "INVALID_EMAIL") {

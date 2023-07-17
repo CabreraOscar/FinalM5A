@@ -40,11 +40,26 @@ export class AuthService {
 
   canAuthenticate() {
     if (this.isAuthenticated()) {
-    
-      this.router.navigate(['/dashboard']);
+  
+      if(Number(localStorage.getItem("idRol"))===1) {
+        this.router.navigate(['/dashboard']); 
+       }else{
+        this.router.navigate(['/pantalla-empleado']);
+       }
     }
-  }
 
+    //let user = String(localStorage.getItem("user"));
+  }
+confirmaRol(roll:number){
+  if (this.isAuthenticated()) {
+    
+    if(roll===1){
+     this.router.navigate(['/dashboard']); 
+    }else{
+     this.router.navigate(['/pantalla-empleado']);
+    }
+   }
+}
   login(username: string, clave: string): Observable<any> {
     const data = {
       username: username,

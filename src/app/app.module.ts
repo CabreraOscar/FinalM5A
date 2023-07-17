@@ -108,7 +108,7 @@ const routes:Routes = [
    PantallaEmpleadoComponent,
    DetalleOrdenComponent,
    DetalleVentaComponent,
-   
+
 
   ],
   imports: [
