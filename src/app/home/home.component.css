@@ -5,31 +5,9 @@
   background-position: center;
   width: 100%;
   height: 100vh;
+  
 }
 
 
-.background-container {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 980%;
-  height: 10%;
-  pointer-events: none;
-  background-image: url("/assets/imagenes/burbuja.gif");
-  background-repeat: repeat;
-  animation: bubbles 5s infinite;
-}
 
-@keyframes bubbles {
-  0% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, -5%);
-  }
-  100% {
-    transform: translate(-50%, 0);
-  }
-}
+

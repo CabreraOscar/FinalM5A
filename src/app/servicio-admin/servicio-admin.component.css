@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom right, blue, pink);
+    background: linear-gradient(to bottom right, rgb(82, 82, 241), rgb(190, 16, 176));
     width: 100%;
-    padding: 151px;
+    padding: 183px;
 }
 .pedido-block .container {
     background: #D3D3D3;

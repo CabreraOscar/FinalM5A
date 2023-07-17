@@ -109,7 +109,7 @@ const routes:Routes = [
    PantallaEmpleadoComponent,
    DetalleOrdenComponent,
    DetalleVentaComponent,
-   GenerarVentasComponent,
+   GenerarVentasComponent
    
 
 
