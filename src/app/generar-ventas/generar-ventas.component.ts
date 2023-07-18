@@ -12,7 +12,7 @@ import { Persona } from '../modelo/persona';
 export class GenerarVentasComponent implements OnInit {
 
   inputValue: string = '';
-  inputValueP: string = '';
+  inputValueP:string = '';
   ordenesV: orden[];
   listaPersona: Persona[];
   personaOrden: Persona = new Persona();
@@ -56,11 +56,12 @@ export class GenerarVentasComponent implements OnInit {
   }
 
   buscarPersonaPorcedula() {
-    const valor: string = this.inputValueP;
-    this.personaService.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
+    
+    this.personaService.obtenerPersonaPoridentificacion(this.inputValueP).subscribe(dato => {
       this.personax = dato;
       this.listaPersona.splice(0, this.listaPersona.length);
       this.listaPersona.push(this.personax);
+      console.log(this.listaPersona.length);
     });
 
   }
@@ -70,6 +71,12 @@ export class GenerarVentasComponent implements OnInit {
   verificarInput(): void {
     if (this.inputValue === '') {
       this.obtenerOrden();
+    }
+  }
+
+  verificarInputP(): void {
+    if (this.inputValue === '') {
+      this.obtenerPersona();
     }
   }
   ordenesSeleccionadas: orden[] = [];
