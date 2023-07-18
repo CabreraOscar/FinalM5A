@@ -2,13 +2,14 @@
 <section class="pedido-block">
   <h1>Lista Venta</h1>
   <form id="search-form" #miFormulario="ngForm">
-    <label for="search-fecha">Buscar fecha:</label>
-    <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio">
-    <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin">
-    
-    <button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px;">Buscar</button>
-  </form>
-      
+  <label for="search-fecha">Buscar fecha:</label>
+  <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio"(blur)="verificarInput()">
+  <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin"(blur)="verificarInput()">
+  
+  <button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px;">Buscar</button>
+ 
+</form>
+
   <table class="custom-table">
     <thead>
       <tr>
