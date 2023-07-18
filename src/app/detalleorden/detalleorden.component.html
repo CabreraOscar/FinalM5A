@@ -1,12 +1,12 @@
 <body style="background-color: purple">
   <div class="containeunion">
     <div class="container">
-      <div style="background-color: #D3D3D3; border-radius: 10px; margin-right: 500px; padding: 10px; margin-bottom: 30px;">
-        <h1>Detalles de la Orden</h1>
-        <div class="sidebar">
-          <h2>Empleado</h2>
-          <p>Nombre del empleado: <span id="employee-name"></span></p>
-
+      
+       
+      <div class="containeruno">
+        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
+          <h5>Detalle Persona</h5>
+          
           <form id="search-form" #miFormulario="ngForm">
             <label for="search-client">Buscar Cliente:</label>
             <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
@@ -15,11 +15,6 @@
             <button (click)="obtenerPersona()" class="btn btn-danger"
               style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
           </form>
-        </div>
-      </div>
-      <div class="containeruno">
-        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
-          <h5>Detalle Persona</h5>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
