@@ -1,155 +1,173 @@
-<section class="pedido-block">
-  <h1>Detalles de la Orden</h1>
-  <div class="sidebar">
-    <h2>Empleado</h2>
-    <p>Nombre del empleado: <span id="employee-name"></span></p>
+<body style="background-color: purple">
+  <div class="containeunion">
+    <div class="container">
+      <div style="background-color: #D3D3D3; border-radius: 10px; margin-right: 500px; padding: 10px; margin-bottom: 30px;">
+        <h1>Detalles de la Orden</h1>
+        <div class="sidebar">
+          <h2>Empleado</h2>
+          <p>Nombre del empleado: <span id="employee-name"></span></p>
 
-    <form id="search-form" #miFormulario="ngForm">
-      <label for="search-client">Buscar Cliente:</label>
-      <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
+          <form id="search-form" #miFormulario="ngForm">
+            <label for="search-client">Buscar Cliente:</label>
+            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
 
-      <button (click)="buscarporcedula()" type="submit">Buscar</button>
-      <button (click)="obtenerPersona()" class="btn btn-danger"
-        style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
-    </form>
-  </div>
-</section>
+            <button (click)="buscarporcedula()" type="submit">Buscar</button>
+            <button (click)="obtenerPersona()" class="btn btn-danger"
+              style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
+          </form>
+        </div>
+      </div>
+      <div class="containeruno">
+        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
+          <h5>Detalle Persona</h5>
+          <div class="table" style="height: 200px; overflow-y: scroll;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cedula</th>
+                  <th>Telefono</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let persona of persona">
+                  <td>{{persona.nombrePer }}</td>
+                  <td>{{persona.identificacion }}</td>
+                  <td>{{persona.telefono }}</td>
+                  <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+                </tr>
 
-
-<div class="containeunion">
-  <div class="contenedor1">
-    <div class="table" style="height: 200px; overflow-y: scroll;">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="contenedor1">
-    <div class="table" style="height: 200px; overflow-y: scroll;">
-      <table>
-    <thead>
-      <tr>
-        <th>Tamaño</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Grande</td>
-        <td>8.99</td>
-        <td>
-          <div class="spinner">
-            <input type="number" min="0" max="10" value="0">
+              </tbody>
+            </table>
           </div>
-        </td>
-        <td>
-          <button>Seleccionar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+
+        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
+          <h5>Listado Servicio</h5>
+          <div class="table" style="height: 200px; overflow-y: scroll;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tamaño</th>
+                  <th>Precio U</th>
+                  <th>Cantidad</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let maquina of maquinas; let i = index">
+                  <td>{{maquina.tamano}}</td>
+                  <td>{{maquina.precio}}</td>
+                  <td>
+                    <div class="spinner">
+                      <input type="number" min="0" max="10" value="1" [ngModel]="cantidad_maq[i]"
+                        (ngModelChange)="cantidad_maq[i] = $event">
+                    </div>
+                  </td>
+                  <td>
+                    <button (click)="crearItemMaquina(maquina, cantidad_maq[i])">Seleccionar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="containercinco">
+
+        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-right: 10px;">
+          <h5>Listado Maquina</h5>
+          <div class="table" style="height: 200px; overflow-y: scroll;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Servicio</th>
+                  <th>Precio U</th>
+                  <th>Cantidad dadasadadasd</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let servicio of servicios; let i = index">
+                  <td>{{servicio.nombre}}</td>
+                  <td>{{servicio.precio}}</td>
+                  <td>
+                    <div class="spinner">
+                      <input type="number" min="0" max="10" value="0" [ngModel]="cantidad_ser[i]"
+                        (ngModelChange)="cantidad_ser[i] = $event">
+                    </div>
+                  </td>
+                  <td>
+                    <button (click)="crearItemServicio(servicio, cantidad_ser[i])">Seleccionar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px;">
+          <h5>Cuadro de Seleccion</h5>
+          <div class="table" style="height: 200px; overflow-y: scroll;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Servi/maquina</th>
+                  <th>Precio T</th>
+                  <th>Cantidad</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listaItem">
+                  <td>M/S/SELECT</td>
+                  <td>{{item.precioTotal}}</td>
+
+                  <td>
+                    {{item.cantidad}}
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+            <button (click)="eliminaritems()">CANCELAR </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container1" >
+      <h1 style="margin-bottom: 30px;">Detalles de la Orden</h1>
+      <div class="form-group">
+        <label for="cedula" style="margin-right: 10px;">Cedula:</label>
+        <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled>
+      </div>
+      <div class="form-group">
+        <label for="nombre" style="margin-right: 10px;">Cliente:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
+      </div>
+      <div class="form-group">
+        <label for="servicio" style="margin-right: 10px;">Servicio:</label>
+        <input type="text" id="servicio" name="servicio" [value]="suan" disabled>
+      </div>
+      <div class="form-group">
+        <label for="maquina" style="margin-right: 10px;">Maquina:</label>
+        <input type="text" id="maquina" name="maquina" [value]="suan" disabled>
+      </div>
+      <div class="form-group">
+        <label for="fecha" style="margin-right: 10px;">Fecha :</label>
+        <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
+      </div>
+      <div class="form-group">
+        <label for="total" style="margin-right: 10px;">Total:</label>
+        <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
+      </div>
+      <button type="submit" (click)="crearOrden()">Agregar Orden</button>
     </div>
   </div>
-
-
-
-
-  <div class="contenedor">
-    <h1>Detalles de la Orden</h1>
-    <div class="form-group">
-      <label for="cedula">Cedula:</label>
-      <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled>
-    </div>
-    <div class="form-group">
-      <label for="nombre">Cliente:</label>
-      <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
-    </div>
-    <div class="form-group">
-      <label for="servicio">Servicio:</label>
-      <input type="text" id="servicio" name="servicio" [value]="suan" disabled>
-    </div>
-    <div class="form-group">
-      <label for="maquina">Maquina:</label>
-      <input type="text" id="maquina" name="maquina" [value]="suan" disabled>
-    </div>
-    <div class="form-group">
-      <label for="fecha">Fecha :</label>
-      <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
-    </div>
-    <div class="form-group">
-      <label for="total">Total:</label>
-      <input type="text" id="total" name="total" [value]="suan" disabled>
-    </div>
-    <button type="submit">Agregar Orden</button>
-  </div>
-</div>
-
-<div class="contenunion">
-  <div class="contenedor1">
-    <div class="table">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="contenedor1">
-    <div class="table">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</div>
+</body>

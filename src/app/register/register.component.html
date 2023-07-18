@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-
 <section class="register-block">
   <div class="container">
     <h2 class="text-center">Registrar Empleados</h2>
@@ -24,9 +23,6 @@
           </span>
         </div>
       </div>
-
-
-      
       <div class="col-md-6">
         <div class="form-group">
           <label for="rolList" class="text">Roles</label>
@@ -37,15 +33,8 @@
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="personaList" class="text">Personas</label>
-          <br>
-          <ul id="personaList">
-            <li *ngFor="let persona of persona" (click)="seleccionarPersona(persona)" [ngStyle]="{'background-color': persona === personaSeleccionado ? 'lightblue' : 'transparent', 'font-weight': persona === personaSeleccionado ? 'bold' : 'normal'}">{{ persona.nombrePer }}</li>
-          </ul>
-        </div>
-      </div>
+      
+      
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -66,5 +55,25 @@
         </div>
       </div>
     </div>
+  </div>
+
+  
+
+    <div class="table" style="height: 180px; overflow-y: scroll;">
+      <table>
+          <thead>
+              <tr>
+                  <th>Nombre </th>
+                  <th>Cedula </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let personal of persona">
+                  <td>{{personal.nombrePer}}</td>
+                  <td>{{personal.identificacion}}</td>
+                  <td><button class="btn btn-info" (click)="seleccionarPersona(personal)">Seleccionar</button></td>
+              </tr>
+          </tbody>
+      </table>
   </div>
 </section>
