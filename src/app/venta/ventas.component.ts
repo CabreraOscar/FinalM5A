@@ -45,12 +45,7 @@ export class VentasComponent implements OnInit {
   verVenta(id: number){
     this.router.navigate(['detalles-venta', id]);
   }
-  // buscarPorFechas() {
-  //   this.ventas.splice(0, this.ventas.length);
-  //   const valor: string = this.inputValue;
-  //   this.ventasService.buscarPorFecha(valor).subscribe(dato => {
-  //     this.ventas = dato;
-  //   });
+
   buscarPorFechas() {
     // Filtra las ventas que estén dentro del rango de fechas.
     this.ventas = this.ventas.filter(venta => {
