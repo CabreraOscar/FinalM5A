@@ -24,6 +24,8 @@ export class VentasComponent implements OnInit {
   
  ventas: venta[];
  ventasL: venta = new venta;
+ fechaInicio: string = '';
+ fechaFin: string = '';
   constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -43,14 +45,22 @@ export class VentasComponent implements OnInit {
   verVenta(id: number){
     this.router.navigate(['detalles-venta', id]);
   }
+  // buscarPorFechas() {
+  //   this.ventas.splice(0, this.ventas.length);
+  //   const valor: string = this.inputValue;
+  //   this.ventasService.buscarPorFecha(valor).subscribe(dato => {
+  //     this.ventas = dato;
+  //   });
   buscarPorFechas() {
-    this.ventas.splice(0, this.ventas.length);
-    const valor: string = this.inputValue;
-    this.ventasService.buscarPorFecha(valor).subscribe(dato => {
-      this.ventas = dato;
+    // Filtra las ventas que estén dentro del rango de fechas.
+    this.ventas = this.ventas.filter(venta => {
+      const fechaVenta: String = new String(venta.fecha);
+  
+      // Devuelve true si la fecha de la venta está dentro del rango especificado.
+      return fechaVenta >= this.fechaInicio && fechaVenta <= this.fechaFin;
     });
-
   }
+ 
   verificarInput(): void {
     if (this.inputValue === '') {
       this.obtenerventa();
