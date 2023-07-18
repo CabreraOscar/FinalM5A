@@ -8,7 +8,7 @@
     background-color: #f2f2f2;
     padding: 20px;
     width: 200px;
-    background: linear-gradient(to bottom, #32dbf1, #9701c5);
+    background: linear-gradient(to bottom, #04d1ec, #9701c5);
     margin-left: -115px; 
     margin-top: 49px;
     
@@ -18,7 +18,6 @@
     padding: 5px;
     border-bottom: 1px solid #ccc; /* Agregar una línea divisoria inferior */
   }
-  
   .button-container:last-child {
     border-bottom: none; /* Quitar la línea divisoria inferior del último contenedor */
   }
@@ -26,14 +25,14 @@
     display: flex;
     flex-direction: column;
     border: #b8babbfd;
+    
   }
   
   .button {
     margin-bottom: 10px;
   }
   
-  
-  
+
   .button {
     display: block;
     width: 90%;
@@ -49,9 +48,6 @@
     background-color: #ccc;
   }
   
-  .content {
-    flex-grow: 1;
-    
-   
-  }
  
+  
+  

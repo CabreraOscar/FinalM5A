@@ -1,17 +1,13 @@
-.register-block{
-  float:left;
-  width:100%;
-  padding : 150px 0;
-}
+
 .register-block {
-  background-image: url('/assets/imagenes/fondoregistro.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 165px;
+  float:left;
+  width:100%;
+  padding: 201px;
   background: linear-gradient(to bottom, #21a3ee, #a32699);
 }
-
 
 
 @media (max-width: 768px) {
@@ -22,9 +18,23 @@
   background-color: rgb(94, 168, 230);
   font-weight: bold;
 }
+.table{
+    background: #D3D3D3;
+    border-radius: 10px;
+    width: 40%;
+    height: 30%;
+    margin-left: 500px; 
+    margin-top: -220px;
+   
+}
 
-
-.container{background:#D3D3D3; border-radius: 10px; width: 40%; height: 40%;}
+.container{
+ 
+  background:#D3D3D3; 
+  border-radius: 10px; 
+  width: 40%; 
+  height: 40%;  
+  margin-left: 110px; }
 .register-sec{padding: 50px 30px; position:relative;}
 .register-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;}
 .register-sec h2:after{content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}

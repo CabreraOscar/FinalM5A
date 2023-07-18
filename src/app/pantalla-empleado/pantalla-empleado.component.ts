@@ -54,7 +54,9 @@ integrador:number;
     this.router.navigate(['/detalleorden'])
   }
 
-
+  Ventas(){
+    this.router.navigate(['/generar-ventas'])
+  }
 
   public obtenerUltimoId(): number {
     if (this.ordenlista.length > 0) {
