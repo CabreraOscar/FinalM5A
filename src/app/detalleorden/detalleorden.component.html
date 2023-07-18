@@ -45,24 +45,24 @@
     <div class="table" style="height: 200px; overflow-y: scroll;">
       <table>
     <thead>
-      <tr>
+      <tr >
         <th>Tamaño</th>
-        <th>Precio</th>
+        <th>Precio U</th>
         <th>Cantidad</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Grande</td>
-        <td>8.99</td>
+      <tr *ngFor= "let maquina of maquinas; let i = index">
+        <td>{{maquina.tamano}}</td>
+        <td>{{maquina.precio}}</td>
         <td>
           <div class="spinner">
-            <input type="number" min="0" max="10" value="0">
+            <input type="number" min="0" max="10" value="1" [ngModel]="cantidad_maq[i]" (ngModelChange)="cantidad_maq[i] = $event">
           </div>
         </td>
         <td>
-          <button>Seleccionar</button>
+          <button (click)= "crearItemMaquina(maquina, cantidad_maq[i])">Seleccionar</button>
         </td>
       </tr>
     </tbody>
@@ -97,59 +97,68 @@
     </div>
     <div class="form-group">
       <label for="total">Total:</label>
-      <input type="text" id="total" name="total" [value]="suan" disabled>
+      <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
     </div>
-    <button type="submit">Agregar Orden</button>
+    <button type="submit" (click)= "crearOrden()">Agregar Orden</button>
   </div>
 </div>
 
 <div class="contenunion">
   <div class="contenedor1">
-    <div class="table">
+    <div class="table" style="height: 200px; overflow-y: scroll;">
       <table>
         <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
+          <tr >
+            <th>Servicio</th>
+            <th>Precio U</th>
+            <th>Cantidad</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+          <tr *ngFor= "let servicio of servicios; let i = index">
+            <td>{{servicio.nombre}}</td>
+            <td>{{servicio.precio}}</td>
+            <td>
+              <div class="spinner">
+                <input type="number" min="0" max="10" value="0" [ngModel]="cantidad_ser[i]" (ngModelChange)="cantidad_ser[i] = $event">
+              </div>
+            </td>
+            <td>
+              <button (click)= "crearItemServicio(servicio, cantidad_ser[i])">Seleccionar</button>
+            </td>
           </tr>
-
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="contenedor1">
-    <div class="table">
+    <div class="table" style="height: 200px; overflow-y: scroll;">
       <table>
         <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cedula</th>
-            <th>Telefono</th>
+          <tr >
+            <th>Servi/maquina</th>
+            <th>Precio T</th>
+            <th>Cantidad</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td>{{persona.telefono }}</td>
-            <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
-          </tr>
+          <tr *ngFor= "let item of listaItem">
+            <td>M/S/SELECT</td>
+            <td>{{item.precioTotal}}</td>
 
+            <td>
+              {{item.cantidad}}
+            </td>
+            
+          </tr>
         </tbody>
       </table>
+      
     </div>
+    <button (click)= "eliminaritems()">CANCELAR </button>
   </div>
 
 </div>
