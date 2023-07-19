@@ -18,14 +18,34 @@
   background-color: rgb(94, 168, 230);
   font-weight: bold;
 }
-.table{
-    background: #D3D3D3;
+
+body {
+  background-color: lightgray;
+  background: #D3D3D3;
     border-radius: 10px;
     width: 40%;
     height: 30%;
     margin-left: 500px; 
-    margin-top: -220px;
+    margin-top: -400px;
    
+}
+#search-form button[type="submit"] {
+  background-color: rgb(39, 146, 196); /* Cambia el color a tu preferencia, aquí hemos usado azul como ejemplo */
+  color: white; /* Cambia el color del texto dentro del botón a blanco */
+  border: none; /* Eliminamos el borde para un aspecto más limpio */
+  padding: 5px 15px; /* Ajusta el espaciado interno del botón según tus preferencias */
+  border-radius: 5px; /* Añade esquinas redondeadas al botón */
+  cursor: pointer; /* Cambia el cursor cuando se pasa sobre el botón */
+  margin-left: 250px; 
+}
+.table{
+  background: #D3D3D3;
+  border-radius: 0px;
+  width: 40%;
+  height: 30%;
+  margin-left: 500px; 
+  margin-top: -220px;
+ 
 }
 
 .container{

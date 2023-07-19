@@ -56,10 +56,9 @@
       </div>
     </div>
   </div>
-
   
-
-    <div class="table" style="height: 180px; overflow-y: scroll;">
+   
+    <div class="table" >
       <table>
           <thead>
               <tr>
@@ -76,4 +75,17 @@
           </tbody>
       </table>
   </div>
+
+
+
+  <body>
+    <form id="search-form" #miFormulario="ngForm">
+     
+            <label for="search-client">Buscar persona:</label>
+            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
+    
+            <button (click)="validardatos()" type="submit">Buscar</button>
+            
+          </form>
+       </body>
 </section>
