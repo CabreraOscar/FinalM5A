@@ -5,23 +5,23 @@
        
       <div class="containeruno">
         <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
-          <h5>Detalle Persona</h5>
+          <h5>Detalle de persona</h5>
           
           <form id="search-form" #miFormulario="ngForm">
-            <label for="search-client">Buscar Cliente:</label>
+            <label for="search-client">Buscar cliente:</label>
             <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
 
             <button (click)="buscarporcedula()" type="submit">Buscar</button>
             <button (click)="obtenerPersona()" class="btn btn-danger"
-              style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
+              style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
           </form>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Cedula</th>
-                  <th>Telefono</th>
+                  <th>Cédula</th>
+                  <th>Télefono</th>
                   <th></th>
                 </tr>
               </thead>
@@ -30,7 +30,7 @@
                   <td>{{persona.nombrePer }}</td>
                   <td>{{persona.identificacion }}</td>
                   <td>{{persona.telefono }}</td>
-                  <button (click)="seleccionarPersona(persona)" class="btn btn-info">SELECCIONAR</button>
+                  <button (click)="seleccionarPersona(persona)" class="btn btn-info">Seleccionar</button>
                 </tr>
 
               </tbody>
@@ -39,7 +39,7 @@
         </div>
 
         <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
-          <h5>Listado Servicio</h5>
+          <h5>Listado de servicios</h5>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
@@ -76,14 +76,14 @@
       <div class="containercinco">
 
         <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-right: 10px;">
-          <h5>Listado Maquina</h5>
+          <h5>Listado de máquina</h5>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
                   <th>Servicio</th>
                   <th>Precio U</th>
-                  <th>Cantidad dadasadadasd</th>
+                  <th>Cantidad</th>
                   <th></th>
                 </tr>
               </thead>
@@ -108,12 +108,12 @@
 
 
         <div style="background-color: aliceblue; border-radius: 10px; padding: 5px;">
-          <h5>Cuadro de Seleccion</h5>
+          <h5>Cuadro de Selección</h5>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
-                  <th>Servi/maquina</th>
+                  <th>Servi/máquina</th>
                   <th>Precio T</th>
                   <th>Cantidad</th>
                   <th></th>
@@ -131,15 +131,15 @@
                 </tr>
               </tbody>
             </table>
-            <button (click)="eliminaritems()">CANCELAR </button>
+            <button (click)="eliminaritems()">Cancelar </button>
           </div>
         </div>
       </div>
     </div>
     <div class="container1" >
-      <h1 style="margin-bottom: 30px;">Detalles de la Orden</h1>
+      <h1 style="margin-bottom: 30px;">Detalles de la órden</h1>
       <div class="form-group">
-        <label for="cedula" style="margin-right: 10px;">Cedula:</label>
+        <label for="cedula" style="margin-right: 10px;">Cédula:</label>
         <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled>
       </div>
       <div class="form-group">
@@ -155,7 +155,7 @@
         <label for="total" style="margin-right: 10px;">Total:</label>
         <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
       </div>
-      <button type="submit" (click)="crearOrden()">Agregar Orden</button>
+      <button type="submit" (click)="crearOrden()">Agregar órden</button>
     </div>
   </div>
 </body>

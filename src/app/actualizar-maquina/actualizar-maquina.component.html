@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
-<h2>ADMINISTRACIÓN DE MAQUINAS</h2>
+<h2>Administración de máquinas</h2>
 <div class="col-md-6 offset-md-3">
-    <h3 class="text-center">Edición de Maquinaria</h3>
+    <h3 class="text-center">Edición de maquinaria</h3>
     <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
 
         <div class="form-group">
-            <label>TAMAÑO: </label>
+            <label>Tamaño: </label>
             <input type = "text"
             class="form-control"
             id = "nombre"
@@ -19,7 +19,7 @@
       
           
           <div class="form-group">
-            <label>PRECIO : </label>
+            <label>Precio : </label>
             <input type = "number"
             class="form-control"
             id = "precio"
@@ -36,7 +36,7 @@
          
       
           <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
-          <button class="btn btn-danger" routerLink="/maquina-admin" style="margin-left : 10px">CANCELAR</button>
+          <button class="btn btn-danger" routerLink="/maquina-admin" style="margin-left : 10px">Cancelar</button>
 
 
     </form>

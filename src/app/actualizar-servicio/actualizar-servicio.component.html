@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <section class="edicion-s-block">
-<h2>ADMINISTRACIÓN DE SERVICIOS</h2>
+<h2>Administración de servicio</h2>
 <div class="col-md-6 offset-md-3">
-    <h3 class="text-center">Edición de Servicio</h3>
+    <h3 class="text-center">Edición de servicio</h3>
     <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
 
         <div class="form-group">
-            <label>NOMBRE: </label>
+            <label>Nombre: </label>
             <input type = "text"
             class="form-control"
             id = "nombre"
@@ -20,7 +20,7 @@
       
           
           <div class="form-group">
-            <label>DESCRIPCION : </label>
+            <label>Descripción : </label>
             <input type = "text"
             class="form-control"
             id = "descripcion"
@@ -35,7 +35,7 @@
 
 
           <div class="form-group">
-            <label>PRECIO: : </label>
+            <label>Precio: : </label>
             <input type = "number"
             class="form-control"
             id = "precio"
@@ -52,7 +52,7 @@
          
       
           <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
-          <button class="btn btn-danger" routerLink="/servicio-admin" style="margin-left : 10px">CANCELAR</button>
+          <button class="btn btn-danger" routerLink="/servicio-admin" style="margin-left : 10px">Cancelar</button>
 
 
     </form>

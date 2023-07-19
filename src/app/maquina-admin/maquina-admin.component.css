@@ -1,10 +1,117 @@
-.container {
-  margin-left: 165px; /* Ajusta este valor según el espacio que deseas dejar en el lado izquierdo */
-  padding: 223px;
-  background-image: linear-gradient(to top, #a918bd 0%, #3189fd 100%);
- 
-}
+
 
 @media (max-width: 768px) {
-  /* Ajusta los estilos para pantallas más pequeñas si es necesario */
+
+}
+
+.pedido-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
+  width: 100%;
+  margin-left: 165px;
+padding: 139px;
+}
+.pedido-block .container {
+  background: #D3D3D3;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+  margin: 10px auto;
+}
+.pedido-block label {
+  font-weight: bold;
+}
+
+.pedido-block input[type="text"],
+.pedido-block input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.pedido-block button {
+  background: #0069c0;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  flex: 1;
+  cursor: pointer;
+}
+
+.detalle-venta {
+  background-color: #ffffff;
+  padding: 10px;
+  border-top: 1px solid #e99494;
+}
+.btn-custom {
+  background-color: #000000; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto */
+  padding: 8px 16px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin decoración de texto */
+  display: inline-block; /* Mostrar como bloque */
+  font-size: 14px; /* Tamaño de fuente */
+  border-radius: 4px; /* Borde redondeado */
+  transition: background-color 0.3s; /* Transición al pasar el cursor */
+  position: relative; /* Posición relativa para animación */
+  overflow: hidden; /* Ocultar el contenido que se desborda */
+}
+
+.btn-custom::before {
+  content: ''; /* Contenido pseudo-elemento */
+  position: absolute; /* Posición absoluta */
+  top: 0; /* Colocar en la parte superior */
+  left: -100%; /* Inicialmente fuera de la pantalla */
+  width: 100%; /* Ancho del pseudo-elemento */
+  height: 100%; /* Altura del pseudo-elemento */
+  background-color: rgba(255, 255, 255, 0.5); /* Color de fondo transparente */
+  transition: left 0.3s; /* Transición de la posición izquierda */
+}
+
+.btn-custom:hover::before {
+  left: 0; /* Mover el pseudo-elemento a la posición 0 */
+}
+.btn-custom {
+  /* Estilos del botón */
+
+  transition: transform 0.3s; /* Transición de escala */
+}
+
+.btn-custom:hover {
+  transform: scale(1.2); /* Escala al pasar el cursor */
+}
+
+.custom-table {
+  border-collapse: collapse; /* Colapso de bordes */
+  width: 100%; /* Ancho de la tabla */
+}
+.custom-table {
+  background: #D3D3D3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 90%;
+}
+.custom-table th, .custom-table td {
+  border: 1px solid #000000; /* Borde de celda */
+  padding: 8px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
+}
+
+.custom-table th {
+  background-color: #D3D3D3; /* Color de fondo de encabezado */
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color de fondo de filas pares */
+}
+
+.custom-table tr:hover {
+  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
 }

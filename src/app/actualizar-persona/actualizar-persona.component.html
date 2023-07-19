@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <section class="person-block">
-  <h2>Administrar de Clientes</h2>
+  <h2>Administración de Clientes</h2>
   <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Edición </h3>
     <form (ngSubmit)="onSubmit()" #empleadoForm="ngForm">
@@ -22,7 +22,7 @@
 
 
       <div class="form-group">
-        <label>Telefono: </label>
+        <label>Teléfono: </label>
         <input type="number" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono"
           placeholder="Digite el nuevo nro telefono " #apellido="ngModel">
 
@@ -37,7 +37,7 @@
 
 
       <button class="btn btn-success" [disabled]="!empleadoForm.form.valid">Guardar</button>
-      <button class="btn btn-danger" routerLink="/lista-persona" style="margin-left : 10px">CANCELAR</button>
+      <button class="btn btn-danger" routerLink="/lista-persona" style="margin-left : 10px">Cancelar</button>
 
 
     </form>

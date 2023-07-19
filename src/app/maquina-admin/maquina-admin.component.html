@@ -1,15 +1,18 @@
 <app-navbar></app-navbar>
 
-<div class="container">
-    <h2>ADMINISTRACION DE MAQUINAS</h2>
-    <table class="table table-striped">
-        <thead class="table-dark">
+<section class="pedido-block">
+    <h1>Administración de Máquinas</h1>
+     <form id="search-form" #miFormulario="ngForm">
+    <table class="custom-table">
+   
+            <thead>
             <tr>
-                <th>ID MAQUINA</th>
-                <th>TAMAÑO</th>
-                <th>PRECIO</th>
-                <th> </th>
-                
+                <th>Número de máquina</th>
+                <th>Tamaño</th>
+                <th>Precio</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+    
             </tr>
 
         </thead>
@@ -20,15 +23,17 @@
                 <td>{{maquina.tamano}}</td>
                 <td>{{maquina.precio}}</td>
                 <td>
-                    <button (click)= "actualizarMaquina(maquina.idMaq)" class="btn btn-info">EDITAR</button>
-                    <button (click)= "eliminarMaquina(maquina.idMaq)" class="btn btn-danger" style="margin-left : 10px">ELIMINAR</button>
-
+                    <button (click)= "actualizarMaquina(maquina.idMaq)" class="btn btn-info">Editar</button>
                 </td>
+                <td>
+                <button (click)= "eliminarMaquina(maquina.idMaq)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+            </td>
             </tr>
 
         </tbody>
 
     </table>
-    <button class="btn btn-info" routerLink="/registrar-maquina" style="margin-left : 10px">CREAR NUEVA</button>
-    <button class="btn btn-danger" routerLink="/login" style="margin-left : 10px">CANCELAR</button>
-</div>
+    <div style="text-align: center;">
+        <button class="btn btn-info" routerLink="/registrar-maquina" style="margin-left: 10px;">Crear</button>
+        <button class="btn btn-danger" routerLink="/login" style="margin-left: 10px;">Regresar</button>
+    </div>

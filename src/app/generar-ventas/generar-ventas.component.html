@@ -4,25 +4,25 @@
         <div class="sidebar">
             <h6>Lista de Personas</h6>
             <form id="search-form" #miFormularioP="ngForm">
-                <label for="search-client" style="margin-right: 10px;">Buscar Personas:</label>
+                <label for="search-client" style="margin-right: 10px;">Búsqueda de persona:</label>
                 <input type="text" [(ngModel)]= "inputValueP" name="miInput" placeholder="Ingrese la Cedula"
                     (blur)="verificarInputP()" style="height: 37px;">
 
                 <button class="btn btn-info" (click)= "buscarPersonaPorcedula()" type="button"
                     style="margin-left: 10px;">Buscar</button>
                 <button class="btn btn-danger" (click)="obtenerPersona()"
-                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
+                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
             </form>
         </div>
         <div class="table" style="height: 235px; overflow-y: scroll;">
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre de la Persona</th>
+                        <th>Nombre de la persona</th>
                         <th>Correo Electronico</th>
-                        <th>Cedula de Identidad</th>
+                        <th>Cédula</th>
                         <th>Dirección</th>
-                        <th>Numero Telefónico</th>
+                        <th>Número Telefónico</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,26 +39,26 @@
         </div>
 
         <div class="sidebar">
-            <h6>Lista de Ordenes</h6>
+            <h6>Lista de órdenes</h6>
             <form id="search-form" #miFormulario="ngForm">
-                <label for="search-client" style="margin-right: 10px;">Buscar Ordenes:</label>
+                <label for="search-client" style="margin-right: 10px;">Búsqueda de órdenes:</label>
                 <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cedula"
                     (blur)="verificarInput()" style="height: 37px;">
 
                 <button class="btn btn-info" (click)="buscarVentaPorCedula()" type="submit"
                     style="margin-left: 10px;">Buscar</button>
                 <button class="btn btn-danger" (click)="obtenerOrden()"
-                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">CANCELAR</button>
+                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
             </form>
         </div>
         <div class="table" style="height: 210px; overflow-y: scroll;">
             <table>
                 <thead>
                     <tr>
-                        <th>Número de Orden</th>
+                        <th>Número de órden</th>
                         <th>Estado</th>
-                        <th>Total Orden</th>
-                        <th>Cedula</th>
+                        <th>Total de la órden</th>
+                        <th>Cédula</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,9 +67,9 @@
                         <td>{{ obtenerTextoEstado(orden.estado) }}</td>
                         <td>{{orden.totalOrden}}</td>
                         <td>{{orden.personaO.identificacion}}</td>
-                        <td><button class="btn btn-info" (click)="seleccionarOrden(orden)">Seleccionar Orden</button>
+                        <td><button class="btn btn-info" (click)="seleccionarOrden(orden)">Seleccionar órden</button>
                         <td><button class="btn btn-danger" (click)="seleccionarOrden(orden)"
-                                style="background-color: brown;">Quitar Orden</button>
+                                style="background-color: brown;">Eliminar órden</button>
                         </td>
                     </tr>
                 </tbody>

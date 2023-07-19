@@ -20,12 +20,16 @@
 </style>
 
 <section class="pedido-block">
-  <div class="encabezado" style="width: auto; flex-direction: column; align-items: center; justify-content: center; display: flex; padding-left: 200px;">
-    <h1 style="text-align: center;">Configuración de la empresa</h1>
-    <button onclick="mostrarVentana()">Ingresar Empresa</button>
-  </div>
+
+  <section class="pedido-block">
+    <div class="encabezado" style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
+      <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
+    </div>
+  <button onclick="mostrarVentana()">Ingresar empresa</button>
+  
   <div id="ventana" class="ventana-flotante">
     <h1>Ingresar Empresa</h1>
+    
     <div class="container">
       <form #empresaForm="ngForm" (ngSubmit)="guardarEmpresa()">
         <div class="form-group">
@@ -38,8 +42,8 @@
   <label for="ruc">RUC:</label>
   <input type="number" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required pattern="[0-9]{11}">
   <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched" class="error-message">
-    <div *ngIf="empresaForm.controls['ruc'].hasError('required')">RUC es requerido.</div>
-    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">RUC debe tener exactamente 11 dígitos numéricos.</div>
+    <div *ngIf="empresaForm.controls['ruc'].hasError('required')">El RUC es requerido.</div>
+    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 11 dígitos numéricos.</div>
   </div>
 </div>
 
@@ -54,27 +58,29 @@
   <label for="telefono">Teléfono:</label>
   <input type="number" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" required pattern="[0-9]{7,10}">
   <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched" class="error-message">
-    <div *ngIf="empresaForm.controls['telefono'].hasError('required')">Teléfono es requerido.</div>
-    <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">Teléfono debe tener entre 7 y 10 dígitos.</div>
+    <div *ngIf="empresaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
+    <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El numero de teléfono son entre 7 y 10 dígitos.</div>
   </div>
 </div>
 
 
-        <button type="submit" class="btn btn-success" onclick="guardarEmpresa()" style="background-color: green;">Guardar Empresa</button>
-        <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cerrar</button>
+        <button type="submit" class="btn btn-success" onclick="guardarEmpresa()" style="background-color: green;">Guardar</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cancelar</button>
       </form>
     </div>
   </div>
 
 
-  <table class="table">
+  <table class="custom-table">
     <thead>
       <tr>
-        <th scope="col">id</th>
+        <th scope="col">Número</th>
         <th scope="col">Nombre de la Empresa</th>
         <th scope="col">Ruc</th>
         <th scope="col">Dirección</th>
         <th scope="col">Teléfono</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -88,7 +94,7 @@
         </td>
         
         <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
-            style="background-color: red;">Eliminar</button></td>
+            style="background-color: 0069c0;">Eliminar</button></td>
       </tr>
     </tbody>
   </table>

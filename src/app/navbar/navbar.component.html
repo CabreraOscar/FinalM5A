@@ -1,7 +1,9 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a>
- 
+  <!-- <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a> -->
+  <a class="navbar-brand" href="javascript:void(0);" routerLink="/">
+    <img src="assets/imagenes/logo.png" alt="LAVATEC" width="100" height="60">
+  </a>
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <ng-container *ngIf="this.auth.isAuthenticated(); then authenticated; else notAuthenticated"></ng-container>
@@ -13,7 +15,7 @@
       
       <ng-template #authenticated>
         <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">Panel</a></li>
-        <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">Cerrar Sesión</a></li>
+        <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">Cerrar sesión</a></li>
         <!--<li class="nav-item"><a href="javascript:void(0);" routerLink="/register" class="nav-link">Registrar</a></li>-->
       </ng-template>
     </ul>
@@ -22,13 +24,13 @@
 
 <div class="sidebar">
   <div class="button-container">
-    <button class="button" (click)="RegistraCliente()">Registrar Cliente</button>
-    <button class="button" (click)="RegistraMaquina()">Administración Máquinas</button>
-    <button class="button" (click)="Venta()">Reporte Ventas</button>
-    <button class="button" (click)="Orden()">Revisar Órdenes</button>
-    <button class="button" (click)="Config()">Configuración Empresa</button>
-    <button class="button" (click)="CrearEmple()">Crear Empleado</button>
-    <button class="button" (click)="AdminServicio()">Administrar Servicios</button>
+    <button class="button" (click)="RegistraCliente()">Registrar cliente</button>
+    <button class="button" (click)="RegistraMaquina()">Administración de máquina</button>
+    <button class="button" (click)="Venta()">Reporte de ventas</button>
+    <button class="button" (click)="Orden()">Revisar órdenes</button>
+    <button class="button" (click)="Config()">Configuración de empresa</button>
+    <button class="button" (click)="CrearEmple()">Crear empleado</button>
+    <button class="button" (click)="AdminServicio()">Administrar servicios</button>
   </div>
 
 
