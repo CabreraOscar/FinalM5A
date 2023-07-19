@@ -14,7 +14,7 @@ export class ItemService {
   private baseURLE="http://localhost:8080/item/delete";
   private baseURLSO="http://localhost:8080/item/listarsinorden";
   private baseURLESI="http://localhost:8080/item/borrarsinorden";
-
+  private baseURLACT="http://localhost:8080/item";
 
   constructor(private httpClient : HttpClient) { }
 
@@ -33,5 +33,8 @@ export class ItemService {
       return this.httpClient.delete(`${this.baseURLESI}`);
     }
 
+    actualizarItem(id: number, item: Item): Observable<Item> {
+      return this.httpClient.put<Item>(`${this.baseURLACT}/actualizar/${id}`, item);
+    }
 
 }

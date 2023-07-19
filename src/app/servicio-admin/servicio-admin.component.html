@@ -1,15 +1,18 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
-<h2>ADMINISTRACIÓN DE SERVICIOS</h2>
-<div class="container">
-    <table class="table table-striped">
-        <thead class="table-dark">
+<h1>Administración de Servicios</h1>
+<form id="search-form" #miFormulario="ngForm">
+
+    <table class="custom-table">
+        <thead>
             <tr>
-                <th>ID SERVICIO</th>
-                <th>NOMBRE</th>
-                <th>DESCRIPCIÓN</th>
-                <th>PRECIO</th>
-                <th> </th>
+                <th>Número de servicio</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+               
             </tr>
 
         </thead>
@@ -21,8 +24,10 @@
                 <td>{{servicio.descripcion}}</td>
                 <td>{{servicio.precio}}</td>
                 <td>
-                    <button (click)= "actualizarServicio(servicio.idService)" class="btn btn-info">EDITAR</button>
-                    <button (click)= "eliminarServicio(servicio.idService)" class="btn btn-danger" style="margin-left : 10px">ELIMINAR</button>
+                    <button (click)= "actualizarServicio(servicio.idService)" class="btn btn-info">Editar</button>
+                </td>
+                <td>
+                    <button (click)= "eliminarServicio(servicio.idService)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
 
                 </td>
                 
@@ -31,7 +36,8 @@
         </tbody>
 
     </table>
-    <button class="btn btn-info" routerLink="/registrar-servicio" style="margin-left : 10px">CREAR NUEVO SERVICIO</button>
-    <button class="btn btn-danger" routerLink="/login" style="margin-left : 10px">ATRAS</button>
+    <div style="text-align: center;">
+    <button class="btn btn-info" routerLink="/registrar-servicio" style="margin-left : 10px">Crear</button>
+    <button class="btn btn-danger" routerLink="/login" style="margin-left : 10px">Regresar</button>
+
 </div>
-</section>

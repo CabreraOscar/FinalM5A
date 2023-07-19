@@ -15,11 +15,12 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Número de Orden</th>
+                <th>Número de órden</th>
                 <th>Estado</th>
-                <th>Total Orden</th>
-                <th>Cedula</th>
+                <th>Total de la órden</th>
+                <th>Cédula</th>
                 <th>Número de Venta</th>
+                <th>Ver detalles</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +30,7 @@
                 <td>{{orden.totalOrden}}</td>
                 <td>{{orden.personaO.identificacion}}</td>
                 <td>{{orden.venta.idVenta}}</td>
-                <td><button class="btn btn-info" (click)="verOrden(orden.idOrden)">Ver Detalles</button></td>
+                <td><button class="btn btn-info" (click)="verOrden(orden.idOrden)">+</button></td>
             </tr>
 
         </tbody>

@@ -1,31 +1,31 @@
 <app-navbar></app-navbar>
 <section class= "registr-servicio-block" >
-<h2>ADMINISTRACION DE SERVICIO</h2>
+<h2>Administración de servicio</h2>
 <div class="col-md-6 offset-md-3">
-    <h3 class="text-center">REGISTRO DE NUEVO SERVICIO</h3>
+    <h3 class="text-center">Registro de nuevo servicio</h3>
 
     <form (ngSubmit)="onSubmit()" #servicioForm="ngForm">
         <div class="form-group">
-          <label for="nombre">NOMBRE:</label>
+          <label for="nombre">Nombre:</label>
           <input type="text" class="form-control" id="nombre" [(ngModel)]="servicio.nombre" name="nombre" required>
           <div *ngIf="servicioForm.controls['nombre'].invalid && servicioForm.controls['nombre'].touched" class="error-message">
-            <div *ngIf="servicioForm.controls['nombre'].hasError('required')">Nombre es requerido.</div>
+            <div *ngIf="servicioForm.controls['nombre'].hasError('required')">El nombre es requerido.</div>
           </div>
         </div>
       
         <div class="form-group">
-          <label for="descripcion">DESCRIPCION:</label>
+          <label for="descripcion">Descripción:</label>
           <input type="text" class="form-control" id="descripcion" [(ngModel)]="servicio.descripcion" name="descripcion" required>
           <div *ngIf="servicioForm.controls['descripcion'].invalid && servicioForm.controls['descripcion'].touched" class="error-message">
-            <div *ngIf="servicioForm.controls['descripcion'].hasError('required')">Descripción es requerida.</div>
+            <div *ngIf="servicioForm.controls['descripcion'].hasError('required')">La dscripción es requerida.</div>
           </div>
         </div>
       
         <div class="form-group">
-            <label for="precio">PRECIO:</label>
+            <label for="precio">Precio:</label>
             <input type="number" class="form-control" id="precio" [(ngModel)]="servicio.precio" name="precio" required>
             <div *ngIf="servicioForm.controls['precio'].invalid && servicioForm.controls['precio'].touched" class="error-message">
-              <div *ngIf="servicioForm.controls['precio'].hasError('required')">Precio es requerido.</div>
+              <div *ngIf="servicioForm.controls['precio'].hasError('required')">El precio es requerido.</div>
             </div>
           </div>
           

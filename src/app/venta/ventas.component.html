@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
-  <h1>Lista Venta</h1>
+  <h1>Lista de ventas</h1>
   <form id="search-form" #miFormulario="ngForm">
-  <label for="search-fecha">Buscar fecha:</label>
+  <label for="search-fecha">Busqueda de fecha:</label>
   <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio"(blur)="verificarInput()">
   <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin"(blur)="verificarInput()">
   
@@ -13,7 +13,7 @@
   <table class="custom-table">
     <thead>
       <tr>
-        <th>Numero de Factura</th>
+        <th>Número de Factura</th>
         <th>Fecha</th>
         <th>Tipo de Pago</th>
         <th>Subtotal</th>
@@ -22,7 +22,7 @@
         <th>Total</th>
         <th>Persona</th>
         <th>Configuración</th>
-        <th>Botón Detalle</th>
+        <th>Ver Detalles</th>
       </tr>
     </thead>
   
@@ -37,7 +37,7 @@
         <td>{{venta.total}}</td>
         <td>{{venta.personaf.idPersona}}</td>
         <td>{{venta.configEmpresa.idConfig}}</td>
-        <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">Ver Detalles</button></td>
+        <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">+</button></td>
       </tr>
     </tbody>
   </table>

@@ -10,6 +10,7 @@ import { Servicio } from '../modelo/servicio';
 import { Item } from '../modelo/item';
 import { ItemService } from '../_services/item.service';
 import Swal from 'sweetalert2';
+import { orden } from '../modelo/orden';
 @Component({
   selector: 'app-detalleorden',
   templateUrl: './detalleorden.component.html',
@@ -26,6 +27,7 @@ export class DetalleordenComponent implements OnInit {
   persona:Persona[];
   personax:Persona=new Persona();
   maquinax:Maquina=new Maquina();
+  orden:orden=new orden();
   itemSelect:Item=new Item();
   currentDate: string;
  suan:string="SIN SELECCIONAR";
@@ -36,6 +38,7 @@ export class DetalleordenComponent implements OnInit {
  listaItem:Item[] = [];
  cantidad_maq:{ [key: string]: number } = {};
  cantidad_ser:{ [key: string]: number } = {};
+ idgenerado: number;
  //FIN DE VARIABLES Y ARRAYS
   constructor(private itemServicio:ItemService,private servicioServicio:ServicioService,private maquinaServicio:MaquinaService,private personaServicio:personaService,private ordenesService: OrdenesService,private router:Router,private route:ActivatedRoute) {   const today = new Date();
     const year = today.getFullYear();
@@ -152,15 +155,68 @@ eliminaritems(){
 }
 
 
-
+//codigo para crear una orden
 crearOrden(){
   if (this.cedula.trim() === '' || this.cliente.trim() === '' || this.totalx === 0) {
     Swal.fire('FALTAN DATOS PARA GENERAR LA ORDEN', '', 'warning');
     
   } else {
-    Swal.fire('TODO CORRECTO', '', 'success');
+    this.orden.personaO=this.personax;
+    this.orden.estado=0;
+    this.orden.totalOrden=this.totalx;
+    //
+    this.ordenesService.crearordenid(this.orden).subscribe(
+      idOrden => {
+        this.idgenerado = idOrden; // Asignamos el ID generado a la variable idgenerado
+        console.log('ID de la orden creada:', this.idgenerado);
+        // Aquí puedes hacer algo con el ID de la orden, como mostrarlo en un mensaje o redireccionar a otra página
+      
+        this.ordenesService.obtenerOrdenPorId(this.idgenerado).subscribe(
+          orden => {
+            console.log(orden);
+            for (const item of this.listaItem) {
+              if (!item.orden) {
+                item.orden = orden;
+                this.actualizarOrdenItemEnBackend(item.idItem, item); // Pasamos el objeto 'item' completo
+              }
+            }
+            
+          },
+          error => {
+            console.error('Error al obtener la orden:', error);
+            // Maneja el error aquí si es necesario
+          }
+        );
+      
+      
+      },
+      error => {
+        console.error('Error al crear la orden:', error);
+        // Maneja el error aquí si es necesario
+      }
+    );
+    //
+    
+
+    
+    Swal.fire('TODO CORRECTO', '', 'success').then(() => {
+      // Recargar la página después de que el usuario hace clic en el botón "Aceptar" de la alerta
+      window.location.reload();
+    });
     
   }
+}
+
+actualizarOrdenItemEnBackend(idItem:number, item: Item) {
+  this.itemServicio.actualizarItem(idItem, item).subscribe(
+    itemActualizado => {
+      console.log('Item actualizado en el backend:', itemActualizado);
+    },
+    error => {
+      console.error('Error al actualizar el item en el backend:', error);
+      // Maneja el error aquí si es necesario
+    }
+  );
 }
 
 
