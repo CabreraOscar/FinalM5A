@@ -1,0 +1,40 @@
+<h1>Lista de Ventas</h1>
+<div class="buscar">
+    <form id="search-form" #miFormulario="ngForm">
+        <label for="search-client">Buscar Ventas:</label>
+        <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="cedula" (blur)="verificarInput()">
+        <input type="hidden" [(ngModel)]="currentDate" name="miInput" placeholder="cedula" (blur)="verificarInput()">
+
+        <button class="btn btn-info" type="submit"
+            style="margin-left : 10px;" (click)="buscarVentas()">Buscar</button>
+        <button class="btn btn-danger" (click)="obtenerOrdenes()"
+            style="margin-left : 10px;background-color: brown;">CANCELAR</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Número de Factura</th>
+            <th>Fecha</th>
+            <th>Tipo de Pago</th>
+            <th>Subtotal</th>
+            <th>Descuento</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Persona</th>
+            <th>Configuración</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let venta of ventas">
+            <td>{{venta.idVenta}}</td>
+            <td>{{venta.fecha}}</td>
+            <td>{{venta.tipoPago}}</td>
+            <td>{{venta.subtotal}}</td>
+            <td>{{venta.descuento}}</td>
+            <td>{{venta.iva}}</td>
+            <td>{{venta.total}}</td>
+        </tr>
+
+    </tbody>
+</table>
