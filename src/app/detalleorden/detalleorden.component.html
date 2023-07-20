@@ -28,15 +28,17 @@
       <div class="form-group">
         <label for="cedula" style="margin-right: 10px;">Cédula:</label>
         <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled style="margin-right: 10px;">
-        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanap'))">+</button>
+        <button class="btn btn-info" type="submit" (click)="mostrarVentana('ventanap')">+</button>
       </div>
       <div class="form-group">
         <label for="nombre" style="margin-right: 10px;">Cliente:</label>
         <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
       </div>
       <div class="form-group">
-        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanas'))" style="margin-right: 10px;">+ Servicio</button>
-        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanam'))">+ Maquina</button>
+        <button class="btn btn-info" type="submit" (click)="mostrarVentana('ventanas')" style="margin-right: 10px;">+
+          Servicio</button>
+        <button class="btn btn-info" type="submit" (click)="mostrarVentana('ventanam')">+
+          Maquina</button>
       </div>
 
       <div class="form-group">
@@ -47,20 +49,22 @@
         <label for="total" style="margin-right: 10px;">Total:</label>
         <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
       </div>
-      <button type="submit" (click)="crearOrden()">Agregar órden</button>
+      <button class="btn btn-info" type="submit" (click)="crearOrden()" style="margin-right: 10px;">Agregar
+        Órden</button>
+      <button class="btn btn-info" (click)="mostrarVentana('ventanar')">Registrar Cliente</button>
     </div>
 
     <div class="container">
       <div id="ventanap" class="ventana-flotante">
         <div>
-          <h5>Detalle de persona</h5>
+          <h5>Detalle de Persona</h5>
           <form id="search-form" #miFormulario="ngForm">
-            <label for="search-client">Buscar cliente:</label>
-            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
-            <button (click)="buscarporcedula()" type="submit">Buscar</button>
+            <label for="search-client" style="margin-right: 10px;">Buscar cliente:</label>
+            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cédula"
+              (blur)="verificarInput()">
+            <button class="btn-info" (click)="buscarporcedula()" type="submit">Buscar</button>
             <button (click)="obtenerPersona()" class="btn btn-danger"
               style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
-            <button class="btn btn-info" (click)="Registra()">Registrar cliente</button>
           </form>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
@@ -77,7 +81,7 @@
                   <td>{{persona.nombrePer }}</td>
                   <td>{{persona.identificacion }}</td>
                   <td>{{persona.telefono }}</td>
-                  <button (click)="seleccionarPersona(persona)" class="btn btn-info">Seleccionar</button>
+                  <button (click)="seleccionarPersona(persona)" class="btn btn-info">+</button>
                 </tr>
 
               </tbody>
@@ -89,7 +93,7 @@
 
       <div id="ventanas" class="ventana-flotante">
 
-        <h5>Listado de servicios</h5>
+        <h5>Listado de Máquinas</h5>
         <div class="table" style="height: 300px; overflow-y: scroll;">
           <table>
             <thead>
@@ -111,7 +115,7 @@
                   </div>
                 </td>
                 <td>
-                  <button (click)="crearItemMaquina(maquina, cantidad_maq[i])">Seleccionar</button>
+                  <button class="btn btn-info" (click)="crearItemMaquina(maquina, cantidad_maq[i])">+</button>
                 </td>
               </tr>
             </tbody>
@@ -124,7 +128,7 @@
 
       <div id="ventanam" class="ventana-flotante">
         <div>
-          <h5>Listado de máquina</h5>
+          <h5>Listado de Servicios</h5>
           <div class="table" style="height: 300px; overflow-y: scroll;">
             <table>
               <thead>
@@ -146,7 +150,7 @@
                     </div>
                   </td>
                   <td>
-                    <button (click)="crearItemServicio(servicio, cantidad_ser[i])">Seleccionar</button>
+                    <button class="btn btn-info" (click)="crearItemServicio(servicio, cantidad_ser[i])">+</button>
                   </td>
                 </tr>
               </tbody>
@@ -158,11 +162,11 @@
 
 
       <div style="border-radius: 10px; padding: 5px; width: 390px;">
-        <div style="display: flex;">
-          <h5>Cuadro de Selección</h5>
-          <button class="btn btn-danger" (click)="eliminaritems()">Cancelar </button>
-        </div>
         <div class="table" style="height: 500px; overflow-y: scroll;">
+          <div style="display: flex; padding: 10px;">
+            <h5 style="margin-right:10px;">Cuadro de Selección</h5>
+            <button class="btn btn-danger" (click)="eliminaritems()">Cancelar </button>
+          </div>
           <table>
             <thead>
               <tr>
@@ -190,9 +194,85 @@
       </div>
     </div>
 
+
+    <div id="ventanar" class="ventana-flotante">
+      <h3 class="text-center">Registrar Nuevo Cliente</h3>
+      <form #personaForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nombrePer" style="margin-right: 10px;">Nombre:</label>
+          <input type="text" class="form-control" id="nombrePer" [(ngModel)]="personar.nombrePer" name="nombrePer"
+            required minlength="2" maxlength="50">
+          <div *ngIf="personaForm.controls['nombrePer'].invalid && personaForm.controls['nombrePer'].touched"
+            class="error-message">
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('required')">El nombre es requerido.</div>
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('minlength')">El nombre debe tener al menos 2
+              caracteres.</div>
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('maxlength')">El nombre debe tener un máximo de 50
+              caracteres.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="direccion" style="margin-right: 10px;">Dirección:</label>
+          <input type="text" class="form-control" id="direccion" [(ngModel)]="personar.direccion" name="direccion"
+            required maxlength="100">
+          <div *ngIf="personaForm.controls['direccion'].invalid && personaForm.controls['direccion'].touched"
+            class="error-message">
+            <div *ngIf="personaForm.controls['direccion'].hasError('required')">La dirección es requerida.</div>
+            <div *ngIf="personaForm.controls['direccion'].hasError('maxlength')">La dirección debe tener como máximo 100
+              caracteres.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono" style="margin-right: 10px;">Teléfono:</label>
+          <input type="number" class="form-control" id="telefono" [(ngModel)]="personar.telefono" name="telefono"
+            required pattern="[0-9]{7,10}">
+          <div *ngIf="personaForm.controls['telefono'].invalid && personaForm.controls['telefono'].touched"
+            class="error-message">
+            <div *ngIf="personaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
+            <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">El teléfono debe tener entre 7 y 10
+              dígitos.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correo" style="margin-right: 10px;">Correo:</label>
+          <input type="email" class="form-control" id="correo" [(ngModel)]="personar.correo" name="correo" required
+            email>
+          <div *ngIf="personaForm.controls['correo'].invalid && personaForm.controls['correo'].touched"
+            class="error-message">
+            <div *ngIf="personaForm.controls['correo'].hasError('required')">El correo es requerido.</div>
+            <div *ngIf="personaForm.controls['correo'].hasError('email')">El correo es inválido.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="identificacion" style="margin-right: 10px;">Cédula:</label>
+          <input type="number" class="form-control" id="identificacion" [(ngModel)]="personar.identificacion"
+            name="identificacion" required pattern="[0-9]{11}">
+          <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched"
+            class="error-message">
+            <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
+            <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 11 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <!-- <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button> -->
+        <button type="submit" class="btn btn-success" onclick="guardarPersona()"
+          style="background-color: green;">Guardar</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarVentanaR()"
+          style="margin-left: 10px">Cancelar</button>
+      </form>
+
+    </div>
+
   </div>
+
 </body>
 
 <script>
-  
+
 </script>
