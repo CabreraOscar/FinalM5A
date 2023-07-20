@@ -30,7 +30,9 @@ export class AuthService {
     }
     return false;
   }
-
+getAllUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.apiUrl}/usuariostodos`);
+  }
   canAccess() {
     if (!this.isAuthenticated()) {
 
@@ -68,7 +70,9 @@ confirmaRol(roll:number){
   
     return this.http.post<any>(`${this.apiUrl}/login`, data);
   }
-  
+  verificarExistenciaUsuario(identificacion: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/verificarExistenciaUsuario/${identificacion}`);
+  }
   
   register(usuario: Usuario) {
     return this.http.post(`${this.apiUrl}/crear`, usuario, { headers: this.httpHeaders });

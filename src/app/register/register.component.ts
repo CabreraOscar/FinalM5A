@@ -6,6 +6,7 @@ import { rolService } from '../_services/rol.service';
 import { roles } from '../modelo/rol';
 import { Persona } from '../modelo/persona';
 import { personaService } from '../_services/persona.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -42,6 +43,8 @@ export class RegisterComponent implements OnInit {
     
   }
   
+
+
   validardatos(): void {
     if (this.selectedPersona && this.selectedRol) {
       this.usuario.persona = {
@@ -60,24 +63,62 @@ export class RegisterComponent implements OnInit {
         estado: this.selectedRol.estado
       };
   
-      this.servi.register(this.usuario).subscribe(
-        data => {
-          console.log('Respuesta del servicio de registro:', data);
-          alert("Se ha creado el usuario");
+      const identificacion = this.selectedPersona.identificacion;
+      const idRol = this.selectedRol.idRol;
+  
+      // Obtener todos los usuarios existentes desde el backend
+      this.servi.getAllUsuarios().subscribe(
+        usuarios => {
+          // Verificar si existe un usuario con la misma identificación y un rol diferente
+          const existeUsuarioMismoRol = usuarios.some(usuario => 
+            usuario.persona.identificacion === identificacion && usuario.roles.idRol === idRol
+          );
+          
+          if (existeUsuarioMismoRol) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Ya existe un usuario con la misma identificación y rol.'
+            });
+          } else {
+            // Si no existe un usuario con el mismo rol, procede a crearlo
+            this.servi.register(this.usuario).subscribe(
+              data => {
+                console.log('Respuesta del servicio de registro:', data);
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Éxito',
+                  text: 'Se ha creado el usuario'
+                });
+              },
+              error => {
+                console.error('Error del servicio de registro:', error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: 'Se ha producido un error al crear el usuario'
+                });
+              }
+            );
+          }
         },
         error => {
-          console.error('Error del servicio de registro:', error);
-          alert("Se ha producido un error al crear el usuario");
+          console.error('Error al obtener los usuarios existentes:', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Se ha producido un error al obtener los usuarios existentes.'
+          });
         }
       );
     } else {
-      alert("Debes seleccionar una persona y un rol antes de registrar el usuario.");
+      Swal.fire({
+        icon: 'warning',
+        title: 'Advertencia',
+        text: 'Debes seleccionar una persona y un rol antes de registrar el usuario.'
+      });
     }
   }
-  
-  
-
-
 
   ngOnInit(): void {
     this.obtenerRoles();
