@@ -4,4 +4,5 @@ export class Empresa {
     ruc:string;
     ubicacion:string;
     telefono:string;
+    iva:number;
 }
