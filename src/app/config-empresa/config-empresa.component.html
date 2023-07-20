@@ -39,10 +39,10 @@
 
 <div class="form-group">
   <label for="ruc">RUC:</label>
-  <input type="number" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required pattern="[0-9]{11}">
+  <input type="number" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required pattern="[0-9]{13}">
   <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched" class="error-message">
     <div *ngIf="empresaForm.controls['ruc'].hasError('required')">El RUC es requerido.</div>
-    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 11 dígitos numéricos.</div>
+    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos numéricos.</div>
   </div>
 </div>
 
@@ -58,18 +58,18 @@
   <input type="number" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" required pattern="[0-9]{7,10}">
   <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched" class="error-message">
     <div *ngIf="empresaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
-    <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El numero de teléfono son entre 7 y 10 dígitos.</div>
+    <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número de teléfono debe tener 10 dígitos.</div>
   </div>
 </div>
 
 <div class="form-group">
   <label for="iva">Iva:</label>
-  <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required pattern="0.01">
+  <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required step="0.01">
   <div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
-    <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
-    <div *ngIf="empresaForm.controls['iva'].hasError('pattern')">Debe ingresar solo decimales</div>
+  <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
+  <div *ngIf="empresaForm.controls['iva'].hasError('pattern')">Debe ingresar solo decimales</div>
   </div>
-</div>
+  </div>
         <button type="submit" class="btn btn-success" onclick="guardarEmpresa()" style="background-color: green;">Guardar</button>
         <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cancelar</button>
       </form>
