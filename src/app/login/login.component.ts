@@ -12,9 +12,13 @@ export class LoginComponent implements OnInit {
   formdata = { username: "",clave: "" };
   submit = false;
   loading = false;
-  
-  errorMessage = "";
+  errorMessage: string | null = null;
+ 
 
+  handleError(error: string) {
+    this.loading = false;
+    this.errorMessage = error;
+  }
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(): void {
+  this.handleError("Error al iniciar sesión. Verifica tus credenciales.");
   this.loading = true;
   this.auth.login(this.formdata.username, this.formdata.clave)
     .subscribe({
@@ -46,4 +51,6 @@ onSubmit(): void {
       }
     });
 }
+
+
 }  

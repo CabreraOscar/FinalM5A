@@ -97,25 +97,17 @@ export class ConfigEmpresaComponent implements OnInit {
     }
   
     // Validar que el teléfono sea válido.
-    if (!/^\d{7,10}$/.test(telefono)) {
+    if (!/^\d{10}$/.test(telefono)) {
       Swal.fire({
         icon: 'error',
         title: 'Teléfono inválido',
-        text: 'El teléfono debe tener entre 7 y 10 dígitos numéricos',
+        text: 'El teléfono debe tener entre 10 dígitos numéricos',
       });
       return;
     }
   
     // Validar que el IVA sea válido.
-    if (!/^\d{1,2}.\d{1,2}$/.test(Number(iva))) {
-      Swal.fire({
-        icon: 'error',
-        title: 'IVA inválido',
-        text: 'El IVA debe tener un formato de 0.00',
-      });
-      return;
-    }
-  
+    
     // Lógica para registrar la empresa.
   
     Swal.fire({
@@ -128,7 +120,17 @@ export class ConfigEmpresaComponent implements OnInit {
       console.log(dato);
       this.obtenerEmpresa();
     }, error => console.log(error));
+    
+    this.cerrarVentanaP();
   }
+
+  
+  cerrarVentanaP() {
+    var ventana: any;
+    ventana = document.getElementById("ventana");
+    ventana.style.display = "none";
+  }
+
 
 
   eliminarEmpresa(idConfig:number){

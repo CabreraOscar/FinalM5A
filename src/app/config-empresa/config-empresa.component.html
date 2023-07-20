@@ -20,22 +20,25 @@
 </style>
 
 
-<section class="pedido-block">
-  <div class="encabezado" style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
+<section id="fondo" class="pedido-block">
+  <div class="encabezado"
+    style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
   </div>
-  <button onclick="mostrarVentana()">Ingresar empresa</button>
-  
+  <button onclick="mostrarVentana(document.getElementById('ventana'))">Ingresar empresa</button>
+
   <div id="ventana" class="ventana-flotante">
     <h1>Ingresar Empresa</h1>
-    
+
     <div class="container">
       <form #empresaForm="ngForm" (ngSubmit)="guardarEmpresa()">
         <div class="form-group">
           <label for="nombreEmpresa">Nombre de la empresa:</label>
-<input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa" name="nombreEmpresa" required>
-<div *ngIf="empresaForm.controls['nombreEmpresa'].invalid && empresaForm.controls['nombreEmpresa'].touched" class="error-message">Nombre de la empresa es requerido.</div>
-</div>
+          <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
+            name="nombreEmpresa" required>
+          <div *ngIf="empresaForm.controls['nombreEmpresa'].invalid && empresaForm.controls['nombreEmpresa'].touched"
+            class="error-message">Nombre de la empresa es requerido.</div>
+        </div>
 
 <div class="form-group">
   <label for="ruc">RUC:</label>
@@ -46,16 +49,19 @@
   </div>
 </div>
 
-<div class="form-group">
-  <label for="ubicacion">Dirección:</label>
-  <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion" required>
-  <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched" class="error-message">La direccion es requerida.</div>
 
-</div>
+        <div class="form-group">
+          <label for="ubicacion">Dirección:</label>
+          <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion"
+            required>
+          <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched"
+            class="error-message">La direccion es requerida.</div>
+
+        </div>
 
 <div class="form-group">
   <label for="telefono">Teléfono:</label>
-  <input type="number" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" required pattern="[0-9]{7,10}">
+  <input type="number" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" required pattern="[0-9]{10}">
   <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched" class="error-message">
     <div *ngIf="empresaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
     <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número de teléfono debe tener 10 dígitos.</div>
@@ -64,14 +70,16 @@
 
 <div class="form-group">
   <label for="iva">Iva:</label>
-  <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required step="0.01">
+  <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
+    pattern="0.01">
   <div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
-  <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
-  <div *ngIf="empresaForm.controls['iva'].hasError('pattern')">Debe ingresar solo decimales</div>
+    <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
+   
   </div>
-  </div>
+</div>
         <button type="submit" class="btn btn-success" onclick="guardarEmpresa()" style="background-color: green;">Guardar</button>
         <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cancelar</button>
+
       </form>
     </div>
   </div>
@@ -100,7 +108,7 @@
         <td>{{empresa.iva}}</td>
         <td><button type="submit" class="btn btn-success" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button>
         </td>
-        
+
         <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
             style="background-color: 0069c0;">Eliminar</button></td>
       </tr>

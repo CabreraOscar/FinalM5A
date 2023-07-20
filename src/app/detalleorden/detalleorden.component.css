@@ -1,35 +1,29 @@
 .containeunion {
   display: flex;
   justify-content: space-between;
+  margin-left: 200px;
+  margin-top: 2%;
+  margin-right: 2%;
 }
 
-/* .container{
-  display: flex;
-  justify-content: space-between;
-} */
-
-.containeruno{
-  display: flex;
-  justify-content: space-between;
+.container{
+  margin-left: 35%;
+  margin-right: 400px;
 }
 
-.containercinco{
-  display: flex;
-  justify-content: space-between;
-}  
 
 .container1 {
   background: #D3D3D3;
   border-radius: 10px;
-  width: 455px;
-  height: 650px;
+  width: 550px;
+  height: auto;
   padding: 20px;
   margin: 10px;
-  margin-right: 90px;
-  margin-top: 120px;
+  margin-right: 70px;
+  margin-bottom: 5%;
 }
 .form-group {
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items:flex-start;
 }
@@ -43,7 +37,7 @@
   margin: 10px;
   padding: -200px;
 
-} */
+} 
 
 
 
@@ -56,6 +50,7 @@
   cursor: pointer;
   height: 30px;
   background-color: #0069c0;
+  
 }
 
 .pedido-block {
@@ -91,15 +86,15 @@
   flex: 1;
 }
 
-.table {
+ .table {
   background: #D3D3D3;
   border-radius: 10px;
-  padding: 20px;
+  padding: 5px;
   margin: 10px;
   width: auto;
   flex: 0 0 50%;
 
-}
+} 
 
 .btnActualizar {
   background: green;
