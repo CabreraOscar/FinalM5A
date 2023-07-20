@@ -1,76 +1,83 @@
 <section class="pedido-block">
-  <h1>Lista de Ventas</h1>
-  <h4>Detalle de ventas</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Número de Factura</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Tipo de Pago</th>
-        <th scope="col">Subtotal</th>
-        <th scope="col">Descuento</th>
-        <th scope="col">IVA</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ ventasL.idVenta }}</td>
-        <td>{{ ventasL.fecha }}</td>
-        <td>{{ ventasL.tipoPago }}</td>
-        <td>{{ ventasL.subtotal }}</td>
-        <td>{{ ventasL.descuento }}</td>
-        <td>{{ ventasL.iva }}</td>
-        <td>{{ ventasL.total }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <header>
+    <h1>Lista de Ventas</h1>
+    <h4>Detalle de ventas</h4>
+  </header>
+  <div style="height: 100px; overflow-y: scroll;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número de Factura</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Tipo de Pago</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Descuento</th>
+          <th scope="col">IVA</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ ventasL.idVenta }}</td>
+          <td>{{ ventasL.fecha }}</td>
+          <td>{{ ventasL.tipoPago }}</td>
+          <td>{{ ventasL.subtotal }}</td>
+          <td>{{ ventasL.descuento }}</td>
+          <td>{{ ventasL.iva }}</td>
+          <td>{{ ventasL.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <br>
   <h4>Detalle de configuración de la empresa</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Número Empresa</th>
-        <th scope="col">Nombre de la Empresa</th>
-        <th scope="col">RUC</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Teléfono</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ ventasL.configEmpresa.idConfig }}</td>
-        <td>{{ ventasL.configEmpresa.nombreEmpresa }}</td>
-        <td>{{ ventasL.configEmpresa.ruc }}</td>
-        <td>{{ ventasL.configEmpresa.ubicacion }}</td>
-        <td>{{ ventasL.configEmpresa.telefono }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="height: 100px; overflow-y: scroll;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número Empresa</th>
+          <th scope="col">Nombre de la Empresa</th>
+          <th scope="col">RUC</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ ventasL.configEmpresa.idConfig }}</td>
+          <td>{{ ventasL.configEmpresa.nombreEmpresa }}</td>
+          <td>{{ ventasL.configEmpresa.ruc }}</td>
+          <td>{{ ventasL.configEmpresa.ubicacion }}</td>
+          <td>{{ ventasL.configEmpresa.telefono }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <br>
   <h4>Detalle de persona</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Número Persona</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Correo Electrónico</th>
-        <th scope="col">Cédula de Identificación</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Teléfono</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ ventasL.personaf.idPersona }}</td>
-        <td>{{ ventasL.personaf.nombrePer }}</td>
-        <td>{{ ventasL.personaf.correo }}</td>
-        <td>{{ ventasL.personaf.identificacion }}</td>
-        <td>{{ ventasL.personaf.direccion }}</td>
-        <td>{{ ventasL.personaf.telefono }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <button class="btn btn-success" (click)="irventas()" >Regresar</button>
+  <div style="height: 100px; overflow-y: scroll;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número Persona</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo Electrónico</th>
+          <th scope="col">Cédula de Identificación</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ ventasL.personaf.idPersona }}</td>
+          <td>{{ ventasL.personaf.nombrePer }}</td>
+          <td>{{ ventasL.personaf.correo }}</td>
+          <td>{{ ventasL.personaf.identificacion }}</td>
+          <td>{{ ventasL.personaf.direccion }}</td>
+          <td>{{ ventasL.personaf.telefono }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn btn-success" (click)="irventas()">Regresar</button>
 </section>

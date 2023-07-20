@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -13,9 +14,23 @@ export class NavbarComponent implements OnInit {
   
 
   logout() {
-    this.auth.removeToken();
+    
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Si cierras sesión, se cerrará tu sesión actual.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.auth.removeToken();
     this.auth.canAccess();
     this.auth.logout();
+      }
+    })
   }
   
   constructor(public auth:AuthService, private router: Router) { }

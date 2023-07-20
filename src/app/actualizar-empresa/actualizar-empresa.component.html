@@ -29,6 +29,12 @@
             [(ngModel)] ="empresas.telefono" name="telefono"
             placeholder="Dijite un nuevo teléfono" #telefono = "ngModel">
         </div>
+        <div class="form-group">
+            <label for="iva">Iva:</label>
+            <input type="number" class="form-control" id="iva" [(ngModel)]="empresas.iva" name="iva" 
+             placeholder="Ingrese el iva" #iva="ngModel" required step="0.01">
+        </div>
+        
 
         <button class="btn btn-success" (click)="onSubmit()">Guardar</button>
         <button class="btn btn-danger" routerLink="/config-empresa">Cancelar</button>

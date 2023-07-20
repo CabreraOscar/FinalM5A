@@ -17,11 +17,10 @@
     display: none;
     /* La ventana estará oculta inicialmente */
   }
-  
 </style>
 
 
-<section id="fondo"  class="pedido-block">
+<section id="fondo" class="pedido-block">
   <div class="encabezado"
     style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
@@ -78,6 +77,19 @@
           style="background-color: green;">Guardar</button>
         <button type="button" class="btn btn-danger" onclick="cerrarVentana()"
           style="background-color: red;">Cancelar</button>
+        <div class="form-group">
+          <label for="iva">Iva:</label>
+          <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
+            pattern="0.01">
+          <div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
+            <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
+            <div *ngIf="empresaForm.controls['iva'].hasError('pattern')">Debe ingresar solo decimales</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" onclick="guardarEmpresa()"
+          style="background-color: green;">Guardar</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarVentana()"
+          style="background-color: red;">Cancelar</button>
       </form>
     </div>
   </div>
@@ -91,6 +103,7 @@
         <th scope="col">Ruc</th>
         <th scope="col">Dirección</th>
         <th scope="col">Teléfono</th>
+        <th scope="col">Iva</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -102,6 +115,7 @@
         <td>{{empresa.ruc}}</td>
         <td>{{empresa.ubicacion}}</td>
         <td>{{empresa.telefono}}</td>
+        <td>{{empresa.iva}}</td>
         <td><button type="submit" class="btn btn-success" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button>
         </td>
 

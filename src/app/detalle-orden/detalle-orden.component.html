@@ -2,6 +2,7 @@
 <section class="pedido-block">
     <h1>Lista de Órdenes</h1>
     <h4>Detalle de órdenes</h4>
+    <div style="height: 100px; overflow-y: scroll;">
     <table class="table">
         <thead>
             <tr>
@@ -18,8 +19,10 @@
             </tr>
         </tbody>
     </table>
+</div>
     <br>
     <h4>Detalle de venta</h4>
+    <div style="height: 100px; overflow-y: scroll;">
     <table class="table">
         <thead>
             <tr>
@@ -44,8 +47,10 @@
             </tr>
         </tbody>
     </table>
+</div>
     <br>
     <h4>Detalle de persona</h4>
+    <div style="height: 100px; overflow-y: scroll;">
     <table class="table">
         <thead>
             <tr>
@@ -66,6 +71,6 @@
             </tr>
         </tbody>
     </table>
-
+</div>
     <button class="btn btn-success" (click)="irOrdenes()">Regresar</button>
 </section>
