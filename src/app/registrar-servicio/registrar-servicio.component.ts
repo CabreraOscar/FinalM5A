@@ -23,15 +23,31 @@ servicio:Servicio= new Servicio();
     var descripcion = this.servicio.descripcion;
     var precio = this.servicio.precio;
     
-    if (!nombre || !descripcion || !precio) {
+    if (!nombre) {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar un campo obligatorio',
+        text: 'Falta llenar el campo del nombre del servicio',
+      });
+      return;
+    }
+  if (!descripcion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo de la descripcion"',
       });
       return;
     }
   
+    if (!precio) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo del precio"',
+      });
+      return;
+    }
     this.servicioServicio.registrarMaquina(this.servicio).subscribe(dato => {
       console.log(dato);
       Swal.fire({

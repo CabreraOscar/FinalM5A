@@ -22,7 +22,9 @@ export class personaService {
 actualizarPersona(id:number,persona:Persona):Observable<object>{
 return this.httpClient.put(`${this.baseURLA}/${id}`,persona);
 }
-
+guardarPersona(persona: any) {
+  return this.httpClient.post(this.baseURL, persona);
+}
 
   //este metodo trae las maquinas
 obtenerListaPersona(): Observable<Persona[]>{

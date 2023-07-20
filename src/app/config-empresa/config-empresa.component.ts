@@ -113,7 +113,25 @@ export class ConfigEmpresaComponent implements OnInit {
       });
       return;
     }
-  
+    if (this.empresas.some(empresai => empresai.ruc === this.empresai.ruc)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe se ecuentra registrado ese RUC',
+        confirmButtonText: 'OK'
+      });
+    
+      return;
+    }
+    if (this.empresas.some(empresai => empresai.telefono === this.empresai.telefono)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con el mismo teléfono',
+        confirmButtonText: 'OK'
+      });
+        return;
+      }
     // Lógica para registrar la empresa.
   
     Swal.fire({

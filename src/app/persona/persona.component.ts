@@ -11,13 +11,21 @@ import Swal from 'sweetalert2';
 })
 export class PersonaComponent implements OnInit {
   persona:Persona = new Persona();
+  personas: Persona[];
   
  
   constructor(private personaServicio:personaService,private router:Router) { }
 
   ngOnInit(): void {
-    
+    this.obtenerpersona();
   }
+  
+  obtenerpersona(){
+    this.personaServicio.obtenerListaPersona().subscribe(dato => {
+      this.personas = dato;
+    });
+  }
+
 
 
   guardarPersona() {
@@ -100,6 +108,43 @@ export class PersonaComponent implements OnInit {
       });
       return;
     }
+     if (this.personas.some(persona => persona.identificacion === this.persona.identificacion)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con la misma cédula',
+        confirmButtonText: 'OK'
+      });
+    
+      return;
+    }
+
+    // Código para guardar la persona
+    this.personaServicio.guardarPersona(this.persona).subscribe(
+      () => {
+        alert('La persona ha sido guardada correctamente');
+        this.obtenerpersona(); // Llamada al método para obtener la lista de personas después de guardar una nueva persona
+      },
+    
+    );
+   if (this.personas.some(persona => persona.correo === this.persona.correo)) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Ya existe una persona con el mismo correo',
+      confirmButtonText: 'OK'
+    });
+      return;
+    }
+    if (this.personas.some(persona => persona.telefono === this.persona.telefono)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con el mismo teléfono',
+        confirmButtonText: 'OK'
+      });
+        return;
+      }
     this.personaServicio.registrarPersona(this.persona).subscribe(dato => {
       console.log(dato);
       Swal.fire({
@@ -111,6 +156,7 @@ export class PersonaComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    
     this.persona.nombrePer = '';
     this.persona.direccion = '';
     this.persona.telefono = 0;

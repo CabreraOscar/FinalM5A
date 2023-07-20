@@ -23,11 +23,19 @@ maquina:Maquina = new Maquina();
     var tamano = this.maquina.tamano;
     var precio = this.maquina.precio;
   
-    if (!tamano || !precio) {
+    if (!tamano ) {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar un campo obligatorio'
+        text: 'Falta llenar el campo tamaño'
+      });
+      return;
+    }
+    if (!precio) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el precio',
       });
       return;
     }
