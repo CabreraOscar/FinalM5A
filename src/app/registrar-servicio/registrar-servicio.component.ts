@@ -65,6 +65,16 @@ servicios: Servicio[];
     
       return;
     }
+    if (this.servicios.some(servicio => servicio.nombre.toLowerCase() === this.servicio.nombre.toLowerCase())) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe ese nombre',
+        confirmButtonText: 'OK'
+      });
+    
+      return;
+    }
     if (this.servicios.some(servicio => servicio.descripcion === this.servicio.descripcion)) {
       Swal.fire({
         icon: 'error',

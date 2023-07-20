@@ -58,6 +58,16 @@ maquinas: Maquina[];
       });
         return;
       }
+      if (this.maquinas.some(maquina => maquina.tamano.toLowerCase() === this.maquina.tamano.toLowerCase())) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ya existe ese nombre',
+          confirmButtonText: 'OK'
+        });
+      
+        return;
+      }
     this.maquinaServicio.registrarMaquina(this.maquina).subscribe(dato => {
       console.log(dato);
       Swal.fire({
