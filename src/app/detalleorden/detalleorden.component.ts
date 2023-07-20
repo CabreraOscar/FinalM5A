@@ -72,7 +72,10 @@ export class DetalleordenComponent implements OnInit {
     }
 
     
-  
+    Registra(): void {
+      this.router.navigate(['/cliente-ad-empleado']); 
+      
+    }
 
 
     seleccionarPersona(personaselect:Persona){

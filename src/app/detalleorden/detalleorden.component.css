@@ -48,6 +48,16 @@
 
 
 
+
+.button {
+  display: block;
+  width: 12%;
+  padding: 25px;
+  cursor: pointer;
+  height: 30px;
+  background-color: #0069c0;
+}
+
 .pedido-block {
   display: flex;
   flex-direction: column;
