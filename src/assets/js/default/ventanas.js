@@ -27,6 +27,11 @@ function cerrarVentanaM() {
     ventana.style.display = "none";
 }
 
+function cerrarVentanaR() {
+  var ventana = document.getElementById("ventanar");
+    ventana.style.display = "none";
+}
+
 
 // Variable global para almacenar el elemento de la ventana abierta
 var ventanaAbierta = null;

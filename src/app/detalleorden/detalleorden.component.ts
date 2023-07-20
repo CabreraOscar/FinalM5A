@@ -27,6 +27,7 @@ export class DetalleordenComponent implements OnInit {
   cliente: string = '';
   persona: Persona[];
   personax: Persona = new Persona();
+  personar: Persona = new Persona();
   maquinax: Maquina = new Maquina();
   orden: orden = new orden();
   itemSelect: Item = new Item();
@@ -75,7 +76,12 @@ export class DetalleordenComponent implements OnInit {
       this.persona.splice(0, this.persona.length);
       this.persona.push(this.personax);
     });
+  }
 
+  verificarInput(): void {
+    if (this.inputValue === '') {
+      this.obtenerPersona();
+    }
   }
 
 
@@ -99,6 +105,42 @@ export class DetalleordenComponent implements OnInit {
     ventana.style.display = "none";
   }
 
+  cerrarVentanaR() {
+    var ventana: any;
+    ventana = document.getElementById("ventanar");
+    ventana.style.display = "none";
+  }
+
+  ventanasAbiertas: { [key: string]: HTMLElement | null } = {};
+
+  cerrarVentanaActual() {
+    // Cerrar la ventana actual si existe
+    for (const ventana in this.ventanasAbiertas) {
+      if (this.ventanasAbiertas[ventana]) {
+        this.ventanasAbiertas[ventana]!.style.display = "none";
+      }
+    }
+  }
+
+  mostrarVentana(ventanaId: string) {
+    // Obtener el elemento con el ID proporcionado
+    const ventana = document.getElementById(ventanaId);
+
+    if (ventana) {
+      this.cerrarVentanaActual();
+
+      // Mostrar la ventana con el ID proporcionado
+      ventana.style.display = "block";
+
+      // Actualizar el diccionario de ventanas abiertas
+      this.ventanasAbiertas[ventanaId] = ventana;
+    }
+    this.obtenerPersona();
+  }
+  
+
+
+  
 
 
   obtenerMaquinaria() {
@@ -234,5 +276,40 @@ export class DetalleordenComponent implements OnInit {
     );
   }
 
+
+  guardarPersona() {
+    console.log(this.personar); // Verificar los valores de los campos
+    var nombrePer = this.personar.nombrePer;
+    var direccion = this.personar.direccion;
+    var telefono = this.personar.telefono;
+    var correo = this.personar.correo;
+    var identificacion = this.personar.identificacion;
+
+    if (!nombrePer || !direccion || !telefono || !correo || !identificacion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar un campo obligatorio'
+      });
+      return;
+    }
+
+    this.personaServicio.registrarPersona(this.personar).subscribe(dato => {
+      console.log(dato);
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'Los datos se han registrado correctamente'
+      });
+    }, error => {
+      console.log(error);
+    });
+    this.cerrarVentanaR()
+  }
+
+
+  onSubmit() {
+    this.guardarPersona();
+  }
 
 }

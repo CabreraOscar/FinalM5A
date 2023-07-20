@@ -10,13 +10,13 @@ import Swal from 'sweetalert2';
 })
 export class ClienteAdEmpleadoComponent implements OnInit {
 
-  persona:Persona = new Persona();
-  
- 
-  constructor(private personaServicio:personaService,private router:Router) { }
+  persona: Persona = new Persona();
+
+
+  constructor(private personaServicio: personaService, private router: Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
 
@@ -27,7 +27,7 @@ export class ClienteAdEmpleadoComponent implements OnInit {
     var telefono = this.persona.telefono;
     var correo = this.persona.correo;
     var identificacion = this.persona.identificacion;
-  
+
     if (!nombrePer || !direccion || !telefono || !correo || !identificacion) {
       Swal.fire({
         icon: 'error',
@@ -36,7 +36,7 @@ export class ClienteAdEmpleadoComponent implements OnInit {
       });
       return;
     }
-  
+
     this.personaServicio.registrarPersona(this.persona).subscribe(dato => {
       console.log(dato);
       Swal.fire({
@@ -49,11 +49,11 @@ export class ClienteAdEmpleadoComponent implements OnInit {
       console.log(error);
     });
   }
-irAlalistaDePersona(){
-  this.router.navigate(['/cliente-ad-empleado'])
-}
+  irAlalistaDePersona() {
+    this.router.navigate(['/cliente-ad-empleado'])
+  }
 
-  onSubmit(){
+  onSubmit() {
     this.guardarPersona();
   }
 }
