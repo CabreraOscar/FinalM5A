@@ -1,20 +1,66 @@
 <app-pantalla-empleado></app-pantalla-empleado>
-<body style=" background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);">
+
+<style>
+  /* Estilos para la ventana flotante */
+  .ventana-flotante {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    /* La ventana estará oculta inicialmente */
+  }
+</style>
+
+<body
+  style=" display: block;float: left; background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%); width: 100%; height: 100%;">
   <div class="containeunion">
+
+    <div class="container1">
+      <h1 style="margin-bottom: 30px;">Detalles de la órden</h1>
+      <div class="form-group">
+        <label for="cedula" style="margin-right: 10px;">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled style="margin-right: 10px;">
+        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanap'))">+</button>
+      </div>
+      <div class="form-group">
+        <label for="nombre" style="margin-right: 10px;">Cliente:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanas'))" style="margin-right: 10px;">+ Servicio</button>
+        <button class="btn btn-info" type="submit" onclick="mostrarVentana(document.getElementById('ventanam'))">+ Maquina</button>
+      </div>
+
+      <div class="form-group">
+        <label for="fecha" style="margin-right: 10px;">Fecha :</label>
+        <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
+      </div>
+      <div class="form-group">
+        <label for="total" style="margin-right: 10px;">Total:</label>
+        <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
+      </div>
+      <button type="submit" (click)="crearOrden()">Agregar órden</button>
+    </div>
+
     <div class="container">
-      
-       
-      <div class="containeruno">
-        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
+      <div id="ventanap" class="ventana-flotante">
+        <div>
           <h5>Detalle de persona</h5>
-          
           <form id="search-form" #miFormulario="ngForm">
             <label for="search-client">Buscar cliente:</label>
             <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula">
-
             <button (click)="buscarporcedula()" type="submit">Buscar</button>
             <button (click)="obtenerPersona()" class="btn btn-danger"
               style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
+            <button class="btn btn-info" (click)="Registra()">Registrar cliente</button>
           </form>
           <div class="table" style="height: 200px; overflow-y: scroll;">
             <table>
@@ -37,48 +83,49 @@
               </tbody>
             </table>
           </div>
+          <button class="btn btn-danger" type="submit" onclick="cerrarVentanaP()">Cerrar</button>
         </div>
+      </div>
 
-        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-bottom: 15px;">
-          <h5>Listado de servicios</h5>
-          <div class="table" style="height: 200px; overflow-y: scroll;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Tamaño</th>
-                  <th>Precio U</th>
-                  <th>Cantidad</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let maquina of maquinas; let i = index">
-                  <td>{{maquina.tamano}}</td>
-                  <td>{{maquina.precio}}</td>
-                  <td>
-                    <div class="spinner">
-                      <input type="number" min="0" max="10" value="1" [ngModel]="cantidad_maq[i]"
-                        (ngModelChange)="cantidad_maq[i] = $event">
-                    </div>
-                  </td>
-                  <td>
-                    <button (click)="crearItemMaquina(maquina, cantidad_maq[i])">Seleccionar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div id="ventanas" class="ventana-flotante">
+
+        <h5>Listado de servicios</h5>
+        <div class="table" style="height: 300px; overflow-y: scroll;">
+          <table>
+            <thead>
+              <tr>
+                <th>Tamaño</th>
+                <th>Precio U</th>
+                <th>Cantidad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let maquina of maquinas; let i = index">
+                <td>{{maquina.tamano}}</td>
+                <td>{{maquina.precio}}</td>
+                <td>
+                  <div class="spinner">
+                    <input type="number" min="0" max="10" value="1" [ngModel]="cantidad_maq[i]"
+                      (ngModelChange)="cantidad_maq[i] = $event">
+                  </div>
+                </td>
+                <td>
+                  <button (click)="crearItemMaquina(maquina, cantidad_maq[i])">Seleccionar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
+        <button class="btn btn-danger" type="submit" onclick="cerrarVentanaS()">Cerrar</button>
 
       </div>
-      <button class="button" (click)="Registra()">Registrar cliente</button>
 
-      <div class="containercinco">
 
-        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px; margin-right: 10px;">
+      <div id="ventanam" class="ventana-flotante">
+        <div>
           <h5>Listado de máquina</h5>
-          <div class="table" style="height: 200px; overflow-y: scroll;">
+          <div class="table" style="height: 300px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
@@ -105,58 +152,47 @@
               </tbody>
             </table>
           </div>
+          <button class="btn btn-danger" type="submit" onclick="cerrarVentanaM()">Cerrar</button>
         </div>
+      </div>
 
 
-        <div style="background-color: aliceblue; border-radius: 10px; padding: 5px;">
+      <div style="border-radius: 10px; padding: 5px; width: 390px;">
+        <div style="display: flex;">
           <h5>Cuadro de Selección</h5>
-          <div class="table" style="height: 200px; overflow-y: scroll;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Servi/máquina</th>
-                  <th>Precio T</th>
-                  <th>Cantidad</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of listaItem">
-                  <td>M/S/SELECT</td>
-                  <td>{{item.precioTotal}}</td>
-
-                  <td>
-                    {{item.cantidad}}
-                  </td>
-
-                </tr>
-              </tbody>
-            </table>
-            <button (click)="eliminaritems()">Cancelar </button>
-          </div>
+          <button class="btn btn-danger" (click)="eliminaritems()">Cancelar </button>
         </div>
+        <div class="table" style="height: 500px; overflow-y: scroll;">
+          <table>
+            <thead>
+              <tr>
+                <th>Servi/máquina</th>
+                <th>Precio Total</th>
+                <th>Cantidad</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listaItem">
+                <td>Maquina--Servico--SELECT</td>
+                <td>{{item.precioTotal}}</td>
+
+                <td>
+                  {{item.cantidad}}
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
       </div>
     </div>
-    <div class="container1" >
-      <h1 style="margin-bottom: 30px;">Detalles de la órden</h1>
-      <div class="form-group">
-        <label for="cedula" style="margin-right: 10px;">Cédula:</label>
-        <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled>
-      </div>
-      <div class="form-group">
-        <label for="nombre" style="margin-right: 10px;">Cliente:</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
-      </div>
-      
-      <div class="form-group">
-        <label for="fecha" style="margin-right: 10px;">Fecha :</label>
-        <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
-      </div>
-      <div class="form-group">
-        <label for="total" style="margin-right: 10px;">Total:</label>
-        <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
-      </div>
-      <button type="submit" (click)="crearOrden()">Agregar órden</button>
-    </div>
+
   </div>
 </body>
+
+<script>
+  
+</script>

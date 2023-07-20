@@ -60,8 +60,15 @@ export class ConfigEmpresaComponent implements OnInit {
       console.log(dato);
       this.obtenerEmpresa();
     }, error => console.log(error));
+    
+    this.cerrarVentanaP();
   }
   
+  cerrarVentanaP() {
+    var ventana: any;
+    ventana = document.getElementById("ventana");
+    ventana.style.display = "none";
+  }
   
 
 
