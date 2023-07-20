@@ -3,8 +3,8 @@
     <h1>Lista de órdenes</h1>
     <div class="buscar">
         <form id="search-form" #miFormulario="ngForm">
-            <label for="search-client">Buscar Cliente:</label>
-            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cedula" (blur)="verificarInput()">
+            <label for="search-client">Buscar cliente:</label>
+            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cédula" (blur)="verificarInput()">
 
             <button class="btn btn-info" (click)="buscarporcedula()" type="submit" style="margin-left: 10px; width: 100px; height: 45px;">Buscar</button>
             <button class="btn btn-danger" (click)="obtenerOrdenes()"style="margin-left : 10px; width: 100px; height: 45px; background-color: brown;">Cancelar</button>

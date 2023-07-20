@@ -1,6 +1,7 @@
 .containeunion {
     display: flex;
     justify-content: space-between;
+    background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
 }
 
 .pedido-block {

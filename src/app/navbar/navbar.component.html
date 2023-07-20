@@ -1,10 +1,10 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="javascript:void(0);" routerLink="/">
-    <img src="assets/imagenes/logo.png" width="55" height="55">
+  <!-- <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a> -->
+  <a class="navbar-brand" href="javascript:void(0);" routerLink="/dashboard">
+    <img src="assets/imagenes/logo.png" width="60" height="60">
   </a>
-  <div style="position: absolute; top: 9; right: 15px;">
-    <span class="navbar-brand-text">LAVATEC</span></div>
+  
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <ng-container *ngIf="this.auth.isAuthenticated(); then authenticated; else notAuthenticated"></ng-container>
@@ -15,8 +15,12 @@
       </ng-template>
       
       <ng-template #authenticated>
-        <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">Panel</a></li>
-        <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">Cerrar sesión</a></li>
+        <li class="navbar-brand"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">LAVATEC</a></li>
+        <div class="logout-btn">
+          <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">
+            <img src="assets/imagenes/exit.png" width="45" height="45">
+          </a></li>
+        </div>
         <!--<li class="nav-item"><a href="javascript:void(0);" routerLink="/register" class="nav-link">Registrar</a></li>-->
       </ng-template>
     </ul>

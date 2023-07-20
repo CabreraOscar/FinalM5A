@@ -1,0 +1,9 @@
+.cliente-block {
+    background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
+    margin: 0;
+    padding: 0;
+    margin-left: 165px;
+    padding: 52px;
+  }
+  
+  @media (max-width: 768px) {}
