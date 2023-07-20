@@ -11,10 +11,17 @@ import Swal from 'sweetalert2';
 })
 export class RegistrarServicioComponent implements OnInit {
 servicio:Servicio= new Servicio();
+servicios: Servicio[];
   constructor(private servicioServicio:ServicioService,private router:Router) { }
 
   ngOnInit(): void {
-
+    this.obtenerservicio();
+  }
+  
+  obtenerservicio(){
+    this.servicioServicio.obtenerListaMaquinas().subscribe(dato => {
+      this.servicios = dato;
+    });
   }
 
 
@@ -46,6 +53,26 @@ servicio:Servicio= new Servicio();
         title: 'Campos incompletos',
         text: 'Falta llenar el campo del precio"',
       });
+      return;
+    }
+    if (this.servicios.some(servicio => servicio.nombre === this.servicio.nombre)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe ese nombre',
+        confirmButtonText: 'OK'
+      });
+    
+      return;
+    }
+    if (this.servicios.some(servicio => servicio.descripcion === this.servicio.descripcion)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe esa descripcion',
+        confirmButtonText: 'OK'
+      });
+    
       return;
     }
     this.servicioServicio.registrarMaquina(this.servicio).subscribe(dato => {

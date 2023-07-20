@@ -12,14 +12,24 @@ import Swal from 'sweetalert2';
 })
 export class RegistrarMaquinaComponent implements OnInit {
 maquina:Maquina = new Maquina();
+maquinas: Maquina[];
+
   constructor(private maquinaServicio:MaquinaService,private router:Router) { }
 
   ngOnInit(): void {
+    this.obtenermaquina();
     
   }
 
+  private obtenermaquina(){
+    this.maquinaServicio.obtenerListaMaquinas().subscribe(dato => {
+      this.maquinas = dato;
+    });
+  }
+
+
   guardarMaquina() {
-    console.log(this.maquina); // Verificar los valores de los campos
+    // Verificar los valores de los campos
     var tamano = this.maquina.tamano;
     var precio = this.maquina.precio;
   
@@ -39,7 +49,15 @@ maquina:Maquina = new Maquina();
       });
       return;
     }
-  
+    if (this.maquinas.some(maquina => maquina.tamano === this.maquina.tamano)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe un tamaño igual',
+        confirmButtonText: 'OK'
+      });
+        return;
+      }
     this.maquinaServicio.registrarMaquina(this.maquina).subscribe(dato => {
       console.log(dato);
       Swal.fire({
@@ -47,6 +65,7 @@ maquina:Maquina = new Maquina();
         title: 'Registro exitoso',
         text: 'Los datos se han registrado correctamente'
       });
+      
       this.irAlalistaDeMaquinas();
     }, error => {
       console.log(error);
