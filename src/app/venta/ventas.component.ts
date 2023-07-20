@@ -60,6 +60,7 @@ export class VentasComponent implements OnInit {
       });
   
       this.total = ventas.reduce((a, b) => a + b.total, 0);
+      
     }
   
  
