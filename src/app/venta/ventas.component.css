@@ -46,7 +46,7 @@ padding: 139px;
 .detalle-venta {
   background-color: #ffffff;
   padding: 10px;
-  border-top: 1px solid #e99494;
+  border-top: 1px solid #1829c2;
 }
 
 .btn-custom:hover::before {
@@ -71,7 +71,7 @@ padding: 139px;
   border-radius: 10px;
   padding: 20px;
   margin: 10px auto;
-  width: 90%;
+  width: 100%;
 }
 .custom-table th, .custom-table td {
   border: 1px solid #000000; /* Borde de celda */

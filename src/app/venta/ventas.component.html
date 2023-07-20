@@ -3,47 +3,45 @@
   <h1>Lista de ventas</h1>
   <form id="search-form" #miFormulario="ngForm">
     <label for="search-fecha">Busqueda de fecha:</label>
-<input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio" (blur)="verificarInput()">
-<input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin" (blur)="verificarInput()">
-<button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px; width: 100px; height: 45px;">Buscar</button>
+    <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio" (blur)="verificarInput()">
+    <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin" (blur)="verificarInput()">
+    <button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px; width: 100px; height: 45px;">Buscar</button>
+    <button class="btn btn-danger" (click)="limpiarYRecargar()" style="margin-left: 10px; width: 150px; height: 45px; background-color: brown;">Restablecer</button>
 
-    <button class="btn btn-danger" (click)="obtenerventa()"style="margin-left : 10px; width: 100px; height: 45px; background-color: brown;">Cancelar</button>
-    <div class="total">
-      <h1>Total de ventas:$ {{total}}</h1>
-    </div>
-   
-    
+  <div class="total">
+    <h1>Total de ventas: $ {{total | number}}</h1>
+  </div>
   </form>
-  
 
-<table class="custom-table" style="height: 200px; overflow-y: scroll;">
-  <thead>
-    <tr>
-      <th>Número de Factura</th>
-      <th>Fecha</th>
-      <th>Tipo de Pago</th>
-      <th>Subtotal</th>
-      <th>Descuento</th>
-      <th>IVA</th>
-      <th>Total</th>
-      <th>Persona</th>
-      <th>Configuración</th>
-      <th>Ver Detalles</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr *ngFor="let venta of ventas">
-      <td>{{venta.idVenta}}</td>
-      <td>{{venta.fecha}}</td>
-      <td>{{venta.tipoPago}}</td>
-      <td>{{venta.subtotal}}</td>
-      <td>{{venta.descuento}}</td>
-      <td>{{venta.iva}}</td>
-      <td>{{venta.total}}</td>
-      <td>{{venta.personaf.nombrePer}}</td>
-      <td>{{venta.configEmpresa.nombreEmpresa}}</td>
-      <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">+</button></td>
-    </tr>
-  </tbody>
-</table>
+  <div style="height: 130px; overflow-y: scroll;">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Número de Factura</th>
+          <th>Fecha</th>
+          <th>Tipo de Pago</th>
+          <th>Subtotal</th>
+          <th>Descuento</th>
+          <th>IVA</th>
+          <th>Total</th>
+          <th>Persona</th>
+          <th>Configuración</th>
+          <th>Ver Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let venta of ventas">
+        <td>{{venta.idVenta}}</td>
+        <td>{{venta.fecha}}</td>
+        <td>{{venta.tipoPago}}</td>
+        <td>{{venta.subtotal}}</td>
+        <td>{{venta.descuento}}</td>
+        <td>{{venta.iva}}</td>
+        <td>{{venta.total}}</td>
+        <td>{{venta.personaf.nombrePer}}</td>
+        <td>{{venta.configEmpresa.nombreEmpresa}}</td>
+        <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">+</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

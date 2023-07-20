@@ -26,7 +26,7 @@ export class VentasComponent implements OnInit {
  ventasL: venta = new venta;
  fechaInicio: string = '';
  fechaFin: string = '';
-  total: number;
+ total: number = 0;
   constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -62,7 +62,15 @@ export class VentasComponent implements OnInit {
       this.total = ventas.reduce((a, b) => a + b.total, 0);
       
     }
+    limpiarYRecargar() {
+      // Implement the logic to clear the date fields and reload the page.
+      this.fechaInicio = '';
+      this.fechaFin = '';
+      this.total = 0;
   
+      // Reload the page using JavaScript's location.reload() method.
+      window.location.reload();
+    }
  
   verificarInput(): void {
     if (this.inputValue === '') {

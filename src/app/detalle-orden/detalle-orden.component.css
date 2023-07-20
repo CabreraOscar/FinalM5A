@@ -57,14 +57,13 @@
   }
   
   table {
-    border-collapse: collapse;
-    width: 80%;
-    table-layout: fixed;
-    font-family: sans-serif;
-    font-size: 14px;
+   
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 1020px;
     color: #000000;
   }
-  
+
   .table th, .table td {
     border: 1px solid #000000; /* Borde de celda */
     padding: 8px; /* Espaciado interno */
