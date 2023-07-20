@@ -3,6 +3,8 @@ import { OrdenesService } from '../_services/ordenes.service';
 import { orden } from '../modelo/orden';
 import { personaService } from '../_services/persona.service';
 import { Persona } from '../modelo/persona';
+import { EmpresaService } from '../_services/empresa.service';
+import { Empresa } from '../modelo/empresa';
 
 @Component({
   selector: 'app-generar-ventas',
@@ -21,14 +23,67 @@ export class GenerarVentasComponent implements OnInit {
   cedulaV: string = '';
   clienteV: string = '';
   totalOrdenV: number;
+  descuentonumero: number = 0;
+  fechaActual: string;
+  tipoPagoSeleccionado: string;
+  constructor(private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
+  empresas2: string[] = ['LAVAFLASH (SAYAUSI)'];
+  empresaSeleccionada: Empresa;
+  descuento: string = 'no'; // Valor predeterminado a 'no'
+  descuentoSeleccionado: string = ''; // Variable para almacenar el descuento seleccionado
+  empresas: Empresa[] = [];
+  
 
-
-  constructor(private ordenService: OrdenesService, private personaService: personaService) { }
 
   ngOnInit(): void {
     this.obtenerOrden();
     this.obtenerPersona();
+    const hoy = new Date();
+    const year = hoy.getFullYear();
+    const month = ('0' + (hoy.getMonth() + 1)).slice(-2); // Agrega cero a meses de un solo dígito
+    const day = ('0' + hoy.getDate()).slice(-2); // Agrega cero a días de un solo dígito
+    this.fechaActual = `${year}-${month}-${day}`;
+    this.tipoPagoSeleccionado = 'efectivo';
+    this.actualizarDescuentoNumero();
+    this.obtenerEmpresa();
+    
   }
+
+  compareEmpresa(e1: Empresa, e2: Empresa): boolean {
+    return e1 && e2 ? e1.idConfig === e2.idConfig : e1 === e2;
+  }
+  actualizarDescuento(event: Event) {
+    this.descuento = (event.target as HTMLInputElement).value;
+    this.actualizarDescuentoNumero();
+  }
+  actualizarDescuentoNo() {
+    this.descuentoSeleccionado = 'sin descuento';
+    this.actualizarDescuentoNumero();
+  }
+  actualizarDescuentoNumero() {
+    switch (this.descuentoSeleccionado) {
+      case 'secado gratis':
+        this.descuentonumero = 0.10;
+        break;
+      case 'productos gratis':
+        this.descuentonumero = 0.15;
+        break;
+      case 'doblado gratis':
+        this.descuentonumero = 0.14;
+        break;
+      default:
+        this.descuentonumero = 0;
+        break;
+    }
+  }
+  seleccionarEmpresa() {
+    // La variable 'empresaSeleccionada' se actualizará automáticamente al seleccionar una opción en el combobox
+    console.log('Empresa seleccionada:', this.empresaSeleccionada);
+  }
+crearventa(){
+  console.log(this.empresaSeleccionada);
+
+}
 
   obtenerOrden() {
     this.ordenService.getOrdenesNull().subscribe(dato => {
@@ -42,6 +97,13 @@ export class GenerarVentasComponent implements OnInit {
     this.personaService.obtenerListaPersona().subscribe(dato => {
       this.listaPersona = dato;
       console.log(dato);
+    });
+  }
+
+  private obtenerEmpresa(){
+    this.empresaServicio.obtenerListaDeEmpresa().subscribe(dato => {
+      this.empresas = dato;
+      this.empresaSeleccionada = Object.assign({}, this.empresas[0]);
     });
   }
 

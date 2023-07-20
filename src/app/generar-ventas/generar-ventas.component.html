@@ -83,6 +83,12 @@
 
     <div class="container1">
         <div class="form-group">
+            <label for="empresa" style="margin-right: 10px;">Empresa: </label>
+            <select id="empresa" name="empresa" class="form-control" [(ngModel)]="empresaSeleccionada" [compareWith]="compareEmpresa">
+              <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{ empresa.nombreEmpresa }}</option>
+            </select>
+          </div>
+        <div class="form-group">
             <label for="cedula" style="margin-right: 10px;">Cedula:</label>
             <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaV" disabled>
         </div>
@@ -99,27 +105,40 @@
             </label>
         </ng-container>
 
-        <div class="form-group">
+        <div class="form-combo">
             <label for="telefono" style="margin-right: 10px;">Fecha: </label>
-            <input type="date" id="telefono" name="telefono" pattern="[0-9]{7,10}">
+            <input type="date" id="telefono" name="telefono" pattern="[0-9]{7,10}" [(ngModel)]="fechaActual">
         </div>
 
         <div class="form-group">
-            <label for="telefono" style="margin-right: 5px;">Tipo de pago: </label>
-            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
-        </div>
+            <label for="tipoPago" style="margin-right: 5px;">Tipo de pago:</label>
+            <select class="form-control" id="tipoPago" name="tipoPago" [(ngModel)]="tipoPagoSeleccionado">
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta</option>
+              <option value="transferencia">Transferencia</option>
+            </select>
+          </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <label for="nombre" style="margin-right: 20px;">Descuento: </label>
             <div>
-                <input type="radio" id="descuentoSi" name="descuento" value="si">
-                <label for="descuentoSi" style="margin-right: 10px;margin-left: 5px;">Sí</label>
+              <input type="radio" id="descuentoSi" name="descuento" value="si" (change)="actualizarDescuento($event)">
+              <label for="descuentoSi" style="margin-right: 10px;margin-left: 5px;">Sí</label>
             </div>
             <div>
-                <input type="radio" id="descuentoNo" name="descuento" value="no" checked>
-                <label for="descuentoNo" style="margin-left: 5px;">No</label>
+              <input type="radio" id="descuentoNo" name="descuento" value="no" (click)="actualizarDescuentoNo()"checked>
+              <label for="descuentoNo" style="margin-left: 5px;">No</label>
             </div>
-        </div>
+          </div>
+          
+          <div *ngIf="descuento === 'si'">
+            <label for="descuentoSeleccionado" style="margin-right: 10px;">Tipo de Descuento: </label>
+            <select id="descuentoSeleccionado" name="descuentoSeleccionado" [(ngModel)]="descuentoSeleccionado" (ngModelChange)="actualizarDescuentoNumero()">
+              <option value="secado gratis">Secado Gratis</option>
+              <option value="productos gratis">Productos Gratis</option>
+              <option value="doblado gratis">Doblado Gratis</option>
+            </select>
+          </div>
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Subtotal: </label>
@@ -128,14 +147,14 @@
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Iva:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
-        </div>
+            <input *ngIf="empresaSeleccionada" type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}" [(ngModel)]="empresaSeleccionada.iva">
+          </div>
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Total:</label>
             <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}">
         </div>
-        <button type="submit" class="btn btn-success" style="background-color: green;">Guardar Venta</button>
+        <button (click)="crearventa()" type="submit" class="btn btn-success" style="background-color: green;">Guardar Venta</button>
     </div>
 
 </div>
