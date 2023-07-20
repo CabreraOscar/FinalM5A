@@ -13,7 +13,7 @@ export class ActualizarEmpresaComponent implements OnInit {
 
   id:number;
   empresas:Empresa=new Empresa();
-
+  empresai:Empresa = new Empresa();
   constructor(private empresasServicio:EmpresaService,private router:Router,private route:ActivatedRoute){}
 
   ngOnInit(): void {
@@ -24,6 +24,7 @@ export class ActualizarEmpresaComponent implements OnInit {
   }
 
   onSubmit(){
+    
     this.empresasServicio.actualizarEmpresa(this.id,this.empresas).subscribe(dato => {
       this.irALaListaDeEmpresas();
     },error =>console.log(error))

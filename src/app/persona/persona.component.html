@@ -6,11 +6,11 @@
     <form #personaForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="nombrePer">Nombre:</label>
-          <input type="text" class="form-control" id="nombrePer" [(ngModel)]="persona.nombrePer" name="nombrePer" required minlength="2" maxlength="50">
+          <input type="text" class="form-control" id="nombrePer" [(ngModel)]="persona.nombrePer" name="nombrePer" required minlength="3" maxlength="50">
           <div *ngIf="personaForm.controls['nombrePer'].invalid && personaForm.controls['nombrePer'].touched" class="error-message">
             <div *ngIf="personaForm.controls['nombrePer'].hasError('required')">El nombre es requerido.</div>
-            <div *ngIf="personaForm.controls['nombrePer'].hasError('minlength')">El nombre debe tener al menos 2 caracteres.</div>
-            <div *ngIf="personaForm.controls['nombrePer'].hasError('maxlength')">El nombre debe tener un máximo de 50 caracteres.</div>
+            <div *ngIf="personaForm.controls['nombrePer'].hasError('minlength')">El nombre debe tener al menos 3 a 50 caracteres.</div>
+            
           </div>
         </div>
       
@@ -25,10 +25,10 @@
 
         <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="number" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono" required pattern="[0-9]{7,10}">
+            <input type="text" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono" required pattern="[0-9]{10}">
             <div *ngIf="personaForm.controls['telefono'].invalid && personaForm.controls['telefono'].touched" class="error-message">
               <div *ngIf="personaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
-              <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">El teléfono debe tener entre 7 y 10 dígitos.</div>
+              <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">El teléfono debe tener  10 dígitos.</div>
             </div>
           </div>
         
@@ -43,10 +43,10 @@
       
         <div class="form-group">
             <label for="identificacion">Cédula:</label>
-            <input type="number" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" name="identificacion" required pattern="[0-9]{11}">
+            <input type="text" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" name="identificacion" required pattern="[0-9]{10}">
             <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched" class="error-message">
               <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
-              <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 11 dígitos.</div>
+              <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 10 dígitos.</div>
             </div>
           </div>
       

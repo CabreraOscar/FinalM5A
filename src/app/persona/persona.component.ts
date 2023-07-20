@@ -28,15 +28,78 @@ export class PersonaComponent implements OnInit {
     var correo = this.persona.correo;
     var identificacion = this.persona.identificacion;
   
-    if (!nombrePer || !direccion || !telefono || !correo || !identificacion) {
+    if (!nombrePer) {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar un campo obligatorio'
+        text: 'Falta llenar el campo "nombre del cliente"',
       });
       return;
     }
   
+    if (!direccion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "dirección"',
+      });
+      return;
+    }
+  
+    if (!telefono) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "teléfono"',
+      });
+      return;
+    }
+  
+    
+  
+    if (!correo) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "correo"',
+      });
+      return;
+    }
+    if (!identificacion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "cédula"',
+      });
+      return;
+    }
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Correo invalido',
+        text: 'El correo debe tener el @ ',
+      });
+      return;
+    }
+  
+    if (!/^\d{10}$/.test(identificacion)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Cédula invalida',
+        text: 'La cédula debe tener 10 dígitos ',
+      });
+      return;
+    }
+  
+    // Validar que el teléfono sea válido.
+    if (!/^\d{10}$/.test(String(telefono))) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Teléfono inválido',
+        text: 'El teléfono debe tener entre 10 dígitos',
+      });
+      return;
+    }
     this.personaServicio.registrarPersona(this.persona).subscribe(dato => {
       console.log(dato);
       Swal.fire({
@@ -48,7 +111,16 @@ export class PersonaComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+    this.persona.nombrePer = '';
+    this.persona.direccion = '';
+    this.persona.telefono = 0;
+    this.persona.correo = '';
+    this.persona.identificacion = '';
+  
+   
   }
+ 
+  
 irAlalistaDePersona(){
   this.router.navigate(['/lista-persona'])
 }

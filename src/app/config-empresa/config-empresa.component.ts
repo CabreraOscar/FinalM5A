@@ -99,7 +99,7 @@ export class ConfigEmpresaComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Teléfono inválido',
-        text: 'El teléfono debe tener entre 10 dígitos numéricos',
+        text: 'El teléfono debe tener entre 10 dígitos',
       });
       return;
     }
