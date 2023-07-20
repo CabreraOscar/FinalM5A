@@ -80,7 +80,6 @@ export class ConfigEmpresaComponent implements OnInit {
         icon: 'error',
         title: 'Campos incompletos',
         text: 'Falta llenar el campo "IVA"',
-        
       });
       return;
     }
@@ -91,7 +90,6 @@ export class ConfigEmpresaComponent implements OnInit {
         icon: 'error',
         title: 'RUC inválido',
         text: 'El RUC debe tener 13 dígitos numéricos',
-        
       });
       return;
     }
@@ -107,7 +105,15 @@ export class ConfigEmpresaComponent implements OnInit {
     }
   
     // Validar que el IVA sea válido.
-    
+    if (!/^(\d{1,2})\.(\d{1,2})$/.test(String(iva))) {
+      Swal.fire({
+        icon: 'error',
+        title: 'IVA inválido',
+        text: 'El IVA debe tener un formato de 0.00',
+      });
+      return;
+    }
+  
     // Lógica para registrar la empresa.
   
     Swal.fire({
@@ -120,7 +126,14 @@ export class ConfigEmpresaComponent implements OnInit {
       console.log(dato);
       this.obtenerEmpresa();
     }, error => console.log(error));
-    
+  
+    // Restablecer los campos del formulario a una cadena vacía
+    this.empresai.nombreEmpresa = '';
+    this.empresai.ruc = '';
+    this.empresai.ubicacion = '';
+    this.empresai.telefono = '';
+    this.empresai.iva = 0;
+  
     this.cerrarVentanaP();
   }
 

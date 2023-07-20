@@ -49,13 +49,12 @@
   </div>
 </div>
 
-
-        <div class="form-group">
+ <div class="form-group">
           <label for="ubicacion">Dirección:</label>
           <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion"
             required>
           <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched"
-            class="error-message">La direccion es requerida.</div>
+            class="error-message">La dirección es requerida.</div>
 
         </div>
 
@@ -70,15 +69,17 @@
 
 <div class="form-group">
   <label for="iva">Iva:</label>
-  <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
-    pattern="0.01">
-  <div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
-    <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
-   
-  </div>
+<input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
+pattern="0.01" step="0.01">
+<div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
+<div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
+<div *ngIf="empresaForm.controls['iva'].hasError('pattern')">El IVA debe ser un decimal de dos dígitos.</div>
 </div>
-        <button type="submit" class="btn btn-success" onclick="guardarEmpresa()" style="background-color: green;">Guardar</button>
-        <button type="button" class="btn btn-danger" onclick="cerrarVentana()" style="background-color: red;">Cancelar</button>
+   
+ 
+</div>
+<button type="submit" class="btn btn-success" onclick="guardarEmpresa(); limpiarFormulario();" style="background-color: green;">Guardar</button>
+<button type="button" class="btn btn-danger" onclick="cerrarVentana(); "style="background-color: red;">Cancelar</button>
 
       </form>
     </div>
