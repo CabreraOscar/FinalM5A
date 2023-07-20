@@ -36,17 +36,85 @@ export class ConfigEmpresaComponent implements OnInit {
     var ruc = this.empresai.ruc;
     var ubicacion = this.empresai.ubicacion;
     var telefono = this.empresai.telefono;
-    
-    if (!nombreEmpresa || !ruc || !ubicacion || !telefono) {
+    var iva = this.empresai.iva;
+  
+    // Validar que los campos no estén vacíos.
+    if (!nombreEmpresa) {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar un campo obligatorio',
+        text: 'Falta llenar el campo "nombre de la empresa"',
       });
       return;
     }
   
-    // Lógica para registrar la empresa
+    if (!ruc) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "RUC"',
+      });
+      return;
+    }
+  
+    if (!ubicacion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "ubicación"',
+      });
+      return;
+    }
+  
+    if (!telefono) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "teléfono"',
+      });
+      return;
+    }
+  
+    if (!iva) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Campos incompletos',
+        text: 'Falta llenar el campo "IVA"',
+      });
+      return;
+    }
+  
+    // Validar que el RUC sea válido.
+    if (!/^\d{13}$/.test(ruc)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'RUC inválido',
+        text: 'El RUC debe tener 13 dígitos numéricos',
+      });
+      return;
+    }
+  
+    // Validar que el teléfono sea válido.
+    if (!/^\d{10}$/.test(telefono)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Teléfono inválido',
+        text: 'El teléfono debe tener entre 10 dígitos numéricos',
+      });
+      return;
+    }
+  
+    // Validar que el IVA sea válido.
+    if (!/^(\d{1,2})\.(\d{1,2})$/.test(String(iva))) {
+      Swal.fire({
+        icon: 'error',
+        title: 'IVA inválido',
+        text: 'El IVA debe tener un formato de 0.00',
+      });
+      return;
+    }
+  
+    // Lógica para registrar la empresa.
   
     Swal.fire({
       icon: 'success',
@@ -54,22 +122,28 @@ export class ConfigEmpresaComponent implements OnInit {
       text: 'Los datos se han registrado correctamente'
     });
   
-  
-  
     this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato => {
       console.log(dato);
       this.obtenerEmpresa();
     }, error => console.log(error));
-    
+  
+    // Restablecer los campos del formulario a una cadena vacía
+    this.empresai.nombreEmpresa = '';
+    this.empresai.ruc = '';
+    this.empresai.ubicacion = '';
+    this.empresai.telefono = '';
+    this.empresai.iva = 0;
+  
     this.cerrarVentanaP();
   }
+
   
   cerrarVentanaP() {
     var ventana: any;
     ventana = document.getElementById("ventana");
     ventana.style.display = "none";
   }
-  
+
 
 
   eliminarEmpresa(idConfig:number){

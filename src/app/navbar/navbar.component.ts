@@ -16,14 +16,14 @@ export class NavbarComponent implements OnInit {
   logout() {
     
     Swal.fire({
-      title: '¿Estás seguro?',
-      text: "Si cierras sesión, se cerrará tu sesión actual.",
+      title: 'Cerrar sesión.',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, cerrar sesión',
-      cancelButtonText: 'Cancelar'
+      confirmButtonText: 'Sí',
+      cancelButtonText: ' No',
+      
     }).then((result) => {
       if (result.isConfirmed) {
         this.auth.removeToken();
