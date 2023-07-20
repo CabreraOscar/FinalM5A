@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../modelo/persona';
 import { ActivatedRoute, Router } from '@angular/router';
 import { personaService } from '../_services/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-persona',
@@ -23,6 +24,11 @@ export class ActualizarPersonaComponent implements OnInit {
 
 
   onSubmit(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Actualización exitosa',
+  
+    });
     this.personaServicio.actualizarPersona(this.id,this.persona).subscribe(dato => {
       this.irAlaListaDeServicios();
     },error => console.log(error));

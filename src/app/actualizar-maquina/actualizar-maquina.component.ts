@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Maquina } from '../modelo/maquina';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaquinaService } from '../_services/maquina.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-maquina',
@@ -22,6 +23,11 @@ id:number;
   }
 
   onSubmit(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Actualización exitosa',
+  
+    });
     this.maquinaServicio.actualizarMaquina(this.id,this.maquina).subscribe(dato => {
       this.irAlaListaDeMaquinaria();
     },error => console.log(error));

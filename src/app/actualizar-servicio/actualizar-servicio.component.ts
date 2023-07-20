@@ -23,6 +23,12 @@ export class ActualizarServicioComponent implements OnInit {
 
 
   onSubmit(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Actualización exitosa',
+  
+    });
+
     this.servicioServicio.actualizarMaquina(this.id,this.servicio).subscribe(dato => {
       this.irAlaListaDeServicios();
     },error => console.log(error));

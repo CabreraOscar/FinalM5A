@@ -3,6 +3,7 @@ import { Empresa } from '../modelo/empresa';
 import { MaquinaService } from '../_services/maquina.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpresaService } from '../_services/empresa.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar-empresa',
@@ -24,6 +25,11 @@ export class ActualizarEmpresaComponent implements OnInit {
   }
 
   onSubmit(){
+    Swal.fire({
+      icon: 'success',
+      title: 'Actualización exitosa',
+  
+    });
     
     this.empresasServicio.actualizarEmpresa(this.id,this.empresas).subscribe(dato => {
       this.irALaListaDeEmpresas();

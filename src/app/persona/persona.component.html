@@ -45,8 +45,8 @@
             <label for="identificacion">Cédula:</label>
             <input type="text" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" name="identificacion" required pattern="[0-9]{10}">
             <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched" class="error-message">
-              <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
-              <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 10 dígitos.</div>
+              <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La cédula es requerida.</div>
+              <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La cédula debe tener 10 dígitos.</div>
             </div>
           </div>
       
