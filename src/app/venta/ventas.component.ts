@@ -26,6 +26,7 @@ export class VentasComponent implements OnInit {
  ventasL: venta = new venta;
  fechaInicio: string = '';
  fechaFin: string = '';
+  total: number;
   constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -35,7 +36,7 @@ export class VentasComponent implements OnInit {
     this.obtenerventa();
   }
   
-  private obtenerventa(){
+   obtenerventa(){
     this.ventasService.mostrarDetalle().subscribe(dato => {
       this.ventas = dato;
     });
@@ -53,8 +54,14 @@ export class VentasComponent implements OnInit {
   
       // Devuelve true si la fecha de la venta está dentro del rango especificado.
       return fechaVenta >= this.fechaInicio && fechaVenta <= this.fechaFin;
-    });
-  }
+       });
+       const ventas = this.ventas.filter(venta => {
+        return venta.fecha >= this.fechaInicio && venta.fecha <= this.fechaFin;
+      });
+  
+      this.total = ventas.reduce((a, b) => a + b.total, 0);
+    }
+  
  
   verificarInput(): void {
     if (this.inputValue === '') {

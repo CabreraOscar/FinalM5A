@@ -2,42 +2,48 @@
 <section class="pedido-block">
   <h1>Lista de ventas</h1>
   <form id="search-form" #miFormulario="ngForm">
-  <label for="search-fecha">Busqueda de fecha:</label>
-  <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio"(blur)="verificarInput()">
-  <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin"(blur)="verificarInput()">
-  
-  <button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px;">Buscar</button>
- 
-</form>
+    <label for="search-fecha">Busqueda de fecha:</label>
+<input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio" (blur)="verificarInput()">
+<input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin" (blur)="verificarInput()">
+<button class="btn btn-info" (click)="buscarPorFechas()" type="button" style="margin-left: 10px; width: 100px; height: 45px;">Buscar</button>
 
-  <table class="custom-table">
-    <thead>
-      <tr>
-        <th>Número de Factura</th>
-        <th>Fecha</th>
-        <th>Tipo de Pago</th>
-        <th>Subtotal</th>
-        <th>Descuento</th>
-        <th>IVA</th>
-        <th>Total</th>
-        <th>Persona</th>
-        <th>Configuración</th>
-        <th>Ver Detalles</th>
-      </tr>
-    </thead>
+    <button class="btn btn-danger" (click)="obtenerventa()"style="margin-left : 10px; width: 100px; height: 45px; background-color: brown;">Cancelar</button>
+    <div class="total">
+      <h1>Total de ventas:$ {{total}}</h1>
+    </div>
+   
+    
+  </form>
   
-    <tbody>
-      <tr *ngFor="let venta of ventas">
-        <td>{{venta.idVenta}}</td>
-        <td>{{venta.fecha}}</td>
-        <td>{{venta.tipoPago}}</td>
-        <td>{{venta.subtotal}}</td>
-        <td>{{venta.descuento}}</td>
-        <td>{{venta.iva}}</td>
-        <td>{{venta.total}}</td>
-        <td>{{venta.personaf.idPersona}}</td>
-        <td>{{venta.configEmpresa.idConfig}}</td>
-        <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">+</button></td>
-      </tr>
-    </tbody>
-  </table>
+
+<table class="custom-table" style="height: 200px; overflow-y: scroll;">
+  <thead>
+    <tr>
+      <th>Número de Factura</th>
+      <th>Fecha</th>
+      <th>Tipo de Pago</th>
+      <th>Subtotal</th>
+      <th>Descuento</th>
+      <th>IVA</th>
+      <th>Total</th>
+      <th>Persona</th>
+      <th>Configuración</th>
+      <th>Ver Detalles</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let venta of ventas">
+      <td>{{venta.idVenta}}</td>
+      <td>{{venta.fecha}}</td>
+      <td>{{venta.tipoPago}}</td>
+      <td>{{venta.subtotal}}</td>
+      <td>{{venta.descuento}}</td>
+      <td>{{venta.iva}}</td>
+      <td>{{venta.total}}</td>
+      <td>{{venta.personaf.nombrePer}}</td>
+      <td>{{venta.configEmpresa.nombreEmpresa}}</td>
+      <td><button class="btn btn-info"(click)="verVenta(venta.idVenta)">+</button></td>
+    </tr>
+  </tbody>
+</table>

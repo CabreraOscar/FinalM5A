@@ -3,12 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, rgb(33, 91, 248), rgb(237, 5, 245));
+  background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
   width: 100%;
-  padding: 208px ;
-  
+  margin-left: 165px;
+padding: 139px;
 }
-
 
 .pedido-block label {
   font-weight: bold;
@@ -31,15 +30,31 @@
   flex: 1;
 }
 
-.table{
+.custom-table {
+  border-collapse: collapse; /* Colapso de bordes */
+  width: 100%; /* Ancho de la tabla */
+}
+.custom-table {
   background: #D3D3D3;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
+  margin: 10px auto;
   width: 90%;
- 
+}
+.custom-table th, .custom-table td {
+  border: 1px solid #000000; /* Borde de celda */
+  padding: 8px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
 }
 
-.btnActualizar{
-  background: green;
+.custom-table th {
+  background-color: #D3D3D3; /* Color de fondo de encabezado */
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color de fondo de filas pares */
+}
+
+.custom-table tr:hover {
+  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
 }
