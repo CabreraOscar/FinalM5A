@@ -81,11 +81,12 @@ export class PersonaComponent implements OnInit {
       });
       return;
     }
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.([a-zA-Z0-9_.-]+)$/.test(correo)) {
+      
       Swal.fire({
         icon: 'error',
         title: 'Correo invalido',
-        text: 'El correo debe tener el @ ',
+        text: 'Formato de correo incorrecto ',
       });
       return;
     }
