@@ -160,7 +160,7 @@ export class PersonaComponent implements OnInit {
     
     this.persona.nombrePer = '';
     this.persona.direccion = '';
-    this.persona.telefono = 0;
+    this.persona.telefono = '';
     this.persona.correo = '';
     this.persona.identificacion = '';
   
