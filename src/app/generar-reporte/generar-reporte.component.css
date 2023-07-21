@@ -1,0 +1,17 @@
+.table {
+    background: #D3D3D3;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    width: auto;
+    flex: 0 0 50%;
+  
+  } 
+
+  .containeunion {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-top: 2%;
+    margin-right: 2%;
+  }

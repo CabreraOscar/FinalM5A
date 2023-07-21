@@ -1,40 +1,72 @@
-<h1>Lista de Ventas</h1>
-<div class="buscar">
-    <form id="search-form" #miFormulario="ngForm">
-        <label for="search-client">Buscar Ventas:</label>
-        <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="cedula" (blur)="verificarInput()">
-        <input type="hidden" [(ngModel)]="currentDate" name="miInput" placeholder="cedula" (blur)="verificarInput()">
+<div class="containeunion">
 
-        <button class="btn btn-info" type="submit"
-            style="margin-left : 10px;" (click)="buscarVentas()">Buscar</button>
-        <button class="btn btn-danger" (click)="obtenerOrdenes()"
-            style="margin-left : 10px;background-color: brown;">CANCELAR</button>
-    </form>
+    <div class="container1">
+        <h1>Lista de Ventas</h1>
+        <div class="buscar">
+            <form id="search-form" #miFormulario="ngForm">
+                <label for="search-client" style="margin-right: 20%;">Buscar Ventas:</label>
+                <input type="date" [(ngModel)]="inputValue" name="miInput" placeholder="cedula"
+                    (blur)="verificarInput()">
+                <input type="hidden" [(ngModel)]="currentDate" name="miInput" placeholder="cedula"
+                    (blur)="verificarInput()">
+
+                <button class="botones" type="submit" style="margin-left : 10px;  background-image: url('assets/imagenes/editar.png');
+                "
+                    (click)="buscarVentas()">Buscar</button>
+                <button class="btn btn-danger" (click)="listarFecha()"
+                    style="margin-left : 10px;background-color: brown;">CANCELAR</button>
+
+
+            </form>
+            <form id="search-form">
+                <label>Buscar Persona:</label>
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="inputValueP" [ngModelOptions]="{standalone: true}"
+                        class="form-control" placeholder="Ingrese la Cédula">
+                    <button class="btn btn-outline-secondary" type="button"
+                        (click)="buscarPersonaVentas()">Buscar</button>
+                    <button class="btn btn-outline-secondary" type="button" (click)="listarFecha()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Número de Factura</th>
+                    <th>Fecha</th>
+                    <th>Tipo de Pago</th>
+                    <th>Subtotal</th>
+                    <th>Descuento</th>
+                    <th>IVA</th>
+                    <th>Total</th>
+                    <th>Persona</th>
+                    <th>Configuración</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let venta of ventas">
+                    <td>{{venta.idVenta}}</td>
+                    <td>{{venta.fecha}}</td>
+                    <td>{{venta.tipoPago}}</td>
+                    <td>{{venta.subtotal}}</td>
+                    <td>{{venta.descuento}}</td>
+                    <td>{{venta.iva}}</td>
+                    <td>{{venta.total}}</td>
+                    <td>{{venta.personaf.nombrePer}}</td>
+                    <td>{{venta.configEmpresa.nombreEmpresa}}</td>
+                    <td><button class="btn btn-info">+</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+        </ul>
+    </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Número de Factura</th>
-            <th>Fecha</th>
-            <th>Tipo de Pago</th>
-            <th>Subtotal</th>
-            <th>Descuento</th>
-            <th>IVA</th>
-            <th>Total</th>
-            <th>Persona</th>
-            <th>Configuración</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let venta of ventas">
-            <td>{{venta.idVenta}}</td>
-            <td>{{venta.fecha}}</td>
-            <td>{{venta.tipoPago}}</td>
-            <td>{{venta.subtotal}}</td>
-            <td>{{venta.descuento}}</td>
-            <td>{{venta.iva}}</td>
-            <td>{{venta.total}}</td>
-        </tr>
-
-    </tbody>
-</table>

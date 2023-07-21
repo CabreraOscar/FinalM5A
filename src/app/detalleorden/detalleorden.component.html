@@ -59,14 +59,14 @@
         <div>
           <h5>Detalle de Persona</h5>
           <form id="search-form" #miFormulario="ngForm">
-            <label for="search-client" style="margin-right: 10px;">Buscar cliente:</label>
-            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cédula"
-              (blur)="verificarInput()">
-            <button class="btn-info" (click)="buscarporcedula()" type="submit">Buscar</button>
-            <button (click)="obtenerPersona()" class="btn btn-danger"
-              style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
+            <div class="input-group">
+              <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
+                placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons">
+              <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
+              <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
+            </div>
           </form>
-          <div class="table" style="height: 200px; overflow-y: scroll;">
+          <div class="table table-bordered" style="height: 200px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
