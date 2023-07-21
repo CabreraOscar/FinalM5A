@@ -9,12 +9,16 @@
                     (blur)="verificarInput()">
                 <input type="hidden" [(ngModel)]="currentDate" name="miInput" placeholder="cedula"
                     (blur)="verificarInput()">
+                <button class="boton-con-icono" (click)="buscarVentas()">
+                    <!-- Icono de Google Fonts -->
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
 
-                <button class="botones" type="submit" style="margin-left : 10px;  background-image: url('assets/imagenes/editar.png');
-                "
-                    (click)="buscarVentas()">Buscar</button>
                 <button class="btn btn-danger" (click)="listarFecha()"
                     style="margin-left : 10px;background-color: brown;">CANCELAR</button>
+
 
 
             </form>

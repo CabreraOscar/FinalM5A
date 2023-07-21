@@ -226,7 +226,7 @@
 
         <div class="form-group">
           <label for="telefono" style="margin-right: 10px;">Teléfono:</label>
-          <input type="number" class="form-control" id="telefono" [(ngModel)]="personar.telefono" name="telefono"
+          <input type="text" class="form-control" id="telefono" [(ngModel)]="personar.telefono" name="telefono"
             required pattern="[0-9]{7,10}">
           <div *ngIf="personaForm.controls['telefono'].invalid && personaForm.controls['telefono'].touched"
             class="error-message">
@@ -250,12 +250,12 @@
 
         <div class="form-group">
           <label for="identificacion" style="margin-right: 10px;">Cédula:</label>
-          <input type="number" class="form-control" id="identificacion" [(ngModel)]="personar.identificacion"
-            name="identificacion" required pattern="[0-9]{11}">
+          <input type="text" class="form-control" id="identificacion" [(ngModel)]="personar.identificacion"
+            name="identificacion" required pattern="[0-9]{10}">
           <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched"
             class="error-message">
             <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
-            <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 11 dígitos.
+            <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La Cédula debe tener 10 dígitos.
             </div>
           </div>
         </div>
