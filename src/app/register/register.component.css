@@ -38,16 +38,17 @@ body {
   cursor: pointer; /* Cambia el cursor cuando se pasa sobre el botón */
   margin-left: 250px; 
 }
-.table{
+
+ .table-bordered{
   background: #D3D3D3;
   border-radius: 0px;
   width: 40%;
   height: 30%;
-  margin-left: 500px; 
+  margin-left: 600px; 
   margin-top: -220px;
+  
+ }
  
-}
-
 .container{
  
   background:#D3D3D3; 

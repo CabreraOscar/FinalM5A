@@ -39,21 +39,38 @@ export class RegisterComponent implements OnInit {
   }
   
   seleccionarPersona(per:Persona) {
-    this.selectedPersona= per; this.personaSeleccionado = per;
+    this.selectedPersona= per; 
+    this.personaSeleccionado = per;
+    
     
   }
   
+  obtenerPersona() {
+    this.perserv.obtenerListaPersona().subscribe(dato => {
+      this.persona = dato;
 
+    });
 
+  }
+
+  buscarporcedula() {
+    const valor: string = this.inputValue;
+    this.perserv.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
+      this.per = dato;
+      this.persona.splice(0, this.persona.length);
+      this.persona.push(this.per);
+    });
+  }
   validardatos(): void {
     if (this.selectedPersona && this.selectedRol) {
       this.usuario.persona = {
-        idPersona: this.selectedPersona.idPersona,
-        nombrePer: this.selectedPersona.nombrePer,
-        identificacion: this.selectedPersona.identificacion,
-        direccion: this.selectedPersona.direccion,
-        correo: this.selectedPersona.correo,
-        telefono: this.selectedPersona.telefono
+          idPersona: this.selectedPersona.idPersona,
+          nombrePer: this.selectedPersona.nombrePer,
+          identificacion: this.selectedPersona.identificacion,
+          direccion: this.selectedPersona.direccion,
+          correo: this.selectedPersona.correo,
+          telefono: this.selectedPersona.telefono
+      
       };
   
       this.usuario.roles = {
@@ -65,30 +82,42 @@ export class RegisterComponent implements OnInit {
   
       const identificacion = this.selectedPersona.identificacion;
       const idRol = this.selectedRol.idRol;
+      const username = this.usuario.username; // Asumimos que tienes un atributo 'username' en el objeto 'usuario' que contiene el nombre de usuario que se quiere validar
   
       // Obtener todos los usuarios existentes desde el backend
       this.servi.getAllUsuarios().subscribe(
         usuarios => {
           // Verificar si existe un usuario con la misma identificación y un rol diferente
-          const existeUsuarioMismoRol = usuarios.some(usuario => 
+          const existeUsuarioMismoRol = usuarios.some(usuario =>
             usuario.persona.identificacion === identificacion && usuario.roles.idRol === idRol
           );
-          
+  
+          // Verificar si existe un usuario con el mismo username
+          const existeUsuarioMismoUsername = usuarios.some(usuario =>
+            usuario.username === username
+          );
+  
           if (existeUsuarioMismoRol) {
             Swal.fire({
               icon: 'error',
               title: 'Error',
               text: 'Ya existe un usuario con la misma identificación y rol.'
             });
+          } else if (existeUsuarioMismoUsername) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Ya existe el username ingresado '
+            });
           } else {
-            // Si no existe un usuario con el mismo rol, procede a crearlo
+            // Si no existe un usuario con el mismo rol ni con el mismo username, procede a crearlo
             this.servi.register(this.usuario).subscribe(
               data => {
                 console.log('Respuesta del servicio de registro:', data);
                 Swal.fire({
                   icon: 'success',
                   title: 'Éxito',
-                  text: 'Se ha creado el usuario'
+                  text: 'Se ha creado el usuario.'
                 });
               },
               error => {
@@ -96,7 +125,7 @@ export class RegisterComponent implements OnInit {
                 Swal.fire({
                   icon: 'error',
                   title: 'Error',
-                  text: 'Se ha producido un error al crear el usuario'
+                  text: 'Se ha producido un error al crear el usuario.'
                 });
               }
             );
@@ -119,7 +148,8 @@ export class RegisterComponent implements OnInit {
       });
     }
   }
-
+  
+  
   ngOnInit(): void {
     this.obtenerRoles();
     this.obtenerPersonas();

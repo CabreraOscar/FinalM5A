@@ -33,6 +33,12 @@
         </div>
       </div>
     </div>
+    <tbody>
+      <tr *ngFor="let per of persona" [class.selected]="per === selectedPersona" (click)="seleccionarPersona(per)">
+        <td>{{ per.nombrePer}}</td>
+        
+      </tr>
+    </tbody>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
@@ -48,36 +54,47 @@
       </div>
     </div>
   </div>
+ 
+
+    <div class="table table-bordered" style="height: 300px; overflow-y: scroll; margin-top: -290px; ">
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th colspan="3">
+              <h5>Personas</h5>
+              <form id="search-form" #miFormulario="ngForm" style="margin-bottom: 10px;">
+                <div class="input-group">
+                  <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
+                    placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
+                    style="width: 80px;">
+                  <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
+                </div>
+              </form>
+            </th>
+          </tr>
+          <tr>
+            <th>Nombre</th>
+            <th>Cédula</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let persona of persona">
+            
+            <td>{{persona.identificacion }}</td>
+            <td>{{persona.nombrePer }}</td>
+            <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   
    
-    <div class="table" >
-      <table>
-          <thead>
-              <tr>
-                  <th>Nombre </th>
-                  <th>Cédula </th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let personal of persona">
-                  <td>{{personal.nombrePer}}</td>
-                  <td>{{personal.identificacion}}</td>
-                  <td><button class="btn btn-info" (click)="seleccionarPersona(personal)">Seleccionar</button></td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
 
 
 
-  <body>
-    <form id="search-form" #miFormulario="ngForm">
-     
-            <label for="search-client">Buscar persona:</label>
-            <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cédula">
-    
-            <button (click)="validardatos()" type="submit">Buscar</button>
-            
-          </form>
-       </body>
+ 
 </section>
