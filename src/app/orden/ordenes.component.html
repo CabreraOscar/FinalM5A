@@ -6,9 +6,21 @@
             <label for="search-client">Buscar cliente:</label>
             <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cédula" (blur)="verificarInput()">
 
-            <button class="btn btn-info" (click)="buscarporcedula()" type="submit" style="margin-left: 10px; width: 100px; height: 45px;">Buscar</button>
-            <button class="btn btn-danger" (click)="obtenerOrdenes()"style="margin-left : 10px; width: 100px; height: 45px; background-color: brown;">Cancelar</button>
             
+            <button class="btn btn-custom" (click)="buscarporcedula()">
+                <span class="icon">
+                  <img src="assets/imagenes/buscar.png" alt="Imagen de búsqueda">
+                </span>
+                <span class="text">Buscar</span>
+              </button>
+               
+           
+            <button class="btn btn-custom" (click)="obtenerOrdenes()">
+                <span class="icon">
+                  <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+                </span>
+                <span class="text">Cancelar</span>
+              </button>
         </form>
     </div>
     <div style="height: 130px; overflow-y: scroll;">
@@ -30,7 +42,12 @@
                 <td>{{orden.totalOrden}}</td>
                 <td>{{orden.personaO.identificacion}}</td>
                 <td>{{orden.venta.idVenta}}</td>
-                <td><button class="btn btn-info" (click)="verOrden(orden.idOrden)">+</button></td>
+                <td>
+                    <img src="assets/imagenes/ver.png" alt="Imagen de venta" 
+                    (click)="verOrden(orden.idOrden)"
+                         style="width: 40px; height: 40px;" />
+                  </td>
+               
             </tr>
 
         </tbody>
