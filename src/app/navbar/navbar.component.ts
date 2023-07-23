@@ -76,5 +76,7 @@ export class NavbarComponent implements OnInit {
   AdminServicio(): void {
     this.router.navigate(['/servicio-admin'])
   }
- 
+  informaciones(): void {
+    this.router.navigate(['/informacion'])
+  }
 }

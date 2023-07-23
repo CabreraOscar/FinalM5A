@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<section class="maquina-block">
 <h2>Administración de máquina</h2>
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registro de máquina nueva</h3>
@@ -23,9 +24,23 @@
           
           
          
-          <button type="submit" class="btn btn-success" onclick="guardarMaquina()" style="background-color: green;">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/maquina-admin" style="margin-left: 10px">Cancelar</button>
+        
+          <button type="submit" class="btn btn-custom"  onclick="guardarMaquina()">
+            <span class="icon">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Guardar</span>
+            </span>
+          </button>
+
+        
+        <button type="button" routerLink="/maquina-admin"class="btn btn-custom">
+          <span class="icon">
+            <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+            <span class="text">Cancelar</span>
+          </span>
+        </button>
       </form>
 
 
     </div>
+  </section>

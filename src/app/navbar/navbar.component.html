@@ -1,8 +1,9 @@
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark custom-navbar-color">
+
   <!-- <a class="navbar-brand" href="javascript:void(0);" routerLink="/">LAVATEC</a> -->
   <a class="navbar-brand" href="javascript:void(0);" routerLink="/dashboard">
-    <img src="assets/imagenes/logo.png" width="60" height="60">
+    <img src="assets/imagenes/logo.png" width="60" height="50">
   </a>
   
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -18,7 +19,7 @@
         <li class="navbar-brand"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link">LAVATEC</a></li>
         <div class="logout-btn">
           <li class="nav-item"><a href="javascript:void(0);" (click)="logout()" class="nav-link">
-            <img src="assets/imagenes/exit.png" width="48" height="48">
+            <img src="assets/imagenes/exitt.png" width="48" height="48">
           </a></li>
         </div>
         <!--<li class="nav-item"><a href="javascript:void(0);" routerLink="/register" class="nav-link">Registrar</a></li>-->
@@ -36,6 +37,7 @@
     <button class="button" (click)="Config()">Configuración de empresa</button>
     <button class="button" (click)="CrearEmple()">Crear empleado</button>
     <button class="button" (click)="AdminServicio()">Administrar servicios</button>
+    <button class="button"(click)="informaciones()">Información</button>
   </div>
 
 

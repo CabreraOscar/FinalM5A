@@ -33,6 +33,7 @@ import { DatePipe } from '@angular/common';
 import { GenerarVentasComponent } from './generar-ventas/generar-ventas.component';
 import { ClienteAdEmpleadoComponent } from './cliente-ad-empleado/cliente-ad-empleado.component';
 import { GenerarReporteComponent } from './generar-reporte/generar-reporte.component';
+import { InformacionComponent } from './informacion/informacion.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -81,7 +82,8 @@ const routes:Routes = [
   { path: 'generar-ventas',component:GenerarVentasComponent},
   { path: 'detalles-venta/:id', component:DetalleVentaComponent},
   { path: 'generar-reporte', component:GenerarReporteComponent},
-  { path: 'cliente-ad-empleado', component: ClienteAdEmpleadoComponent}
+  { path: 'cliente-ad-empleado', component: ClienteAdEmpleadoComponent},
+  { path: 'informacion', component: InformacionComponent},
 ]
 
 @NgModule({
@@ -114,7 +116,8 @@ const routes:Routes = [
    DetalleVentaComponent,
    GenerarVentasComponent,
    GenerarReporteComponent,
-   ClienteAdEmpleadoComponent
+   ClienteAdEmpleadoComponent,
+   InformacionComponent
    
 
 

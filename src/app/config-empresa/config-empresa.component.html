@@ -25,7 +25,13 @@
     style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
   </div>
-  <button onclick="mostrarVentana(document.getElementById('ventana'))">Ingresar empresa</button>
+
+  <button class="btn btn-custom" onclick="mostrarVentana(document.getElementById('ventana'))"  style="margin-left: 10px;">
+    <span class="icon">
+      <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+    </span>
+    <span class="text">Ingresar empresa</span>
+  </button>
 
   <div id="ventana" class="ventana-flotante">
     <h1>Ingresar Empresa</h1>
@@ -78,8 +84,22 @@ pattern="0.01" step="0.01">
    
  
 </div>
-<button type="submit" class="btn btn-success" onclick="guardarEmpresa(); limpiarFormulario();" style="background-color: green;">Guardar</button>
-<button type="button" class="btn btn-danger" onclick="cerrarVentana(); "style="background-color: red;">Cancelar</button>
+
+<button type="submit" class="btn btn-custom" onclick="guardarEmpresa(); limpiarFormulario();">
+  <span class="icon">
+    <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+    <span class="text">Guardar</span>
+  </span>
+ 
+</button>
+
+<button type="button" class="btn btn-custom"  onclick="cerrarVentana();">
+  <span class="icon">
+    <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+    <span class="text">Cancelar</span>
+  </span>
+ 
+</button>
 
       </form>
     </div>
@@ -107,11 +127,22 @@ pattern="0.01" step="0.01">
         <td>{{empresa.ubicacion}}</td>
         <td>{{empresa.telefono}}</td>
         <td>{{empresa.iva}}</td>
-        <td><button type="submit" class="btn btn-success" (click)="actualizarEmpresa(empresa.idConfig)">Editar</button>
+        <td>
+          <button (click)= "actualizarEmpresa(empresa.idConfig)" class="btn btn-custom">
+            <span class="icon">
+              <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+            </span>
+           
+          </button>
         </td>
 
-        <td><button class="btn btn-danger" (click)="eliminarEmpresa(empresa.idConfig)"
-            style="background-color: 0069c0;">Eliminar</button></td>
+        <td>
+            <button (click)= "eliminarEmpresa(empresa.idConfig)" class="btn btn-custom">
+              <span class="icon">
+                <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
+              </span>
+            </button>
+            </td>
       </tr>
     </tbody>
   </table>

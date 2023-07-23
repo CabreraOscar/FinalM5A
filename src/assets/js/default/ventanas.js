@@ -52,3 +52,8 @@ function mostrarVentana(elementoVentana) {
   // Actualizar el valor de ventanaAbierta
   ventanaAbierta = elementoVentana;
 }
+
+function abrirventanita(){
+  const myModal = new bootstrap.Modal(document.getElementById('miventanita'), options);
+}
+ 

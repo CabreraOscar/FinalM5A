@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 
-<section class="pedido-block">
+<section class="maquina-block">
     <h1>Administración de Máquinas</h1>
      <form id="search-form" #miFormulario="ngForm">
         <div style="height: 210px; overflow-y: scroll;">
-        <table class="custom-table">
+          <table class="custom-table" id="fixed-header">
    
             <thead>
             <tr>
@@ -24,10 +24,22 @@
                 <td>{{maquina.tamano}}</td>
                 <td>{{maquina.precio}}</td>
                 <td>
-                    <button (click)= "actualizarMaquina(maquina.idMaq)" class="btn btn-info">Editar</button>
+                   
+                    <button (click)= "actualizarMaquina(maquina.idMaq)" class="btn btn-custom">
+                        <span class="icon">
+                          <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+                        </span>
+                       
+                      </button>
                 </td>
                 <td>
-                <button (click)= "eliminarMaquina(maquina.idMaq)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+           
+                <button (click)= "eliminarMaquina(maquina.idMaq)" class="btn btn-custom">
+                    <span class="icon">
+                      <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
+                    </span>
+                   
+                  </button>
             </td>
             </tr>
 
@@ -36,6 +48,18 @@
     </table>
 </div>
     <div style="text-align: center;">
-        <button class="btn btn-info" routerLink="/registrar-maquina" style="margin-left: 10px;">Crear</button>
-        <button class="btn btn-danger" routerLink="/login" style="margin-left: 10px;">Regresar</button>
+        
+        <button class="btn btn-custom" routerLink="/registrar-maquina"  style="margin-left: 10px;">
+            <span class="icon">
+              <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+            </span>
+            <span class="text">Crear</span>
+          </button>
+      
+        <button class="btn btn-custom" routerLink="/login" style="margin-left: 10px;">
+            <span class="icon">
+              <img src="assets/imagenes/home.png" alt="Imagen de búsqueda">
+            </span>
+            <span class="text">Regresar</span>
+          </button>
     </div>

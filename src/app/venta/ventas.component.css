@@ -10,9 +10,10 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
-  width: 100%;
+  padding: 0;
   margin-left: 165px;
-padding: 139px;
+  padding: 161px;
+  display: block;
 }
 .pedido-block .container {
   background: #D3D3D3;
@@ -32,35 +33,40 @@ padding: 139px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-.pedido-block button {
-  background: #0069c0;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  flex: 1;
-  cursor: pointer;
-}
-
-.detalle-venta {
-  background-color: #ffffff;
-  padding: 10px;
-  border-top: 1px solid #1829c2;
-}
-
-.btn-custom:hover::before {
-  left: 0; /* Mover el pseudo-elemento a la posición 0 */
-}
 .btn-custom {
-  /* Estilos del botón */
-
-  transition: transform 0.3s; /* Transición de escala */
+  background-color: #d35dd300;
+  color: #fff;
+  border-radius: 1px;
+  border: none;
+  padding: 5px 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .btn-custom:hover {
-  transform: scale(1.2); /* Escala al pasar el cursor */
+  background-color: #7533a4;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom:hover .icon {
+  transform: scale(1.2);
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+
 
 .custom-table {
   border-collapse: collapse; /* Colapso de bordes */
@@ -68,14 +74,11 @@ padding: 139px;
 }
 .custom-table {
   background: #D3D3D3;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 10px auto;
-  width: 100%;
+   width: 100%;
 }
 .custom-table th, .custom-table td {
   border: 1px solid #000000; /* Borde de celda */
-  padding: 8px; /* Espaciado interno */
+  padding: 7px; /* Espaciado interno */
   text-align: left; /* Alineación del texto */
 }
 

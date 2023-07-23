@@ -81,11 +81,12 @@ export class PersonaComponent implements OnInit {
       });
       return;
     }
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(correo)) {
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.([a-zA-Z0-9_.-]+)$/.test(correo)) {
+      
       Swal.fire({
         icon: 'error',
         title: 'Correo invalido',
-        text: 'El correo debe tener el @ ',
+        text: 'Formato de correo incorrecto ',
       });
       return;
     }
@@ -159,7 +160,7 @@ export class PersonaComponent implements OnInit {
     
     this.persona.nombrePer = '';
     this.persona.direccion = '';
-    this.persona.telefono = 0;
+    this.persona.telefono = '';
     this.persona.correo = '';
     this.persona.identificacion = '';
   

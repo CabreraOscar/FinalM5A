@@ -72,5 +72,7 @@ integrador:number;
     });
   
     }
-
+    informaciones(): void {
+      this.router.navigate(['/informacion'])
+    }
 }

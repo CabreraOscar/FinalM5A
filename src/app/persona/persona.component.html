@@ -51,8 +51,21 @@
           </div>
       
         <!-- <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button> -->
-        <button type="submit" class="btn btn-success" onclick="guardarPersona()" style="background-color: green;">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/dashboard" style="margin-left: 10px">Cancelar</button>
+        
+        <button onclick="guardarPersona()" class="btn btn-custom">
+          <span class="icon">
+            <img src="assets/imagenes/padd.png" alt="Imagen de búsqueda">
+            <span class="text">Crear</span>
+          </span>
+         
+        </button>
+        
+        <button type="button" class="btn btn-custom" routerLink="/dashboard" style="margin-left: 10px">
+          <span class="icon">
+            <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+            <span class="text">Cancelar</span>
+          </span>
+        </button>
       </form>
 
 </div>
