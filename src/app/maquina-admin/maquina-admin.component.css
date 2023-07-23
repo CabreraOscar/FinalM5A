@@ -1,21 +1,19 @@
+@media (max-width: 768px) {}
 
-
-@media (max-width: 768px) {
-
-}
-
-.pedido-block {
+.maquina-block {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
+  background: #3b88af;
   margin: 0;
-padding: 0;
-margin-left: 165px;
-padding: 52px;
+  padding: 0;
+  margin-left: 165px;
+  padding: 206px;
+  display: block;
 
 }
+
 .pedido-block .container {
   background: #D3D3D3;
   border-radius: 10px;
@@ -23,6 +21,7 @@ padding: 52px;
   padding: 20px;
   margin: 10px auto;
 }
+
 .pedido-block label {
   font-weight: bold;
 }
@@ -40,6 +39,7 @@ padding: 52px;
   padding: 10px;
   border-top: 1px solid #e99494;
 }
+
 .btn-custom {
   background-color: #d35dd300;
   color: #fff;
@@ -72,6 +72,7 @@ padding: 52px;
   vertical-align: middle;
   font-weight: bold;
 }
+
 #fixed-header {
   position: relative;
 }
@@ -83,9 +84,12 @@ padding: 52px;
 }
 
 .custom-table {
-  border-collapse: collapse; /* Colapso de bordes */
-  width: 100%; /* Ancho de la tabla */
+  border-collapse: collapse;
+  /* Colapso de bordes */
+  width: 100%;
+  /* Ancho de la tabla */
 }
+
 .custom-table {
   background: #D3D3D3;
   border-radius: 10px;
@@ -93,20 +97,28 @@ padding: 52px;
   margin: 10px auto;
   width: 700px;
 }
-.custom-table th, .custom-table td {
-  border: 1px solid #000000; /* Borde de celda */
-  padding: 8px; /* Espaciado interno */
-  text-align: left; /* Alineación del texto */
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #000000;
+  /* Borde de celda */
+  padding: 8px;
+  /* Espaciado interno */
+  text-align: left;
+  /* Alineación del texto */
 }
 
 .custom-table th {
-  background-color: #D3D3D3; /* Color de fondo de encabezado */
+  background-color: #D3D3D3;
+  /* Color de fondo de encabezado */
 }
 
 .custom-table tr:nth-child(even) {
-  background-color: #f9f9f9; /* Color de fondo de filas pares */
+  background-color: #f9f9f9;
+  /* Color de fondo de filas pares */
 }
 
 .custom-table tr:hover {
-  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
+  background-color: #98d6e7;
+  /* Color de fondo al pasar el cursor */
 }

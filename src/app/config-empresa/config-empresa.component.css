@@ -1,7 +1,4 @@
-
-@media (max-width: 768px) {
-
-}
+@media (max-width: 768px) {}
 
 h1.aligned-right {
   text-align: center;
@@ -9,35 +6,34 @@ h1.aligned-right {
 
 
 .pedido-block {
-    display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
-  width: 100%;
-  height: 90vh;
+  background: #3b88af;
   margin-left: 165px;
-padding: 139px;
-   
-    
+  padding: 201px;
+  display: block;
+
+
 }
 
 
 
 .container {
-    background: #D3D3D3;
-    border-radius: 10px;
-    width: auto;
-    padding: 20px;
-    margin: 10px;
-    padding: -200px ;
-   
+  background: #D3D3D3;
+  border-radius: 10px;
+  width: auto;
+  padding: 20px;
+  margin: 10px;
+ 
+
 }
 
-  
+
 
 .pedido-block label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .pedido-block input[type="text"],
@@ -47,62 +43,76 @@ padding: 139px;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
 .btn-custom:hover {
   background-color: #7533a4;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .pedido-block button {
- 
-  
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-   
-    cursor: pointer;
-  }
-  .detalle-venta {
-    background-color: #ffffff;
-    padding: 10px;
-    border-top: 1px solid #e99494;
-  }
 
 
-  .table-container {
-    display: flex;
-    justify-content: center;
-  }
-  .custom-table {
-    border-collapse: collapse; /* Colapso de bordes */
-    width: 100%; /* Ancho de la tabla */
-  }
-  .custom-table {
-    background: #D3D3D3;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px auto;
-    width: 700px;
-  }
-  .custom-table th, .custom-table td {
-    border: 1px solid #000000; /* Borde de celda */
-    padding: 8px; /* Espaciado interno */
-    text-align: left; /* Alineación del texto */
-  }
-  
-  .custom-table th {
-    background-color: #D3D3D3; /* Color de fondo de encabezado */
-  }
-  
-  .custom-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Color de fondo de filas pares */
-  }
-  
-  .custom-table tr:hover {
-    background-color: #98d6e7; /* Color de fondo al pasar el cursor */
-  }
-  
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
 
-.btnActualizar{
-    background: rgb(95, 146, 95);
+  cursor: pointer;
+}
+
+.detalle-venta {
+  background-color: #ffffff;
+  padding: 10px;
+  border-top: 1px solid #e99494;
+}
+
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  /* Colapso de bordes */
+  width: 100%;
+  /* Ancho de la tabla */
+}
+
+.custom-table {
+  background: #D3D3D3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 700px;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #000000;
+  /* Borde de celda */
+  padding: 8px;
+  /* Espaciado interno */
+  text-align: left;
+  /* Alineación del texto */
+}
+
+.custom-table th {
+  background-color: #D3D3D3;
+  /* Color de fondo de encabezado */
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+  /* Color de fondo de filas pares */
+}
+
+.custom-table tr:hover {
+  background-color: #98d6e7;
+  /* Color de fondo al pasar el cursor */
+}
+
+
+.btnActualizar {
+  background: rgb(95, 146, 95);
 }

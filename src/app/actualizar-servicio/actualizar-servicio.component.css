@@ -1,12 +1,7 @@
 .edicion-s-block {
-    
-    background-image: linear-gradient(to top, #4d01c7 0%, #65a3f3 100%);
-    margin: 0;
-
+  background-image: linear-gradient(to top, #4d01c7 0%, #65a3f3 100%);
+  margin: 0;
   margin-left: 165px;
-  padding: 137px;
-}
-
-@media (max-width: 768px) {
-  
+  padding: 176px;
+  display: block;
 }

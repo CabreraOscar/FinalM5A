@@ -3,12 +3,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-    background: linear-gradient(to bottom right, blue, pink);
-    width: 100%;
-    padding: 100px 0;
+    background-image: linear-gradient(to top, #4d01c7 0%, #65a3f3 100%);
+    padding: 80px ;
+    display: block;
+    margin-left: 176px;
+
 }
-.pedido-block .container {
+.container {
     background: #D3D3D3;
     border-radius: 10px;
     width: 40%;

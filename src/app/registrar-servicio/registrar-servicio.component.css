@@ -3,7 +3,8 @@
  margin: 0;
   padding: 0; 
   margin-left: 165px;
-  padding: 134px;
+  padding: 166px;
+  display: block;
 }
 .btn-custom {
   background-color: #d35dd300;

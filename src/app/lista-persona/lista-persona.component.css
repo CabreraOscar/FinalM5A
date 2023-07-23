@@ -1,0 +1,8 @@
+.admin-block {
+    background: #3b88af;  /* fallback for old browsers */
+    margin: 0;
+    padding: 0;
+    margin-left: 165px;
+    padding: 8px;
+    display: block;
+  }

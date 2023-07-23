@@ -1,6 +1,8 @@
-.person-block {
-
-    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+.actualizar-block {
+    background-image: linear-gradient(to top, #4d01c7 0%, #65a3f3 100%);  /* fallback for old browsers */
     margin: 0;
     padding: 0;
-}
+    margin-left: 165px;
+    padding: 154px;
+    display: block;
+  }
