@@ -32,13 +32,19 @@
           </ul>
         </div>
       </div>
+      
     </div>
-    <tbody>
-      <tr *ngFor="let per of persona" [class.selected]="per === selectedPersona" (click)="seleccionarPersona(per)">
-        <td>{{ per.nombrePer}}</td>
-        
-      </tr>
-    </tbody>
+    <label>Persona Seleccionada</label> 
+<table *ngIf="selectedPersona">
+
+  <tbody>
+    <tr>
+      <td>{{ selectedPersona.nombrePer }}</td>
+
+    </tr>
+  </tbody>
+</table>
+
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
