@@ -9,7 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background: linear-gradient( rgba(48, 10, 70, 0.993) 1%, rgba(102, 38, 136, 0.932) 35%, rgb(74, 5, 99) 100%);
+  background-color: #303f9f;
   
 }
 .login-block label {
@@ -29,9 +29,9 @@
   pointer-events: none;
   background-repeat: repeat;
   animation: bubbles 10s infinite;
-  background: linear-gradient( rgb(107, 6, 165) 1%, rgb(64, 5, 95) 35%, rgb(54, 6, 71) 100%);
-}
-.container{width: 30%;  border-radius: 20px; background: linear-gradient( rgba(80, 34, 107, 0.863) 1%, rgba(64, 2, 97, 0.932) 35%, rgb(45, 10, 58) 100%);}
+  background-color: #303f9f;
+  border-radius: 5px;}
+.container{width: 30%;  border-radius: 20px; background-color: #2032a3;} 
 .login-sec{padding: 40px 30px; position:relative;}
 .login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;}
 .login-sec h2:after{content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
