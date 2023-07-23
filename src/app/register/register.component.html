@@ -88,9 +88,8 @@
         <tbody>
 
           <tr *ngFor="let persona of persona">
-            
-            <td>{{persona.identificacion }}</td>
             <td>{{persona.nombrePer }}</td>
+            <td>{{persona.identificacion }}</td>
             <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
           </tr>
         </tbody>

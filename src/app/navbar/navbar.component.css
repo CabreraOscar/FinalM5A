@@ -1,18 +1,18 @@
  .sidebar {
     display: flex;
     position: absolute;
-    top: 37px;
+    top: 27px;
     left: 100px;
     width: 0px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 15px;
     width: 200px;
-    background: linear-gradient(to bottom, #04d1ec, #9701c5);
-    margin-left: -115px; 
+    background-color: #1844d6;
+    margin-left: -121px; 
     margin-top: 49px;
     
   }
-
+ 
   .button-container {
     padding: 5px;
     border-bottom: 1px solid #ffffff; /* Agregar una línea divisoria inferior */
@@ -44,9 +44,12 @@
   }
   
   .button:hover {
-    background-color: #ccc;
+    background: linear-gradient(to bottom, #5c8dce, #5c8dce);
   }
-  
+  .custom-navbar-color {
+    background-color: #143aa3;
+     /* Cambia este valor por el color que desees */
+  }
   .logout-btn {
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 .person-block {
-  background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
+  background: #b4d7e8;  /* fallback for old browsers */
+
   margin: 0;
   padding: 0;
   margin-left: 165px;
