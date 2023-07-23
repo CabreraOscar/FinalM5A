@@ -8,5 +8,36 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
   margin-left: 165px;
   padding: 52px;
 }
+.btn-custom {
+  background-color: #d35dd300;
+  color: #fff;
+  border-radius: 1px;
+  border: none;
+  padding: 10px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+.btn-custom:hover {
+  background-color: #7533a4;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom:hover .icon {
+  transform: scale(1.2);
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
 @media (max-width: 768px) {}

@@ -8,7 +8,8 @@ body {
 }
 
 header {
-    background: linear-gradient(to bottom, #7137d0, #9eea64);
+  
+    background: linear-gradient(to bottom, #3b5998, #ffffff);
     padding: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -38,7 +39,8 @@ p {
 
 main {
     padding: 20px;
-    background: linear-gradient(to bottom, #9eea64, #7137d0);
+   
+    background: linear-gradient(to bottom, #ffffff, #3b5998);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     flex-grow: 1;
 }
@@ -69,34 +71,97 @@ h3 {
 
 
 footer {
-
-    background: linear-gradient(to bottom,  #290a5c, #9eea64);
-    padding: 30px 0;
+  
+    background: linear-gradient(to bottom, #ffffff, #3b5998);
+    padding: 20px;
   }
-
-footer h3 {
-    font-size: 16px;
-    margin: 0;
-    color: #ffffff;
-    text-align: center;
-}
-
-footer p {
-    font-size: 14px;
-    margin: 0;
-    color: #ffffff;
-    text-align: center;
-}
-.footer-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    margin: 0 20px 20px 0;
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-
+  
+  .contact-info {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .redes-sociales {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .map-container {
+    flex: 1;
+    max-width: 800px;
+    margin-top: 40px;
+  }
+  
 main {
     padding-bottom: 200px;
 }
 
+/* Estilos para el Equipo de Desarrollo */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .team-member-card {
+    width: 48%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .team-member-card img {
+    width: 300px; /* Ajustar el ancho de la imagen según tu preferencia */
+    height: 300px; /* Puedes ajustar la altura también si es necesario */
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  .map-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .map-container iframe {
+    width: 1000%; /* Ajusta el tamaño según tus preferencias */
+    height: 200px; /* Ajusta el tamaño según tus preferencias */
+  }
+  /* --------------- */
+
+  .system-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+   
+  }
+  
+  table {
+   
+    border-collapse: collapse;
+    background: linear-gradient(to bottom,  #e3c8c8, #8fa6d4);
+    width: 70%;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .img-system-info {
+    max-width: 3000px;
+    max-height: 3000px;
+    display: block;
+    margin: 0 auto;
+  }
