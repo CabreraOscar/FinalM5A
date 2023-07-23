@@ -5,6 +5,9 @@ import { personaService } from '../_services/persona.service';
 import { Persona } from '../modelo/persona';
 import { EmpresaService } from '../_services/empresa.service';
 import { Empresa } from '../modelo/empresa';
+import { venta } from '../venta/venta';
+import { VentasService } from '../_services/ventas.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-generar-ventas',
@@ -12,28 +15,30 @@ import { Empresa } from '../modelo/empresa';
   styleUrls: ['./generar-ventas.component.css']
 })
 export class GenerarVentasComponent implements OnInit {
-
+  botonSeleccionado = false;
   inputValue: string = '';
   inputValueP:string = '';
   ordenesV: orden[];
   listaPersona: Persona[];
   personaOrden: Persona = new Persona();
   personax: Persona = new Persona();
-  ordenSelect: orden = new orden();
+  ordenSelect: orden | null = null;
   cedulaV: string = '';
   clienteV: string = '';
   totalOrdenV: number;
   descuentonumero: number = 0;
   fechaActual: string;
   tipoPagoSeleccionado: string;
-  constructor(private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
-  empresas2: string[] = ['LAVAFLASH (SAYAUSI)'];
+  constructor(private ventaServicio: VentasService,private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
+  botonesSeleccionados: { [key: number]: boolean } = {};
   empresaSeleccionada: Empresa;
   descuento: string = 'no'; // Valor predeterminado a 'no'
   descuentoSeleccionado: string = ''; // Variable para almacenar el descuento seleccionado
   empresas: Empresa[] = [];
-  
-
+  ordenesSeleccionadas: orden[] = [];
+  sumaTotalOrden: number= 0;
+  finalin: number= 0;
+  ventacreada: venta = new venta();
 
   ngOnInit(): void {
     this.obtenerOrden();
@@ -59,20 +64,25 @@ export class GenerarVentasComponent implements OnInit {
   actualizarDescuentoNo() {
     this.descuentoSeleccionado = 'sin descuento';
     this.actualizarDescuentoNumero();
+    this.calculartotalsubivades();
   }
   actualizarDescuentoNumero() {
     switch (this.descuentoSeleccionado) {
       case 'secado gratis':
         this.descuentonumero = 0.10;
+        this.calculartotalsubivades();
         break;
       case 'productos gratis':
         this.descuentonumero = 0.15;
+        this.calculartotalsubivades();
         break;
       case 'doblado gratis':
         this.descuentonumero = 0.14;
+        this.calculartotalsubivades();
         break;
       default:
         this.descuentonumero = 0;
+        
         break;
     }
   }
@@ -82,8 +92,76 @@ export class GenerarVentasComponent implements OnInit {
   }
 crearventa(){
   console.log(this.empresaSeleccionada);
+  console.log(this.personaOrden);
+  console.log(this.tipoPagoSeleccionado);
+  console.log(this.fechaActual);
+  console.log(this.sumaTotalOrden);
+  console.log(this.empresaSeleccionada.iva);
+  console.log(this.descuentonumero);
 
+
+  if (this.cedulaV.trim() === '' || this.clienteV.trim() === '' || this.sumaTotalOrden === 0) {
+    Swal.fire('FALTAN DATOS PARA GENERAR LA VENTA', '', 'warning');
+
+  } else{
+
+  this.ventacreada.fecha=this.fechaActual;
+  this.ventacreada.iva=this.empresaSeleccionada.iva;
+  this.ventacreada.subtotal=this.sumaTotalOrden;
+  this.ventacreada.descuento=this.descuentonumero;
+  this.ventacreada.tipoPago=this.tipoPagoSeleccionado;
+  this.ventacreada.personaf=this.personaOrden;
+  this.ventacreada.configEmpresa=this.empresaSeleccionada;
+
+  this.ventaServicio.crearventaid(this.ventacreada).subscribe(
+    (idVentaCreada) => {
+      // Aquí recibes el ID de la venta creada desde el servidor
+      this.ventaServicio.obtenerventaPorId(idVentaCreada).subscribe(
+        venta => {
+          console.log(orden);
+          for (const orden of this.ordenesSeleccionadas) {
+            if (!orden.venta) {
+              orden.venta = venta;
+              this.actualizarOrdenEnBackend(orden.idOrden, orden); // Pasamos el objeto 'item' completo
+            }
+          }
+
+        },
+        error => {
+          console.error('Error al obtener la orden:', error);
+          // Maneja el error aquí si es necesario
+        }
+      );
+      //aqui va el codigo para setear las ordenes
+     
+    },
+    (error) => {
+      // Manejo de errores en caso de que ocurra algún problema al enviar la venta
+      console.error('Error al crear la venta:', error);
+    }
+  );
+
+Swal.fire('TODO CORRECTO', '', 'success').then(() => {
+  // Recargar la página después de que el usuario hace clic en el botón "Aceptar" de la alerta
+  window.location.reload();
+});
+
+}//finaliza el else
 }
+
+actualizarOrdenEnBackend(idorden: number, orden: orden) {
+  this.ordenService.actualizarorden(idorden, orden).subscribe(
+    itemActualizado => {
+      console.log('Item actualizado en el backend:', itemActualizado);
+    },
+    error => {
+      console.error('Error al actualizar el item en el backend:', error);
+      // Maneja el error aquí si es necesario
+    }
+  );
+}
+
+
 
   obtenerOrden() {
     this.ordenService.getOrdenesNull().subscribe(dato => {
@@ -141,7 +219,7 @@ crearventa(){
       this.obtenerPersona();
     }
   }
-  ordenesSeleccionadas: orden[] = [];
+  
 
   seleccionarPersona(ordenselect: Persona) {
     this.personaOrden = ordenselect;
@@ -153,11 +231,19 @@ crearventa(){
 
   seleccionarOrden(ordenes: orden) {
     this.ordenSelect = ordenes;
-    this.totalOrdenV = this.ordenSelect.totalOrden;
+    
     if (this.ordenesSeleccionadas.includes(ordenes)) {
       this.ordenesSeleccionadas = this.ordenesSeleccionadas.filter(item => item !== ordenes);
+      this.calculartotalsubivades();
     } else {
+
       this.ordenesSeleccionadas.push(ordenes);
+      
+      
+
+// Utilizas el método reduce para acumular la suma de los totalOrden
+this.calculartotalsubivades();
+
     }
   }
 
@@ -178,6 +264,22 @@ crearventa(){
     }
   }
 
+
+  calculartotalsubivades(){
+    this.sumaTotalOrden = this.ordenesSeleccionadas.reduce((acumulador, orden) => acumulador + orden.totalOrden, 0);
+    this.finalin=this.sumaTotalOrden -this.sumaTotalOrden * this.descuentonumero;
+    this.finalin=this.finalin + this.finalin * this.empresaSeleccionada.iva;
+  }
+
+  cambiarEstadoBoton(orden: orden) {
+    this.botonesSeleccionados[orden.idOrden] = !this.botonesSeleccionados[orden.idOrden];
+    if (this.botonesSeleccionados[orden.idOrden]) {
+      this.ordenSelect = orden;
+    } else {
+      this.ordenSelect = null;
+    }
+    this.seleccionarOrden(orden);
+  }
 
 
 }

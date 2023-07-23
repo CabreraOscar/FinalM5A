@@ -101,6 +101,10 @@
     align-items: center;
     width: 250px;
 }
+.boton-seleccionado {
+    background-color: red; /* Cambia el color según tu preferencia */
+    color: white; /* Cambia el color del texto según tu preferencia */
+  }
 
 .input {
     margin-left: 20px;

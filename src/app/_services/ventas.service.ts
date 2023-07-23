@@ -18,6 +18,7 @@ export class VentasService {
   private baseURLE="http://localhost:8080/venta/eliminar";
   private baseURLB="http://localhost:8080/venta/buscar";
   private baseURLO="http://localhost:8080/venta/porid";
+  private baseURLCID="http://localhost:8080/venta/crearyobtenerid";
   
  
   buscarPorFecha( fecha: String): Observable<venta[]>{
@@ -46,5 +47,8 @@ export class VentasService {
   return this.httpClient.post(`${this.baseURLC}`,venta)
   }
   
+  crearventaid(venta:venta): Observable<number> {
+    return this.httpClient.post<number>(`${this.baseURLCID}`, venta);
+  }
   
 }
