@@ -24,35 +24,45 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.auth.canAuthenticate();
   }
+// ... Código anterior ...
 
-  onSubmit(): void {
-    this.loading = true;
-    this.auth.login(this.formdata.username, this.formdata.clave)
-      .subscribe({
-        next: data => {
-          this.auth.storeToken(data.token);
-          console.log('Logged in ' + data.token);
-          localStorage.setItem("idRol", data.roles.idRol);
-          this.auth.confirmaRol(data.roles.idRol);
-        },
-        error: data => {
-          if (data.error.error.message == "INVALID_EMAIL") {
+onSubmit(): void {
+  this.loading = true;
+  this.auth.login(this.formdata.username, this.formdata.clave)
+    .subscribe({
+      next: data => {
+        this.auth.storeToken(data.token);
+        console.log('Logged in ' + data.token);
+        localStorage.setItem("idRol", data.roles.idRol);
+        this.auth.confirmaRol(data.roles.idRol);
+      },
+      error: data => {
+        if (data.error && data.error.error && data.error.error.message) {
+          if (data.error.error.message === "INVALID_EMAIL") {
             this.errorMessage = "Email inválido!";
-          } else if (data.error.error.message == "EMAIL_EXISTS") {
+          } else if (data.error.error.message === "EMAIL_EXISTS") {
             this.errorMessage = "Este email ya existe!";
+          } else if (data.error.error.message === "EMAIL_NOT_FOUND") {
+            this.errorMessage = "Datos incorrectos";
           } else {
             this.errorMessage = "Error al iniciar sesión!";
           }
-          this.loading = false; // Set loading to false here if necessary
-          console.error(this.errorMessage); // Log the error message if needed
-        },
-        complete: () => {
-          this.loading = false;
-          console.log('Proceso de inicio de sesión completado!');
+        } else {
+          this.errorMessage = "Error al iniciar sesión!";
         }
-      });
+        this.loading = false;
+        console.error(this.errorMessage);
+       
+      },
+      complete: () => {
+        this.loading = false;
+        console.log('Proceso de inicio de sesión completado!');
+      }
+    });
+}
+
+
   }
   
-
-
-}  
+  
+ 

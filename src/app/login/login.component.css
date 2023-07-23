@@ -1,11 +1,10 @@
 .login-block{
   float:left;
   width:100%;
-  padding : 130px 0;
+  padding : 170px 0;
   position: fixed;
 }
 .login-block {
-  background-image: url('/assets/imagenes/fondoregistro.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
