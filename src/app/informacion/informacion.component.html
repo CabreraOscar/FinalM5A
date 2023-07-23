@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
- 
-</head>
+	<head>
+		<style>
+			/* Estilos CSS para el título fosforescente */
+			h1 {
+				font-family: Arial, sans-serif;
+				font-size: 78px;
+				color: #fff;
+				text-align: center;
+				text-shadow: 0 0 10px rgba(211, 114, 175, 0.8);
+				animation: glow 2s ease-in-out infinite alternate;
+			}
+			h2 {
+				font-family: Arial, sans-serif;
+				font-size: 30px;
+				color: #fff;
+				text-align: center;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+				animation: glow 2s ease-in-out infinite alternate;
+			}
+			h3 {
+				font-family: Arial, sans-serif;
+				font-size: 25px;
+				color: #fff;
+				text-align: center;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+				animation: glow 2s ease-in-out infinite alternate;
+			}
+			td {
+				font-family: Arial, sans-serif;
+				font-size: 19px;
+				color: #fff;
+				text-align: center;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+				animation: glow 2s ease-in-out infinite alternate;
+			}
+			/* Animación */
+			@keyframes glow {
+				0% {
+					color: #847b7b;
+					text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+				}
+				50% {
+					color: #000000;
+					text-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6), 0 0 40px rgba(255, 0, 255, 0.4);
+				}
+				100% {
+					color: #847b7b;
+					text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+				}
+			}
+		</style>
+	</head>
 <body>
   <header>
     <img src="assets/imagenes/tec.png" alt="Logo de la página web">
-    <h1>LAVATEC</h1>
-    <p>Es un sistema de gestión continua se refiere a una metodología 
-		o enfoque utilizado en diversas industrias para supervisar
-		 y mejorar procesos o actividades de manera continua y progresiva. 
-		 Estos sistemas a menudo se aplican en entornos industriales, manufactureros, de servicios o de calidad, 
-		 y buscan optimizar la eficiencia, la calidad del producto o servicio, y la satisfacción del cliente.</p>
+    <div class="header-container">
+        <h1>LAVATEC</h1>
+        <img class="logo" src="assets/imagenes/logo.png" alt="Logo de LAVATEC">
+    </div>
+	<p>
+		Es un sistema de gestión continua que se refiere a una metodología o enfoque utilizado en diversas industrias para supervisar
+		y mejorar procesos o actividades de manera continua y progresiva. Estos sistemas se aplican frecuentemente en entornos industriales,
+		manufactureros, de servicios o de calidad, y buscan optimizar la eficiencia, la calidad del producto o servicio,
+		y la satisfacción del cliente.
+	</p>
   </header>
   <main>
 	
@@ -55,15 +108,15 @@
 		<table>
 		  <tr>
 			<td>Java</td>
-			<td><img src="assets/imagenes/java.gif" alt="Java"></td>
+			<td><img src="assets/imagenes/java.png" alt="Java"></td>
 		  </tr>
 		  <tr>
 			<td>Angular</td>
-			<td><img src="assets/imagenes/angular.gif" alt="Angular"></td>
+			<td><img src="assets/imagenes/angular.png" alt="Angular"></td>
 		  </tr>
 		  <tr>
 			<td>JavaScript</td>
-			<td><img src="assets/imagenes/js.gif" alt="JavaScript"></td>
+			<td><img src="assets/imagenes/Typescript.png" alt="JavaScript"></td>
 		  </tr>
 		</table>
 	  </div>
@@ -71,7 +124,7 @@
   <footer>
 	<div class="footer-container">
 	  <div class="contact-info">
-		<h3>Contacto</h3>
+		<h2>Contacto</h2>
 		<p>Dirección: Octavio Chacón Moscoso 1-98 y Primera Transversal (Parque industrial)</p>
 		<p>Teléfono: 07 2809 551 - 0995363076</p>
 		<p>Correo Electrónico: info@tecazuay.edu.ec</p>
