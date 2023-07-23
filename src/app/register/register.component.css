@@ -5,8 +5,9 @@
   background-position: center;
   float:left;
   width:100%;
-  padding: 201px;
+  padding: 198px;
   background: linear-gradient(to bottom, #21a3ee, #a32699);
+  display: block;
 }
 
 
@@ -27,7 +28,7 @@ body {
     height: 30%;
     margin-left: 500px; 
     margin-top: -400px;
-   
+    
 }
 #search-form button[type="submit"] {
   background-color: rgb(39, 146, 196); /* Cambia el color a tu preferencia, aquí hemos usado azul como ejemplo */

@@ -12,7 +12,8 @@
   background: linear-gradient(to bottom right, rgb(63, 99, 219), rgb(219, 2, 226));
   padding: 0;
   margin-left: 165px;
-  padding: 52px;
+  padding: 206px;
+  display: block;
 }
 .pedido-block .container {
   background: #D3D3D3;

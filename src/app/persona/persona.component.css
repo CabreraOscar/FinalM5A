@@ -1,10 +1,11 @@
 .person-block {
-  background: #b4d7e8;  /* fallback for old browsers */
+  background: #3b88af;  /* fallback for old browsers */
 
   margin: 0;
   padding: 0;
   margin-left: 165px;
-  padding: 52px;
+  padding: 75px;
+  display: block;
 }
 .btn-custom {
   background-color: #d35dd300;
