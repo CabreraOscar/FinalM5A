@@ -30,8 +30,22 @@
           </div>
           
       
-          <button type="submit" class="btn btn-success" onclick="guardarServicio()" style="background-color: green;">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/servicio-admin" style="margin-left: 10px">Cancelar</button>
+          
+          <button type="submit" class="btn btn-custom" onclick="guardarServicio()">
+            <span class="icon">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Guardar</span>
+            </span>
+          </button>
+           
+     
+        <button type="button" routerLink="/servicio-admin"class="btn btn-custom">
+          <span class="icon">
+            <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+            <span class="text">Cancelar</span>
+          </span>
+         
+        </button>
       </form>
       
     </div>

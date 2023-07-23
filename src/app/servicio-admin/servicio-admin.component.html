@@ -24,10 +24,22 @@
                 <td>{{servicio.descripcion}}</td>
                 <td>{{servicio.precio}}</td>
                 <td>
-                    <button (click)= "actualizarServicio(servicio.idService)" class="btn btn-info">Editar</button>
+                 
+                    <button (click)= "actualizarServicio(servicio.idService)" class="btn btn-custom">
+                        <span class="icon">
+                          <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+                        </span>
+                       
+                      </button>
                 </td>
                 <td>
-                    <button (click)= "eliminarServicio(servicio.idService)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+                   
+                    <button (click)= "eliminarServicio(servicio.idService)" class="btn btn-custom">
+                        <span class="icon">
+                          <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
+                        </span>
+                       
+                      </button>
 
                 </td>
                 
@@ -38,6 +50,18 @@
     </table>
 </div>
     <div style="text-align: center;">
-    <button class="btn btn-info" routerLink="/registrar-servicio" style="margin-left : 10px">Crear</button>
-    <button class="btn btn-danger" routerLink="/login" style="margin-left : 10px">Regresar</button>
+  
+    <button class="btn btn-custom" routerLink="/registrar-servicio" style="margin-left : 10px">
+        <span class="icon">
+          <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+        </span>
+        <span class="text">Crear</span>
+      </button>
+   
+    <button class="btn btn-custom" routerLink="/login" style="margin-left: 10px;">
+        <span class="icon">
+          <img src="assets/imagenes/home.png" alt="Imagen de búsqueda">
+        </span>
+        <span class="text">Regresar</span>
+      </button>
 
