@@ -1,5 +1,5 @@
 .person-block {
-  background: #3b88af;  /* fallback for old browsers */
+  background: #44a6d6;  /* fallback for old browsers */
   margin: 0;
   padding: 0;
   margin-left: 165px;
@@ -10,7 +10,7 @@
    margin-top: -70px;
   width: 45%; 
    border-radius: 20px;
-   background-color: #2a44f0;} 
+   background-color: #2a79f0;} 
 .btn-custom {
   background-color: #d35dd300;
   color: #fff;
