@@ -7,7 +7,8 @@
         <form class="register-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
           <div class="form-group">
             <label for="exampleInputEmail1" class="text">Username</label>
-            <input type="text" class="form-control" name="username" id="" [(ngModel)]="usuario.username" #username="ngModel" required>
+            <input type="text" class="form-control" name="username" id="" [(ngModel)]="usuario.username"
+              #username="ngModel" required>
             <span class="text-danger" *ngIf="submit && username.errors?.['required']">
               Se requiere el nombre de usuario.
             </span>
@@ -17,7 +18,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="exampleInputEmail1" class="text">Clave</label>
-          <input type="password" class="form-control" name="clave" id="" [(ngModel)]="usuario.clave" #clave="ngModel" required>
+          <input type="password" class="form-control" name="clave" id="" [(ngModel)]="usuario.clave" #clave="ngModel"
+            required>
           <span class="text-danger" *ngIf="submit && clave.errors?.['required']">
             Se requiere la clave.
           </span>
@@ -28,22 +30,24 @@
           <label for="rolList" class="text">Roles</label>
           <br>
           <ul id="rolList">
-            <li *ngFor="let rol of roles" (click)="seleccionarRol(rol)" [ngStyle]="{'background-color': rol === rolSeleccionado ? 'lightblue' : 'transparent', 'font-weight': rol === rolSeleccionado ? 'bold' : 'normal'}">{{ rol.nombre }}</li>
+            <li *ngFor="let rol of roles" (click)="seleccionarRol(rol)"
+              [ngStyle]="{'background-color': rol === rolSeleccionado ? 'lightblue' : 'transparent', 'font-weight': rol === rolSeleccionado ? 'bold' : 'normal'}">
+              {{ rol.nombre }}</li>
           </ul>
         </div>
       </div>
-      
+
     </div>
-    <label>Persona Seleccionada</label> 
-<table *ngIf="selectedPersona">
+    <label>Persona Seleccionada</label>
+    <table *ngIf="selectedPersona">
 
-  <tbody>
-    <tr>
-      <td>{{ selectedPersona.nombrePer }}</td>
+      <tbody>
+        <tr>
+          <td>{{ selectedPersona.nombrePer }}</td>
 
-    </tr>
-  </tbody>
-</table>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="row">
       <div class="col-md-12">
@@ -55,51 +59,51 @@
         </div>
         <div class="clearfix"></div>
         <div class="form-group">
-         
+
         </div>
       </div>
     </div>
   </div>
- 
 
-    <div class="table table-bordered" style="height: 300px; overflow-y: scroll; margin-top: -290px; ">
-      <table style="width: 100%;">
-        <thead>
-          <tr>
-            <th colspan="3">
-              <h5>Personas</h5>
-              <form id="search-form" #miFormulario="ngForm" style="margin-bottom: 10px;">
-                <div class="input-group">
-                  <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
-                    placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
-                    style="width: 80px;">
-                  <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
-                  <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
-                </div>
-              </form>
-            </th>
-          </tr>
-          <tr>
-            <th>Nombre</th>
-            <th>Cédula</th>
-           
-          </tr>
-        </thead>
-        <tbody>
 
-          <tr *ngFor="let persona of persona">
-            <td>{{persona.nombrePer }}</td>
-            <td>{{persona.identificacion }}</td>
-            <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="table table-bordered" style="height: 300px; overflow-y: scroll; margin-top: -300px; ">
+    <table style="width: 100%;" >
+      <thead>
+        <tr>
+          <th colspan="3">
+            <h5>Personas</h5>
+            <form id="search-form" #miFormulario="ngForm" style="margin-bottom: 10px;">
+              <div class="input-group">
+                <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
+                  placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
+                  style="width: 80px;">
+                <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
+                <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
+              </div>
+            </form>
+          </th>
+        </tr>
+        <tr>
+          <th>Nombre</th>
+          <th>Cédula</th>
 
-  
-   
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let persona of persona">
+          <td>{{persona.nombrePer }}</td>
+          <td>{{persona.identificacion }}</td>
+          <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
 
- 
+
+
+
+
 </section>
