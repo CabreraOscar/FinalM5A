@@ -15,6 +15,7 @@ export class ConfigEmpresaComponent implements OnInit {
   empresas: Empresa[];
   empresai:Empresa = new Empresa();
 
+
   constructor(private empresaServicio:EmpresaService,private router:Router,private AllScripts: AllScriptServiceService) { 
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -29,7 +30,6 @@ export class ConfigEmpresaComponent implements OnInit {
       this.empresas = dato;
     });
   }
-
 
   guardarEmpresa() {
     var nombreEmpresa = this.empresai.nombreEmpresa;
@@ -79,7 +79,7 @@ export class ConfigEmpresaComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar el campo "IVA"',
+        text: 'Falta llenar el campo "IVA"/IVA inválido',
       });
       return;
     }
@@ -108,7 +108,7 @@ export class ConfigEmpresaComponent implements OnInit {
     if (!/^(\d{1,2})\.(\d{1,2})$/.test(String(iva))) {
       Swal.fire({
         icon: 'error',
-        title: 'IVA inválido',
+        
         text: 'El IVA debe tener un formato de 0.00',
       });
       return;
@@ -117,7 +117,7 @@ export class ConfigEmpresaComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Ya existe se ecuentra registrado ese RUC',
+        text: 'Ya se ecuentra registrado ese RUC',
         confirmButtonText: 'OK'
       });
     
@@ -127,11 +127,20 @@ export class ConfigEmpresaComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Ya existe una persona con el mismo teléfono',
+        text: 'Ya existe  el mismo teléfono',
         confirmButtonText: 'OK'
       });
         return;
       }
+      if (this.empresas.some(empresai => empresai.nombreEmpresa === this.empresai.nombreEmpresa)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ya existe el mismo nombre',
+          confirmButtonText: 'OK'
+        });
+          return;
+        }
     // Lógica para registrar la empresa.
   
     Swal.fire({
@@ -139,7 +148,7 @@ export class ConfigEmpresaComponent implements OnInit {
       title: 'Registro exitoso',
       text: 'Los datos se han registrado correctamente'
     });
-  
+    
     this.empresaServicio.registrarEmpresa(this.empresai).subscribe(dato => {
       console.log(dato);
       this.obtenerEmpresa();

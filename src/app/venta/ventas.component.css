@@ -74,7 +74,9 @@
 }
 .custom-table {
   background: #D3D3D3;
-   width: 100%;
+  padding: 20px;
+  margin: 10px auto;
+  width: 100%;
 }
 .custom-table th, .custom-table td {
   border: 1px solid #000000; /* Borde de celda */
@@ -83,7 +85,7 @@
 }
 
 .custom-table th {
-  background-color: #D3D3D3; /* Color de fondo de encabezado */
+  background-color: #065eb6; /* Color de fondo de encabezado */
 }
 
 .custom-table tr:nth-child(even) {
@@ -93,5 +95,13 @@
 .custom-table tr:hover {
   background-color: #98d6e7; /* Color de fondo al pasar el cursor */
 }
+#fixed-header {
+  position: relative;
+}
 
+#fixed-header thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
 
