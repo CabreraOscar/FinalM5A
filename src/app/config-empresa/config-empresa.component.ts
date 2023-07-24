@@ -14,7 +14,7 @@ export class ConfigEmpresaComponent implements OnInit {
   nombreEmpresa: String;
   empresas: Empresa[];
   empresai:Empresa = new Empresa();
-  // empresaii: { nombreEmpresa: string; ruc: string; ubicacion: string; telefono: string; iva: number; };
+
 
   constructor(private empresaServicio:EmpresaService,private router:Router,private AllScripts: AllScriptServiceService) { 
     AllScripts.Cargar(["default/ventanas"]);
