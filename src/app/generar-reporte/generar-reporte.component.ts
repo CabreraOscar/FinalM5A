@@ -38,6 +38,7 @@ export class GenerarReporteComponent implements OnInit {
   ruc: string = "";
   telefonoe: string = "" ;
   ubicacion: string = "";
+  idOrden: number;
 
   currentDate: string;
 
@@ -55,6 +56,7 @@ export class GenerarReporteComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarFecha();
+    this.buscarPersonaVentas();
   }
 
 
@@ -112,6 +114,11 @@ export class GenerarReporteComponent implements OnInit {
     this.ruc = this.ventag.configEmpresa.ruc;
     this.telefonoe = this.ventag.configEmpresa.telefono;
     this.ubicacion = this.ventag.configEmpresa.ubicacion;
+    this.id = this.ventag.idVenta;
+    this.ordenesService.obtenerOrdenporVenta(this.id).subscribe(dato =>{
+      this.ordenes = dato;
+    })
+
   }
   
 

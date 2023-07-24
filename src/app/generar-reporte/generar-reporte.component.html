@@ -45,6 +45,7 @@
                     <th>Total</th>
                     <th>Persona</th>
                     <th>Configuración</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -58,7 +59,7 @@
                     <td>{{venta.total}}</td>
                     <td>{{venta.personaf.nombrePer}}</td>
                     <td>{{venta.configEmpresa.nombreEmpresa}}</td>
-                    <td><button class="btn btn-info" (click)=" seleccionarVenta(venta)">+</button></td>
+                    <td><button class="btn btn-info" (click)="seleccionarVenta(venta)">+</button></td>
                 </tr>
 
             </tbody>
@@ -116,14 +117,14 @@
         <div style="height: 100px; overflow-y: scroll;">
             <table class="table table-sm">
                 <thead>
-                    <th>Servi/máquina</th>
-                    <th>Precio Total</th>
-                    <th>Cantidad</th>
+                    <th>Cedula de la Persona</th>
+                    <th>Total</th>
                 </thead>
                 <tbody>
-                    <td>Maquina--Servico--SELECT</td>
-                    <td>Maquina--Servico--SELECT</td>
-                    <td>Maquina--Servico--SELECT</td>
+                    <tr *ngFor="let orden of ordenes">
+                        <td>{{orden.personaO.nombrePer}}</td>
+                        <td>{{orden.totalOrden}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
