@@ -34,7 +34,6 @@ import { GenerarVentasComponent } from './generar-ventas/generar-ventas.componen
 import { ClienteAdEmpleadoComponent } from './cliente-ad-empleado/cliente-ad-empleado.component';
 import { GenerarReporteComponent } from './generar-reporte/generar-reporte.component';
 import { InformacionComponent } from './informacion/informacion.component';
-
 const routes:Routes = [
   {path:'',component:HomeComponent },
   {path:'register',component:RegisterComponent},
