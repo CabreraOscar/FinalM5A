@@ -251,7 +251,7 @@
         <div class="form-group">
           <label for="identificacion" style="margin-right: 10px;">Cédula:</label>
           <input type="text" class="form-control" id="identificacion" [(ngModel)]="personar.identificacion"
-            name="identificacion" required pattern="[0-9]{11}">
+            name="identificacion" required pattern="[0-9]{10}">
           <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched"
             class="error-message">
             <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
