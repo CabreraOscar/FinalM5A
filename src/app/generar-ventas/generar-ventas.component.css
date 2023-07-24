@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 170px;
+    padding: 41px;
     background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
 }
 
@@ -12,7 +13,7 @@
     justify-content: center;
     background: linear-gradient(to bottom right, blue, pink);
     width: auto;
-    padding: 20px;
+    padding: 10px;
 
 
 }
