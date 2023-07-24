@@ -50,12 +50,11 @@
 }
 
 .custom-table {
-  border-collapse: collapse;
-  /* Colapso de bordes */
+  background: #D3D3D3;
+  padding: 20px;
+  margin: 10px auto;
   width: 100%;
-  /* Ancho de la tabla */
 }
-
 .custom-table {
   background: #D3D3D3;
   border-radius: 10px;
@@ -75,8 +74,12 @@
 }
 
 .custom-table th {
-  background-color: #D3D3D3;
+  background-color: #065eb6;
   /* Color de fondo de encabezado */
+}
+.btn-custom:hover {
+  background-color: #7533a4;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .custom-table tr:nth-child(even) {

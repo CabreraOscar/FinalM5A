@@ -21,7 +21,7 @@ h1.aligned-right {
 
 
 .container {
-  background: #D3D3D3;
+  background: #3b88af;
   border-radius: 10px;
   width: auto;
   padding: 20px;
@@ -29,8 +29,6 @@ h1.aligned-right {
  
 
 }
-
-
 
 .pedido-block label {
   font-weight: bold;
@@ -43,76 +41,91 @@ h1.aligned-right {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+.btn-custom {
+  background-color: #d35dd300;
+  color: #ffffff;
+  border-radius: 1px;
+  border: none;
+  padding: 5px 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
 .btn-custom:hover {
   background-color: #7533a4;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.pedido-block button {
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  transition: transform 0.3s ease-in-out;
+}
 
+.btn-custom:hover .icon {
+  transform: scale(1.2);
+}
 
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.text {
+  display: inline-block;
+  vertical-align: middle;
   font-weight: bold;
-
-  cursor: pointer;
-}
-
-.detalle-venta {
-  background-color: #ffffff;
-  padding: 10px;
-  border-top: 1px solid #e99494;
 }
 
 
-.table-container {
-  display: flex;
-  justify-content: center;
-}
 
 .custom-table {
-  border-collapse: collapse;
-  /* Colapso de bordes */
-  width: 100%;
-  /* Ancho de la tabla */
+  border-collapse: collapse; /* Colapso de bordes */
+  width: 100%; /* Ancho de la tabla */
 }
-
 .custom-table {
   background: #D3D3D3;
-  border-radius: 10px;
   padding: 20px;
   margin: 10px auto;
-  width: 700px;
+  width: 100%;
 }
-
-.custom-table th,
-.custom-table td {
-  border: 1px solid #000000;
-  /* Borde de celda */
-  padding: 8px;
-  /* Espaciado interno */
-  text-align: left;
-  /* Alineación del texto */
+.custom-table th, .custom-table td {
+  border: 1px solid #000000; /* Borde de celda */
+  padding: 7px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto */
 }
 
 .custom-table th {
-  background-color: #D3D3D3;
-  /* Color de fondo de encabezado */
+  background-color: #065eb6; /* Color de fondo de encabezado */
 }
 
 .custom-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-  /* Color de fondo de filas pares */
+  background-color: #f9f9f9; /* Color de fondo de filas pares */
 }
 
 .custom-table tr:hover {
-  background-color: #98d6e7;
-  /* Color de fondo al pasar el cursor */
+  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
 }
 
-
-.btnActualizar {
-  background: rgb(95, 146, 95);
+.ventana-container {
+  position: relative; /* Use relative positioning */
+  width: 100%; /* Adjust the width as needed */
+  height: 100%; /* Adjust the height as needed */
+  z-index: 1; /* Set a higher z-index to ensure it appears above other elements */
 }
+
+/* Styles for the floating window */
+.ventana-flotante {
+  position: absolute; /* Use absolute positioning again for the content inside the container */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Rest of your styles for the floating window */
+}
+#fixed-header {
+  position: relative;
+}
+
+#fixed-header thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+

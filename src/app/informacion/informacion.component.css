@@ -174,3 +174,42 @@ main {
 .logo {
     margin-left: auto;
 }
+.btn-b img {
+  /* Tus estilos para la imagen aquí */
+  width: 30px; /* Por ejemplo, establecer un ancho de 30 píxeles */
+  height: 30px; /* Por ejemplo, establecer una altura de 30 píxeles */
+  margin-right: 8px; /* Ejemplo de margen derecho para separar la imagen del texto */
+  
+}
+.btn-b {
+  background-color: #d35dd300;
+  color: #fff;
+  border-radius: 1px;
+  border: none;
+  padding: 5px 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-b:hover {
+  background: linear-gradient(to bottom,  #e3c8c8, #8fa6d4);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-b:hover .icon {
+  transform: scale(1.2);
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
