@@ -6,10 +6,10 @@
             <h6>Lista de Personas</h6>
             <form id="search-form" #miFormularioP="ngForm">
                 <label for="search-client" style="margin-right: 10px;">Búsqueda de persona:</label>
-                <input type="text" [(ngModel)]= "inputValueP" name="miInput" placeholder="Ingrese la Cedula"
+                <input type="text" [(ngModel)]="inputValueP" name="miInput" placeholder="Ingrese la Cédula"
                     (blur)="verificarInputP()" style="height: 37px;">
 
-                <button class="btn btn-info" (click)= "buscarPersonaPorcedula()" type="button"
+                <button class="btn btn-info" (click)="buscarPersonaPorcedula()" type="button"
                     style="margin-left: 10px;">Buscar</button>
                 <button class="btn btn-danger" (click)="obtenerPersona()"
                     style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
@@ -43,7 +43,7 @@
             <h6>Lista de órdenes</h6>
             <form id="search-form" #miFormulario="ngForm">
                 <label for="search-client" style="margin-right: 10px;">Búsqueda de órdenes:</label>
-                <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cedula"
+                <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cédula"
                     (blur)="verificarInput()" style="height: 37px;">
 
                 <button class="btn btn-info" (click)="buscarVentaPorCedula()" type="submit"
@@ -69,12 +69,12 @@
                         <td>{{orden.totalOrden}}</td>
                         <td>{{orden.personaO.identificacion}}</td>
                         <td>
-                            <button class="btn" 
-        [ngClass]="{'btn-info': !botonesSeleccionados[orden.idOrden], 'btn-danger': botonesSeleccionados[orden.idOrden], 'boton-seleccionado': botonesSeleccionados[orden.idOrden]}"
-        (click)="cambiarEstadoBoton(orden)">
-  {{ botonesSeleccionados[orden.idOrden] ? 'Quitar Orden' : 'Seleccionar orden' }}
-</button>
-                          </td>
+                            <button class="btn"
+                                [ngClass]="{'btn-info': !botonesSeleccionados[orden.idOrden], 'btn-danger': botonesSeleccionados[orden.idOrden], 'boton-seleccionado': botonesSeleccionados[orden.idOrden]}"
+                                (click)="cambiarEstadoBoton(orden)">
+                                {{ botonesSeleccionados[orden.idOrden] ? 'Quitar Orden' : 'Seleccionar orden' }}
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
 
@@ -87,12 +87,13 @@
     <div class="container1">
         <div class="form-group">
             <label for="empresa" style="margin-right: 10px;">Empresa: </label>
-            <select id="empresa" name="empresa" class="form-control" [(ngModel)]="empresaSeleccionada" [compareWith]="compareEmpresa">
-              <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{ empresa.nombreEmpresa }}</option>
+            <select id="empresa" name="empresa" class="form-control" [(ngModel)]="empresaSeleccionada"
+                [compareWith]="compareEmpresa">
+                <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{ empresa.nombreEmpresa }}</option>
             </select>
-          </div>
+        </div>
         <div class="form-group">
-            <label for="cedula" style="margin-right: 10px;">Cedula:</label>
+            <label for="cedula" style="margin-right: 10px;">Cédula:</label>
             <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaV" disabled>
         </div>
         <div class="form-group">
@@ -101,7 +102,7 @@
         </div>
 
         <ng-container *ngIf="ordenesSeleccionadas.length > 0">
-            <label >Órdenes seleccionadas:
+            <label>Órdenes Seleccionadas:
                 <span *ngFor="let orden of ordenesSeleccionadas; let last = last">
                     {{ orden.idOrden }}{{ last ? '' : ',' }}
                 </span>
@@ -116,48 +117,54 @@
         <div class="form-group">
             <label for="tipoPago" style="margin-right: 5px;">Tipo de pago:</label>
             <select class="form-control" id="tipoPago" name="tipoPago" [(ngModel)]="tipoPagoSeleccionado">
-              <option value="efectivo">Efectivo</option>
-              <option value="tarjeta">Tarjeta</option>
-              <option value="transferencia">Transferencia</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="transferencia">Transferencia</option>
             </select>
-          </div>
+        </div>
 
-          <div class="form-group">
+        <div class="form-group">
             <label for="nombre" style="margin-right: 20px;">Descuento: </label>
             <div>
-              <input type="radio" id="descuentoSi" name="descuento" value="si" (change)="actualizarDescuento($event)">
-              <label for="descuentoSi" style="margin-right: 10px;margin-left: 5px;">Sí</label>
+                <input type="radio" id="descuentoSi" name="descuento" value="si" (change)="actualizarDescuento($event)">
+                <label for="descuentoSi" style="margin-right: 10px;margin-left: 5px;">Sí</label>
             </div>
             <div>
-              <input type="radio" id="descuentoNo" name="descuento" value="no" (click)="actualizarDescuentoNo()"checked>
-              <label for="descuentoNo" style="margin-left: 5px;">No</label>
+                <input type="radio" id="descuentoNo" name="descuento" value="no" (click)="actualizarDescuentoNo()"
+                    checked>
+                <label for="descuentoNo" style="margin-left: 5px;">No</label>
             </div>
-          </div>
-          
-          <div *ngIf="descuento === 'si'">
+        </div>
+
+        <div *ngIf="descuento === 'si'">
             <label for="descuentoSeleccionado" style="margin-right: 10px;">Tipo de Descuento: </label>
-            <select id="descuentoSeleccionado" name="descuentoSeleccionado" [(ngModel)]="descuentoSeleccionado" (ngModelChange)="actualizarDescuentoNumero()">
-              <option value="secado gratis">Secado Gratis</option>
-              <option value="productos gratis">Productos Gratis</option>
-              <option value="doblado gratis">Doblado Gratis</option>
+            <select id="descuentoSeleccionado" name="descuentoSeleccionado" [(ngModel)]="descuentoSeleccionado"
+                (ngModelChange)="actualizarDescuentoNumero()">
+                <option value="secado gratis">Secado Gratis</option>
+                <option value="productos gratis">Productos Gratis</option>
+                <option value="doblado gratis">Doblado Gratis</option>
             </select>
-          </div>
+        </div>
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Subtotal: </label>
-            <input type="text" class="form-control" id="telefono" name="telefono" [value]="sumaTotalOrden.toFixed(2)" disabled>
+            <input type="text" class="form-control" id="telefono" name="telefono" [value]="sumaTotalOrden.toFixed(2)"
+                disabled>
         </div>
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Iva:</label>
-            <input *ngIf="empresaSeleccionada" type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}" [(ngModel)]="empresaSeleccionada.iva" disabled>
-          </div>
+            <input *ngIf="empresaSeleccionada" type="text" class="form-control" id="telefono" name="telefono"
+                pattern="[0-9]{7,10}" [(ngModel)]="empresaSeleccionada.iva" disabled>
+        </div>
 
         <div class="form-group">
             <label for="telefono" style="margin-right: 5px;">Total:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}" [value]="finalin | number:'1.2-2'" disabled>
+            <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}"
+                [value]="finalin | number:'1.2-2'" disabled>
         </div>
-        <button (click)="crearventa()" type="submit" class="btn btn-success" style="background-color: green;">Guardar Venta</button>
+        <button (click)="crearventa()" type="submit" class="btn btn-success" style="background-color: green;">Guardar
+            Venta</button>
     </div>
 
 </div>

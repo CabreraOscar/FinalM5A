@@ -1,6 +1,6 @@
 
 .register-block {
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   float:left;
@@ -45,7 +45,7 @@ body {
   border-radius: 0px;
   width: 40%;
   height: 30%;
-  margin-left: 600px; 
+  margin-left: 55%; 
   margin-top: -220px;
   
  }
