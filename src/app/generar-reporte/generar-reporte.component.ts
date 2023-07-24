@@ -20,6 +20,24 @@ export class GenerarReporteComponent implements OnInit {
   personas: Persona[];
   ventas: venta[];
   ventasb: venta[];
+  ventag: venta = new venta();
+  //variables de venta
+  cliente: string = '';
+  tipoPago: string = '';
+  fecha: string = '';
+  iva: number = 0;
+  subtotal: number = 0;
+  total: number = 0;
+  //variables persona
+  correop: string = '';
+  direccion: string = '';
+  identificacion: string = '';
+  telefonop: string = "";
+  //variables empresa
+  nombre: string = "";
+  ruc: string = "";
+  telefonoe: string = "" ;
+  ubicacion: string = "";
 
   currentDate: string;
 
@@ -78,6 +96,23 @@ export class GenerarReporteComponent implements OnInit {
     );
   }
   
+  seleccionarVenta(ventaselect: venta){
+    this.ventag = ventaselect;
+    this.cliente = this.ventag.personaf.nombrePer;
+    this.tipoPago = this.ventag.tipoPago;
+    this.fecha = this.ventag.fecha;
+    this.iva = this.ventag.iva;
+    this.subtotal = this.ventag.subtotal;
+    this.total = this.ventag.total;
+    this.correop = this.ventag.personaf.correo;
+    this.direccion = this.ventag.personaf.direccion;
+    this.identificacion = this.ventag.personaf.identificacion;
+    this.telefonop = this.ventag.personaf.telefono;
+    this.nombre = this.ventag.configEmpresa.nombreEmpresa;
+    this.ruc = this.ventag.configEmpresa.ruc;
+    this.telefonoe = this.ventag.configEmpresa.telefono;
+    this.ubicacion = this.ventag.configEmpresa.ubicacion;
+  }
   
 
   obtenerOrdenes() {

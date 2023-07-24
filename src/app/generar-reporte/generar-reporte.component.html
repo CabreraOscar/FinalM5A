@@ -58,19 +58,98 @@
                     <td>{{venta.total}}</td>
                     <td>{{venta.personaf.nombrePer}}</td>
                     <td>{{venta.configEmpresa.nombreEmpresa}}</td>
-                    <td><button class="btn btn-info">+</button></td>
+                    <td><button class="btn btn-info" (click)=" seleccionarVenta(venta)">+</button></td>
                 </tr>
 
             </tbody>
         </table>
     </div>
-    <div class="container">
-        <ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
-        </ul>
+    <div class="formulario-reporte">
+        <p>Detalle empresa</p>
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">storefront</span>
+            <input type="text" class="form-control" placeholder="Nombre Empresa"
+                [(ngModel)]="ventag.configEmpresa.nombreEmpresa" aria-label="Username" aria-describedby="basic-addon1"
+                disabled>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">domain</span>
+            <input type="text" class="form-control" placeholder="RUC" [(ngModel)]="ventag.configEmpresa.ruc"
+                aria-label="Username" disabled>
+            <span class="material-symbols-rounded">call</span>
+            <input type="text" class="form-control" placeholder="Télefono" [(ngModel)]="ventag.configEmpresa.telefono"
+                aria-label="Server" disabled>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">home_pin</span>
+            <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="ventag.configEmpresa.ubicacion"
+                aria-label="Username" disabled>
+            <span class="material-symbols-rounded">calendar_month</span>
+            <input type="text" class="form-control" placeholder="Fecha" [(ngModel)]="ventag.fecha" aria-label="Server"
+                disabled>
+        </div>
+
+        <p>Detalle Persona</p>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">person</span>
+            <input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="ventag.personaf.nombrePer"
+                aria-label="Username" disabled>
+            <span class="material-symbols-rounded"> badge</span>
+            <input type="text" class="form-control" placeholder="Cédula" [(ngModel)]="ventag.personaf.identificacion"
+                aria-label="Server" disabled>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded"> mail</span>
+            <input type="text" class="form-control" placeholder="Correo Electronico"
+                [(ngModel)]="ventag.personaf.correo" aria-label="Username" disabled>
+            <span class="material-symbols-rounded">call</span>
+            <input type="text" class="form-control" placeholder="Telefono" [(ngModel)]="ventag.personaf.telefono"
+                aria-label="Server" disabled>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">home</span>
+            <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="ventag.personaf.direccion"
+                aria-label="Username" aria-describedby="basic-addon1" disabled>
+        </div>
+        <div style="height: 100px; overflow-y: scroll;">
+            <table class="table table-sm">
+                <thead>
+                    <th>Servi/máquina</th>
+                    <th>Precio Total</th>
+                    <th>Cantidad</th>
+                </thead>
+                <tbody>
+                    <td>Maquina--Servico--SELECT</td>
+                    <td>Maquina--Servico--SELECT</td>
+                    <td>Maquina--Servico--SELECT</td>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">payments</span>
+            <input type="text" class="form-control" placeholder="Tipo de Pago" [(ngModel)]="ventag.tipoPago"
+                aria-label="Username" disabled>
+            <span class="material-symbols-rounded">loyalty</span>
+            <input type="text" class="form-control" placeholder="Descuetno" [(ngModel)]="ventag.descuento"
+                aria-label="Server" disabled>
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">receipt_long</span>
+            <input type="text" class="form-control" placeholder="Subtotal" [(ngModel)]="ventag.subtotal"
+                aria-label="Username" disabled>
+            <span class="material-symbols-rounded">account_balance</span>
+            <input type="text" class="form-control" placeholder="IVA" [(ngModel)]="ventag.iva" aria-label="Server"
+                disabled>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <span class="material-symbols-rounded">attach_money</span>
+            <input type="text" class="form-control" placeholder="Total" [(ngModel)]="ventag.total" aria-label="Username"
+                aria-describedby="basic-addon1" disabled>
+        </div>
+
     </div>
 </div>
