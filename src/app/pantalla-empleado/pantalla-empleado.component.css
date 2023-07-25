@@ -13,7 +13,14 @@
   margin-top: 49px;
   
 }
-
+.nav {
+  background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  padding: 412px;
+}
 
 .button-container {
   padding: 5px;
