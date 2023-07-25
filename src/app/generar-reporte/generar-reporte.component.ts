@@ -65,11 +65,12 @@ export class GenerarReporteComponent implements OnInit {
 
   imprimirTabla() {
     // Oculta todo el contenido adicional que no deseas imprimir
-    const contenidoAdicional: HTMLElement | null = document.querySelector('.imprime');
+    const contenidoAdicional: HTMLElement | null = document.querySelector('.imprime' && '.clases' && '.imprime');
     if (contenidoAdicional) {
       contenidoAdicional.style.display = 'none';
+    
     }
-
+    
     // Activar la función de impresión del navegador
     window.print();
 
@@ -77,6 +78,7 @@ export class GenerarReporteComponent implements OnInit {
     if (contenidoAdicional) {
       contenidoAdicional.style.display = 'block';
     }
+    
   }
   
 
@@ -92,7 +94,9 @@ export class GenerarReporteComponent implements OnInit {
 
   mostrarDetalleVenta: boolean = false; 
   
-  // ...
+ recargar(){
+  location.reload();
+ }
   
   seleccionarVenta(ventaselect: venta) {
     this.ventag = ventaselect;

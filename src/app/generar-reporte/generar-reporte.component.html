@@ -1,133 +1,98 @@
-<div class="containeunion">
+<style>
+    /* Estilos para ocultar el contenido que no se imprimirá */
+    @media print {
+      .clases,
+      .factura-profesional:not(.ventana-flotante) {
+        display: none;
+      }
+    }
+  </style>
+  
+  <div class="clases">
+    <app-pantalla-empleado></app-pantalla-empleado>
+  </div>
+  
+  <div class="containeunion">
+  
     <div class="container1">
-        
-        
-        <div class="imprime">
-        <table class="table table-bordered"  >
+      <div class="imprime">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nro Factura</th>
+              <th>Fecha</th>
+              <th>Tipo de Pago</th>
+              <th>Subtotal</th>
+              <th>Total</th>
+              <th>Persona</th>
+              <th>Identificacion</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let venta of ventas">
+              <td>{{venta.idVenta}}</td>
+              <td>{{venta.fecha}}</td>
+              <td>{{venta.tipoPago}}</td>
+              <td>{{venta.subtotal}}</td>
+              <td>{{venta.total}}</td>
+              <td>{{venta.personaf.nombrePer}}</td>
+              <td>{{venta.personaf.identificacion}}</td>
+              <td><button class="btn" (click)="seleccionarVenta(venta)">Visualizar</button></td>
+              <td><button class="btn" (click)="recargar()">Ocultar</button></td>
+              <td><button class="btn" (click)="imprimirTabla()">Imprimir</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div id="ventanaFactura" class="factura-profesional ventana-flotante" *ngIf="mostrarDetalleVenta">
+        <h2>Comprobante</h2>
+        <div class="info-empresa">
+          <p>Nombre Empresa: {{ ventag.configEmpresa.nombreEmpresa }}</p>
+          <p>RUC: {{ ventag.configEmpresa.ruc }}</p>
+          <p>Teléfono: {{ ventag.configEmpresa.telefono }}</p>
+          <p>Dirección: {{ ventag.configEmpresa.ubicacion }}</p>
+          <p>Fecha: {{ ventag.fecha }}</p>
+        </div>
+  
+        <div class="info-persona">
+          <p>Nombres: {{ ventag.personaf.nombrePer }}</p>
+          <p>Cédula: {{ ventag.personaf.identificacion }}</p>
+          <p>Correo Electrónico: {{ ventag.personaf.correo }}</p>
+          <p>Teléfono: {{ ventag.personaf.telefono }}</p>
+          <p>Dirección: {{ ventag.personaf.direccion }}</p>
+        </div>
+  
+        <div class="detalle-orden">
+          <table>
             <thead>
-                <tr>
-                    <th>Número de Factura</th>
-                    <th>Fecha</th>
-                    <th>Tipo de Pago</th>
-                    <th>Subtotal</th>
-                    <th>Descuento</th>
-                    <th>IVA</th>
-                    <th>Total</th>
-                    <th>Persona</th>
-                    <th>Identificacion</th>
-                    <th>Configuración</th>
-                    
-                </tr>
+              <tr>
+                <th>Solicitante</th>
+                <th>Orden</th>
+                <th>Total</th>
+              </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let venta of ventas" (click)="seleccionarVenta(venta)">
-                    <td>{{venta.idVenta}}</td>
-                    <td>{{venta.fecha}}</td>
-                    <td>{{venta.tipoPago}}</td>
-                    <td>{{venta.subtotal}}</td>
-                    <td>{{venta.descuento}}</td>
-                    <td>{{venta.iva}}</td>
-                    <td>{{venta.total}}</td>
-                    <td>{{venta.personaf.nombrePer}}</td>
-                    <td>{{venta.personaf.identificacion}}</td>
-                    <td>{{venta.configEmpresa.nombreEmpresa}}</td>
-                    <td><button class="btn" (click)="seleccionarVenta(venta)" (click)="imprimirTabla()">Imprimir</button></td>
-                </tr> 
-
+              <tr *ngFor="let orden of ordenes">
+                <td>{{ orden.personaO.nombrePer }}</td>
+                <td>{{ orden.totalOrden }}</td>
+              </tr>
             </tbody>
-        </table>
+          </table>
+        </div>
+  
+        <div class="total">
+          <p>Tipo de Pago: {{ ventag.tipoPago }}</p>
+          <p>Descuento: {{ ventag.descuento }}</p>
+          <p>Subtotal: {{ ventag.subtotal }}</p>
+          <p>IVA: {{ ventag.iva }}</p>
+          <p>Total: {{ ventag.total }}</p>
+        </div>
+  
+        
+      </div>
     </div>
-
-    <div class="formulario-reporte"*ngIf="mostrarDetalleVenta">
-        <p>Detalle empresa</p>
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">storefront</span>
-            <input type="text" class="form-control" placeholder="Nombre Empresa"
-                [(ngModel)]="ventag.configEmpresa.nombreEmpresa" aria-label="Username" aria-describedby="basic-addon1"
-                disabled>
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">domain</span>
-            <input type="text" class="form-control" placeholder="RUC" [(ngModel)]="ventag.configEmpresa.ruc"
-                aria-label="Username" disabled>
-            <span class="material-symbols-rounded">call</span>
-            <input type="text" class="form-control" placeholder="Télefono" [(ngModel)]="ventag.configEmpresa.telefono"
-                aria-label="Server" disabled>
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">home_pin</span>
-            <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="ventag.configEmpresa.ubicacion"
-                aria-label="Username" disabled>
-            <span class="material-symbols-rounded">calendar_month</span>
-            <input type="text" class="form-control" placeholder="Fecha" [(ngModel)]="ventag.fecha" aria-label="Server"
-                disabled>
-        </div>
-
-        <p>Detalle Persona</p>
-
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">person</span>
-            <input type="text" class="form-control" placeholder="Nombres" [(ngModel)]="ventag.personaf.nombrePer"
-                aria-label="Username" disabled>
-            <span class="material-symbols-rounded"> badge</span>
-            <input type="text" class="form-control" placeholder="Cédula" [(ngModel)]="ventag.personaf.identificacion"
-                aria-label="Server" disabled>
-        </div>
-
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded"> mail</span>
-            <input type="text" class="form-control" placeholder="Correo Electronico"
-                [(ngModel)]="ventag.personaf.correo" aria-label="Username" disabled>
-            <span class="material-symbols-rounded">call</span>
-            <input type="text" class="form-control" placeholder="Telefono" [(ngModel)]="ventag.personaf.telefono"
-                aria-label="Server" disabled>
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">home</span>
-            <input type="text" class="form-control" placeholder="Dirección" [(ngModel)]="ventag.personaf.direccion"
-                aria-label="Username" aria-describedby="basic-addon1" disabled>
-        </div>
-        <div style="height: 100px; overflow-y: scroll;">
-            <table class="table table-sm">
-                <thead>
-                    <th>Cedula de la Persona</th>
-                    <th>Total</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let orden of ordenes">
-                        <td>{{orden.personaO.nombrePer}}</td>
-                        <td>{{orden.totalOrden}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">payments</span>
-            <input type="text" class="form-control" placeholder="Tipo de Pago" [(ngModel)]="ventag.tipoPago"
-                aria-label="Username" disabled>
-            <span class="material-symbols-rounded">loyalty</span>
-            <input type="text" class="form-control" placeholder="Descuetno" [(ngModel)]="ventag.descuento"
-                aria-label="Server" disabled>
-        </div>
-
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">receipt_long</span>
-            <input type="text" class="form-control" placeholder="Subtotal" [(ngModel)]="ventag.subtotal"
-                aria-label="Username" disabled>
-            <span class="material-symbols-rounded">account_balance</span>
-            <input type="text" class="form-control" placeholder="IVA" [(ngModel)]="ventag.iva" aria-label="Server"
-                disabled>
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <span class="material-symbols-rounded">attach_money</span>
-            <input type="text" class="form-control" placeholder="Total" [(ngModel)]="ventag.total" aria-label="Username"
-                aria-describedby="basic-addon1" disabled>
-        </div>
-
-
-
-    <!-- Botón para generar el PDF o impresión en papel -->
-
-   
-</div>  
+ 
+  
