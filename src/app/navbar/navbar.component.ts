@@ -50,7 +50,7 @@ export class NavbarComponent implements OnInit {
 
 
   RegistraCliente(): void {
-    this.router.navigate(['/persona']); 
+    this.router.navigate(['/lista-persona']); 
     
   }
   RegistraMaquina(): void {

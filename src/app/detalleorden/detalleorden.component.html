@@ -24,7 +24,7 @@
   <div class="containeunion">
 
     <div class="container1">
-      <h1 style="margin-bottom: 30px;">Detalles de la órden</h1>
+      <h1 style="margin-bottom: 30px;">Detalles de la orden</h1>
       <div class="form-group">
         <label for="cedula" style="margin-right: 10px;">Cédula:</label>
         <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled style="margin-right: 10px;">
@@ -50,7 +50,7 @@
         <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
       </div>
       <button class="btn btn-info" type="submit" (click)="crearOrden()" style="margin-right: 10px;">Agregar
-        Órden</button>
+        Orden</button>
       <button class="btn btn-info" (click)="mostrarVentana('ventanar')">Registrar Cliente</button>
     </div>
 
@@ -251,7 +251,7 @@
         <div class="form-group">
           <label for="identificacion" style="margin-right: 10px;">Cédula:</label>
           <input type="text" class="form-control" id="identificacion" [(ngModel)]="personar.identificacion"
-            name="identificacion" required pattern="[0-9]{11}">
+            name="identificacion" required pattern="[0-9]{10}">
           <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched"
             class="error-message">
             <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La Cédula es requerida.</div>
