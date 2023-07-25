@@ -73,7 +73,7 @@ integrador:number;
   
     }
     informaciones(): void {
-      this.router.navigate(['/informacion'])
+      this.router.navigate(['/informacione'])
     }
     Venta(): void {
       this.router.navigate(['/generar-reporte'])

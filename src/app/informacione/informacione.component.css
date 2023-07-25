@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F8F8;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+header {
+  
+    background: linear-gradient(to bottom, #3b5998, #ffffff);
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+img {
+    max-width: 25%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0;
+    line-height: 1.2;
+    color: #000000;
+}
+
+p {
+    font-size: 16px;
+    margin: 0;
+    color: #000000;
+}
+
+main {
+    padding: 20px;
+   
+    background: linear-gradient(to bottom, #ffffff, #3b5998);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li + li {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #000000;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #000000;
+}
+
+
+footer {
+  
+    background: linear-gradient(to bottom, #ffffff, #3b5998);
+    padding: 20px;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .contact-info {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .redes-sociales {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .map-container {
+    flex: 1;
+    max-width: 800px;
+    margin-top: 40px;
+  }
+  
+main {
+    padding-bottom: 200px;
+}
+
+/* Estilos para el Equipo de Desarrollo */
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .team-member-card {
+    width: 48%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .team-member-card img {
+    width: 300px; /* Ajustar el ancho de la imagen según tu preferencia */
+    height: 300px; /* Puedes ajustar la altura también si es necesario */
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  .map-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .map-container iframe {
+    width: 1000%; /* Ajusta el tamaño según tus preferencias */
+    height: 200px; /* Ajusta el tamaño según tus preferencias */
+  }
+  /* --------------- */
+
+  .system-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+   
+  }
+  
+  table {
+   
+    border-collapse: collapse;
+    background: linear-gradient(to bottom,  #e3c8c8, #8fa6d4);
+    width: 70%;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .img-system-info {
+    max-width: 3000px;
+    max-height: 3000px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-left: auto;
+}
+.btn-b img {
+  /* Tus estilos para la imagen aquí */
+  width: 30px; /* Por ejemplo, establecer un ancho de 30 píxeles */
+  height: 30px; /* Por ejemplo, establecer una altura de 30 píxeles */
+  margin-right: 8px; /* Ejemplo de margen derecho para separar la imagen del texto */
+  
+}
+.btn-b {
+  background-color: #d35dd300;
+  color: #fff;
+  border-radius: 1px;
+  border: none;
+  padding: 5px 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-b:hover {
+  background: linear-gradient(to bottom,  #e3c8c8, #8fa6d4);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-b:hover .icon {
+  transform: scale(1.2);
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
