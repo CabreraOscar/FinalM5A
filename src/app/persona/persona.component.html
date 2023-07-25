@@ -42,14 +42,14 @@
       
         <div class="form-group">
             <label for="identificacion">Cédula:</label>
-            <input type="text" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" name="identificacion" required pattern="[0-9]{10}">
-            <div *ngIf="personaForm.controls['identificacion'].invalid && personaForm.controls['identificacion'].touched" class="error-message">
+            <input type="text" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion" (change)="validadorDeCedula(identificacion)" name="identificacion" maxlength="10">
+            <div *ngIf="!validador" class="text-danger">
               <div *ngIf="personaForm.controls['identificacion'].hasError('required')">La cédula es requerida.</div>
               <div *ngIf="personaForm.controls['identificacion'].hasError('pattern')">La cédula debe tener 10 dígitos.</div>
             </div>
+           
           </div>
-      
-        <!-- <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button> -->
+       
         
         <button onclick="guardarPersona()" class="btn btn-custom">
           <span class="icon">
@@ -59,7 +59,7 @@
          
         </button>
         
-        <button type="button" class="btn btn-custom" routerLink="/dashboard" style="margin-left: 10px">
+        <button type="button" class="btn btn-custom" routerLink="/lista-persona" style="margin-left: 10px">
           <span class="icon">
             <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
             <span class="text">Cancelar</span>
