@@ -132,15 +132,7 @@ export class ConfigEmpresaComponent implements OnInit {
       });
         return;
       }
-      if (this.empresas.some(empresai => empresai.nombreEmpresa === this.empresai.nombreEmpresa)) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ya existe el mismo nombre',
-          confirmButtonText: 'OK'
-        });
-          return;
-        }
+  
     // Lógica para registrar la empresa.
   
     Swal.fire({
