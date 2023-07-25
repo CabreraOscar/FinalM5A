@@ -5,6 +5,9 @@ import { Persona } from '../modelo/persona';
 import { venta } from '../venta/venta';
 import { VentasService } from '../_services/ventas.service';
 import { AllScriptServiceService } from '../all-script-service.service';
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { EmailService } from '../_services/email.service';
+
 
 @Component({
   selector: 'app-generar-reporte',
@@ -19,7 +22,6 @@ export class GenerarReporteComponent implements OnInit {
   ordenes: orden[];
   personas: Persona[];
   ventas: venta[];
-  ventasb: venta[];
   ventag: venta = new venta();
 
 
@@ -41,11 +43,13 @@ export class GenerarReporteComponent implements OnInit {
   telefonoe: string = "" ;
   ubicacion: string = "";
   idOrden: number;
-
+  correoDestinatario: string = '';
   currentDate: string;
+  factura: any = null;
 
+  
 
-  constructor(private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
+  constructor(private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
     const today = new Date();
     const year = today.getFullYear();
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -61,8 +65,34 @@ export class GenerarReporteComponent implements OnInit {
    
   }
 
+  ngAfterViewInit(): void {
+    this.enviarFacturaPorEmail();
+  }
+
+  enviarFacturaPorEmail() {
+    console.log('Se ha llamado al método enviarFacturaPorEmail()');
+  
+    // Aquí puedes definir el contenido que deseas enviar por correo
+    const contenidoCorreo = '<h1>Hola, este es un mensaje de saludo enviado por correo.</h1>';
+  
+    // Verifica que se haya ingresado un correo válido antes de enviar el correo
+    if (this.validarCorreo(this.correoDestinatario)) {
+      // Llama al método del servicio para enviar el correo con el contenido deseado
+      this.emailService.enviarFacturaPorCorreo(this.correoDestinatario, 'Asunto del Correo', contenidoCorreo);
+    } else {
+      alert('Ingrese un correo electrónico válido');
+    }
+  }
+  
 
 
+  
+
+  validarCorreo(correo: string): boolean {
+    // Puedes implementar la lógica de validación del correo aquí
+    // Por ejemplo, puedes utilizar expresiones regulares para verificar si el correo tiene un formato válido
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo);
+  }
   imprimirTabla() {
     // Oculta todo el contenido adicional que no deseas imprimir
     const contenidoAdicional: HTMLElement | null = document.querySelector('.imprime' && '.clases' && '.imprime');

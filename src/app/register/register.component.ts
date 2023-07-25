@@ -102,6 +102,9 @@ export class RegisterComponent implements OnInit {
               icon: 'error',
               title: 'Error',
               text: 'Ya existe un usuario con la misma identificación y rol.'
+            }).then((result) => {
+              // Esta función se ejecuta cuando el usuario cierra la alerta
+              location.reload(); // Recargar la página
             });
           } else if (existeUsuarioMismoUsername) {
             Swal.fire({
@@ -145,6 +148,7 @@ export class RegisterComponent implements OnInit {
         icon: 'warning',
         title: 'Advertencia',
         text: 'Debes seleccionar una persona y un rol antes de registrar el usuario.'
+     
       });
     }
   }

@@ -25,7 +25,7 @@
               <th>Subtotal</th>
               <th>Total</th>
               <th>Persona</th>
-              <th>Identificacion</th>
+              <th>Identificación</th>
               
             </tr>
           </thead>
@@ -41,13 +41,22 @@
               <td><button class="btn" (click)="seleccionarVenta(venta)">Visualizar</button></td>
               <td><button class="btn" (click)="recargar()">Ocultar</button></td>
               <td><button class="btn" (click)="imprimirTabla()">Imprimir</button></td>
+              
             </tr>
           </tbody>
         </table>
+        <div>
+  <input type="text" [(ngModel)]="correoDestinatario" placeholder="Ingrese su correo electrónico">
+  <button (click)="enviarFacturaPorEmail()">Enviar por Email</button>
+
+
+        </div>
+      
+
       </div>
     </div>
   
-    <div id="ventanaFactura" class="factura-profesional ventana-flotante" *ngIf="mostrarDetalleVenta">
+    <div id="ventanaFactura" class="factura-profesional" *ngIf="mostrarDetalleVenta">
         <h2>Comprobante</h2>
         <div class="info-empresa">
           <p>Nombre Empresa: {{ ventag.configEmpresa.nombreEmpresa }}</p>
