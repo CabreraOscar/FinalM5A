@@ -80,7 +80,7 @@ export class GenerarReporteComponent implements OnInit {
       // Llama al método del servicio para enviar el correo con el contenido deseado
       this.emailService.enviarFacturaPorCorreo(this.correoDestinatario, 'Asunto del Correo', contenidoCorreo);
     } else {
-      alert('Ingrese un correo electrónico válido');
+    
     }
   }
   

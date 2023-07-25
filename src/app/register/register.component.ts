@@ -111,6 +111,9 @@ export class RegisterComponent implements OnInit {
               icon: 'error',
               title: 'Error',
               text: 'Ya existe el username ingresado '
+            }).then((result) => {
+              // Esta función se ejecuta cuando el usuario cierra la alerta
+              location.reload(); // Recargar la página
             });
           } else {
             // Si no existe un usuario con el mismo rol ni con el mismo username, procede a crearlo
@@ -121,6 +124,9 @@ export class RegisterComponent implements OnInit {
                   icon: 'success',
                   title: 'Éxito',
                   text: 'Se ha creado el usuario.'
+                }).then((result) => {
+                  // Esta función se ejecuta cuando el usuario cierra la alerta
+                  location.reload(); // Recargar la página
                 });
               },
               error => {
@@ -129,6 +135,9 @@ export class RegisterComponent implements OnInit {
                   icon: 'error',
                   title: 'Error',
                   text: 'Se ha producido un error al crear el usuario.'
+                }).then((result) => {
+                  // Esta función se ejecuta cuando el usuario cierra la alerta
+                  location.reload(); // Recargar la página
                 });
               }
             );
@@ -140,6 +149,9 @@ export class RegisterComponent implements OnInit {
             icon: 'error',
             title: 'Error',
             text: 'Se ha producido un error al obtener los usuarios existentes.'
+          }).then((result) => {
+            // Esta función se ejecuta cuando el usuario cierra la alerta
+            location.reload(); // Recargar la página
           });
         }
       );
