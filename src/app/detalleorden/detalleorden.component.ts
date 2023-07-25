@@ -25,9 +25,9 @@ export class DetalleordenComponent implements OnInit {
   inputValue: string = '';
   cedula: string = '';
   cliente: string = '';
-  persona: Persona[];
+  personas: Persona[];
   personax: Persona = new Persona();
-  personar: Persona = new Persona();
+  persona: Persona = new Persona();
   maquinax: Maquina = new Maquina();
   orden: orden = new orden();
   itemSelect: Item = new Item();
@@ -63,7 +63,7 @@ export class DetalleordenComponent implements OnInit {
   }
   obtenerPersona() {
     this.personaServicio.obtenerListaPersona().subscribe(dato => {
-      this.persona = dato;
+      this.personas = dato;
 
     });
 
@@ -73,8 +73,8 @@ export class DetalleordenComponent implements OnInit {
     const valor: string = this.inputValue;
     this.personaServicio.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
       this.personax = dato;
-      this.persona.splice(0, this.persona.length);
-      this.persona.push(this.personax);
+      this.personas.splice(0, this.personas.length);
+      this.personas.push(this.personax);
     });
   }
 
@@ -137,10 +137,10 @@ export class DetalleordenComponent implements OnInit {
     }
     this.obtenerPersona();
   }
-  
 
 
-  
+
+
 
 
   obtenerMaquinaria() {
@@ -277,39 +277,112 @@ export class DetalleordenComponent implements OnInit {
   }
 
 
-  guardarPersona() {
-    console.log(this.personar); // Verificar los valores de los campos
-    var nombrePer = this.personar.nombrePer;
-    var direccion = this.personar.direccion;
-    var telefono = this.personar.telefono;
-    var correo = this.personar.correo;
-    var identificacion = this.personar.identificacion;
 
+  guardarPersona() {
+    console.log(this.persona); // Verificar los valores de los campos
+    var nombrePer = this.persona.nombrePer;
+    var direccion = this.persona.direccion;
+    var telefono = this.persona.telefono;
+    var correo = this.persona.correo;
+    var identificacion = this.persona.identificacion;
+  
     if (!nombrePer || !direccion || !telefono || !correo || !identificacion) {
       Swal.fire({
         icon: 'error',
         title: 'Campos incompletos',
-        text: 'Falta llenar un campo obligatorio'
+        text: 'Por favor, complete todos los campos.',
       });
       return;
     }
-
-    this.personaServicio.registrarPersona(this.personar).subscribe(dato => {
-      console.log(dato);
+  
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9_.-]+$/.test(correo)) {
       Swal.fire({
-        icon: 'success',
-        title: 'Registro exitoso',
-        text: 'Los datos se han registrado correctamente'
+        icon: 'error',
+        title: 'Correo inválido',
+        text: 'El formato del correo es incorrecto.',
       });
-    }, error => {
-      console.log(error);
-    });
-    this.cerrarVentanaR()
+      return;
+    }
+  
+    if (!/^\d{10}$/.test(identificacion)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Cédula inválida',
+        text: 'La cédula debe tener 10 dígitos.',
+      });
+      return;
+    }
+  
+    if (!/^\d{10}$/.test(String(telefono))) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Teléfono inválido',
+        text: 'El teléfono debe tener 10 dígitos.',
+      });
+      return;
+    }
+  
+    // Validar que no haya duplicados en correo, identificación y teléfono.
+    if (this.personas.some(persona => persona.correo === correo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con el mismo correo.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+  
+    if (this.personas.some(persona => persona.identificacion === identificacion)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con la misma cédula.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+  
+    if (this.personas.some(persona => persona.telefono === telefono)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ya existe una persona con el mismo teléfono.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+  
+    // Código para guardar la persona
+    this.personaServicio.registrarPersona(this.persona).subscribe(
+      () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Registro exitoso',
+          text: 'Los datos se han registrado correctamente'
+        });
+        this.cerrarVentanaR();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  
+    // Limpiar los campos después de guardar
+    this.persona.nombrePer = '';
+    this.persona.direccion = '';
+    this.persona.telefono = '';
+    this.persona.correo = '';
+    this.persona.identificacion = '';
   }
-
+  
 
   onSubmit() {
     this.guardarPersona();
   }
+
+
+
+
 
 }
