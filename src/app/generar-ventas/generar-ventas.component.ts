@@ -121,6 +121,7 @@ crearventa(){
           console.log(orden);
           for (const orden of this.ordenesSeleccionadas) {
             if (!orden.venta) {
+              orden.estado=1;
               orden.venta = venta;
               this.actualizarOrdenEnBackend(orden.idOrden, orden); // Pasamos el objeto 'item' completo
             }
