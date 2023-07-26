@@ -34,6 +34,7 @@ import { GenerarVentasComponent } from './generar-ventas/generar-ventas.componen
 import { ClienteAdEmpleadoComponent } from './cliente-ad-empleado/cliente-ad-empleado.component';
 import { GenerarReporteComponent } from './generar-reporte/generar-reporte.component';
 import { InformacionComponent } from './informacion/informacion.component';
+import { InformacioneComponent } from './informacione/informacione.component';
 const routes:Routes = [
   {path:'',component:HomeComponent },
   {path:'register',component:RegisterComponent},
@@ -83,6 +84,7 @@ const routes:Routes = [
   { path: 'generar-reporte', component:GenerarReporteComponent},
   { path: 'cliente-ad-empleado', component: ClienteAdEmpleadoComponent},
   { path: 'informacion', component: InformacionComponent},
+  { path: 'informacione', component: InformacioneComponent},
 ]
 
 @NgModule({
@@ -116,7 +118,8 @@ const routes:Routes = [
    GenerarVentasComponent,
    GenerarReporteComponent,
    ClienteAdEmpleadoComponent,
-   InformacionComponent
+   InformacionComponent,
+   InformacioneComponent
    
 
 
