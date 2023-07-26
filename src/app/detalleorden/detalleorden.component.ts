@@ -36,7 +36,7 @@ export class DetalleordenComponent implements OnInit {
   idorden: number;
   totalx: number = 0;
   maquinas: Maquina[];
-  servicios: Servicio[];
+  servicios: Servicio[]= [];
   listaItem: Item[] = [];
   cantidad_maq: { [key: string]: number } = {};
   cantidad_ser: { [key: string]: number } = {};
@@ -58,10 +58,26 @@ export class DetalleordenComponent implements OnInit {
     this.obtenerMaquinaria();
     this.obtenerServicios();
     this.obtenersinOrdenes();
-
+    
 
   }
+
+  
+  
+
+  eliminaritem(id:number){
+   //aqui va service de item
+        this.itemServicio.eliminarItem(id).subscribe(dato => {
+          this.obtenersinOrdenes();
+          //this.obtenerEmpleados();   //pa que se actualize
+        })
+    }
+
+
+
+
   obtenerPersona() {
+  
     this.personaServicio.obtenerListaPersona().subscribe(dato => {
       this.personas = dato;
 
@@ -146,6 +162,10 @@ export class DetalleordenComponent implements OnInit {
   obtenerMaquinaria() {
     this.maquinaServicio.obtenerListaMaquinas().subscribe(dato => {
       this.maquinas = dato;
+      for (let i = 0; i < this.maquinas.length; i++) {
+        this.cantidad_maq[i] = 1;
+        
+      }
     });
   }
 
@@ -153,12 +173,23 @@ export class DetalleordenComponent implements OnInit {
   obtenerServicios() {
     this.servicioServicio.obtenerListaMaquinas().subscribe(dato => {
       this.servicios = dato;
+      for (let i = 0; i < this.servicios.length; i++) {
+        this.cantidad_ser[i] = 1;
+        
+      }
     });
 
   }
 
 
   crearItemMaquina(maquina: any, cantidad: number) {
+    if (cantidad<=0) {
+      Swal.fire('CANTIDAD INVALIDA', '', 'warning');
+
+    } else {
+
+    
+    //cdcsdfsdfdsf
     this.itemSelect = {} as Item;
     this.itemSelect.cantidad = cantidad;
     this.itemSelect.maquina = maquina;
@@ -168,11 +199,18 @@ export class DetalleordenComponent implements OnInit {
       this.obtenersinOrdenes();
 
     }, error => console.log(error));
-
+  }
   }
 
 
   crearItemServicio(servicio: Servicio, cantidad: number) {
+    if (cantidad<=0) {
+      Swal.fire('CANTIDAD INVALIDA', '', 'warning');
+
+    } else {
+       
+
+    //aqui va mensaje de error si es negativo o 0
     this.itemSelect = {} as Item;
     this.itemSelect.cantidad = cantidad;
     this.itemSelect.servicio = servicio;
@@ -182,7 +220,7 @@ export class DetalleordenComponent implements OnInit {
       this.obtenersinOrdenes();
 
     }, error => console.log(error));
-
+  }
   }
 
 
