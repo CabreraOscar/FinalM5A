@@ -111,7 +111,7 @@
                 <td>{{maquina.precio}}</td>
                 <td>
                   <div class="spinner">
-                    <input type="number" min="0" max="10" value="1" [ngModel]="cantidad_maq[i]"
+                    <input type="number" min="1" max="100"  [ngModel]="cantidad_maq[i]"
                       (ngModelChange)="cantidad_maq[i] = $event">
                   </div>
                 </td>
@@ -146,7 +146,7 @@
                   <td>{{servicio.precio}}</td>
                   <td>
                     <div class="spinner">
-                      <input type="number" min="0" max="10" value="0" [ngModel]="cantidad_ser[i]"
+                      <input type="number" min="1" max="100"  [ngModel]="cantidad_ser[i]"
                         (ngModelChange)="cantidad_ser[i] = $event">
                     </div>
                   </td>
@@ -171,20 +171,21 @@
             <thead>
               <tr>
                 <th>Servi/Máquina</th>
-                <th>Precio Total</th>
                 <th>Cantidad</th>
+                <th>Precio total</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of listaItem">
                 <td>Máquina--Servicio--SELECT</td>
-                <td>{{item.precioTotal}}</td>
-
+                <td>{{item.cantidad}}</td>
                 <td>
-                  {{item.cantidad}}
+                  {{item.precioTotal}}
                 </td>
-
+                <td>
+                  <button class="btn btn-danger" (click)="eliminaritem(item.idItem)" >QUITAR </button>
+              </td>
               </tr>
             </tbody>
           </table>
