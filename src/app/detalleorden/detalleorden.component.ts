@@ -12,7 +12,6 @@ import { ItemService } from '../_services/item.service';
 import Swal from 'sweetalert2';
 import { orden } from '../modelo/orden';
 import { AllScriptServiceService } from '../all-script-service.service';
-import { AuthService } from '../_services/auth.service';
 @Component({
   selector: 'app-detalleorden',
   templateUrl: './detalleorden.component.html',
@@ -43,7 +42,7 @@ export class DetalleordenComponent implements OnInit {
   cantidad_ser: { [key: string]: number } = {};
   idgenerado: number;
   //FIN DE VARIABLES Y ARRAYS
-  constructor(private auth:AuthService, private itemServicio: ItemService, private servicioServicio: ServicioService, private maquinaServicio: MaquinaService, private personaServicio: personaService, private ordenesService: OrdenesService, private router: Router, private route: ActivatedRoute, private AllScripts:
+  constructor(private itemServicio: ItemService, private servicioServicio: ServicioService, private maquinaServicio: MaquinaService, private personaServicio: personaService, private ordenesService: OrdenesService, private router: Router, private route: ActivatedRoute, private AllScripts:
     AllScriptServiceService) {
     const today = new Date();
     const year = today.getFullYear();
@@ -59,7 +58,7 @@ export class DetalleordenComponent implements OnInit {
     this.obtenerMaquinaria();
     this.obtenerServicios();
     this.obtenersinOrdenes();
-    
+
 
   }
   obtenerPersona() {
