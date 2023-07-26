@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { orden } from '../modelo/orden';
 import { OrdenesService } from '../_services/ordenes.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-detalle-orden',
@@ -14,13 +15,14 @@ export class DetalleOrdenComponent implements OnInit {
   ordenes: orden[];
   ordenesO:orden = new orden();
 
-  constructor(private detalleService:OrdenesService, private router: Router, private route:ActivatedRoute) { }
+  constructor(private auth:AuthService,private detalleService:OrdenesService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.detalleService.obtenerOrdenPorId(this.id).subscribe(dato =>{
       this.ordenesO = dato;
     },error => console.log(error));
+    this.auth.canAuthenticate();
   }
 
   /*private obtenerOrdenes(){

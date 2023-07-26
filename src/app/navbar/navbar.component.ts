@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
   constructor(public auth: AuthService, private router: Router) { }
   user = { localId: "", displayName: "" };
   ngOnInit(): void {
+    
     this.auth.canAccess();
     if (this.auth.isAuthenticated()) {
       //call user details service
