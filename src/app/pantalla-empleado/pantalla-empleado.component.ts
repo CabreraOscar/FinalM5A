@@ -3,6 +3,7 @@ import { OrdenesService } from '../_services/ordenes.service';
 import { orden } from '../modelo/orden';
 import { Router } from '@angular/router';
 import { Persona } from '../modelo/persona';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -18,17 +19,12 @@ ordenlista:orden[]=[];
 idordenultimo:number;
 integrador:number;
 
-  constructor(private ordenesService: OrdenesService,private router:Router) {
+  constructor(private auth: AuthService, private ordenesService: OrdenesService,private router:Router) {
     }
 
   ngOnInit(): void {
-    
-   // this.obtenerOrdeneslista();
-    //this.orden.estado=1;
-    //this.orden.totalOrden=1;
-   // this.persona.idPersona=1;
-    //this.orden.personaO=this.persona;
-    
+ 
+    this.auth.canAuthenticate();
   }
 
  

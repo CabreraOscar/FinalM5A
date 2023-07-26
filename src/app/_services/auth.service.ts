@@ -25,11 +25,12 @@ export class AuthService {
   }
   
   isAuthenticated(): boolean {
-    if (sessionStorage.getItem('token') !== null) {
+    if (localStorage.getItem('token') !== null) {
       return true;
     }
     return false;
   }
+  
 getAllUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}/usuariostodos`);
   }
@@ -42,8 +43,8 @@ getAllUsuarios(): Observable<Usuario[]> {
 
   canAuthenticate() {
     if (this.isAuthenticated()) {
-  
       if(Number(localStorage.getItem("idRol"))===1) {
+        
         this.router.navigate(['/dashboard']); 
        }else{
         this.router.navigate(['/pantalla-empleado']);
@@ -79,14 +80,14 @@ confirmaRol(roll:number){
   }
   
   storeToken(token: string) {
-    sessionStorage.setItem('token', token);
+    localStorage.setItem('token', token);
   }
   removeToken() {
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
   }
   
   detail() {
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     return this.http.get<{ users: { localId: string, displayName: string }[] }>(`${this.apiUrl}/user-details`, {
       headers: {
         Authorization: `Bearer ${token}`

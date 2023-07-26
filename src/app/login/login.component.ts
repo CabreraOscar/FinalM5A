@@ -22,6 +22,15 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+   
+    if(sessionStorage.getItem('token') !== null) {
+      
+      if(Number(localStorage.getItem("idRol"))===1) {
+        this.router.navigate(['/dashboard']); 
+       }else{
+        this.router.navigate(['/pantalla-empleado']);
+       }
+    }
     this.auth.canAuthenticate();
   }
 // ... Código anterior ...

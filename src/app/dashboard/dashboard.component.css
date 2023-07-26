@@ -9,7 +9,9 @@
   margin-bottom: 10px;
 }
 
-
+.dash{
+  background-color: #ccc;
+}
 
 .button {
   display: block;
@@ -31,12 +33,14 @@
   
  
 }
-.home-block {
+.home-block{
   background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+ 
+  width:100%;
+  background: #44a6d6;  /* fallback for old browsers */
   
+  display: block;
+ 
   padding: 368px;
 }
 .letter-animation {
