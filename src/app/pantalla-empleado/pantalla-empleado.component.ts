@@ -24,7 +24,7 @@ integrador:number;
 
   ngOnInit(): void {
  
-    this.auth.canAuthenticate();
+ 
   }
 
  
