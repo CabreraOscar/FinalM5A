@@ -12,7 +12,7 @@ h1.aligned-right {
   justify-content: center;
   background: #3b88af;
   margin-left: 165px;
-  padding: 206px;
+  padding: 102px;
   display: block;
 
 
@@ -112,13 +112,12 @@ h1.aligned-right {
 }
 
 /* Styles for the floating window */
-.ventana-flotante {
-  position: absolute; /* Use absolute positioning again for the content inside the container */
+/*.ventana-flotante {
+  position: absolute; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Rest of your styles for the floating window */
-}
+}*/
 #fixed-header {
   position: relative;
 }

@@ -32,6 +32,16 @@ function cerrarVentanaR() {
     ventana.style.display = "none";
 }
 
+function cerrarVentanaEP() {
+  var ventana = document.getElementById("ventanad");
+    ventana.style.display = "none";
+}
+
+function cerrarVentanaDA() {
+  var ventana = document.getElementById("ventanaDA");
+    ventana.style.display = "none";
+}
+
 
 // Variable global para almacenar el elemento de la ventana abierta
 var ventanaAbierta = null;
