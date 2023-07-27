@@ -46,7 +46,47 @@ export class ConfigEmpresaComponent implements OnInit {
       this.empresas = dato;
     });
   }
-
+  validarRUC(ruc: string): boolean {
+    let rucCorrecto = false;
+  
+    if (ruc.length == 13) {
+      // Verificar que los primeros dos dígitos correspondan a un número de provincia válido
+      let provincia = parseInt(ruc.substring(0, 2));
+      if (provincia >= 1 && provincia <= 24) {
+        // Verificar que el tercer dígito sea 6, 7, 8 o 9 (para RUC de personas jurídicas)
+        // o 0, 1, 2 o 3 (para RUC de personas naturales)
+        let tercerDigito = parseInt(ruc.substring(2, 3));
+        if ((tercerDigito >= 6 && tercerDigito <= 9) || (tercerDigito >= 0 && tercerDigito <= 3)) {
+          // Verificar el último dígito, que es el dígito verificador
+          let verificador = parseInt(ruc.substring(12, 13));
+          let coefValRUC = [3, 2, 7, 6, 5, 4, 3, 2];
+          let suma = 0;
+          let digito = 0;
+          for (let i = 0; i < (ruc.length - 1); i++) {
+            digito = parseInt(ruc.substring(i, i + 1)) * coefValRUC[i];
+            suma += digito;
+          }
+          let residuo = suma % 11;
+          let resultado = 11 - residuo;
+          if (resultado == verificador) {
+            rucCorrecto = true;
+          } else if (resultado == 10 && verificador == 0) {
+            rucCorrecto = true;
+          } else {
+            rucCorrecto = false;
+          }
+        } else {
+          rucCorrecto = false;
+        }
+      } else {
+        rucCorrecto = false;
+      }
+    } else {
+      rucCorrecto = false;
+    }
+  
+    return rucCorrecto;
+  }
   guardarEmpresa() {
     var nombreEmpresa = this.empresai.nombreEmpresa;
     var ruc = this.empresai.ruc;

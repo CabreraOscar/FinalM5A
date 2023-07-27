@@ -3,149 +3,291 @@
 <style>
   /* Estilos para la ventana flotante */
   .ventana-flotante {
-  position: absolute; /* Cambio de fixed a absolute */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  width: auto;
-  height: auto;
-  padding: 20px;
-  border: 1px solid black;
-  border-radius: 3%;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  display: none;
-  /* La ventana estará oculta inicialmente */
-}
+    position: absolute;
+    /* Cambio de fixed a absolute */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    background-color: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    /* La ventana estará oculta inicialmente */
+  }
 </style>
 
 
 <section id="fondo" class="pedido-block">
-  <div class="encabezado" style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
+  <div class="encabezado"
+    style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
+
   </div>
 
-  <button class="btn btn-custom" onclick="mostrarVentana(document.getElementById('ventana'))" style="margin-left: 10px;">
+  <button class="btn btn-custom" (click)="mostrarVentana('ventana')" style="margin-left: 10px;">
     <span class="icon">
       <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
     </span>
     <span class="text">Ingresar empresa</span>
   </button>
 
- <div class="ventana-container">
+  <button class="btn btn-custom" (click)="mostrarVentana('ventanad')" style="margin-left: 10px;">
+    <span class="icon">
+      <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+    </span>
+    <span class="text">Ingresar Descuento</span>
+  </button>
+
+
+  <div class="ventana-container">
     <div id="ventana" class="ventana-flotante">
-    <h1>Ingresar Empresa</h1>
+      <h1>Ingresar Empresa</h1>
 
-    <div class="container">
-      <form #empresaForm="ngForm" (ngSubmit)="guardarEmpresa()">
-        <div class="form-group">
-          <label for="nombreEmpresa">Nombre de la empresa:</label>
-          <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
-            name="nombreEmpresa" required>
-          <div *ngIf="empresaForm.controls['nombreEmpresa'].invalid && empresaForm.controls['nombreEmpresa'].touched"
-            class="error-message"></div>
-        </div>
+      <div class="container">
+        <form #empresaForm="ngForm" (ngSubmit)="guardarEmpresa()">
+          <div class="form-group">
+            <label for="nombreEmpresa">Nombre de la empresa:</label>
+            <input type="text" class="form-control" id="nombreEmpresa" [(ngModel)]="empresai.nombreEmpresa"
+              name="nombreEmpresa" required>
+            <div *ngIf="empresaForm.controls['nombreEmpresa'].invalid && empresaForm.controls['nombreEmpresa'].touched"
+              class="error-message"></div>
+          </div>
 
-<div class="form-group">
-  <label for="ruc">RUC:</label>
-  <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required pattern="[0-9]{13}">
-  <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched" class="error-message">
-    
-    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos numéricos.</div>
-  </div>
-</div>
 
- <div class="form-group">
-          <label for="ubicacion">Dirección:</label>
-          <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion"
-            required>
-          <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched"
-            class="error-message"></div>
+          <div class="form-group">
+            <label for="ruc">RUC:</label>
+            <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required
+              pattern="[0-9]{13}">
+            <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched"
+              class="error-message">
 
-        </div>
 
-<div class="form-group">
-  <label for="telefono">Teléfono:</label>
-  <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono" required pattern="[0-9]{10}"step="[0-9]{10}">
-  <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched" class="error-message">
+              <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos
+                numéricos.</div>
+            </div>
+          </div>
 
-    <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número de teléfono debe tener 10 dígitos.</div>
-  </div>
-</div>
+          <div class="form-group">
+            <label for="ubicacion">Dirección:</label>
+            <input type="text" class="form-control" id="ubicacion" [(ngModel)]="empresai.ubicacion" name="ubicacion"
+              required>
+            <div *ngIf="empresaForm.controls['ubicacion'].invalid && empresaForm.controls['ubicacion'].touched"
+              class="error-message"></div>
 
-<div class="form-group">
-  <label for="iva">Iva:</label>
-<input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
-pattern="0.01" step="0.01">
-<div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched" class="error-message">
-<div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
+          </div>
 
-</div>
-   
- 
-</div>
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono"
+              required pattern="[0-9]{10}" step="[0-9]{10}">
+            <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched"
+              class="error-message">
 
-<button type="submit" class="btn btn-custom" onclick="guardarEmpresa(); ">
-  <span class="icon">
-    <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
-    <span class="text">Guardar</span>
-  </span>
- 
-</button>
+              <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número de teléfono debe tener 10
+                dígitos.</div>
+            </div>
+          </div>
 
-<button type="button" class="btn btn-custom"  onclick="cerrarVentana();">
-  <span class="icon">
-    <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
-    <span class="text">Cancelar</span>
-  </span>
- 
-</button>
+          <div class="form-group">
+            <label for="iva">Iva:</label>
+            <input type="number" class="form-control" id="iva" [(ngModel)]="empresai.iva" name="iva" required
+              pattern="0.01" step="0.01">
+            <div *ngIf="empresaForm.controls['iva'].invalid && empresaForm.controls['iva'].touched"
+              class="error-message">
+              <div *ngIf="empresaForm.controls['iva'].hasError('required')">Se requiere el iva.</div>
 
-      </form>
-    </div>
-  </div>
-</div>
+            </div>
 
-  <div style="height: 210px; overflow-y: scroll;">
-  <table class="custom-table" id="fixed-header">
-    <thead>
-      <tr>
-        <th scope="col">Número</th>
-        <th scope="col">Nombre de la Empresa</th>
-        <th scope="col">Ruc</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Teléfono</th>
-        <th scope="col">Iva</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let empresa of empresas">
-        <td>{{empresa.idConfig}}</td>
-        <td>{{empresa.nombreEmpresa}}</td>
-        <td>{{empresa.ruc}}</td>
-        <td>{{empresa.ubicacion}}</td>
-        <td>{{empresa.telefono}}</td>
-        <td>{{empresa.iva}}</td>
-        <td>
-          <button (click)= "actualizarEmpresa(empresa.idConfig)" class="btn btn-custom">
+
+          </div>
+
+          <button type="submit" class="btn btn-custom" onclick="guardarEmpresa(); ">
             <span class="icon">
-              <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Guardar</span>
             </span>
-           
-          </button>
-        </td>
 
-        <td>
-            <button (click)= "eliminarEmpresa(empresa.idConfig)" class="btn btn-custom">
+          </button>
+
+          <button type="button" class="btn btn-custom" onclick="cerrarVentana();">
+            <span class="icon">
+              <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+              <span class="text">Cancelar</span>
+            </span>
+
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+    <div id="ventanad" class="ventana-flotante">
+      <h1>Ingresar Descuento</h1>
+      <div class="container">
+        <form #descuentoForm="ngForm" (ngSubmit)="guardarDescuento()">
+          <div class="input-group input-group-sm mb-3">
+            <label for="nombreDescuento">Nombre Del Descuento:</label>
+            <input type="text" class="form-control" id="nombreDescuento" [(ngModel)]="descuentoO.nombre"
+              name="nombreDescuento" required>
+            <div
+              *ngIf="descuentoForm.controls['nombreDescuento'].invalid && descuentoForm.controls['nombreDescuento'].touched"
+              class="error-message">
+              Falta llenar el campo "Nombre del Descuento"
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="descuento">Porcentaje:</label>
+            <div class="input-group input-group-sm mb-3">
+              <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="descuento"
+                [(ngModel)]="descuentoO.descuento" name="descuento" required pattern="[0-9]" placeholder="Porcentaje">
+              <span class="material-symbols-outlined">percent</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-custom" (click)="guardarDescuento()">
+            <span class="icon">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Guardar</span>
+            </span>
+
+          </button>
+
+          <button type="button" class="btn btn-custom" onclick="cerrarVentanaEP();">
+            <span class="icon">
+              <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+              <span class="text">Cancelar</span>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="ventanaDA" class="ventana-flotante">
+      <h1>Actualizar Descuento</h1>
+      <div class="container">
+        <form #descuentoForm="ngForm" (ngSubmit)="actualizarDescuento()">
+          <div class="input-group input-group-sm mb-3">
+            <label for="nombreDescuento">Nombre Del Descuento:</label>
+            <input type="text" class="form-control" id="nombreDescuento" [(ngModel)]="descuentoA.nombre"
+              name="nombreDescuento" required>
+            <div
+              *ngIf="descuentoForm.controls['nombreDescuento'].invalid && descuentoForm.controls['nombreDescuento'].touched"
+              class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="descuento">Porcentaje:</label>
+            <div class="input-group input-group-sm mb-3">
+              <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="descuento"
+                [(ngModel)]="descuentoA.descuento" name="descuento" required pattern="[0-9]" placeholder="Porcentaje">
+              <span class="material-symbols-outlined">percent</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-custom" (click)="actualizarDescuento()">
+            <span class="icon">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Actualizar</span>
+            </span>
+
+          </button>
+
+          <button type="button" class="btn btn-custom" onclick="cerrarVentanaDA();">
+            <span class="icon">
+              <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+              <span class="text">Cancelar</span>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div style="height: 225px; overflow-y: scroll;">
+    <table class="custom-table" id="fixed-header">
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Nombre de la Empresa</th>
+          <th scope="col">Ruc</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Iva</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas">
+          <td>{{empresa.idConfig}}</td>
+          <td>{{empresa.nombreEmpresa}}</td>
+          <td>{{empresa.ruc}}</td>
+          <td>{{empresa.ubicacion}}</td>
+          <td>{{empresa.telefono}}</td>
+          <td>{{empresa.iva}}</td>
+          <td>
+            <button (click)="actualizarEmpresa(empresa.idConfig)" class="btn btn-custom">
+              <span class="icon">
+                <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+              </span>
+
+            </button>
+          </td>
+          <td>
+            <button (click)="eliminarEmpresa(empresa.idConfig)" class="btn btn-custom">
               <span class="icon">
                 <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
               </span>
             </button>
-            </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="height: 210px; overflow-y: scroll;">
+    <table class="custom-table" id="fixed-header">
+      <thead>
+        <tr>
+          <th scope="col">Nombre del Descuento</th>
+          <th scope="col">Pocentaje</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let descuento of descuentos">
+          <td>{{descuento.nombre}}</td>
+          <td>{{descuento.descuento*100}}</td>
+          <td>
+            <button (click)="abrirDescuento(descuento.idDes)" class="btn btn-custom">
+              <span class="icon">
+                <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+              </span>
+            </button>
+          </td>
+
+
+          <td>
+            <button (click)="eliminarDescuento(descuento.idDes)" class="btn btn-custom">
+              <span class="icon">
+                <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
+              </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
 </section>
