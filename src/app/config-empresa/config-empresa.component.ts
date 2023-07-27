@@ -151,11 +151,11 @@ export class ConfigEmpresaComponent implements OnInit {
     }
 
     // Validar que el teléfono sea válido.
-    if (!/^\d{10}$/.test(telefono)) {
+    if (!/^09\d{8}$/.test(telefono)) {
       Swal.fire({
         icon: 'error',
         title: 'Teléfono inválido',
-        text: 'El teléfono debe tener entre 10 dígitos',
+        text: 'El teléfono es incorrecto',
       });
       return;
     }

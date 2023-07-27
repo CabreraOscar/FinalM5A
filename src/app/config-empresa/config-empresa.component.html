@@ -83,7 +83,7 @@
           <div class="form-group">
             <label for="telefono">Teléfono:</label>
             <input type="text" class="form-control" id="telefono" [(ngModel)]="empresai.telefono" name="telefono"
-              required pattern="[0-9]{10}" step="[0-9]{10}">
+              required pattern="09\d{8}" step="1">
             <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched"
               class="error-message">
 
