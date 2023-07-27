@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = '';
   submit: boolean = false; 
 
-  constructor(private auth:AuthService, private perserv: personaService,private roll: rolService, private http: HttpClient, private servi:AuthService) { }
+  constructor(private auth:AuthService,private perserv: personaService,private roll: rolService, private http: HttpClient, private servi:AuthService) { }
   
   usuario:Usuario =new Usuario();
   rol:roles= new roles();
