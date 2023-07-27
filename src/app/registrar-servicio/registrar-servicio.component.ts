@@ -19,7 +19,7 @@ servicios: Servicio[];
     this.obtenerservicio();
     let idRol=localStorage.getItem('idRol') ?? ''
   if(idRol!=''){
-    if(idRol==='2'){
+    if(idRol==='1'){
          
     }else{
      this.auth.canAuthenticate();
@@ -113,7 +113,6 @@ servicios: Servicio[];
 
 
   onSubmit(){
-    this.guardarServicio();
+   
   }
-
 }
