@@ -11,10 +11,11 @@ h1.aligned-right {
   align-items: center;
   justify-content: center;
   background: #3b88af;
+  margin: 0;
+  padding: 0;
   margin-left: 165px;
   padding: 102px;
   display: block;
-
 
 }
 
@@ -43,7 +44,7 @@ h1.aligned-right {
 }
 .btn-custom {
   background-color: #d35dd300;
-  color: #ffffff;
+  color: #fff;
   border-radius: 1px;
   border: none;
   padding: 5px 5px;
@@ -52,10 +53,6 @@ h1.aligned-right {
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.btn-custom:hover {
-  background-color: #7533a4;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-}
 
 .icon {
   display: inline-block;
@@ -63,6 +60,7 @@ h1.aligned-right {
   margin-right: 1px;
   transition: transform 0.3s ease-in-out;
 }
+
 
 .btn-custom:hover .icon {
   transform: scale(1.2);
@@ -73,19 +71,24 @@ h1.aligned-right {
   vertical-align: middle;
   font-weight: bold;
 }
-
-
-
-.custom-table {
-  border-collapse: collapse; /* Colapso de bordes */
-  width: 100%; /* Ancho de la tabla */
+.table-container {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
 }
+
+
+
 .custom-table {
-  background: #D3D3D3;
-  padding: 20px;
-  margin: 10px auto;
+  background: #ffffff;
+  border-collapse: collapse;
   width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideInFromLeft 0.5s ease-in-out;
 }
+
 .custom-table th, .custom-table td {
   border: 1px solid #000000; /* Borde de celda */
   padding: 7px; /* Espaciado interno */
@@ -93,17 +96,26 @@ h1.aligned-right {
 }
 
 .custom-table th {
-  background-color: #065eb6; /* Color de fondo de encabezado */
+  background-color: #065eb6;
+  color: #000000;
 }
 
-.custom-table tr:nth-child(even) {
-  background-color: #f9f9f9; /* Color de fondo de filas pares */
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.custom-table tr:hover {
-  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
+.custom-table tbody tr:hover {
+  background-color: #ffffff;
 }
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .ventana-container {
   position: relative; /* Use relative positioning */
   width: 100%; /* Adjust the width as needed */

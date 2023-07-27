@@ -13,7 +13,7 @@
   </div>
   
   <div class="containeunion">
-  
+   
     <div class="container1">
       <div class="imprime" style="height: 289px; overflow-y: scroll;">
         <table class="table table-bordered">
@@ -26,6 +26,7 @@
               <th>Total</th>
               <th>Persona</th>
               <th>Identificación</th>
+               <button class="btn" (click)= "mostrartodasventas()">VER TODAS</button>
               
             </tr>
           </thead>
@@ -77,6 +78,7 @@
             <thead>
               <tr>
                 <th>Solicitante</th>
+                
                 <th>Total</th>
               </tr>
             </thead>
@@ -91,9 +93,9 @@
   
         <div class="total">
           <p>Tipo de Pago: {{ ventag.tipoPago }}</p>
-          <p>Descuento: {{ ventag.descuento }}</p>
-          <p>Subtotal: {{ ventag.subtotal }}</p>
-          <p>IVA: {{ ventag.iva }}</p>
+          <p>Subtotal: {{ ventag.subtotal.toFixed(2) }}</p>
+          <p>Descuento: {{ ventag.descuento.toFixed(2) }}</p>
+          <p>IVA: {{ ventag.iva.toFixed(2) }}</p>
           <p>Total: {{ ventag.total }}</p>
         </div>
   

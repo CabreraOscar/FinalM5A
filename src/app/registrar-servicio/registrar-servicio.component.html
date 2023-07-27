@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <section class= "registr-servicio-block" >
-<h2>Administración de servicio</h2>
+
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registro de nuevo servicio</h3>
 
@@ -31,7 +31,7 @@
           
       
           
-          <button type="submit" class="btn btn-custom" onclick="guardarServicio()">
+          <button type="submit" class="btn btn-custom" (click)="guardarServicio()">
             <span class="icon">
               <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
               <span class="text">Guardar</span>

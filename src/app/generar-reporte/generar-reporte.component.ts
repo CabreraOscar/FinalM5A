@@ -7,7 +7,6 @@ import { VentasService } from '../_services/ventas.service';
 import { AllScriptServiceService } from '../all-script-service.service';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { EmailService } from '../_services/email.service';
-import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -50,7 +49,7 @@ export class GenerarReporteComponent implements OnInit {
 
   
 
-  constructor(private auth:AuthService, private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
+  constructor(private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
     const today = new Date();
     const year = today.getFullYear();
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -62,20 +61,21 @@ export class GenerarReporteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.obtenerDatos()
-   
+    this.obtenerDatos();
+    
   }
+
+
+mostrartodasventas(){
+  this.ventasService.mostrarDetalle().subscribe(dato => {
+    this.ventas=dato;
+      });
+
+}
+
 
   ngAfterViewInit(): void {
     this.enviarFacturaPorEmail();
-    let idRol=localStorage.getItem('idRol') ?? ''
-  if(idRol!=''){
-    if(idRol==='2'){
-         
-    }else{
-     this.auth.canAuthenticate();
-    }
-  }
   }
 
   enviarFacturaPorEmail() {
@@ -143,6 +143,7 @@ export class GenerarReporteComponent implements OnInit {
     this.tipoPago = this.ventag.tipoPago;
     this.fecha = this.ventag.fecha;
     this.ventag = ventaselect;
+    this.metodosetearivaydescuento();
     this.cliente = this.ventag.personaf.nombrePer;
     this.tipoPago = this.ventag.tipoPago;
     this.fecha = this.ventag.fecha;
@@ -164,6 +165,25 @@ export class GenerarReporteComponent implements OnInit {
 
     this.mostrarDetalleVenta = true; 
   }
+
+
+
+  metodosetearivaydescuento(){
+    var pepe: number=0;
+    var x: number=0;
+    x=this.ventag.subtotal;
+    if(this.ventag.descuento === 0){
+     pepe = this.ventag.subtotal;
+    }else{
+      pepe =x * this.ventag.descuento;
+      this.ventag.descuento=pepe;//aqui esta ya el descuento pa restar
+      x=this.ventag.subtotal-pepe;//almaceno en x ya restado el descuento
+
+    }
+    this.ventag.iva= x * this.ventag.iva;
+
+  }
+
 
   obtenerDatos() {
     if (this.inputValueP && this.inputValue) {

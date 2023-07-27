@@ -25,6 +25,7 @@
   <div class="encabezado"
     style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
+
   </div>
 
   <button class="btn btn-custom" (click)="mostrarVentana('ventana')" style="margin-left: 10px;">
@@ -208,7 +209,8 @@
 
   </div>
 
-  <div style="height: 210px; overflow-y: scroll;">
+
+  <div style="height: 225px; overflow-y: scroll;">
     <table class="custom-table" id="fixed-header">
       <thead>
         <tr>
@@ -238,7 +240,6 @@
 
             </button>
           </td>
-
           <td>
             <button (click)="eliminarEmpresa(empresa.idConfig)" class="btn btn-custom">
               <span class="icon">

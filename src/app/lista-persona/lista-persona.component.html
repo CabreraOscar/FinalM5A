@@ -1,17 +1,21 @@
 <app-navbar></app-navbar>
 
 <section class="admin-block">
-<div class="container" style="height: 525px; overflow-y: scroll;">
-    <h2>Administración de clientes</h2>
+<div class="container" >
+    <h1>Administración de clientes</h1>
     <table class="table table-striped">
-        <thead class="table-dark">
+        <div style="height: 225px; overflow-y: scroll;">
+        <table class="custom-table" id="fixed-header">
+              <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
                 <th>Correo</th>
                 <th>Cédula</th>
-                <th></th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+                
                 
             </tr>
         </thead>
@@ -24,12 +28,35 @@
                 <td>{{persona.identificacion}}</td>
                 
                 <td>
-                    <button (click)= "actualizarPersona(persona.idPersona)" class="btn btn-info">Editar</button>
-                    <button (click)= "eliminarPersona(persona.idPersona)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+                   
+                    <button (click)= "actualizarPersona(persona.idPersona)" class="btn btn-custom">
+                        <span class="icon">
+                          <img src="assets/imagenes/editar.png" alt="Imagen de búsqueda">
+                        </span>
+                       
+                      </button>
+                    </td>
+                    <td>
+                    <button (click)= "eliminarPersona(persona.idPersona)" class="btn btn-custom">
+                        <span class="icon">
+                          <img src="assets/imagenes/eliminar.png" alt="Imagen de búsqueda">
+                        </span>
+                       
+                      </button>
                 </td>
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-info" routerLink="/persona" style="margin-left: 10px">Crear</button>
-</div>
-</section>
+    <div style="text-align: center;">
+ </div>
+    </div>
+    <div>
+    <button class="btn btn-custom" routerLink="/persona" style="margin-left: 10px;">
+        <span class="icon">
+          <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+        </span>
+        <span class="text">Crear</span>
+      </button>
+    </div>
+
+

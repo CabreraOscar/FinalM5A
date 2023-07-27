@@ -12,7 +12,10 @@
     margin-top: 49px;
  
   }
-  
+  .sidebar:hover {
+  width: 245px;
+  transition: width 0.3s ease-in-out;
+}
   .button-container {
     padding: 5px;
     border-bottom: 1px solid #ffffff; /* Agregar una línea divisoria inferior */
@@ -45,6 +48,9 @@
   
   .button:hover {
     background: linear-gradient(to bottom, #5c8dce, #5c8dce);
+    background: linear-gradient(to bottom, #5c8dce, #5c8dce);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-5px);
   }
   .custom-navbar-color {
     background-color: #000000;

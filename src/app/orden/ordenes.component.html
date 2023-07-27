@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
-   <h3>Lista órdenes</h3>
+    <div class="container" >
+   <h1>Lista órdenes</h1>
     <div class="buscar">
         <form id="search-form" #miFormulario="ngForm">
             <label for="search-client">Buscar cliente:</label>
@@ -23,7 +24,7 @@
               </button>
         </form>
     </div>
-    <div style="height: 270px; overflow-y: scroll;">
+    <div style="height: 225px; overflow-y: scroll;">
         <table class="custom-table" id="fixed-header">
         <thead>
             <tr>
@@ -52,6 +53,7 @@
 
         </tbody>
     </table>
+</div>
 </div>
 </section>
 

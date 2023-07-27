@@ -4,24 +4,27 @@
 
 }
 
+
+@media (max-width: 768px) {
+
+}
+
 .pedido-block {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #3b88af; 
+  background: #3b88af;
+  margin: 0;
   padding: 0;
   margin-left: 165px;
   padding: 206px;
   display: block;
 }
-.pedido-block .container {
-  background: #D3D3D3;
-  border-radius: 10px;
-  width: 40%;
-  padding: 20px;
-  margin: 10px auto;
-}
+.container{
+  text-align: center;
+  }
+
 .pedido-block label {
   font-weight: bold;
 }
@@ -51,10 +54,7 @@
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.btn-custom:hover {
-  background-color: #7533a4;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-}
+
 .icon {
   display: inline-block;
   vertical-align: middle;
@@ -66,44 +66,56 @@
   transform: scale(1.2);
 }
 
+
 .text {
   display: inline-block;
   vertical-align: middle;
   font-weight: bold;
 }
+.table-container {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+}
+
 .custom-table {
   border-collapse: collapse; /* Colapso de bordes */
   width: 100%; /* Ancho de la tabla */
 }
 .custom-table {
-  background: #D3D3D3;
-  padding: 20px;
-  margin: 10px auto;
+  background: #ffffff;
+  border-collapse: collapse;
   width: 100%;
-}
-.custom-table th, .custom-table td {
-  border: 1px solid #000000; /* Borde de celda */
-  padding: 8px; /* Espaciado interno */
-  text-align: left; /* Alineación del texto */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideInFromLeft 0.5s ease-in-out;
 }
 
+.custom-table th,
+.custom-table td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: left;
+}
 .custom-table th {
-  background-color: #065eb6; /* Color de fondo de encabezado */
+  background-color: #065eb6;
+  color: #000000;
 }
 
-.custom-table tr:nth-child(even) {
-  background-color: #f9f9f9; /* Color de fondo de filas pares */
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.custom-table tr:hover {
-  background-color: #98d6e7; /* Color de fondo al pasar el cursor */
-}
-#fixed-header {
-  position: relative;
+.custom-table tbody tr:hover {
+  background-color: #ffffff;
 }
 
-#fixed-header thead {
-  position: sticky;
-  top: 0;
-  background-color: white;
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
