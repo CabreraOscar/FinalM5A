@@ -93,9 +93,9 @@
   
         <div class="total">
           <p>Tipo de Pago: {{ ventag.tipoPago }}</p>
-          <p>Descuento: {{ ventag.descuento }}</p>
-          <p>Subtotal: {{ ventag.subtotal }}</p>
-          <p>IVA: {{ ventag.iva }}</p>
+          <p>Subtotal: {{ ventag.subtotal.toFixed(2) }}</p>
+          <p>Descuento: {{ ventag.descuento.toFixed(2) }}</p>
+          <p>IVA: {{ ventag.iva.toFixed(2) }}</p>
           <p>Total: {{ ventag.total }}</p>
         </div>
   

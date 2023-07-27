@@ -143,6 +143,7 @@ mostrartodasventas(){
     this.tipoPago = this.ventag.tipoPago;
     this.fecha = this.ventag.fecha;
     this.ventag = ventaselect;
+    this.metodosetearivaydescuento();
     this.cliente = this.ventag.personaf.nombrePer;
     this.tipoPago = this.ventag.tipoPago;
     this.fecha = this.ventag.fecha;
@@ -164,6 +165,25 @@ mostrartodasventas(){
 
     this.mostrarDetalleVenta = true; 
   }
+
+
+
+  metodosetearivaydescuento(){
+    var pepe: number=0;
+    var x: number=0;
+    x=this.ventag.subtotal;
+    if(this.ventag.descuento === 0){
+     pepe = this.ventag.subtotal;
+    }else{
+      pepe =x * this.ventag.descuento;
+      this.ventag.descuento=pepe;//aqui esta ya el descuento pa restar
+      x=this.ventag.subtotal-pepe;//almaceno en x ya restado el descuento
+
+    }
+    this.ventag.iva= x * this.ventag.iva;
+
+  }
+
 
   obtenerDatos() {
     if (this.inputValueP && this.inputValue) {
