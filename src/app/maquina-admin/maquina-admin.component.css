@@ -1,4 +1,4 @@
-@media (max-width: 768px) {}
+
 
 .maquina-block {
   display: flex;
@@ -11,35 +11,9 @@
   margin-left: 165px;
   padding: 206px;
   display: block;
+  
 
 }
-
-.pedido-block .container {
-  background: #D3D3D3;
-  border-radius: 10px;
-  width: 40%;
-  padding: 20px;
-  margin: 10px auto;
-}
-
-.pedido-block label {
-  font-weight: bold;
-}
-
-.pedido-block input[type="text"],
-.pedido-block input[type="date"] {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-.detalle-venta {
-  background-color: #ffffff;
-  padding: 10px;
-  border-top: 1px solid #e99494;
-}
-
 .btn-custom {
   background-color: #d35dd300;
   color: #fff;
@@ -50,12 +24,9 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
-.btn-custom:hover {
-  background-color: #7533a4;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+.container{
+text-align: center;
 }
-
 .icon {
   display: inline-block;
   vertical-align: middle;
@@ -72,52 +43,47 @@
   vertical-align: middle;
   font-weight: bold;
 }
-
-#fixed-header {
-  position: relative;
-}
-
-#fixed-header thead {
-  position: sticky;
-  top: 0;
-  background-color: white;
+.table-container {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
 }
 
 .custom-table {
+  background: #ffffff;
   border-collapse: collapse;
-  /* Colapso de bordes */
   width: 100%;
-  /* Ancho de la tabla */
-}
-
-.custom-table {
-  background: #D3D3D3;
-  padding: 20px;
-  margin: 10px auto;
-  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideInFromLeft 0.5s ease-in-out;
 }
 
 .custom-table th,
 .custom-table td {
   border: 1px solid #000000;
-  /* Borde de celda */
   padding: 8px;
-  /* Espaciado interno */
   text-align: left;
-  /* Alineación del texto */
 }
 
 .custom-table th {
   background-color: #065eb6;
-  /* Color de fondo de encabezado */
+  color: #000000;
 }
 
-.custom-table tr:nth-child(even) {
+.custom-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
-  /* Color de fondo de filas pares */
 }
 
-.custom-table tr:hover {
-  background-color: #98d6e7;
-  /* Color de fondo al pasar el cursor */
+.custom-table tbody tr:hover {
+  background-color: #ffffff;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
