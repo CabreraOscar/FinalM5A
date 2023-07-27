@@ -61,9 +61,18 @@ export class GenerarReporteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.obtenerDatos()
-
+    this.obtenerDatos();
+    
   }
+
+
+mostrartodasventas(){
+  this.ventasService.mostrarDetalle().subscribe(dato => {
+    this.ventas=dato;
+      });
+
+}
+
 
   ngAfterViewInit(): void {
     this.enviarFacturaPorEmail();
