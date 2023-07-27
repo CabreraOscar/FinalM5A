@@ -3,6 +3,7 @@ import { Servicio } from '../modelo/servicio';
 import { ServicioService } from '../_services/servicio.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-servicio-admin',
@@ -13,10 +14,18 @@ export class ServicioAdminComponent implements OnInit {
 
   servicios:Servicio[];
 
-  constructor(private servicioServicio:ServicioService,private router:Router) { }
+  constructor(private auth:AuthService, private servicioServicio:ServicioService,private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerServicios();
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
 
   obtenerServicios(){

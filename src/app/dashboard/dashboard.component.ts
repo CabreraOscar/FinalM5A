@@ -12,6 +12,14 @@ export class DashboardComponent implements OnInit {
   constructor(private auth:AuthService, private router: Router) { }
   user = {localId:"Bienvenido",displayName:""};
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
     this.auth.canAccess();
     if (this.auth.isAuthenticated()) {
         //call user details service

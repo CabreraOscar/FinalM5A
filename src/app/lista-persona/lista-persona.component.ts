@@ -3,6 +3,7 @@ import { Persona } from '../modelo/persona';
 import { personaService } from '../_services/persona.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-lista-persona',
@@ -13,10 +14,18 @@ export class ListaPersonaComponent implements OnInit {
 
   persona:Persona[];
   
-  constructor(private personaServicio:personaService,private router:Router) { }
+  constructor(private auth:AuthService, private personaServicio:personaService,private router:Router) { }
   
 
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   this.obtenerPersona();
   }
 

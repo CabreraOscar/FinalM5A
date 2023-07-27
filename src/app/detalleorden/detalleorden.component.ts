@@ -58,7 +58,7 @@ export class DetalleordenComponent implements OnInit {
     this.obtenerMaquinaria();
     this.obtenerServicios();
     this.obtenersinOrdenes();
-    
+
 
   }
 

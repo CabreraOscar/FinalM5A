@@ -3,6 +3,7 @@ import { Persona } from '../modelo/persona';
 import { ActivatedRoute, Router } from '@angular/router';
 import { personaService } from '../_services/persona.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-actualizar-persona',
@@ -13,9 +14,17 @@ export class ActualizarPersonaComponent implements OnInit {
 
   id:number;
   persona:Persona=new Persona();
-  constructor(private personaServicio:personaService,private router:Router,private route:ActivatedRoute) { }
+  constructor(private auth:AuthService, private personaServicio:personaService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
     this.id = this.route.snapshot.params['id'];
     this.personaServicio.obtenerPersonaPorId(this.id).subscribe(dato =>{
       this.persona = dato;

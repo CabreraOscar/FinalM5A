@@ -4,6 +4,7 @@ import { EmpresaService } from '../_services/empresa.service';
 import { Router } from '@angular/router';
 import { AllScriptServiceService } from '../all-script-service.service';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-config-empresa',
@@ -16,13 +17,20 @@ export class ConfigEmpresaComponent implements OnInit {
   empresai:Empresa = new Empresa();
 
 
-  constructor(private empresaServicio:EmpresaService,private router:Router,private AllScripts: AllScriptServiceService) { 
+  constructor(private auth: AuthService, private empresaServicio:EmpresaService,private router:Router,private AllScripts: AllScriptServiceService) { 
     AllScripts.Cargar(["default/ventanas"]);
   }
 
   ngOnInit(): void {
     this.obtenerEmpresa();
-    
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
 
   private obtenerEmpresa(){

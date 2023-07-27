@@ -18,6 +18,14 @@ export class DetalleOrdenComponent implements OnInit {
   constructor(private auth:AuthService,private detalleService:OrdenesService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='2'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
     this.id = this.route.snapshot.params['id'];
     this.detalleService.obtenerOrdenPorId(this.id).subscribe(dato =>{
       this.ordenesO = dato;

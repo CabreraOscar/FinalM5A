@@ -3,6 +3,7 @@ import { Servicio } from '../modelo/servicio';
 import { ServicioService } from '../_services/servicio.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-registrar-servicio',
@@ -12,10 +13,18 @@ import Swal from 'sweetalert2';
 export class RegistrarServicioComponent implements OnInit {
 servicio:Servicio= new Servicio();
 servicios: Servicio[];
-  constructor(private servicioServicio:ServicioService,private router:Router) { }
+  constructor(private auth:AuthService, private servicioServicio:ServicioService,private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerservicio();
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='2'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
   
   obtenerservicio(){

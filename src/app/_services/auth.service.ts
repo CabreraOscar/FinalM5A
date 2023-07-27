@@ -41,17 +41,21 @@ getAllUsuarios(): Observable<Usuario[]> {
     }
   }
 
+ 
+
+    //let user = String(localStorage.getItem("user"));
+  
+
   canAuthenticate() {
     if (this.isAuthenticated()) {
+     
       if(Number(localStorage.getItem("idRol"))===1) {
-        
+  
         this.router.navigate(['/dashboard']); 
        }else{
         this.router.navigate(['/pantalla-empleado']);
        }
     }
-
-    //let user = String(localStorage.getItem("user"));
   }
 confirmaRol(roll:number){
   if (this.isAuthenticated()) {

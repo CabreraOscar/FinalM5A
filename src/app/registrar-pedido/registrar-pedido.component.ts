@@ -13,6 +13,7 @@ export class RegistrarPedidoComponent {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
   registrarPedido(): void {
    

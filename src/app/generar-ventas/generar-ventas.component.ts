@@ -8,6 +8,8 @@ import { Empresa } from '../modelo/empresa';
 import { venta } from '../venta/venta';
 import { VentasService } from '../_services/ventas.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-generar-ventas',
@@ -29,7 +31,7 @@ export class GenerarVentasComponent implements OnInit {
   descuentonumero: number = 0;
   fechaActual: string;
   tipoPagoSeleccionado: string;
-  constructor(private ventaServicio: VentasService,private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
+  constructor(private auths: AuthService, private routers:Router,private ventaServicio: VentasService,private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
   botonesSeleccionados: { [key: number]: boolean } = {};
   empresaSeleccionada: Empresa;
   descuento: string = 'no'; // Valor predeterminado a 'no'
@@ -53,7 +55,7 @@ export class GenerarVentasComponent implements OnInit {
     this.obtenerEmpresa();
     
   }
-
+ 
   compareEmpresa(e1: Empresa, e2: Empresa): boolean {
     return e1 && e2 ? e1.idConfig === e2.idConfig : e1 === e2;
   }
@@ -148,6 +150,7 @@ Swal.fire('TODO CORRECTO', '', 'success').then(() => {
 });
 
 }//finaliza el else
+
 }
 
 actualizarOrdenEnBackend(idorden: number, orden: orden) {

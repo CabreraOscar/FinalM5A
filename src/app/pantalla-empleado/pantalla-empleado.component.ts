@@ -23,11 +23,17 @@ integrador:number;
     }
 
   ngOnInit(): void {
- 
-  
+ let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='2'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
   }
-
- 
+  }
+    
+  
 /*
   CrearOrden(){
     this.obtenerOrdeneslista();

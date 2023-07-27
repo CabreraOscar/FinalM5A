@@ -7,6 +7,7 @@ import { Empresa } from '../modelo/empresa';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AllScriptServiceService } from '../all-script-service.service';
+import { AuthService } from '../_services/auth.service';
 @Component({
   selector: 'app-ventas',
   templateUrl: './ventas.component.html',
@@ -27,13 +28,21 @@ export class VentasComponent implements OnInit {
  fechaInicio: string = '';
  fechaFin: string = '';
  total: number = 0;
-  constructor(private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
+  constructor(private auth:AuthService,private ventasService: VentasService, private router:Router, private datePipe: DatePipe, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
 
   
    ngOnInit(): void {
     this.obtenerventa();
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
   
    obtenerventa(){

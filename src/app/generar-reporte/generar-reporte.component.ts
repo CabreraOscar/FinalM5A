@@ -7,6 +7,7 @@ import { VentasService } from '../_services/ventas.service';
 import { AllScriptServiceService } from '../all-script-service.service';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { EmailService } from '../_services/email.service';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -49,7 +50,7 @@ export class GenerarReporteComponent implements OnInit {
 
   
 
-  constructor(private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
+  constructor(private auth:AuthService, private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
     const today = new Date();
     const year = today.getFullYear();
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -67,6 +68,14 @@ export class GenerarReporteComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.enviarFacturaPorEmail();
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='2'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
 
   enviarFacturaPorEmail() {

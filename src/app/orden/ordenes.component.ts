@@ -6,6 +6,7 @@ import { Persona } from '../modelo/persona';
 import { venta } from '../venta/venta';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AllScriptServiceService } from '../all-script-service.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-ordenes',
@@ -20,12 +21,19 @@ export class OrdenesComponent implements OnInit {
   personas: Persona[];
   ventas: venta[];
   ordenesO: orden = new orden;
-  constructor(private ordenesService: OrdenesService, private router: Router, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
+  constructor(private auth:AuthService, private ordenesService: OrdenesService, private router: Router, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
   ngOnInit(): void {
     this.obtenerOrdenes();
-
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
 
   obtenerOrdenes() {

@@ -3,6 +3,7 @@ import { Maquina } from '../modelo/maquina';
 import { MaquinaService } from '../_services/maquina.service';
 import { Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -14,9 +15,17 @@ export class RegistrarMaquinaComponent implements OnInit {
 maquina:Maquina = new Maquina();
 maquinas: Maquina[];
 
-  constructor(private maquinaServicio:MaquinaService,private router:Router) { }
+  constructor(private auth:AuthService, private maquinaServicio:MaquinaService,private router:Router) { }
 
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
     this.obtenermaquina();
     
   }

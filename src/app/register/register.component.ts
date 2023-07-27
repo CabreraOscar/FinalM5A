@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = '';
   submit: boolean = false; 
 
-  constructor(private perserv: personaService,private roll: rolService, private http: HttpClient, private servi:AuthService) { }
+  constructor(private auth:AuthService, private perserv: personaService,private roll: rolService, private http: HttpClient, private servi:AuthService) { }
   
   usuario:Usuario =new Usuario();
   rol:roles= new roles();
@@ -169,6 +169,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerRoles();
     this.obtenerPersonas();
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
   }
 
   obtenerPersonas(): void {

@@ -4,6 +4,7 @@ import { venta } from '../venta/venta';
 // import { Empresa } from '../modelo/empresa';
 import { VentasService } from '../_services/ventas.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -18,9 +19,17 @@ export class DetalleVentaComponent implements OnInit {
   ventas: venta[];
   ventasL: venta = new venta();
 
-  constructor(private detalleService:VentasService, private router: Router, private route:ActivatedRoute) { }
+  constructor(private auth:AuthService, private detalleService:VentasService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let idRol=localStorage.getItem('idRol') ?? ''
+  if(idRol!=''){
+    if(idRol==='1'){
+         
+    }else{
+     this.auth.canAuthenticate();
+    }
+  }
     this.id = this.route.snapshot.params['id'];
     this.detalleService.obtenerventaPorId(this.id).subscribe(dato =>{
       this.ventasL = dato;
