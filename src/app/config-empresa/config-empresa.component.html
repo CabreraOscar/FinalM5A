@@ -23,7 +23,6 @@
 <section id="fondo" class="pedido-block">
   <div class="encabezado" style="right: auto; flex-direction: column; align-items: flex-start; justify-content: center; display: flex;">
     <h1 style="margin-left: 1rem;">Configuración de la empresa</h1>
-    
   </div>
 
   <button class="btn btn-custom" onclick="mostrarVentana(document.getElementById('ventana'))" style="margin-left: 10px;">
@@ -49,9 +48,10 @@
 
 <div class="form-group">
   <label for="ruc">RUC:</label>
-  <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" pattern="^(\d{13})$|^(\d{10})001$">
+  <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required pattern="[0-9]{13}">
   <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched" class="error-message">
-    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos numéricos o 10 dígitos seguidos de "001".</div>
+    
+    <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos numéricos.</div>
   </div>
 </div>
 
@@ -106,7 +106,7 @@ pattern="0.01" step="0.01">
   </div>
 </div>
 
-<div style="height: 225px; overflow-y: scroll;">
+  <div style="height: 210px; overflow-y: scroll;">
   <table class="custom-table" id="fixed-header">
     <thead>
       <tr>
