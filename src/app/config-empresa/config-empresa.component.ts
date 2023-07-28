@@ -279,11 +279,6 @@ export class ConfigEmpresaComponent implements OnInit {
   //metodos de los descuentos
 
   guardarDescuento() {
-    var nombreDescuento = this.descuentoO.nombre;
-    var porcentaje = this.descuentoO.descuento;
-
-    
-
     // Lógica para registrar la empresa.
 
     Swal.fire({
@@ -310,8 +305,6 @@ export class ConfigEmpresaComponent implements OnInit {
       }
     );
 
-    this.descuentoO.nombre = '';
-    this.descuentoO.descuento = 0;
     this.cerrarVentanaD();
 
   }

@@ -27,7 +27,7 @@
             <input type="text" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono"  pattern="09\d{8}" step="1">
             <div *ngIf="personaForm.controls['telefono'].invalid && personaForm.controls['telefono'].touched" class="error-message">
               <div *ngIf="personaForm.controls['telefono'].hasError('required')">El teléfono es requerido.</div>
-              <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">El teléfono debe es incorrecto.</div>
+              <div *ngIf="personaForm.controls['telefono'].hasError('pattern')">El teléfono está incorrecto.</div>
             </div>
           </div>
         
