@@ -7,7 +7,7 @@
   width: 0px;
   background-color: #f2f2f2;
   padding: 15px;
-  width: 200px;
+  width: 210px;
   background-color: #1844d6;
   margin-left: -121px; 
   margin-top: 49px;
@@ -16,43 +16,78 @@
 .sidebar:hover {
   width: 250px;
   transition: width 0.3s ease-in-out;
-}
-.button-container {
+}.button-container {
+  display: flex;
+  flex-direction: column;
   padding: 5px;
-  border-bottom: 1px solid #ffffff; /* Agregar una línea divisoria inferior */
+  border-bottom: 1px solid #ffffff;
 }
+
 .button-container:last-child {
-  border-bottom: none; /* Quitar la línea divisoria inferior del último contenedor */
+  border-bottom: none;
+}
+.button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 77px;
+  padding: 0px 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .button-container {
   display: flex;
   flex-direction: column;
-  border: #b8babbfd;
-  
+  padding: 5px;
+  border-bottom: 1px solid #ffffff;
 }
 
-.button {
-  margin-bottom: 10px;
+.button-container:last-child {
+  border-bottom: none;
 }
-
-
 .button {
-  display: block;
-  width: 90%;
-  padding: 25px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 77px;
+  padding: 0px 15px;
   border: none;
   background-color: transparent;
-  text-align: left;
   cursor: pointer;
-  height: 77px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.button:hover {
-  background: linear-gradient(to bottom, #5c8dce, #5c8dce);
-  background: linear-gradient(to bottom, #5c8dce, #5c8dce);
+.button-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-5px);
 }
+
+.button:hover .button-icon {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 10px rgb(255, 255, 255);
+}
+
+.button-icon-circle {
+  border-radius: 50%;
+  border: 2px solid #000000; /* Cambia este valor por el color de borde que desees */
+}
+
+.button-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .custom-navbar-color {
   background-color: #000000;
    /* Cambia este valor por el color que desees */

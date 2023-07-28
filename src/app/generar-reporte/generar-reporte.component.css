@@ -115,7 +115,28 @@
   padding: 8px 16px;
   cursor: pointer;
 }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
 
+.btn img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.btn span {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 14px;
+}
 /* Estilos para el botón de imprimir */
 .btn-print {
   background-color: green;
@@ -223,4 +244,5 @@ body * {
   .imprime {
     page-break-after: always;
   }
+  
 }
