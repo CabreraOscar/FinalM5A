@@ -22,8 +22,8 @@ export class ConfigEmpresaComponent implements OnInit {
   descuentoO: Descuento = new Descuento();
   descuentoA: Descuento = new Descuento();
   descuentos: Descuento[];
-
-
+  validado:boolean = false;
+  ruc: String;
   constructor(private auth: AuthService, private empresaServicio: EmpresaService, private descuentoService: DescuentoService, private router: Router, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -46,47 +46,34 @@ export class ConfigEmpresaComponent implements OnInit {
       this.empresas = dato;
     });
   }
-  validarRUC(ruc: string): boolean {
-    let rucCorrecto = false;
-  
-    if (ruc.length == 13) {
-      // Verificar que los primeros dos dígitos correspondan a un número de provincia válido
-      let provincia = parseInt(ruc.substring(0, 2));
-      if (provincia >= 1 && provincia <= 24) {
-        // Verificar que el tercer dígito sea 6, 7, 8 o 9 (para RUC de personas jurídicas)
-        // o 0, 1, 2 o 3 (para RUC de personas naturales)
-        let tercerDigito = parseInt(ruc.substring(2, 3));
-        if ((tercerDigito >= 6 && tercerDigito <= 9) || (tercerDigito >= 0 && tercerDigito <= 3)) {
-          // Verificar el último dígito, que es el dígito verificador
-          let verificador = parseInt(ruc.substring(12, 13));
-          let coefValRUC = [3, 2, 7, 6, 5, 4, 3, 2];
-          let suma = 0;
-          let digito = 0;
-          for (let i = 0; i < (ruc.length - 1); i++) {
-            digito = parseInt(ruc.substring(i, i + 1)) * coefValRUC[i];
-            suma += digito;
-          }
-          let residuo = suma % 11;
-          let resultado = 11 - residuo;
-          if (resultado == verificador) {
-            rucCorrecto = true;
-          } else if (resultado == 10 && verificador == 0) {
-            rucCorrecto = true;
-          } else {
-            rucCorrecto = false;
-          }
-        } else {
-          rucCorrecto = false;
-        }
-      } else {
-        rucCorrecto = false;
-      }
-    } else {
-      rucCorrecto = false;
-    }
-  
-    return rucCorrecto;
-  }
+// validarRUC(ruc: string): boolean {
+//   let rucCorrecto = false;
+
+//   if (ruc.length === 13) {
+//     // Validar el tercer dígito
+//     const tercerDigito = parseInt(ruc.charAt(2), 10);
+//     if (tercerDigito >= 0 && tercerDigito <= 5) {
+//       // Validar el código de la provincia
+//       const codigoProvincia = parseInt(ruc.substring(0, 2), 10);
+//       if (codigoProvincia >= 1 && codigoProvincia <= 24) {
+//         // Validar el último dígito como dígito verificador
+//         const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+//         const digitoVerificador = parseInt(ruc.charAt(9), 10);
+//         let suma = 0;
+//         for (let i = 0; i < coeficientes.length; i++) {
+//           const digito = parseInt(ruc.charAt(i), 10) * coeficientes[i];
+//           suma += (digito < 10) ? digito : (digito - 9);
+//         }
+//         const resultado = (10 - (suma % 10)) % 10;
+//         if (resultado === digitoVerificador) {
+//           rucCorrecto = true;
+//         }
+//       }
+//     }
+//   }
+//   this.validado= rucCorrecto;
+//   return rucCorrecto;
+// }
   guardarEmpresa() {
     var nombreEmpresa = this.empresai.nombreEmpresa;
     var ruc = this.empresai.ruc;
@@ -141,15 +128,15 @@ export class ConfigEmpresaComponent implements OnInit {
     }
 
     // Validar que el RUC sea válido.
-    if (!/^\d{13}$/.test(ruc)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'RUC inválido',
-        text: 'El RUC debe tener 13 dígitos numéricos',
-      });
-      return;
-    }
-
+    // const Rucvalido = this.validarRUC(ruc);
+    // if (!Rucvalido) {
+    //     Swal.fire({
+    //         icon: 'error',
+    //         title: 'RUC inválido',
+    //         text: 'El RUC ingresado no es válido',
+    //     });
+    //     return;
+    // }
     // Validar que el teléfono sea válido.
     if (!/^09\d{8}$/.test(telefono)) {
       Swal.fire({
@@ -211,7 +198,9 @@ export class ConfigEmpresaComponent implements OnInit {
 
     this.cerrarVentanaP();
   }
-
+  onSubmit(){
+    this.guardarEmpresa();
+  }
   /////////////////////////////////////////
 
   cerrarVentanaP() {
@@ -416,5 +405,5 @@ export class ConfigEmpresaComponent implements OnInit {
     }, error => console.log(error))
 
   }
-
+  
 }
