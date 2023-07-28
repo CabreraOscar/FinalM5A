@@ -185,7 +185,7 @@ export class DetalleordenComponent implements OnInit {
 
   crearItemMaquina(maquina: any, cantidad: number) {
     if (cantidad<=0) {
-      Swal.fire('CANTIDAD INVALIDA', '', 'warning');
+      Swal.fire('Cantidad inválida', '', 'warning');
 
     } else {
 

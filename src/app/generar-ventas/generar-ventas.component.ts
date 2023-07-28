@@ -146,10 +146,17 @@ crearventa(){
 
 Swal.fire('TODO CORRECTO', '', 'success').then(() => {
   // Recargar la página después de que el usuario hace clic en el botón "Aceptar" de la alerta
-  window.location.reload();
+  //window.location.reload();
+  this.navegaAVenta();
 });
 
 }//finaliza el else
+
+}
+
+
+navegaAVenta(): void {
+  this.routers.navigate(['/generar-reporte']);
 
 }
 
