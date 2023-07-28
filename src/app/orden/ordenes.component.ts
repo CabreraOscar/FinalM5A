@@ -44,7 +44,7 @@ export class OrdenesComponent implements OnInit {
 
 
   verOrden(id: number) {
-    this.router.navigate(['detalles-ordenes', id]);
+    this.router.navigate(['detalle-orden',id]);
   }
 
   buscarporcedula() {
