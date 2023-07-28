@@ -192,10 +192,6 @@ main {
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.btn-b:hover {
-  background: linear-gradient(to bottom,  #e3c8c8, #8fa6d4);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-}
 
 .icon {
   display: inline-block;

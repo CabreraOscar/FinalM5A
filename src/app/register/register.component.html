@@ -77,8 +77,14 @@
                 <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
                   placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
                   style="width: 80px;">
-                <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
-                <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">
+                    <img src="assets/imagenes/buscar.png" class="btn-icon">
+                    Buscar
+                  </button>
+                  <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">
+                    <img src="assets/imagenes/cancelar.png" class="btn-icon">
+                    Cancelar
+                  </button>
               </div>
             </form>
           </th>

@@ -14,7 +14,7 @@
   
 }
 .sidebar:hover {
-  width: 250px;
+  width: 230px;
   transition: width 0.3s ease-in-out;
 }.button-container {
   display: flex;
