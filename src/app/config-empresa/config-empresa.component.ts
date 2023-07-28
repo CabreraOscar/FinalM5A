@@ -22,7 +22,7 @@ export class ConfigEmpresaComponent implements OnInit {
   descuentoO: Descuento = new Descuento();
   descuentoA: Descuento = new Descuento();
   descuentos: Descuento[];
-  validado:boolean = false;
+  validado: boolean = false;
   ruc: String;
   constructor(private auth: AuthService, private empresaServicio: EmpresaService, private descuentoService: DescuentoService, private router: Router, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
@@ -46,34 +46,34 @@ export class ConfigEmpresaComponent implements OnInit {
       this.empresas = dato;
     });
   }
-// validarRUC(ruc: string): boolean {
-//   let rucCorrecto = false;
+  // validarRUC(ruc: string): boolean {
+  //   let rucCorrecto = false;
 
-//   if (ruc.length === 13) {
-//     // Validar el tercer dígito
-//     const tercerDigito = parseInt(ruc.charAt(2), 10);
-//     if (tercerDigito >= 0 && tercerDigito <= 5) {
-//       // Validar el código de la provincia
-//       const codigoProvincia = parseInt(ruc.substring(0, 2), 10);
-//       if (codigoProvincia >= 1 && codigoProvincia <= 24) {
-//         // Validar el último dígito como dígito verificador
-//         const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
-//         const digitoVerificador = parseInt(ruc.charAt(9), 10);
-//         let suma = 0;
-//         for (let i = 0; i < coeficientes.length; i++) {
-//           const digito = parseInt(ruc.charAt(i), 10) * coeficientes[i];
-//           suma += (digito < 10) ? digito : (digito - 9);
-//         }
-//         const resultado = (10 - (suma % 10)) % 10;
-//         if (resultado === digitoVerificador) {
-//           rucCorrecto = true;
-//         }
-//       }
-//     }
-//   }
-//   this.validado= rucCorrecto;
-//   return rucCorrecto;
-// }
+  //   if (ruc.length === 13) {
+  //     // Validar el tercer dígito
+  //     const tercerDigito = parseInt(ruc.charAt(2), 10);
+  //     if (tercerDigito >= 0 && tercerDigito <= 5) {
+  //       // Validar el código de la provincia
+  //       const codigoProvincia = parseInt(ruc.substring(0, 2), 10);
+  //       if (codigoProvincia >= 1 && codigoProvincia <= 24) {
+  //         // Validar el último dígito como dígito verificador
+  //         const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+  //         const digitoVerificador = parseInt(ruc.charAt(9), 10);
+  //         let suma = 0;
+  //         for (let i = 0; i < coeficientes.length; i++) {
+  //           const digito = parseInt(ruc.charAt(i), 10) * coeficientes[i];
+  //           suma += (digito < 10) ? digito : (digito - 9);
+  //         }
+  //         const resultado = (10 - (suma % 10)) % 10;
+  //         if (resultado === digitoVerificador) {
+  //           rucCorrecto = true;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   this.validado= rucCorrecto;
+  //   return rucCorrecto;
+  // }
   guardarEmpresa() {
     var nombreEmpresa = this.empresai.nombreEmpresa;
     var ruc = this.empresai.ruc;
@@ -198,7 +198,7 @@ export class ConfigEmpresaComponent implements OnInit {
 
     this.cerrarVentanaP();
   }
-  onSubmit(){
+  onSubmit() {
     this.guardarEmpresa();
   }
   /////////////////////////////////////////
@@ -278,34 +278,34 @@ export class ConfigEmpresaComponent implements OnInit {
 
   //metodos de los descuentos
 
-  guardarDescuento() {
-    // Lógica para registrar la empresa.
+  guardarDescuento(descuento: number) {
+    // Lógica para registrar la descuento
+    if (descuento <= 0) {
+      Swal.fire('CANTIDAD INVALIDA', '', 'warning');
+    } else {
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Registro exitoso',
-      text: 'Los datos se han registrado correctamente'
-    });
+      this.descuentoService.registrarDescuento(this.descuentoO).subscribe(
+        dato => {
+          console.log(dato);
+          this.mostrarDescuento();
+        },
+        error => {
+          console.error(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Ha ocurrido un error al registrar el descuento. Por favor, inténtalo de nuevo.',
+          });
+        }
+      );
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro exitoso',
+        text: 'Los datos se han registrado correctamente'
+      });
 
-
-
-
-    this.descuentoService.registrarDescuento(this.descuentoO).subscribe(
-      dato => {
-        console.log(dato);
-        this.mostrarDescuento();
-      },
-      error => {
-        console.error(error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Ha ocurrido un error al registrar el descuento. Por favor, inténtalo de nuevo.',
-        });
-      }
-    );
-
-    this.cerrarVentanaD();
+      this.cerrarVentanaD();
+    }
 
   }
 
@@ -355,7 +355,6 @@ export class ConfigEmpresaComponent implements OnInit {
       if (descuentoSeleccionado) {
         // Asignar los datos del descuento seleccionado a descuentoO para que se muestren en la ventana emergente
         this.descuentoA = { ...descuentoSeleccionado };
-        this.descuentoA.descuento *= 100;
       }
     }
     console.log(idDes);
@@ -398,5 +397,5 @@ export class ConfigEmpresaComponent implements OnInit {
     }, error => console.log(error))
 
   }
-  
+
 }

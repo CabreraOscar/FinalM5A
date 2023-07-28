@@ -35,14 +35,6 @@
     <span class="text">Ingresar empresa</span>
   </button>
 
-  <button class="btn btn-custom" (click)="mostrarVentana('ventanad')" style="margin-left: 10px;">
-    <span class="icon">
-      <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
-    </span>
-    <span class="text">Ingresar Descuento</span>
-  </button>
-
-
   <div class="ventana-container">
     <div id="ventana" class="ventana-flotante">
       <h1>Ingresar Empresa</h1>
@@ -139,7 +131,7 @@
     <div id="ventanad" class="ventana-flotante">
       <h1>Ingresar Descuento</h1>
       <div class="container">
-        <form #descuentoForm="ngForm" (ngSubmit)="guardarDescuento()">
+        <form #descuentoForm="ngForm" (ngSubmit)="guardarDescuento(descuentoO.descuento)">
           <div class="input-group input-group-sm mb-3">
             <label for="nombreDescuento">Nombre Del Descuento:</label>
             <input type="text" class="form-control" id="nombreDescuento" [(ngModel)]="descuentoO.nombre"
@@ -161,7 +153,7 @@
             </div>
           </div>
 
-          <button type="button" class="btn btn-custom" (click)="guardarDescuento()">
+          <button type="button" class="btn btn-custom" (click)="guardarDescuento(descuentoO.descuento)">
             <span class="icon">
               <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
               <span class="text">Guardar</span>
@@ -265,6 +257,13 @@
     </table>
   </div>
 
+  <button class="btn btn-custom" (click)="mostrarVentana('ventanad')" style="margin-left: 10px;">
+    <span class="icon">
+      <img src="assets/imagenes/add.png" alt="Imagen de búsqueda">
+    </span>
+    <span class="text">Ingresar Descuento</span>
+  </button>
+
   <div style="height: 210px; overflow-y: scroll;">
     <table class="custom-table" id="fixed-header">
       <thead>
@@ -278,7 +277,7 @@
       <tbody>
         <tr *ngFor="let descuento of descuentos">
           <td>{{descuento.nombre}}</td>
-          <td>{{descuento.descuento*100}}</td>
+          <td>{{descuento.descuento}}</td>
           <td>
             <button (click)="abrirDescuento(descuento.idDes)" class="btn btn-custom">
               <span class="icon">
