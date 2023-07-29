@@ -52,26 +52,13 @@
 
           <div class="form-group">
             <label for="ruc">RUC:</label>
-            <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" name="ruc" required
-              pattern="[0-9]{13}">
-            <div *ngIf="empresaForm.controls['ruc'].invalid && empresaForm.controls['ruc'].touched"
-              class="error-message">
-
-
-              <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener exactamente 13 dígitos
-                numéricos.</div>
-            </div>
-          </div>
-
-          <!-- <div class="form-group">
-            <label for="ruc">RUC:</label>
             <input type="text" class="form-control" id="ruc" [(ngModel)]="empresai.ruc" (change)="validarRUC(empresai.ruc)" name="ruc" maxlength="13">
             <div *ngIf="!validado" class="text-danger">
                 <div *ngIf="empresaForm.controls['ruc'].hasError('required')">El RUC es requerido.</div>
                 <div *ngIf="empresaForm.controls['ruc'].hasError('pattern')">El RUC debe tener 13 dígitos numéricos.</div>
             </div>
         </div>
-        -->
+       
 
 
           <div class="form-group">
@@ -90,8 +77,8 @@
             <div *ngIf="empresaForm.controls['telefono'].invalid && empresaForm.controls['telefono'].touched"
               class="error-message">
 
-              <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número de teléfono debe tener 10
-                dígitos.</div>
+              <div *ngIf="empresaForm.controls['telefono'].hasError('pattern')">El número que estás ingresando es incorrecto
+              .</div>
             </div>
           </div>
 
