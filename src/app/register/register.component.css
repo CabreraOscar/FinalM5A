@@ -61,6 +61,7 @@ body {
   font-size: 30px;
   color: #0069c0;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .register-sec h2:after {

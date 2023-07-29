@@ -22,13 +22,13 @@
 
 @keyframes color-animation {
   0% {
-    background-image: linear-gradient(to bottom, rgb(0, 14, 137), rgb(246, 133, 235), rgb(1, 21, 100));
+    background-image: linear-gradient(to bottom, rgb(56, 197, 188), rgb(39, 50, 145), rgb(0, 6, 57));
   }
   50% {
-    background-image: linear-gradient(to bottom, rgb(0, 251, 255), rgb(246, 133, 235), rgb(46, 79, 212));
+    background-image: linear-gradient(to bottom, rgb(58, 71, 189), rgb(73, 82, 167), rgb(26, 109, 160));
   }
   100% {
-    background-image: linear-gradient(to bottom, rgb(246, 133, 235), rgb(46, 79, 212), rgb(0, 251, 255));
+    background-image: linear-gradient(to bottom, rgb(75, 86, 185), rgb(101, 115, 243), rgb(100, 115, 243));
   }
 }
 .login-block label {
