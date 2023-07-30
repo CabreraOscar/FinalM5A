@@ -100,16 +100,18 @@
         
       </div>
       <div *ngIf="mostrarFormularioCorreo">
-        <h2>Enviar Correo</h2>
         <form (submit)="enviarCorreoConAdjunto()">
-          <div>
-        <label for="correoDestinatario">Ingrese el Email: </label>
+      <div>
+        <label for="correoDestinatario">Ingrese el Email:</label>
         <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
       </div>
-        </form>
+      <!-- Agrega otros campos del formulario si es necesario -->
+      <!-- ... -->
+  
+      <button type="submit">Enviar</button>
+    </form>
       </div>
-      
-     
+        
     
     </div>
  
