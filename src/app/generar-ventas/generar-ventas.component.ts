@@ -10,6 +10,8 @@ import { VentasService } from '../_services/ventas.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
+import { DescuentoService } from '../_services/descuento.service';
+import { Descuento } from '../modelo/descuento';
 
 @Component({
   selector: 'app-generar-ventas',
@@ -31,16 +33,18 @@ export class GenerarVentasComponent implements OnInit {
   descuentonumero: number = 0;
   fechaActual: string;
   tipoPagoSeleccionado: string;
-  constructor(private auths: AuthService, private routers:Router,private ventaServicio: VentasService,private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
+  constructor(private descuentoService: DescuentoService,private auths: AuthService, private routers:Router,private ventaServicio: VentasService,private empresaServicio:EmpresaService,private ordenService: OrdenesService, private personaService: personaService) { }
   botonesSeleccionados: { [key: number]: boolean } = {};
   empresaSeleccionada: Empresa;
   descuento: string = 'no'; // Valor predeterminado a 'no'
-  descuentoSeleccionado: string = ''; // Variable para almacenar el descuento seleccionado
+  descuentoSeleccionado: Descuento = new Descuento(); // Variable para almacenar el descuento seleccionado
   empresas: Empresa[] = [];
   ordenesSeleccionadas: orden[] = [];
   sumaTotalOrden: number= 0;
   finalin: number= 0;
   ventacreada: venta = new venta();
+  descuentos: Descuento[]=[];
+  
 
   ngOnInit(): void {
     this.obtenerOrden();
@@ -54,44 +58,43 @@ export class GenerarVentasComponent implements OnInit {
     this.actualizarDescuentoNumero();
     this.obtenerEmpresa();
     
+    this.mostrarDescuento();
+    
   }
  
+  private mostrarDescuento() {
+    
+    this.descuentoService.obtenerListaDeDescuento().subscribe(dato => {
+      
+      this.descuentos = dato;
+      this.descuentos.push({ idDes:0, nombre: 'Ninguno', descuento: 0 });
+      
+      this.descuentoSeleccionado = this.descuentos[this.descuentos.length - 1];
+      
+      
+    });
+  }
+
+
   compareEmpresa(e1: Empresa, e2: Empresa): boolean {
     return e1 && e2 ? e1.idConfig === e2.idConfig : e1 === e2;
   }
-  actualizarDescuento(event: Event) {
-    this.descuento = (event.target as HTMLInputElement).value;
-    this.actualizarDescuentoNumero();
+  compareDes(e1: Descuento, e2: Descuento): boolean {
+    return e1 && e2 ? e1.idDes === e2.idDes : e1 === e2;
   }
-  actualizarDescuentoNo() {
-    this.descuentoSeleccionado = 'sin descuento';
-    this.actualizarDescuentoNumero();
-    this.calculartotalsubivades();
-  }
+  
   actualizarDescuentoNumero() {
-    switch (this.descuentoSeleccionado) {
-      case 'secado gratis':
-        this.descuentonumero = 0.10;
-        this.calculartotalsubivades();
-        break;
-      case 'productos gratis':
-        this.descuentonumero = 0.15;
-        this.calculartotalsubivades();
-        break;
-      case 'doblado gratis':
-        this.descuentonumero = 0.14;
-        this.calculartotalsubivades();
-        break;
-      default:
-        this.descuentonumero = 0;
-        
-        break;
-    }
+    
+if(this.descuentoSeleccionado.descuento===undefined ){
+  this.descuentonumero = 0;
+}else{
+
+  this.descuentonumero=this.descuentoSeleccionado.descuento;
+  console.log(this.descuentoSeleccionado.descuento);
+  this.calculartotalsubivades();
+}
   }
-  seleccionarEmpresa() {
-    // La variable 'empresaSeleccionada' se actualizará automáticamente al seleccionar una opción en el combobox
-    console.log('Empresa seleccionada:', this.empresaSeleccionada);
-  }
+  
 crearventa(){
   console.log(this.empresaSeleccionada);
   console.log(this.personaOrden);
