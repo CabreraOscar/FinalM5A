@@ -6,7 +6,7 @@
     width: 0px;
     background-color: #f2f2f2;
     padding: 15px;
-    width: 200px;
+    width: 210px;
     background-color: #0b5ad1;
     margin-left: -121px; 
     margin-top: 49px;
@@ -15,53 +15,85 @@
   .sidebar:hover {
   width: 245px;
   transition: width 0.3s ease-in-out;
-}
-  .button-container {
-    padding: 5px;
-    border-bottom: 1px solid #ffffff; /* Agregar una línea divisoria inferior */
-  }
-  .button-container:last-child {
-    border-bottom: none; /* Quitar la línea divisoria inferior del último contenedor */
-  }
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    border: #b8babbfd;
-    
-  }
-  
-  .button {
-    margin-bottom: 10px;
-  }
-  
 
-  .button {
-    display: block;
-    width: 90%;
-    padding: 25px;
-    border: none;
-    background-color: transparent;
-    text-align: left;
-    cursor: pointer;
-    height: 77px;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.button-container:last-child {
+  border-bottom: none;
+}
+.button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 77px;
+  padding: 0px 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover .button-icon {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 10px rgb(255, 255, 255);
+}
+
+.button-icon-circle {
+  border-radius: 50%;
+  border: 2px solid #000000; /* Cambia este valor por el color de borde que desees */
+}
+
+.button-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.button-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-navbar-color {
+  background-color: #000000; /* Cambia este valor por el color que desees */
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.animated-image {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  .button:hover {
-    background: linear-gradient(to bottom, #5c8dce, #5c8dce);
-    background: linear-gradient(to bottom, #5c8dce, #5c8dce);
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-5px);
+  50% {
+    transform: scale(1.2);
   }
-  .custom-navbar-color {
-    background-color: #000000;
-     /* Cambia este valor por el color que desees */
+  100% {
+    transform: scale(1);
   }
-  .logout-btn {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 20;
-    right: 0;
-  }
-  
-  
+}

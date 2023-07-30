@@ -1,9 +1,42 @@
-.login-block{
-  float:left;
-  width:100%;
-  padding : 170px 0;
+.login-block {
+  float: left;
+  width: 100%;
+  padding: 170px 0;
   position: fixed;
 }
+
+.login-block {
+  background-image: linear-gradient(to bottom, rgb(82, 127, 185), rgb(151, 68, 218), rgb(72, 206, 251));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: color-animation 5s infinite, bg-scale-animation 10s infinite;
+}
+
+@keyframes color-animation {
+  0% {
+    background-image: linear-gradient(to bottom, rgb(56, 197, 188), rgb(39, 50, 145), rgb(0, 6, 57));
+  }
+  50% {
+    background-image: linear-gradient(to bottom, rgb(58, 71, 189), rgb(73, 82, 167), rgb(26, 109, 160));
+  }
+  100% {
+    background-image: linear-gradient(to bottom, rgb(75, 86, 185), rgb(101, 115, 243), rgb(100, 115, 243));
+  }
+}
+
+@keyframes bg-scale-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* .login-block {
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,25 +45,6 @@
   
   
 } */
-.login-block {
-  background-image: linear-gradient(to bottom, rgb(82, 127, 185), rgb(151, 68, 218)rgb(72, 206, 251)ed);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: color-animation 5s infinite;
-}
-
-@keyframes color-animation {
-  0% {
-    background-image: linear-gradient(to bottom, rgb(0, 14, 137), rgb(246, 133, 235), rgb(1, 21, 100));
-  }
-  50% {
-    background-image: linear-gradient(to bottom, rgb(0, 251, 255), rgb(246, 133, 235), rgb(46, 79, 212));
-  }
-  100% {
-    background-image: linear-gradient(to bottom, rgb(246, 133, 235), rgb(46, 79, 212), rgb(0, 251, 255));
-  }
-}
 .login-block label {
   text-align: center;
   font-weight:bold;
@@ -100,4 +114,19 @@
 
 .btn-login:hover {
   transform: rotate(360deg);
+}
+input[type="submit"] {
+  background-color: #02169d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff, 0 0 80px #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
 }

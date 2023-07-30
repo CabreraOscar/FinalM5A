@@ -3,16 +3,49 @@
 <section class="block-pantalla-emple">
       <div class="sidebar">
         <div class="button-container">
-       
-          <button (click)="irAlapaginaempleados()" class="button">Crear Orden</button>
+          
+
+          <button class="button" (click)="irAlapaginaempleados()">
+            <div class="button-content">
+              <img src="assets/imagenes/oradd.png" alt="Crear Orden" class="button-icon button-icon-circle">
+              <div class="button-text">Crear Orden</div>
+            </div>
+          </button>
+      
+          <button class="button" (click)="Ventas()">
+            <div class="button-content">
+              <img src="assets/imagenes/vadd.png"alt="Generar venta" class="button-icon button-icon-circle">
+              <div class="button-text">Generar venta</div>
+            </div>
+          </button>
+          
+          <button class="button" (click)="Venta()">
+            <div class="button-content">
+              <img src="assets/imagenes/rv.png"alt="Reporte de Venta" class="button-icon button-icon-circle">
+              <div class="button-text">Reporte de Venta</div>
+            </div>
+          </button>
+      
+      
+         
+          <!-- <button (click)="irAlapaginaempleados()" class="button">Crear Orden</button>
           <button (click)="Ventas()"class="button">Generar venta</button>
-          <button (click)="Venta()"class="button">Reporte de Venta</button>
+          <button (click)="Venta()"class="button">Reporte de Venta</button> -->
           <button class="button"></button>
           <button class="button"></button>
           <button class="button"></button>
           <button class="button"></button>
           <button class="button"></button>
-          <button (click)="informaciones()" class="button">Información</button>
+          <button class="button" (click)="informaciones()">
+            <div class="button-content">
+              <img src="assets/imagenes/info.png" alt="Información" class="button-icon button-icon-circle">
+              <div class="button-text">Información</div>
+            </div>
+          </button>
+      
+      
+            
+          <!-- <button (click)="informaciones()" class="button">Información</button> -->
         </div>
       </div>
     

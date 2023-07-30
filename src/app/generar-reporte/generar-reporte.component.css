@@ -95,17 +95,36 @@
 }
 
 /* Estilos para la tabla de ventas */
-.table {
-  width: 100%;
+
+.custom-table {
+  background: #ffffff;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideInFromLeft 0.5s ease-in-out;
 }
 
-.table th, .table td {
-  border: 1px solid #ccc;
+.custom-table th,
+.custom-table td {
+  border: 1px solid #000000;
   padding: 8px;
-  text-align: center;
+  text-align: left;
 }
+
+.custom-table th {
+  background-color: #065eb6;
+  color: #000000;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #ffffff;
+}
+
 
 /* Estilos para los botones de la tabla */
 .btn {
@@ -115,7 +134,28 @@
   padding: 8px 16px;
   cursor: pointer;
 }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
 
+.btn img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.btn span {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 14px;
+}
 /* Estilos para el botón de imprimir */
 .btn-print {
   background-color: green;
@@ -223,4 +263,5 @@ body * {
   .imprime {
     page-break-after: always;
   }
+  
 }

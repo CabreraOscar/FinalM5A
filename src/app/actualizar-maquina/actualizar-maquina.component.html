@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
-<h2>Administración de máquinas</h2>
 <section class="actmaquina-block">
-<div class="col-md-6 offset-md-3">
-    <h3 class="text-center">Edición de maquinaria</h3>
+     <div class="container">
+    <h3 class="text-center">Edición de máquina</h3>
     <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
 
         <div class="form-group">
@@ -36,8 +35,20 @@
 
          
       
-          <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
-          <button class="btn btn-danger" routerLink="/maquina-admin" style="margin-left : 10px">Cancelar</button>
+         
+          <button [disabled]= "!empleadoForm.form.valid" class="btn btn-custom">
+            <span class="icon">
+              <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+              <span class="text">Guardar</span>
+            </span>
+          </button>
+       
+          <button type="button" class="btn btn-custom"  routerLink="/maquina-admin" style="margin-left: 10px">
+            <span class="icon">
+              <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+              <span class="text">Cancelar</span>
+            </span>
+          </button>
 
 
     </form>
@@ -45,4 +56,5 @@
 
 
 
-</div></section>
+</div>
+</section>

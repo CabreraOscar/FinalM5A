@@ -15,8 +15,8 @@
   <div class="containeunion">
    
     <div class="container1">
-      <div class="imprime" style="height: 289px; overflow-y: scroll;">
-        <table class="table table-bordered">
+      <div class="imprime" style="height: 225px; overflow-y: scroll;">
+        <table class="custom-table" id="fixed-header">
           <thead>
             <tr>
               <th>Nro Factura</th>
@@ -26,7 +26,8 @@
               <th>Total</th>
               <th>Persona</th>
               <th>Identificación</th>
-               <button class="btn" (click)= "mostrartodasventas()">VER TODAS</button>
+              
+               <td><button class="btn" (click)= "mostrartodasventas()"><span>VER TODAS</span><img src="assets/imagenes/all.png"></button></td>
               
             </tr>
           </thead>
@@ -39,10 +40,9 @@
               <td>{{venta.total}}</td>
               <td>{{venta.personaf.nombrePer}}</td>
               <td>{{venta.personaf.identificacion}}</td>
-              <td><button class="btn" (click)="seleccionarVenta(venta)">Visualizar</button></td>
-              <td><button class="btn" (click)="recargar()">Ocultar</button></td>
-              <td><button class="btn" (click)="imprimirTabla()">Imprimir</button></td>
-              
+              <td><button class="btn" (click)="seleccionarVenta(venta)"><span>Visualizar</span><img src="assets/imagenes/ver.png"></button></td>
+<td><button class="btn" (click)="recargar()"><span>Ocultar</span><img src="assets/imagenes/nover.png"></button></td>
+<td><button class="btn" (click)="imprimirTabla()"><span>Imprimir</span><img src="assets/imagenes/pdf.png"></button></td>
             </tr>
           </tbody>
         </table>
