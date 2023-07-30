@@ -1,5 +1,5 @@
 <h2>Enviar Correo</h2>
-<form (submit)="enviarCorreo()">
+<form (submit)=" enviarCorreoConAdjunto()">
   <div>
     <label for="correoDestinatario">Para:</label>
     <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
@@ -12,5 +12,10 @@
     <label for="contenido">Mensaje:</label>
     <textarea id="contenido" name="contenido" [(ngModel)]="contenido" required></textarea>
   </div>
+  <div>
+    <label for="adjunto">Adjuntar archivo PDF:</label>
+    <input type="file" id="adjunto" name="adjunto" (change)="onFileSelected($event)" accept=".pdf">
+  </div>
+  
   <button type="submit">Enviar</button>
 </form>

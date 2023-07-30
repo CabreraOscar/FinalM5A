@@ -12,18 +12,34 @@ export class EmailComponent {
   correoDestinatario = '';
   asunto = '';
   contenido = '';
+  archivoAdjunto: File | null = null;
 
   constructor(private emailService: EmailService) {}
 
-  enviarCorreo() {
-    this.emailService.enviarCorreo(this.correoDestinatario, this.asunto, this.contenido).subscribe(
-      response => {
-        console.log('Correo enviado exitosamente.');
-      },
-      error => {
-        console.error('Error al enviar el correo:', error);
-      }
-    );
+  enviarCorreoConAdjunto() {
+    if (!this.archivoAdjunto) {
+      console.error('Debe seleccionar un archivo PDF para adjuntar.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(this.archivoAdjunto);
+
+    reader.onload = () => {
+      const contenidoPDFBase64 = reader.result as string;
+      const contenidoCorreo = `${this.contenido}\n\nAdjunto encontrarás el reporte en formato PDF.`;
+      this.emailService.enviarCorreoConAdjunto(this.correoDestinatario, this.asunto, contenidoCorreo, contenidoPDFBase64).subscribe(
+        response => {
+          console.log('Correo con adjunto enviado exitosamente.');
+        },
+        error => {
+          console.error('Error al enviar el correo con adjunto:', error);
+        }
+      );
+    };
   }
 
+  onFileSelected(event: any) {
+    this.archivoAdjunto = event.target.files[0] as File;
+  }
 }

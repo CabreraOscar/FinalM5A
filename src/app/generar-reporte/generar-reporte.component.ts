@@ -23,7 +23,7 @@ export class GenerarReporteComponent implements OnInit {
   personas: Persona[];
   ventas: venta[];
   ventag: venta = new venta();
-
+ 
 
   //variables de venta
   cliente: string = '';
@@ -46,7 +46,7 @@ export class GenerarReporteComponent implements OnInit {
   correoDestinatario: string = '';
   currentDate: string;
   factura: any = null;
-
+  facturas: venta | null = null;
   
 
   constructor(private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
@@ -196,7 +196,65 @@ mostrartodasventas(){
   }
 
   
+ 
+  selectVenta(ventaselect: venta) {
+    this.factura = ventaselect; // Almacena la factura seleccionada en this.factura
+    this.cliente = this.factura.personaf.nombrePer;
+    this.tipoPago = this.factura.tipoPago;
+    this.fecha = this.factura.fecha;
+    this.iva = this.factura.iva;
+    this.subtotal = this.factura.subtotal;
+    this.total = this.factura.total;
+    this.correop = this.factura.personaf.correo;
+    this.direccion = this.factura.personaf.direccion;
+    this.identificacion = this.factura.personaf.identificacion;
+    this.telefonop = this.factura.personaf.telefono;
+    this.nombre = this.factura.configEmpresa.nombreEmpresa;
+    this.ruc = this.factura.configEmpresa.ruc;
+    this.telefonoe = this.factura.configEmpresa.telefono;
+    this.ubicacion = this.factura.configEmpresa.ubicacion;
   
+  }
+  
+  enviarCorreoConAdjunto() {
+    // Verifica que haya una factura seleccionada antes de enviar el correo
+    if (!this.factura) {
+      console.error('Error: No se ha seleccionado ninguna factura.');
+      return;
+    }
+    
+    const contenidoCorreo = `
+        Comprobante de Pago 
+        Nombre de Empresa: ${this.nombre}
+        RUC : ${this.ruc} 
+        Teléfono : ${this.telefonoe} 
+        Ubicación : ${this.ubicacion}
+        Fecha: ${this.fecha}
+        Cliente: ${this.cliente}
+        Identificacion${this.identificacion}
+        Correo: ${this.correop}
+        Teléfono: ${this.telefonop}
+        Dirección: ${this.direccion}
+        Tipo de Pago: ${this.tipoPago}
+        IVA: ${this.iva}
+        Subtotal: ${this.subtotal}
+        Total: ${this.total}
+        
+
+       
+      `;
+  
+      // Llama al servicio EmailService para enviar el correo con adjunto
+      this.emailService.enviarCorreoConAdjunto(this.correoDestinatario, 'Datos del Reporte', contenidoCorreo, this.factura).subscribe(
+        response => {
+          console.log('Correo con adjunto enviado exitosamente.');
+        },
+        error => {
+          console.error('Error al enviar el correo con adjunto:', error);
+        }
+      );
+    }
+
   
 
   obtenerOrdenes() {
