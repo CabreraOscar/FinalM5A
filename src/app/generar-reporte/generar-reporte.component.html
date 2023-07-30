@@ -2,7 +2,7 @@
     /* Estilos para ocultar el contenido que no se imprimirá */
     @media print {
       .clases,
-      .factura-profesional:not(.ventana-flotante) {
+      .factura-profesional:not(.ventanaFactura) {
         display: none;
       }
     }
@@ -43,7 +43,7 @@
               <td><button class="btn" (click)="seleccionarVenta(venta)"><span>Visualizar</span><img src="assets/imagenes/ver.png"></button></td>
 <td><button class="btn" (click)="recargar()"><span>Ocultar</span><img src="assets/imagenes/nover.png"></button></td>
 <td><button class="btn" (click)="imprimirTabla()"><span>Imprimir</span><img src="assets/imagenes/pdf.png"></button></td>
-<td><button class="btn" (click)="selectVenta(venta)">Envia a email</button></td>
+<td><button class="btn" (click)="selectVenta(venta)">Envia a email</button>
            
 </tr>
           </tbody>
@@ -52,17 +52,7 @@
        </div>
       </div> 
     </div>
-    <h2>Enviar Correo</h2>
-    <form (submit)="enviarCorreoConAdjunto()">
-      <div>
-        <label for="correoDestinatario">Para:</label>
-        <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
-      </div>
-      <!-- Agrega otros campos del formulario si es necesario -->
-      <!-- ... -->
-  
-      <button type="submit">Enviar</button>
-    </form>
+    
     <div id="ventanaFactura" class="factura-profesional" *ngIf="mostrarDetalleVenta">
         <h2>Comprobante</h2>
         <div class="info-empresa">
@@ -109,6 +99,18 @@
   
         
       </div>
+      <div *ngIf="mostrarFormularioCorreo">
+        <h2>Enviar Correo</h2>
+        <form (submit)="enviarCorreoConAdjunto()">
+          <div>
+        <label for="correoDestinatario">Ingrese el Email: </label>
+        <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
+      </div>
+        </form>
+      </div>
+      
+     
+    
     </div>
  
   

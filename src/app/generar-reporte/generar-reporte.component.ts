@@ -48,7 +48,8 @@ export class GenerarReporteComponent implements OnInit {
   currentDate: string;
   factura: any = null;
   facturas: venta | null = null;
-  
+  mostrarFormularioCorreo: boolean = true;
+
 
   constructor(private emailService: EmailService, private ordenesService: OrdenesService, private ventasService: VentasService, private AllScripts: AllScriptServiceService) {
     const today = new Date();
@@ -86,22 +87,27 @@ mostrartodasventas(){
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo);
   }
   imprimirTabla() {
+    this.mostrarFormularioCorreo = false;
     // Oculta todo el contenido adicional que no deseas imprimir
-    const contenidoAdicional: HTMLElement | null = document.querySelector('.imprime' && '.clases' && '.imprime');
+    const contenidoAdicional: HTMLElement | null = document.querySelector('.imprime');
     if (contenidoAdicional) {
       contenidoAdicional.style.display = 'none';
-    
+     
     }
     
     // Activar la función de impresión del navegador
     window.print();
-
+  
     // Vuelve a mostrar el contenido oculto después de imprimir
     if (contenidoAdicional) {
       contenidoAdicional.style.display = 'block';
     }
+  
+    // Oculta el formulario
     
   }
+  
+  
   
 
 
@@ -121,6 +127,7 @@ mostrartodasventas(){
  }
   
   seleccionarVenta(ventaselect: venta) {
+    
     this.ventag = ventaselect;
     this.cliente = this.ventag.personaf.nombrePer;
     this.tipoPago = this.ventag.tipoPago;
@@ -145,7 +152,7 @@ mostrartodasventas(){
     this.ordenesService.obtenerOrdenporVenta(this.id).subscribe(dato => {
       this.ordenes = dato;
     });
-
+    this.mostrarFormularioCorreo = false;
     this.mostrarDetalleVenta = true; 
   }
 
@@ -228,6 +235,7 @@ mostrartodasventas(){
         confirmButtonText: 'Aceptar'
       });
       return;
+      
     }
     
     const contenidoCorreo = `
@@ -254,7 +262,7 @@ mostrartodasventas(){
       this.emailService.enviarCorreoConAdjunto(this.correoDestinatario, 'Datos del Reporte', contenidoCorreo, this.factura).subscribe(
         response => {
           // Mostrar el Swal Alert de éxito
-          Swal.fire('Correo enviado', 'El correo con adjunto se envió exitosamente.', 'success');
+          Swal.fire('Correo enviado', 'El correo  se envió exitosamente.', 'success');
           console.log('Correo se a enviado exitosamente.');
         },
         error => {
