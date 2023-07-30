@@ -10,15 +10,16 @@
 }
 
 .pedido-block {
+  width: 88vw;
+ 
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    margin-left: 165px;
-    padding: 206px;
-    display: block;
+
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 177.5px;
+  padding: 149.4px;
      /* Gradiente animado */
      background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
      background-size: 200% 200%;
@@ -141,4 +142,16 @@
   100% {
     transform: translateX(0);
   }
+}
+#fixed thead {
+  position: sticky;
+  top: -1px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* Set table height and enable scrolling */
+#fixed {
+  height: 225px;
+  overflow-y: scroll;
 }

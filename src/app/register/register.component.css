@@ -1,10 +1,31 @@
+
 .register-block {
-  width: 100%;
-  padding: 202px;
-  background: linear-gradient(#3b88af, #265779);
+  width: 88vw;
+ 
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 177.5px;
+  padding: 161.1px;
+ 
+   /* Gradiente animado */
+   background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
+   background-size: 200% 200%;
+   animation: gradientAnimation 7s infinite;
+}
+@keyframes gradientAnimation {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
 }
 
 @media (max-width: 768px) {
@@ -16,13 +37,6 @@
   font-weight: bold;
 }
 
-body {
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  width: 40%;
-  height: 30%;
-  margin: 100px auto;
-}
 
 #search-form button[type="submit"] {
   background-color: #1e88e5;
@@ -35,19 +49,33 @@ body {
 }
 
 .table-bordered {
-  background: #f2f2f2;
-  border-radius: 5px;
+  background: #f1efef;
+  border-radius: 10px;
   width: 40%;
   height: 30%;
-  margin: 20px auto;
+  margin-bottom: -20%;
+  position: absolute;
+  margin-left: 25%;
+}
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: left;
 }
 
 .container {
-  background: #f2f2f2;
+  background: #0b0b0b;
   border-radius: 10px;
   width: 40%;
   height: 40%;
-  margin: 50px auto;
+  margin-left: -5%;
+}
+.form-group {
+  color: rgb(251, 251, 255);
+}
+.text-center{
+  color: rgb(251, 251, 255);
 }
 
 .register-sec {
@@ -75,17 +103,21 @@ body {
 }
 
 .btn-login {
-  background: #0069c0;
-  color: #fff;
-  font-weight: 600;
+  background: linear-gradient(to bottom, #1c25d7 0%, #4832eb 100%);
+  border: none;
+  color: white;
   padding: 10px 20px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px;
 }
-
 .btn-login:hover {
-  background-color: #005cb2;
+  background: linear-gradient(to bottom, #ba9fce 0%, #9b4dca 100%);
+  box-shadow: 0px 1px 1px rgba(121, 9, 9, 0.754);
 }
 
 .btn-icon {

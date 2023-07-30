@@ -161,3 +161,15 @@ h1.aligned-right {
   background-color: white;
 }
 
+#fixed thead {
+  position: sticky;
+  top: -1px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* Set table height and enable scrolling */
+#fixed {
+  height: 225px;
+  overflow-y: scroll;
+}
