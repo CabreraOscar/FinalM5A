@@ -38,12 +38,13 @@
       </div>
 
     </div>
-    <label>Persona Seleccionada</label>
+    
+    <label class="form-group">Persona Seleccionada</label>
     <table *ngIf="selectedPersona">
 
       <tbody>
         <tr>
-          <td>{{ selectedPersona.nombrePer }}</td>
+          <td class="form-group">{{ selectedPersona.nombrePer }}</td>
 
         </tr>
       </tbody>
@@ -55,7 +56,7 @@
           <span class="text-danger" *ngIf="errorMessage">
             <p [innerText]="errorMessage"></p>
           </span>
-          <input type="submit" class="btn btn-login float-right" value="Register" (click)="validardatos()">
+          <input type="submit" class="btn btn-login float-right" value="Registrar" (click)="validardatos()">
         </div>
         <div class="clearfix"></div>
         <div class="form-group">
@@ -71,17 +72,17 @@
       <thead>
         <tr>
           <th colspan="3">
-            <h5>Personas</h5>
+            <h5 >Selección de rol para la persona</h5>
             <form id="search-form" #miFormulario="ngForm" style="margin-bottom: 10px;">
               <div class="input-group">
                 <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
                   placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
                   style="width: 80px;">
-                  <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">
+                  <button class="btn btn-login -secondary" type="button" (click)="buscarporcedula()">
                     <img src="assets/imagenes/buscar.png" class="btn-icon">
                     Buscar
                   </button>
-                  <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">
+                  <button class="btn btn-login -secondary" type="button" (click)="obtenerPersona()">
                     <img src="assets/imagenes/cancelar.png" class="btn-icon">
                     Cancelar
                   </button>
@@ -92,6 +93,7 @@
         <tr>
           <th>Nombre</th>
           <th>Cédula</th>
+          <th>Seleccionar</th>
 
         </tr>
       </thead>
@@ -101,9 +103,9 @@
           <td>{{persona.nombrePer }}</td>
           <td>{{persona.identificacion }}</td>
           <td>
-            <button class="btn btn-info" (click)="seleccionarPersona(persona)">
+            <button class="btn btn-login " (click)="seleccionarPersona(persona)">
               <img src="assets/imagenes/sele.png" alt="Icono de selección" style="vertical-align: middle; margin-right: 5px; width: 30px;">
-              Seleccionar
+            
             </button>
           </td>
         </tr>

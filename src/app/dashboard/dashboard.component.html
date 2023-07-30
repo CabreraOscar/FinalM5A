@@ -1,44 +1,46 @@
   <app-navbar></app-navbar>
  
-    <section class="home-block">
-      <h1>Bienvenido a LAVATEC</h1>
-      <div class="container">
-       
-        <div class="image-container">
-          <img src="assets/imagenes/logo.png" alt="Imagen 1">
-          <img src="assets/imagenes/tec.png" alt="Imagen 2">
-          <!-- Agrega más imágenes aquí según sea necesario -->
+  <section class="home-block">
+   
+      <h2>Bienvenido a LAVATEC</h2>
+      <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-      </div>
-    </section>
-  
-
-
- <!--
- <body>
-
-<main role="main" class="container mt-5">
-  <div class="container">
-    <div class="text-center mt-5">  
-    </div>
-    <div class="container">
-      <div class="sidebar">
-        <div class="button-container">
-          <button class="button" (click)="RegistraCliente()">Registrar Cliente</button>
-          <button class="button" (click)="RegistraMaquina()">Administración Máquinas</button>
-          <button class="button" (click)="Venta()">Reporte Ventas</button>
-          <button class="button" (click)="Orden()">Revisar Órdenes</button>
-          <button class="button" (click)="Config()">Configuración Empresa</button>
-          <button class="button" (click)="CrearEmple()">Crear Empleado</button>
-          <button class="button" (click)="AdminServicio()">Administrar Servicios</button>
+        <div class="container">
+        <div class="carousel-inner">
+          
+          <div class="carousel-item active" data-bs-interval="10000">
+            <h4>Manual de usuario</h4>
+            <a href="https://drive.google.com/file/d/1CISPgacBkXdPgUxuCz8O70bbU_YNHlwz/view?usp=sharing" target="_blank">
+              
+              <img src="assets/imagenes/MA.png" class="d-block w-100" alt="...">
+             
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="" target="_blank">
+              <img src="assets/imagenes/ca.png"  class="d-block w-100" alt="...">
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="" target="_blank">
+              <img src="assets/imagenes/MA.png"  class="d-block w-100" alt="...">
+            </a>
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        
+        </button>
       </div>
-      <div class="content">
-        <h3>Pagina Principal</h3>
-      </div>
+      
     </div>
-    
-  </div>
-</main>
-</body>
--->
+    <a href="/register" class="btn btn-primary">Regístrar usuarios</a>
+  </section>

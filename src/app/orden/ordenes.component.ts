@@ -21,6 +21,7 @@ export class OrdenesComponent implements OnInit {
   personas: Persona[];
   ventas: venta[];
   ordenesO: orden = new orden;
+ 
   constructor(private auth:AuthService, private ordenesService: OrdenesService, private router: Router, private route: ActivatedRoute, private AllScripts: AllScriptServiceService) {
     AllScripts.Cargar(["default/ventanas"]);
   }
@@ -39,7 +40,16 @@ export class OrdenesComponent implements OnInit {
   obtenerOrdenes() {
     this.ordenesService.getOrdenes().subscribe(dato => {
       this.ordenes = dato;
+      
     });
+  }
+  limpiarYRecargar() {
+    // Implement the logic to clear the date fields and reload the page.
+    this.inputValue = '';
+   
+
+    // Reload the page using JavaScript's location.reload() method.
+    window.location.reload();
   }
 
 
@@ -52,6 +62,7 @@ export class OrdenesComponent implements OnInit {
     const valor: string = this.inputValue;
     this.ordenesService.obtenerPersonaPoridentificacion(valor).subscribe(dato => {
       this.ordenes = dato;
+    
     });
 
   }
