@@ -7,6 +7,7 @@ import { VentasService } from '../_services/ventas.service';
 import { AllScriptServiceService } from '../all-script-service.service';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { EmailService } from '../_services/email.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -219,7 +220,13 @@ mostrartodasventas(){
   enviarCorreoConAdjunto() {
     // Verifica que haya una factura seleccionada antes de enviar el correo
     if (!this.factura) {
-      console.error('Error: No se ha seleccionado ninguna factura.');
+      // Muestra una alerta de error utilizando SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No se ha seleccionado ninguna factura.',
+        confirmButtonText: 'Aceptar'
+      });
       return;
     }
     
@@ -244,13 +251,16 @@ mostrartodasventas(){
        
       `;
   
-      // Llama al servicio EmailService para enviar el correo con adjunto
       this.emailService.enviarCorreoConAdjunto(this.correoDestinatario, 'Datos del Reporte', contenidoCorreo, this.factura).subscribe(
         response => {
-          console.log('Correo con adjunto enviado exitosamente.');
+          // Mostrar el Swal Alert de éxito
+          Swal.fire('Correo enviado', 'El correo con adjunto se envió exitosamente.', 'success');
+          console.log('Correo se a enviado exitosamente.');
         },
         error => {
-          console.error('Error al enviar el correo con adjunto:', error);
+          // Mostrar el Swal Alert de error
+          Swal.fire('Error', 'Ocurrió un error al enviar el correo.', 'error');
+          console.error('Error al enviar el correo:', error);
         }
       );
     }
