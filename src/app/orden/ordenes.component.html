@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
     <div class="container" >
-   <h1>Lista órdenes</h1>
+   <h1 class="text-center">Lista órdenes</h1>
     <div class="buscar">
         <form id="search-form" #miFormulario="ngForm">
-            <label for="search-client">Buscar cliente:</label>
+            <label for="search-client" class="text-center">Buscar cliente:</label>
             <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="cédula" (blur)="verificarInput()">
 
             
@@ -44,9 +44,13 @@
                 <td>{{orden.personaO.identificacion}}</td>
                 <td>{{orden.venta.idVenta}}</td>
                 <td>
+                    <button type="button" class="btn btn-custom"  style="margin-left: 10px">
+                        <span class="icon">
                     <img src="assets/imagenes/ver.png" alt="Imagen de venta" 
                     (click)="verOrden(orden.idOrden)"
                          style="width: 40px; height: 40px;" />
+                        </span>
+                    </button>
                   </td>
                
             </tr>

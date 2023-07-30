@@ -2,24 +2,22 @@
 
 <section class="admin-block">
 <div class="container" >
-    <h1>Administración de clientes</h1>
+  <h1 class="text-center">Administración de clientes</h1>
     <table class="table table-striped">
-        <div style="height: 225px; overflow-y: scroll;">
+      <div style="height: 225px; overflow-y: scroll;">
         <table class="custom-table" id="fixed-header">
-              <thead>
+          <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Cédula</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-                
-                
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+              <th>Cédula</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <tr *ngFor="let persona of persona">
                 <td>{{ persona.nombrePer }}</td>
                 <td>{{ persona.direccion }}</td>

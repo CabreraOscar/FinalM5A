@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <section class="actualizar-block">
-  <h2>Administración de Clientes</h2>
-  <div class="col-md-6 offset-md-3">
+  <div class="container">
+  <h3 class="text-center" >Edición de Clientes</h3>
+ 
     <form (ngSubmit)="onSubmit()" #empleadoForm="ngForm">
 
       <div class="form-group">
@@ -35,14 +36,26 @@
       </div>
 
 
-      <button class="btn btn-success" [disabled]="!empleadoForm.form.valid">Guardar</button>
-      <button class="btn btn-danger" routerLink="/lista-persona" style="margin-left : 10px">Cancelar</button>
+     
+      <button class="btn btn-success" [disabled]="!empleadoForm.form.valid" class="btn btn-custom">
+        <span class="icon">
+          <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+          <span class="text">Guardar</span>
+        </span>
+       
+      </button>
 
+      <button type="button" class="btn btn-custom" routerLink="/lista-persona" style="margin-left: 10px">
+        <span class="icon">
+          <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+          <span class="text">Cancelar</span>
+        </span>
+      </button>
 
     </form>
 
 
 
-
   </div>
+ 
 </section>

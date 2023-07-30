@@ -1,40 +1,75 @@
 .registr-servicio-block { 
- background-image: linear-gradient(to top, #4d01c7 0%, #3084f1 100%);
- margin: 0;
-  padding: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   margin-left: 165px;
   padding: 166px;
   display: block;
+   /* Gradiente animado */
+   background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
+   background-size: 200% 200%;
+   animation: gradientAnimation 7s infinite;
+}
+@keyframes gradientAnimation {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
 }
 .btn-custom {
-  background-color: #d35dd300;
-  color: #fff;
-  border-radius: 1px;
+  background: linear-gradient(to bottom, #1c25d7 0%, #4832eb 100%);
   border: none;
-  padding: 5px 5px;
-  font-size: 13px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 50px;
 }
 
 .btn-custom:hover {
-  background-color: #7533a4;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #ba9fce 0%, #9b4dca 100%);
+  box-shadow: 0px 1px 1px rgba(121, 9, 9, 0.754);
 }
-
+.form-group {
+  color: rgb(251, 251, 255);
+}
+.text-center{
+  color: rgb(251, 251, 255);
+}
+.container{
+  margin-top: -70px;
+ width: 45%; 
+  border-radius: 20px;
+  background-color: #1d1c2b;
+ } 
 .icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 1px;
-  transition: transform 0.3s ease-in-out;
+display: inline-block;
+vertical-align: middle;
+margin-right: 1px;
+transition: transform 0.3s ease-in-out;
 }
 
 .btn-custom:hover .icon {
-  transform: scale(1.2);
+transform: scale(1.2);
 }
 
 .text {
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: bold;
+display: inline-block;
+vertical-align: middle;
+font-weight: bold;
+
 }
+
+@media (max-width: 768px) {}

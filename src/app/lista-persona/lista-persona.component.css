@@ -1,4 +1,4 @@
-.admin-block {
+/* .admin-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,17 +10,55 @@
   padding: 190px;
   display: block;
   }
+   */
+   .admin-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 165px;
+    padding: 190px;
+    display: block;
+    
+    /* Gradiente animado */
+    background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
+    background-size: 200% 200%;
+    animation: gradientAnimation 7s infinite;
+  }
   
-.btn-custom {
-  background-color: #d35dd300;
-  color: #fff;
-  border-radius: 1px;
-  border: none;
-  padding: 5px 5px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .btn-custom {
+    background: linear-gradient(to bottom, #1c25d7 0%, #4832eb 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  .text-center{
+    color: rgb(251, 251, 255);
+  }
+  .btn-custom:hover {
+    background: linear-gradient(to bottom, #ba9fce 0%, #9b4dca 100%);
+    box-shadow: 0px 1px 1px rgba(242, 232, 232, 0.795);
+  }
 .container{
 text-align: center;
 }
@@ -41,7 +79,7 @@ text-align: center;
   font-weight: bold;
 }
 .table-container {
-  position: fixed;
+ 
   top: 50px;
   left: 0;
   right: 0;
@@ -51,7 +89,7 @@ text-align: center;
   background: #ffffff;
   border-collapse: collapse;
   width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px rgba(255, 253, 253, 0.68);
   overflow: hidden;
   animation: slideInFromLeft 0.5s ease-in-out;
 }
@@ -64,8 +102,8 @@ text-align: center;
 }
 
 .custom-table th {
-  background-color: #065eb6;
-  color: #000000;
+  background-color: #0d0d0d;
+  color: #ffffff;
 }
 
 .custom-table tbody tr:nth-child(even) {

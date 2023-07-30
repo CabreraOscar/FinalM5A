@@ -2,9 +2,9 @@
 <section class="pedido-block">
   <div class="container" >
 
-  <h1>Lista de ventas</h1>
+    <h1 class="text-center">Lista de ventas</h1>
   <form id="search-form" #miFormulario="ngForm">
-    <label for="search-fecha">Búsqueda de fecha:</label>
+    <label for="search-fecha"  class="text-center">Búsqueda de fecha:</label>
     <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" placeholder="Fecha de inicio" (blur)="verificarInput()">
     <input type="date" [(ngModel)]="fechaFin" name="fechaFin" placeholder="Fecha de fin" (blur)="verificarInput()">
 
@@ -23,7 +23,7 @@
     </button>
 
   <div class="total">
-    <h3>Total de ventas: $ {{total | number}}</h3>
+    <h3 class="text-center">Total de ventas: $ {{total | number}}</h3>
   </div>
   </form>
 
@@ -56,9 +56,13 @@
         <td>{{venta.configEmpresa.nombreEmpresa}}</td>
        
         <td>
+          <button type="button" class="btn btn-custom" >
+            <span class="icon">
           <img src="assets/imagenes/ver.png" alt="Imagen de venta" 
                (click)="verVenta(venta.idVenta)" 
                style="width: 40px; height: 40px;" />
+              </span>
+            </button>
         </td>
       </tr>
     </tbody>

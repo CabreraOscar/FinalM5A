@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <section class="pedido-block">
-    <h1>Configuración de la empresa</h1>
     <div class="container">
+        <h3 class="text-center">Configuración de la empresa</h3>
         <div class="form-group">
             <label >Nombre de la empresa:</label>
             <input type="text"  class="form-control" id="nombreEmpresa" 
@@ -35,8 +35,20 @@
              placeholder="Ingrese el iva" #iva="ngModel" required step="0.01">
         </div>
         
-
-        <button class="btn btn-success" (click)="onSubmit()">Guardar</button>
-        <button class="btn btn-danger" routerLink="/config-empresa">Cancelar</button>
+   
+    <button  (click)="onSubmit()" class="btn btn-custom">
+        <span class="icon">
+          <img src="assets/imagenes/save.png" alt="Imagen de búsqueda">
+          <span class="text">Guardar</span>
+        </span>
+       
+      </button>
+   
+        <button type="button" class="btn btn-custom" routerLink="/config-empresa"style="margin-left: 10px">
+            <span class="icon">
+              <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+              <span class="text">Cancelar</span>
+            </span>
+          </button>
     </div>
 </section>
