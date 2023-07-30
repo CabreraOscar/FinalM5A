@@ -1,0 +1,16 @@
+<h2>Enviar Correo</h2>
+<form (submit)="enviarCorreo()">
+  <div>
+    <label for="correoDestinatario">Para:</label>
+    <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
+  </div>
+  <div>
+    <label for="asunto">Asunto:</label>
+    <input type="text" id="asunto" name="asunto" [(ngModel)]="asunto" required>
+  </div>
+  <div>
+    <label for="contenido">Mensaje:</label>
+    <textarea id="contenido" name="contenido" [(ngModel)]="contenido" required></textarea>
+  </div>
+  <button type="submit">Enviar</button>
+</form>

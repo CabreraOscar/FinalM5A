@@ -35,6 +35,7 @@ import { ClienteAdEmpleadoComponent } from './cliente-ad-empleado/cliente-ad-emp
 import { GenerarReporteComponent } from './generar-reporte/generar-reporte.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { InformacioneComponent } from './informacione/informacione.component';
+import { EmailComponent } from './email/email.component';
 const routes:Routes = [
   {path:'',component:HomeComponent },
   {path:'register',component:RegisterComponent},
@@ -83,6 +84,7 @@ const routes:Routes = [
   { path: 'cliente-ad-empleado', component: ClienteAdEmpleadoComponent},
   { path: 'informacion', component: InformacionComponent},
   { path: 'informacione', component: InformacioneComponent},
+  { path: 'email', component: EmailComponent},
 ]
 
 @NgModule({
@@ -117,7 +119,8 @@ const routes:Routes = [
    GenerarReporteComponent,
    ClienteAdEmpleadoComponent,
    InformacionComponent,
-   InformacioneComponent
+   InformacioneComponent,
+   EmailComponent
    
 
 

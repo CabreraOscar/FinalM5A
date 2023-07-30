@@ -74,24 +74,6 @@ mostrartodasventas(){
 }
 
 
-  ngAfterViewInit(): void {
-    this.enviarFacturaPorEmail();
-  }
-
-  enviarFacturaPorEmail() {
-    console.log('Se ha llamado al método enviarFacturaPorEmail()');
-  
-    // Aquí puedes definir el contenido que deseas enviar por correo
-    const contenidoCorreo = '<h1>Hola, este es un mensaje de saludo enviado por correo.</h1>';
-  
-    // Verifica que se haya ingresado un correo válido antes de enviar el correo
-    if (this.validarCorreo(this.correoDestinatario)) {
-      // Llama al método del servicio para enviar el correo con el contenido deseado
-      this.emailService.enviarFacturaPorCorreo(this.correoDestinatario, 'Asunto del Correo', contenidoCorreo);
-    } else {
-    
-    }
-  }
   
 
 
