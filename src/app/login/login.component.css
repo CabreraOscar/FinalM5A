@@ -1,23 +1,16 @@
-.login-block{
-  float:left;
-  width:100%;
-  padding : 170px 0;
+.login-block {
+  float: left;
+  width: 100%;
+  padding: 170px 0;
   position: fixed;
 }
-/* .login-block {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('../../assets/imagenes/fondo.gif');
-  
-  
-} */
+
 .login-block {
-  background-image: linear-gradient(to bottom, rgb(82, 127, 185), rgb(151, 68, 218)rgb(72, 206, 251)ed);
+  background-image: linear-gradient(to bottom, rgb(82, 127, 185), rgb(151, 68, 218), rgb(72, 206, 251));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  animation: color-animation 5s infinite;
+  animation: color-animation 5s infinite, bg-scale-animation 10s infinite;
 }
 
 @keyframes color-animation {
@@ -31,6 +24,27 @@
     background-image: linear-gradient(to bottom, rgb(75, 86, 185), rgb(101, 115, 243), rgb(100, 115, 243));
   }
 }
+
+@keyframes bg-scale-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* .login-block {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../assets/imagenes/fondo.gif');
+  
+  
+} */
 .login-block label {
   text-align: center;
   font-weight:bold;
