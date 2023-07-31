@@ -30,7 +30,7 @@
 text-align: center;
 }
 .btn-custom {
-  background: linear-gradient(to bottom, #1c25d7 0%, #4832eb 100%);
+    background: linear-gradient(to bottom, #5458a1 0%, #494fb4 100%);
   border: none;
   color: white;
   padding: 10px 20px;
@@ -90,7 +90,7 @@ text-align: center;
 }
 
 .custom-table th {
-  background-color: #0c0c0c;
+  background-color: #262525;
   color: #fdfbfb;
 }
 

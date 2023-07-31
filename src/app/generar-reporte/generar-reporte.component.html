@@ -16,7 +16,7 @@
    
     <div class="container1">
       <div class="imprime" style="height: 225px; overflow-y: scroll;">
-        <table class="custom-table" id="fixed-header">
+        <table class="custom-table" id="fixed">
           <thead>
             <tr>
               <th>Nro Factura</th>
@@ -26,8 +26,12 @@
               <th>Total</th>
               <th>Persona</th>
               <th>Identificación</th>
+              <th>Visualizar</th>
+              <th>Ocultar</th>
+              <th>Imprimir</th>
+              <th>Enviar al correo</th>
               
-               <td><button class="btn" (click)= "mostrartodasventas()"><span>VER TODAS</span><img src="assets/imagenes/all.png"></button></td>
+               <th><button class="btn" (click)= "mostrartodasventas()"><span>Ver ventas</span><img src="assets/imagenes/all.png"></button></th>
               
             </tr>
           </thead>
@@ -42,9 +46,9 @@
               <td>{{venta.personaf.identificacion}}</td>
               <td><button class="btn" (click)="seleccionarVenta(venta)"><span>Visualizar</span><img src="assets/imagenes/ver.png"></button></td>
 <td><button class="btn" (click)="recargar()"><span>Ocultar</span><img src="assets/imagenes/nover.png"></button></td>
-<td><button class="btn" (click)="imprimirTabla()"><span>Imprimir</span><img src="assets/imagenes/pdf.png"></button></td>
-<td><button class="btn" (click)="selectVenta(venta)">Envia a email</button>
-           
+<td><button class="btn" (click)="imprimirTabla()"><img src="assets/imagenes/pdf.png"></button></td>
+<td><button class="btn" (click)="selectVenta(venta)"><img src="assets/imagenes/ema.png"></button></td>
+    
 </tr>
           </tbody>
         </table>
@@ -102,13 +106,14 @@
       <div *ngIf="mostrarFormularioCorreo">
         <form (submit)="enviarCorreoConAdjunto()">
       <div>
-        <label for="correoDestinatario">Ingrese el Email:</label>
+        <label for="correoDestinatario" class="text">Ingrese el Email:</label>
         <input type="email" id="correoDestinatario" name="correoDestinatario" [(ngModel)]="correoDestinatario" required>
       </div>
       <!-- Agrega otros campos del formulario si es necesario -->
       <!-- ... -->
   
-      <button type="submit">Enviar</button>
+
+      <button class="btn " type="submit"><img src="assets/imagenes/enviar.png">Enviar</button>
     </form>
       </div>
         

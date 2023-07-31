@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   position: static;
-
+  padding: 75px;
   /* Gradiente animado */
   background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
   background-size: 400% 400%;
@@ -68,83 +68,112 @@ h2 {
   background: linear-gradient(to bottom, #ba9fce 0%, #9b4dca 100%);
   box-shadow: 0px 1px 1px rgba(242, 232, 232, 0.795);
 }
-/* Estilo para el contenedor del carrusel */
-.carousel {
+.slide {
   position: relative;
-  overflow: hidden; /* Ocultar cualquier contenido que se desborde del carrusel */
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+  margin-top: 26px;
 }
-
-/* Estilo para las imágenes del carrusel */
-.carousel img {
+.slide-inner {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  height: auto;
-  transition: transform 0.3s ease; /* Agregamos la transición al desplazamiento */
+  height: calc( 300px + 3em);
 }
-
-/* Estilo para los controles del carrusel */
-.carousel-control-prev,
-.carousel-control-next {
+.slide-open:checked + .slide-item {
+  position: static;
+  opacity: 100;
+}
+.slide-item {
   position: absolute;
-  top: 85%;
-  transform: translateY(-50%);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+  color:#fff;
+}
+.slide-item img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.slide-control {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 40px;
+  height: 40px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  cursor: pointer;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 40px;
   z-index: 10;
 }
-
-/* Estilo para el ícono de los controles del carrusel */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+.slide-control.prev {
+  left: 2%;
 }
-
-/* Estilo para el botón hover de los controles del carrusel */
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  color: #fff;
+.slide-control.next {
+  right: 2%;
 }
-
-/* Estilo para el botón activo de los controles del carrusel */
-.carousel-control-prev[aria-disabled="true"],
-.carousel-control-next[aria-disabled="true"] {
-  opacity: 0.5;
-  pointer-events: none;
+.slide-control:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #aaaaaa;
 }
-
-.carousel-item.active {
+#slide-1:checked ~ .control-1,
+#slide-2:checked ~ .control-2,
+#slide-3:checked ~ .control-3 {
   display: block;
 }
-
-/* Efecto de desplazamiento horizontal de las imágenes */
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-  transform: translateX(0);
+.slide-indicador {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
 }
-
-.carousel-item-next.carousel-item-left,
-.carousel-item-prev.carousel-item-right {
-  transform: translateX(100%);
+.slide-indicador li {
+  display: inline-block;
+  margin: 0 5px;
 }
-
-.carousel-item-next.carousel-item-right,
-.carousel-item-prev.carousel-item-left {
-  transform: translateX(-100%);
+.slide-circulo {
+  color: #828282;
+  cursor: pointer;
+  display: block;
+  font-size: 35px;
 }
-
-/* Añade las transiciones para el desplazamiento */
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-  transition: transform 0.6s ease;
+.slide-circulo:hover {
+  color: #aaaaaa;
 }
-.container {
-  background: #3b88af;
-  border-radius: 10px;
-  width: auto;
-  padding: 20px;
-  margin: 10px;
- 
-
+#slide-1:checked ~ .control-1 ~ .slide-indicador 
+   li:nth-child(1) .slide-circulo,
+#slide-2:checked ~ .control-2 ~ .slide-indicador 
+    li:nth-child(2) .slide-circulo,
+#slide-3:checked ~ .control-3 ~ .slide-indicador 
+    li:nth-child(3) .slide-circulo {
+  color: #428bca;
+}
+#titulo {
+  width: 100%;
+  position: absolute;
+  padding: 0px;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 27px;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Open Sans', sans-serif;
+  z-index: 9999;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+       -1px 0px 2px rgba(255, 255, 255, 0);
+}
+.text{
+  color: #000;
 }

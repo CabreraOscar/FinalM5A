@@ -12,9 +12,9 @@ h1.aligned-right {
     justify-content: center;
     margin: 0;
     padding: 0;
-    margin-left: 165px;
-    padding: 133px;
-    display: block;
+    margin-left: 189px;
+    padding: 15px;
+    
      /* Gradiente animado */
      background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
      background-size: 200% 200%;
@@ -56,7 +56,7 @@ h1.aligned-right {
 }
 
 .btn-custom {
-  background: linear-gradient(to bottom, #1c25d7 0%, #4832eb 100%);
+  background: linear-gradient(to bottom, #5458a1 0%, #494fb4 100%);
   border: none;
   color: white;
   padding: 10px 20px;
@@ -78,25 +78,14 @@ h1.aligned-right {
 .icon {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 1px;
+  margin-top: 1px;
   transition: transform 0.3s ease-in-out;
-}
-
-
-.btn-custom:hover .icon {
-  transform: scale(1.2);
 }
 
 .text {
   display: inline-block;
   vertical-align: middle;
   font-weight: bold;
-}
-.table-container {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
 }
 
 
@@ -105,38 +94,24 @@ h1.aligned-right {
   background: #ffffff;
   border-collapse: collapse;
   width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  animation: slideInFromLeft 0.5s ease-in-out;
+ 
 }
 
 .custom-table th, .custom-table td {
   border: 1px solid #000000; /* Borde de celda */
-  padding: 7px; /* Espaciado interno */
+  padding: 8px; /* Espaciado interno */
   text-align: left; /* Alineación del texto */
 }
 
 .custom-table th {
-  background-color: #000000;
+  background-color: #262525;
   color: #ffffff;
+  margin-top: -3px;
+
 }
 
-.custom-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
 
-.custom-table tbody tr:hover {
-  background-color: #ffffff;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 .ventana-container {
   position: relative; /* Use relative positioning */
   width: 100%; /* Adjust the width as needed */
@@ -144,19 +119,13 @@ h1.aligned-right {
   z-index: 1; /* Set a higher z-index to ensure it appears above other elements */
 }
 
-/* Styles for the floating window */
-/*.ventana-flotante {
-  position: absolute; 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}*/
+
 #fixed-header {
   position: relative;
 }
 
 #fixed-header thead {
-  position: sticky;
+
   top: 0;
   background-color: white;
 }
@@ -165,7 +134,7 @@ h1.aligned-right {
   position: sticky;
   top: -1px;
   background-color: #fff;
-  z-index: 1;
+ 
 }
 
 /* Set table height and enable scrolling */

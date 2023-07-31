@@ -12,35 +12,49 @@
         <div class="container">
         <div class="carousel-inner">
           
-          <div class="carousel-item active" data-bs-interval="10000">
-            <h4>Manual de usuario</h4>
-            <a href="https://drive.google.com/file/d/1CISPgacBkXdPgUxuCz8O70bbU_YNHlwz/view?usp=sharing" target="_blank">
-              
-              <img src="assets/imagenes/MA.png" class="d-block w-100" alt="...">
-             
-            </a>
-          </div>
-          <div class="carousel-item">
-            <a href="" target="_blank">
-              <img src="assets/imagenes/ca.png"  class="d-block w-100" alt="...">
-            </a>
-          </div>
-          <div class="carousel-item">
-            <a href="" target="_blank">
-              <img src="assets/imagenes/MA.png"  class="d-block w-100" alt="...">
-            </a>
-          </div>
+          <div class="slide-inner">
+           
+            <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+            <div class="slide-item">
+              <a href="/informacion">
+                <h3 class="text">Conócenos</h3>
+                <img src="assets/imagenes/cono.gif">
+              </a>
+            </div>
+            <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="" checked="checked">
+            <div class="slide-item">
+              <a href="/informacion">
+                <h3 class="text">Facebook del local</h3>
+                <img src="assets/imagenes/la.gif">
+              </a>
+            </div>
+            <input class="slide-open" type="radio" id="slide-3" 
+                  name="slide" aria-hidden="true" hidden="">
+            <div class="slide-item">
+                <img src="assets/imagenes/sawe.gif">
+            </div>
+            <label for="slide-3" class="slide-control prev control-1">‹</label>
+            <label for="slide-2" class="slide-control next control-1">›</label>
+            <label for="slide-1" class="slide-control prev control-2">‹</label>
+            <label for="slide-3" class="slide-control next control-2">›</label>
+            <label for="slide-2" class="slide-control prev control-3">‹</label>
+            <label for="slide-1" class="slide-control next control-3">›</label>
+            <ol class="slide-indicador">
+                <li>
+                    <label for="slide-1" class="slide-circulo">•</label>
+                </li>
+                <li>
+                    <label for="slide-2" class="slide-circulo">•</label>
+                </li>
+                <li>
+                    <label for="slide-3" class="slide-circulo">•</label>
+                </li>
+            </ol>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        
-        </button>
-      </div>
+    </div>
+
       
     </div>
+      <div>
     <a href="/register" class="btn btn-primary">Regístrar usuarios</a>
-  </section>
+</div>

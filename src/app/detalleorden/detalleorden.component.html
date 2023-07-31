@@ -7,10 +7,10 @@
     top: 45%;
     left: 48%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: rgb(206, 184, 202);
     width: auto;
     height: auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid black;
     border-radius: 3%;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
@@ -20,11 +20,11 @@
 </style>
 
 <body
-  style=" display: block;float: left; background-image: linear-gradient(to top, #b71cff 0%, #3084f1 100%); width: 100%; height: 100%;">
+  style=" display: block;float: left;">
   <div class="containeunion">
 
     <div class="container1">
-      <h1 style="margin-bottom: 30px;">Detalles de la orden</h1>
+      <h1 style="margin-bottom: 30px;"class="text-center">Detalles de la orden</h1>
       <div class="form-group">
         <label for="cedula" style="margin-right: 10px;">Cédula:</label>
         <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled style="margin-right: 10px;">
@@ -63,11 +63,23 @@
               <input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" class="form-control"
                 placeholder="Ingrese la Cédula" aria-label="Recipient's username with two button addons"
                 (blur)="verificarInput()">
-              <button class="btn btn-outline-secondary" type="button" (click)="buscarporcedula()">Buscar</button>
-              <button class="btn btn-outline-secondary" type="button" (click)="obtenerPersona()">Cancelar</button>
+             
+              <button  (click)="buscarporcedula()" class="btn btn-custom">
+                <span class="icon">
+                  <img src="assets/imagenes/buscar.png" alt="Imagen de búsqueda">
+                  <span class="text">Buscar</span>
+                </span>
+              </button>
+             
+              <button  (click)="obtenerPersona()" class="btn btn-custom">
+                <span class="icon">
+                  <img src="assets/imagenes/cancelar.png" alt="Imagen de búsqueda">
+                  <span class="text">Cancelar</span>
+                </span>
+              </button>
             </div>
           </form>
-          <div class="table table-bordered" style="height: 200px; overflow-y: scroll;">
+          <div class="table table-bordered" style="height: 300px; overflow-y: scroll;">
             <table>
               <thead>
                 <tr>
@@ -82,18 +94,22 @@
                   <td>{{persona.nombrePer }}</td>
                   <td>{{persona.identificacion }}</td>
                   <td>{{persona.telefono }}</td>
+                  <td>
                   <button (click)="seleccionarPersona(persona)" class="btn btn-info">+</button>
+                  </td>
                 </tr>
 
               </tbody>
             </table>
           </div>
-          <button class="btn btn-danger" type="submit" onclick="cerrarVentanaP()">Cerrar</button>
+          <button class="btn btn-info" type="submit" onclick="cerrarVentanaP()">Cerrar</button>
         </div>
       </div>
+       
 
+      
       <div id="ventanas" class="ventana-flotante">
-
+         
         <h5>Listado de Máquinas</h5>
         <div class="table" style="height: 300px; overflow-y: scroll;">
           <table>
@@ -122,11 +138,11 @@
             </tbody>
           </table>
         </div>
-        <button class="btn btn-danger" type="submit" onclick="cerrarVentanaS()">Cerrar</button>
+        <button class="btn btn-info" type="submit" onclick="cerrarVentanaS()">Cerrar</button>
 
       </div>
 
-
+      
       <div id="ventanam" class="ventana-flotante">
         <div>
           <h5>Listado de Servicios</h5>
@@ -157,15 +173,15 @@
               </tbody>
             </table>
           </div>
-          <button class="btn btn-danger" type="submit" onclick="cerrarVentanaM()">Cerrar</button>
+          <button class="btn btn-info" type="submit" onclick="cerrarVentanaM()">Cerrar</button>
         </div>
       </div>
 
-      <div style="border-radius: 10px; padding: 5px; width: 100%;">
-        <div class="table" style="height: 500px; overflow-y: scroll;">
+     
+        <div class="table1" style="height: 450px; overflow-y: scroll;">
           <div style="display: flex; padding: 10px;">
             <h5 style="margin-right:10px;">Cuadro de Selección</h5>
-            <button class="btn btn-danger" (click)="eliminaritems()">Cancelar </button>
+            <button class="btn btn-info" (click)="eliminaritems()">Cancelar </button>
           </div>
           <table>
             <thead>
@@ -184,7 +200,7 @@
                   {{item.precioTotal}}
                 </td>
                 <td>
-                  <button class="btn btn-danger" (click)="eliminaritem(item.idItem)" >QUITAR </button>
+                  <button class="btn btn-info" (click)="eliminaritem(item.idItem)" >Eliminar </button>
               </td>
               </tr>
             </tbody>
@@ -197,9 +213,9 @@
 
 
     <div id="ventanar" class="ventana-flotante">
-      <h3 class="text-center">Registrar Nuevo Cliente</h3>
+      <h3 >Registrar Nuevo Cliente</h3>
       <form #personaForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
+        <div class="form-group1">
           <label for="nombrePer" style="margin-right: 10px;">Nombre:</label>
           <input type="text" class="form-control" id="nombrePer" [(ngModel)]="persona.nombrePer" name="nombrePer"
             required minlength="2" maxlength="50">
@@ -208,7 +224,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group1">
           <label for="direccion" style="margin-right: 10px;">Dirección:</label>
           <input type="text" class="form-control" id="direccion" [(ngModel)]="persona.direccion" name="direccion"
             required maxlength="100">
@@ -217,7 +233,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group1">
           <label for="telefono" style="margin-right: 10px;">Teléfono:</label>
           <input type="text" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono" required
             pattern="[0-9]{7,10}">
@@ -226,7 +242,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group1">
           <label for="correo" style="margin-right: 10px;">Correo:</label>
           <input type="email" class="form-control" id="correo" [(ngModel)]="persona.correo" name="correo" required
             email>
@@ -235,7 +251,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group1">
           <label for="identificacion" style="margin-right: 10px;">Cédula:</label>
           <input type="text" class="form-control" id="identificacion" [(ngModel)]="persona.identificacion"
             name="identificacion" required pattern="[0-9]{10}">
@@ -243,13 +259,13 @@
 
         <!-- <button type="submit" class="btn btn-success" [disabled]="personaForm.invalid">Guardar</button> -->
         <button type="submit" class="btn btn-success" onclick="guardarPersona()"
-          style="background-color: green;">Guardar</button>
-        <button type="button" class="btn btn-danger" onclick="cerrarVentanaR()"
+        class="btn btn-info" >Guardar</button>
+        <button type="button" class="btn btn-info" onclick="cerrarVentanaR()"
           style="margin-left: 10px">Cancelar</button>
       </form>
 
     </div>
 
-  </div>
+
 
 </body>

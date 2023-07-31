@@ -1,22 +1,22 @@
 <app-pantalla-empleado></app-pantalla-empleado>
 <div class="containeunion">
     <div class="container">
-        <h2>Generar Ventas</h2>
+ 
         <div class="sidebar">
-            <h6>Lista de Personas</h6>
+            <h4 class="text-center">Lista de Personas</h4>
             <form id="search-form" #miFormularioP="ngForm">
                 <label for="search-client" style="margin-right: 10px;">Búsqueda de persona:</label>
                 <input type="text" [(ngModel)]="inputValueP" name="miInput" placeholder="Ingrese la Cédula"
                     (blur)="verificarInputP()" style="height: 37px;">
 
-                <button class="btn btn-info" (click)="buscarPersonaPorcedula()" type="button"
+                <button class="btn btn-custom" (click)="buscarPersonaPorcedula()" type="button"
                     style="margin-left: 10px;">Buscar</button>
-                <button class="btn btn-danger" (click)="obtenerPersona()"
+                <button class="btn btn-custom" (click)="obtenerPersona()"
                     style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
             </form>
         </div>
-        <div class="table" style="height: 235px; overflow-y: scroll;">
-            <table>
+        <div style="height: 225px; overflow-y: scroll;">
+            <table class="custom-table" id="fixed"  >
                 <thead>
                     <tr>
                         <th>Nombre </th>
@@ -24,6 +24,7 @@
                         <th>Cédula</th>
                         <th>Dirección</th>
                         <th>Telefono</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,33 +34,34 @@
                         <td>{{persona.identificacion}}</td>
                         <td>{{persona.direccion}}</td>
                         <td>{{persona.telefono}}</td>
-                        <td><button class="btn btn-info" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
+                        <td><button class="btn btn-custom" (click)="seleccionarPersona(persona)">Seleccionar</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="sidebar">
-            <h6>Lista de órdenes</h6>
+            <h4 class="text-center">Lista de órdenes</h4>
             <form id="search-form" #miFormulario="ngForm">
                 <label for="search-client" style="margin-right: 10px;">Búsqueda de órdenes:</label>
                 <input type="text" [(ngModel)]="inputValue" name="miInput" placeholder="Ingrese la Cédula"
                     (blur)="verificarInput()" style="height: 37px;">
 
-                <button class="btn btn-info" (click)="buscarVentaPorCedula()" type="submit"
+                <button class="btn btn-custom" (click)="buscarVentaPorCedula()" type="submit"
                     style="margin-left: 10px;">Buscar</button>
-                <button class="btn btn-danger" (click)="obtenerOrden()"
-                    style="margin-left : 10px;background-color: brown; margin: 10px; width: fit-content;">Cancelar</button>
+                <button class="btn btn-custom" (click)="obtenerOrden()"
+                    style="margin-left : 10px; margin: 10px; width: fit-content;">Cancelar</button>
             </form>
         </div>
-        <div class="table" style="height: 210px; overflow-y: scroll;">
-            <table>
+        <div style="height: 225px; overflow-y: scroll;">
+            <table class="custom-table" id="fixed">
                 <thead>
                     <tr>
                         <th>Número de orden</th>
                         <th>Estado</th>
                         <th>Total de la orden</th>
                         <th>Cédula</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +71,7 @@
                         <td>{{orden.totalOrden}}</td>
                         <td>{{orden.personaO.identificacion}}</td>
                         <td>
-                            <button class="btn"
+                            <button class="btn-custom"
                                 [ngClass]="{'btn-info': !botonesSeleccionados[orden.idOrden], 'btn-danger': botonesSeleccionados[orden.idOrden], 'boton-seleccionado': botonesSeleccionados[orden.idOrden]}"
                                 (click)="cambiarEstadoBoton(orden)">
                                 {{ botonesSeleccionados[orden.idOrden] ? 'Quitar Orden' : 'Seleccionar orden' }}
@@ -85,6 +87,7 @@
     </div>
 
     <div class="container1">
+        <h3 class="text-center">Registro de venta</h3>
         <div class="form-group">
             <label for="empresa" style="margin-right: 10px;">Empresa: </label>
             <select id="empresa" name="empresa"  [(ngModel)]="empresaSeleccionada"
@@ -100,7 +103,7 @@
             <label for="nombre" style="margin-right: 10px;">Cliente:</label>
             <input type="text" id="nombre" name="nombre" [(ngModel)]="clienteV" disabled>
         </div>
-
+        <div class="form-group">
         <ng-container *ngIf="ordenesSeleccionadas.length > 0">
             <label>Órdenes Seleccionadas:
                 <span *ngFor="let orden of ordenesSeleccionadas; let last = last">
@@ -108,8 +111,8 @@
                 </span>
             </label>
         </ng-container>
-
-        <div class="form-combo">
+        </div>
+        <div class="form-group">
             <label for="telefono" style="margin-right: 10px;">Fecha: </label>
             <input type="date" id="telefono" name="telefono" pattern="[0-9]{7,10}" [(ngModel)]="fechaActual">
         </div>
@@ -148,7 +151,7 @@
             <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}"
                 [value]="finalin | number:'1.2-2'" disabled>
         </div>
-        <button (click)="crearventa()" type="submit" class="btn btn-success" style="background-color: green;">Guardar
+        <button (click)="crearventa()" type="submit" class="btn btn-custom" style="background-color: green;">Guardar
             Venta</button>
     </div>
 
