@@ -1,60 +1,20 @@
   <app-navbar></app-navbar>
  
-  <section class="home-block">
+  <section class="admin-block">
    
-      <h2>Bienvenido a LAVATEC</h2>
-      <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="container">
-        <div class="carousel-inner">
+      <h2 class="text-center">Bienvenido a LAVATEC</h2>
+      <base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/wanaka-tree.jpg">
+      <div id="carousel">
+        <figure id="spinner" #spinner>
           
-          <div class="slide-inner">
-           
-            <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
-            <div class="slide-item">
-              <a href="/informacion">
-                <h3 class="text">Conócenos</h3>
-                <img src="assets/imagenes/cono.gif">
-              </a>
-            </div>
-            <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="" checked="checked">
-            <div class="slide-item">
-              <a href="/informacion">
-                <h3 class="text">Facebook del local</h3>
-                <img src="assets/imagenes/la.gif">
-              </a>
-            </div>
-            <input class="slide-open" type="radio" id="slide-3" 
-                  name="slide" aria-hidden="true" hidden="">
-            <div class="slide-item">
-                <img src="assets/imagenes/sawe.gif">
-            </div>
-            <label for="slide-3" class="slide-control prev control-1">‹</label>
-            <label for="slide-2" class="slide-control next control-1">›</label>
-            <label for="slide-1" class="slide-control prev control-2">‹</label>
-            <label for="slide-3" class="slide-control next control-2">›</label>
-            <label for="slide-2" class="slide-control prev control-3">‹</label>
-            <label for="slide-1" class="slide-control next control-3">›</label>
-            <ol class="slide-indicador">
-                <li>
-                    <label for="slide-1" class="slide-circulo">•</label>
-                </li>
-                <li>
-                    <label for="slide-2" class="slide-circulo">•</label>
-                </li>
-                <li>
-                    <label for="slide-3" class="slide-circulo">•</label>
-                </li>
-            </ol>
-        </div>
-    </div>
-
+            <img src="assets/imagenes/MA.png" alt (click)="abrirUrl('https://drive.google.com/file/d/1CISPgacBkXdPgUxuCz8O70bbU_YNHlwz/view?usp=sharing')">
+            <img src="assets/imagenes/CONOCENOS.png" alt="Descripción de la imagen" (click)="abrirInformacion()">
+            <img src="assets/imagenes/diagrama.png" alt (click)="abrirUrl2('https://drive.google.com/drive/folders/1xqCdDKJ_XLiTmzJJSgXqOXgAqOzT9Ocd?usp=sharing')">
+            <img src="assets/imagenes/im.gif" alt="Descripción de la imagen">
+            <img src="assets/imagenes/lava.gif" alt="Descripción de la imagen">
+            <img src="assets/imagenes/registrar.png" alt="Descripción de la imagen" (click)="abrirInformacion1()">
+        </figure>
+      </div>
+      <span style="float:left" class="ss-icon modificacion" (click)="galleryspin(true)">&lt;</span>
+      <span style="float:right" class="ss-icon " (click)="galleryspin(false)">&gt;</span>
       
-    </div>
-      <div>
-    <a href="/register" class="btn btn-primary">Regístrar usuarios</a>
-</div>

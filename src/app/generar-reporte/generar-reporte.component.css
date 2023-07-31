@@ -103,20 +103,27 @@
   width: 100%;
   box-shadow: 0px 0px 20px rgba(255, 253, 253, 0.68);
   overflow: hidden;
+  margin-bottom: -5px;
+  left: 200px;
+  padding: 30px;
+
 
 }
 
 .custom-table th,
 .custom-table td {
   border: 1px solid #000000;
-  padding: 8px;
+  padding: 13px;
   text-align: left;
+   
 }
 
 .custom-table th {
   background-color: #262525;
   color: #ffffff;
-  margin-top: -3px;
+  top: -9.5px;
+  position: relative;
+ 
 }
 
 .custom-table tbody tr:nth-child(even) {
@@ -205,7 +212,7 @@
   flex-direction: column;
   align-items: center;
   background: #44a6d6; 
-  padding: 213px;
+  padding: 201px;
   background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
   background-size: 200% 200%;
   animation: gradientAnimation 7s infinite;
@@ -224,6 +231,7 @@
 }
 .container1 {
   margin-bottom: 20px;
+  margin-left: 200px;
 }
 .ventana-flotante {
   position: fixed;
