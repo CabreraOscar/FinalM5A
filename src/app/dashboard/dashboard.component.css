@@ -1,6 +1,6 @@
 
 .admin-block {
-padding: 45px;
+padding: 43px;
   /* Gradiente animado */
   background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
   background-size: 200% 200%;
@@ -37,7 +37,7 @@ figure#spinner {
   transition: 1s;
 }
 figure#spinner img {
-  width: 40%;
+  width: 32%;
   max-width: 425px;
   position: absolute;
   left: 30%;
