@@ -113,7 +113,7 @@ h1.aligned-right {
 
 
 .ventana-container {
-  position: relative; /* Use relative positioning */
+  position: static; /* Use relative positioning */
   width: 100%; /* Adjust the width as needed */
   height: 100%; /* Adjust the height as needed */
   z-index: 1; /* Set a higher z-index to ensure it appears above other elements */
