@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { detalleorden } from '../modelo/detalleorden';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class DetalleordenService {
   constructor(private httpClient : HttpClient) { }
 
   obtenerListadetalleorden(): Observable<detalleorden[]>{
-    return this.httpClient.get<detalleorden[]>(`${this.baseURL}`);
+    return this.httpClient.get<detalleorden[]>(environment.api_uri+'/persona/listar');
   }  
 
   registrarorden(detalleorden:detalleorden): Observable<Object>{
-    return this.httpClient.post(`${this.baseURLC}`,detalleorden)
+    return this.httpClient.post(environment.api_uri+'/servicio/crear',detalleorden)
     }
 
   

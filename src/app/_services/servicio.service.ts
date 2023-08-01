@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Servicio } from '../modelo/servicio';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,25 +19,25 @@ export class ServicioService {
   constructor(private httpClient : HttpClient) { }
 
   actualizarMaquina(id:number,servicio:Servicio):Observable<object>{
-    return this.httpClient.put(`${this.baseURLA}/${id}`,servicio);
+    return this.httpClient.put(environment.api_uri+'/servicio/actualizar/'+id,servicio);
     }
     
     
       //este metodo trae las maquinas
     obtenerListaMaquinas(): Observable<Servicio[]>{
-      return this.httpClient.get<Servicio[]>(`${this.baseURL}`);
+      return this.httpClient.get<Servicio[]>(environment.api_uri+'/servicio/listar');
     }  
     
     eliminarMaquina(id:number): Observable<object>{
-      return this.httpClient.delete(`${this.baseURLE}/${id}`);
+      return this.httpClient.delete(environment.api_uri+'/servicio/eliminar/'+id);
     }
     
     registrarMaquina(servicio:Servicio): Observable<Object>{
-    return this.httpClient.post(`${this.baseURLC}`,servicio)
+    return this.httpClient.post(environment.api_uri+'/servicio/crear',servicio)
     }
     
     obtenerMaquinaPorId(id:number): Observable<Servicio>{
-      return this.httpClient.get<Servicio>(`${this.baseURLP}/${id}`);
+      return this.httpClient.get<Servicio>(environment.api_uri+'/servicio/porid/'+id);
     }
 
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Persona } from '../modelo/persona';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -20,32 +21,32 @@ export class personaService {
 
 
 actualizarPersona(id:number,persona:Persona):Observable<object>{
-return this.httpClient.put(`${this.baseURLA}/${id}`,persona);
+return this.httpClient.put(environment.api_uri+'/persona/actualizar/'+id,persona);
 }
 guardarPersona(persona: any) {
-  return this.httpClient.post(this.baseURL, persona);
+  return this.httpClient.post(environment.api_uri+'/persona/listar', persona);
 }
 
   //este metodo trae las maquinas
 obtenerListaPersona(): Observable<Persona[]>{
-  return this.httpClient.get<Persona[]>(`${this.baseURL}`);
+  return this.httpClient.get<Persona[]>(environment.api_uri+'/persona/listar');
 }  
 
 eliminarPersona(id:number): Observable<object>{
-  return this.httpClient.delete(`${this.baseURLE}/${id}`);
+  return this.httpClient.delete(environment.api_uri+'/persona/delete/'+id);
 }
 
 registrarPersona(persona:Persona): Observable<Object>{
-return this.httpClient.post(`${this.baseURLC}`,persona)
+return this.httpClient.post(environment.api_uri+'/persona/crear',persona);
 }
 
 obtenerPersonaPorId(id:number): Observable<Persona>{
-  return this.httpClient.get<Persona>(`${this.baseURLP}/${id}`);
+  return this.httpClient.get<Persona>(environment.api_uri+'/persona/porid/'+id);
 }
 
 
 obtenerPersonaPoridentificacion(identificacion:string): Observable<Persona>{
-  return this.httpClient.get<Persona>(`${this.baseURLI}/${identificacion}`);
+  return this.httpClient.get<Persona>(environment.api_uri+'/persona/personas/'+identificacion);
 }
  
 }

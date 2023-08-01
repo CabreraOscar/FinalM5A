@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EmailService {
 
-  private baseURL = "http://localhost:8080/api/email/sentCodeVerification";
+  private baseURL = "http://tendencias.us-east-1.elasticbeanstalk.com/api/email/sentCodeVerification";
 
   constructor(private httpClient: HttpClient) { }
 

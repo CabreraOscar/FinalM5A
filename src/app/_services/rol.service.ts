@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { roles } from '../modelo/rol';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -22,12 +23,12 @@ export class rolService {
 
 
 actualizarRol(id:number,rol:roles):Observable<object>{
-return this.httpClient.put(`${this.baseURLA}/${id}`,rol);
+return this.httpClient.put(environment.api_uri+'/rol/actualizar/'+id,rol);
 }
 
 
 obtenerListaRol(): Observable<roles[]>{
-  return this.httpClient.get<roles[]>(`${this.baseURL}`);
+  return this.httpClient.get<roles[]>(environment.api_uri+'/rol/listar');
 }  
 
 

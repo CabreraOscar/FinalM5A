@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { Item } from '../modelo/item';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,22 +20,22 @@ export class ItemService {
   constructor(private httpClient : HttpClient) { }
 
   registrarItem(item:Item): Observable<Object>{
-    return this.httpClient.post(`${this.baseURLC}`,item)
+    return this.httpClient.post(environment.api_uri+'/item/crear',item);
     }
 
     eliminarItem(id:number): Observable<object>{
-      return this.httpClient.delete(`${this.baseURLE}/${id}`);
+      return this.httpClient.delete(environment.api_uri+'/item/delete/'+id);
     }
     obtenersinOrden(): Observable<Item[]>{
-      return this.httpClient.get<Item[]>(`${this.baseURLSO}`);
+      return this.httpClient.get<Item[]>(environment.api_uri+'/item/listarsinorden');
     }  
 
     eliminarItemsConIdOrdenNulo(): Observable<any> {
-      return this.httpClient.delete(`${this.baseURLESI}`);
+      return this.httpClient.delete(environment.api_uri+'/item/borrarsinorden');
     }
 
     actualizarItem(id: number, item: Item): Observable<Item> {
-      return this.httpClient.put<Item>(`${this.baseURLACT}/actualizar/${id}`, item);
+      return this.httpClient.put<Item>(environment.api_uri+'/item/actualizar/'+id, item);
     }
 
 }

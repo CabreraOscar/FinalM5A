@@ -14,7 +14,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-  public apiUrl = 'http://localhost:8080/usuario';  
+  public apiUrl = 'http://tendencias.us-east-1.elasticbeanstalk.com/usuario';  
   constructor(private router: Router, private http: HttpClient) { }
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
  
