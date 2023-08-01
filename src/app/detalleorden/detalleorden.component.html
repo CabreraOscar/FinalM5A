@@ -27,12 +27,13 @@
       <h1 style="margin-bottom: 30px;"class="text-center">Detalles de la orden</h1>
       <div class="form-group">
         <label for="cedula" style="margin-right: 10px;">Cédula:</label>
-        <input type="text" id="cedula" name="cedula" [(ngModel)]="cedula" disabled style="margin-right: 10px;">
+        
+        <input type="text" id="cedula" name="cedula" class="form-group"[(ngModel)]="cedula" disabled style="margin-right: 10px;">
         <button class="btn btn-info" type="button" (click)="mostrarVentana('ventanap')">+</button>
       </div>
       <div class="form-group">
         <label for="nombre" style="margin-right: 10px;">Cliente:</label>
-        <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente" disabled>
+        <input type="text" id="nombre" name="nombre" class="form-group" [(ngModel)]="cliente" disabled>
       </div>
       <div class="form-group">
         <button class="btn btn-info" type="submit" (click)="mostrarVentana('ventanas')" style="margin-right: 10px;">+
@@ -43,11 +44,11 @@
 
       <div class="form-group">
         <label for="fecha" style="margin-right: 10px;">Fecha :</label>
-        <input type="date" id="fecha" name="fecha" [(ngModel)]="currentDate" disabled>
+        <input type="date" id="fecha" name="fecha" class="form-group"[(ngModel)]="currentDate" disabled>
       </div>
       <div class="form-group">
         <label for="total" style="margin-right: 10px;">Total:</label>
-        <input type="text" id="total" name="total" [(ngModel)]="totalx" disabled>
+        <input type="text" id="total" name="total" class="form-group" [(ngModel)]="totalx" disabled>
       </div>
       <button class="btn btn-info" type="submit" (click)="crearOrden()" style="margin-right: 10px;">Agregar
         Orden</button>

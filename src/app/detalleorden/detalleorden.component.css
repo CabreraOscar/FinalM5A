@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   margin-left: 161px;
-  padding: 59px;
+  padding: 66px;
     
     /* Gradiente animado */
     background: linear-gradient(45deg, #5d3ee7, #3b88af, #835a5a);
@@ -38,9 +38,7 @@
   margin-bottom: 5%;
 }
 .form-group {
-  height: 50px;
-  display: flex;
-  align-items:flex-start;
+ 
   color: rgb(251, 251, 255);
 }
 

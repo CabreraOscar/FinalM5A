@@ -97,11 +97,11 @@
         </div>
         <div class="form-group">
             <label for="cedula" style="margin-right: 10px;">Cédula:</label>
-            <input type="text" id="cedula" name="cedula" [(ngModel)]="cedulaV" disabled>
+            <input type="text" id="cedula" name="cedula" class="form-group"[(ngModel)]="cedulaV" disabled>
         </div>
         <div class="form-group">
             <label for="nombre" style="margin-right: 10px;">Cliente:</label>
-            <input type="text" id="nombre" name="nombre" [(ngModel)]="clienteV" disabled>
+            <input type="text" id="nombre" name="nombre" class="form-group"[(ngModel)]="clienteV" disabled>
         </div>
         <div class="form-group">
         <ng-container *ngIf="ordenesSeleccionadas.length > 0">
