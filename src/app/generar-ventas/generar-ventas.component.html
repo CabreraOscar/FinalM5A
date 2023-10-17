@@ -86,24 +86,21 @@
 
     </div>
 
-    <div class="container1" style="padding: 10px;">
+    <div class="container1">
         <h3 class="text-center">Registro de venta</h3>
-        <div class="input-group mb-3">
-            <span class="material-symbols-outlined" style="color: white;">corporate_fare</span>
-            <!-- <label for="empresa" style="margin-right: 10px;">Empresa: </label> -->
+        <div class="form-group">
+            <label for="empresa" style="margin-right: 10px;">Empresa: </label>
             <select id="empresa" name="empresa"  [(ngModel)]="empresaSeleccionada"
                 [compareWith]="compareEmpresa">
                 <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{ empresa.nombreEmpresa }}</option>
             </select>
         </div>
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">badge</span>
-            <!-- <label for="cedula" style="margin-right: 10px;">Cédula:</label> -->
+        <div class="form-group">
+            <label for="cedula" style="margin-right: 10px;">Cédula:</label>
             <input type="text" id="cedula" name="cedula" class="form-group"[(ngModel)]="cedulaV" disabled>
         </div>
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">person</span>
-            <!-- <label for="nombre" style="margin-right: 10px;">Cliente:</label> -->
+        <div class="form-group">
+            <label for="nombre" style="margin-right: 10px;">Cliente:</label>
             <input type="text" id="nombre" name="nombre" class="form-group"[(ngModel)]="clienteV" disabled>
         </div>
         <div class="form-group">
@@ -115,15 +112,13 @@
             </label>
         </ng-container>
         </div>
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">calendar_month</span>
-            <!-- <label for="telefono" style="margin-right: 10px;">Fecha: </label> -->
+        <div class="form-group">
+            <label for="telefono" style="margin-right: 10px;">Fecha: </label>
             <input type="date" id="telefono" name="telefono" pattern="[0-9]{7,10}" [(ngModel)]="fechaActual">
         </div>
 
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">payments</span>
-            <!-- <label for="tipoPago" style="margin-right: 5px;">Tipo de pago:</label> -->
+        <div class="form-group">
+            <label for="tipoPago" style="margin-right: 5px;">Tipo de pago:</label>
             <select  id="tipoPago" name="tipoPago" [(ngModel)]="tipoPagoSeleccionado">
                 <option value="efectivo">Efectivo</option>
                 <option value="tarjeta">Tarjeta</option>
@@ -131,31 +126,28 @@
             </select>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">price_change</span>
-            <!-- <label for="descuentoSeleccionado" style="margin-right: 10px;">Tipo de Descuento: </label> -->
+        <div class="form-group">
+            <label for="descuentoSeleccionado" style="margin-right: 10px;">Tipo de Descuento: </label>
             <select id="descuentoSeleccionadox" name="descuentoSeleccionadox" [(ngModel)]="descuentoSeleccionado" [compareWith]="compareDes" (ngModelChange)= "actualizarDescuentoNumero()">
                 
                 <option *ngFor="let descuento of descuentos" [ngValue]="descuento">{{ descuento.nombre }}</option>
             </select>
           </div>
 
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">price_check</span>
-            <!-- <label for="telefono" style="margin-right: 5px;">Subtotal: </label> -->
+        <div class="form-group">
+            <label for="telefono" style="margin-right: 5px;">Subtotal: </label>
             <input type="text" class="form-control" id="telefono" name="telefono" [value]="sumaTotalOrden.toFixed(2)"
                 disabled>
         </div>
 
-        <div class="input-group mb-3">
-            <label for="telefono" style="margin-right: 5px; color: white;">Iva:</label>
+        <div class="form-group">
+            <label for="telefono" style="margin-right: 5px;">Iva:</label>
             <input *ngIf="empresaSeleccionada" type="text" class="form-control" id="telefono" name="telefono"
                 pattern="[0-9]{7,10}" [(ngModel)]="empresaSeleccionada.iva" disabled>
         </div>
 
-        <div class="input-group mb-3">
-            <span class="material-symbols-rounded" style="color: white;">attach_money</span>
-            <!-- <label for="telefono" style="margin-right: 5px;">Total:</label> -->
+        <div class="form-group">
+            <label for="telefono" style="margin-right: 5px;">Total:</label>
             <input type="text" class="form-control" id="telefono" name="telefono" pattern="[0-9]{7,10}"
                 [value]="finalin | number:'1.2-2'" disabled>
         </div>

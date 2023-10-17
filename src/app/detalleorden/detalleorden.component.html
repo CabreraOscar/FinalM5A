@@ -42,14 +42,12 @@
           Servicio</button>
       </div>
 
-      <div class="input-group mb-3">
-        <span class="material-symbols-rounded" style="color: white;">calendar_month</span>
-        <!-- <label for="fecha" style="margin-right: 10px;">Fecha :</label> -->
+      <div class="form-group">
+        <label for="fecha" style="margin-right: 10px;">Fecha :</label>
         <input type="date" id="fecha" name="fecha" class="form-group"[(ngModel)]="currentDate" disabled>
       </div>
-      <div class="input-group mb-3">
-        <span class="material-symbols-rounded" style="color: white;">attach_money</span>
-        <!-- <label for="total" style="margin-right: 10px;">Total:</label> -->
+      <div class="form-group">
+        <label for="total" style="margin-right: 10px;">Total:</label>
         <input type="text" id="total" name="total" class="form-group" [(ngModel)]="totalx" disabled>
       </div>
       <button class="btn btn-info" type="submit" (click)="crearOrden()" style="margin-right: 10px;">Agregar
